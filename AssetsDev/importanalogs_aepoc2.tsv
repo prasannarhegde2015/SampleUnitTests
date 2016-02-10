@@ -1,0 +1,11 @@
+RTUDESCC	.I	DESCC	TYPEC	EUDESCC	SLOPER	OFFSETR	VIRTUALI	FUNCTIONC	PORDERI	POINT_TYPI	FIELD_ADRI	POINT_NUMI	POINT_AD4I	
+wellfromcmdline	0	Base Min Raw Read	Flow	PSI	1.0000000	0.0000000	0	no_conversion	0	3	395	0	0	
+wellfromcmdline	0	Have a Base Stroke?	Flow	PSI	1.0000000	0.0000000	0	no_conversion	0	0	394	0	0	
+wellfromcmdline	0	Parameter security code	Flow	PSI	1.0000000	0.0000000	0	no_conversion	0	2	393	0	0	
+wellfromcmdline	0	Time trend frequency	Flow	PSI	1.0000000	0.0000000	0	no_conversion	0	4	391	0	0	
+wellfromcmdline	0	Auto Zero Factor	Flow	PSI	1.0000000	0.0000000	0	no_conversion	0	5	460	0	0	
+wellfromcmdline	0	Current mV Load Cell Gain Factor	Flow	PSI	1.0000000	0.0000000	0	no_conversion	0	7	139	0	0	
+wellfromcmdline	0	Month Gauge_Off - 1	Flow	PSI	1.0000000	0.0000000	0	no_conversion	0	4	588	0	0	
+wellfromcmdline	0	Month Gauge_Off - 2	Flow	PSI	1.0000000	0.0000000	0	no_conversion	0	4	589	0	0	
+wellfromcmdline	0	Month Gauge_Off - 3	Flow	PSI	1.0000000	0.0000000	0	no_conversion	0	4	590	0	0	
+wellfromcmdline	0	Month Gauge_Off - 4	Flow	PSI	1.0000000	0.0000000	0	no_conversion	0	4	591	0	0	

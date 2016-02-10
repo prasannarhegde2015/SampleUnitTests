@@ -1,0 +1,30 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol="BAKER" description="Test File" />
+	<regBlocks>
+		<block addr="1501" count="5" protocoldatatype="4" />
+	</regBlocks>
+	<regValuesToWrite>
+		<val addr="1501">0</val>
+		<val addr="1502">0</val>
+		<val addr="1503">0</val>
+		<val addr="1504">0</val>
+		<val addr="1505">0</val>
+	</regValuesToWrite>
+	<registers>
+		<register control="text" desc="Retries (#)" key="1501">
+			<rpc mask="###" writable="yes" address="1501" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Retry Delay (sec.)" key="1502">
+			<rpc mask="###" writable="yes" address="1502" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Scan Delay (sec.)" key="1503">
+			<rpc mask="###" writable="yes" address="1503" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Cycle Delay (sec.)" key="1504">
+			<rpc mask="###" writable="yes" address="1504" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Auto Refresh (sec.)" key="1505">
+			<rpc mask="###" writable="yes" address="1505" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+	</registers>
+</RTUReadWriteReqDef>

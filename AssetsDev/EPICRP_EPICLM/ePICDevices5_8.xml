@@ -1,0 +1,269 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol="BAKER" description="Test File" />
+	<regBlocks>
+		<block addr="1380" count="2" protocoldatatype="2" />
+		<block addr="1383" count="2" protocoldatatype="2" />
+		<block addr="1385" count="2" protocoldatatype="4" />
+		<block addr="1390" count="6" protocoldatatype="4" />
+		<block addr="1396" count="3" protocoldatatype="4" />
+		<block addr="1400" count="2" protocoldatatype="2" />
+		<block addr="1403" count="2" protocoldatatype="2" />
+		<block addr="1405" count="2" protocoldatatype="4" />
+		<block addr="1410" count="6" protocoldatatype="4" />
+		<block addr="1416" count="3" protocoldatatype="4" />
+		<block addr="1420" count="2" protocoldatatype="2" />
+		<block addr="1423" count="2" protocoldatatype="2" />
+		<block addr="1425" count="2" protocoldatatype="4" />
+		<block addr="1430" count="6" protocoldatatype="4" />
+		<block addr="1436" count="3" protocoldatatype="4" />
+		<block addr="1440" count="2" protocoldatatype="2" />
+		<block addr="1443" count="2" protocoldatatype="2" />
+		<block addr="1445" count="2" protocoldatatype="4" />
+		<block addr="1450" count="6" protocoldatatype="4" />
+		<block addr="1456" count="3" protocoldatatype="4" />
+	</regBlocks>
+	<regValuesToWrite>
+		<val addr="1380">0</val>
+		<val addr="1381">0</val>
+		<val addr="1383">0</val>
+		<val addr="1384">0</val>
+		<val addr="1385">0</val>
+		<val addr="1386">0</val>
+		<val addr="1390">0</val>
+		<val addr="1391">0</val>
+		<val addr="1392">0</val>
+		<val addr="1393">0</val>
+		<val addr="1394">0</val>
+		<val addr="1395">0</val>
+		<val addr="1396">test</val>
+		<val addr="1397">test</val>
+		<val addr="1398">test</val>
+		<val addr="1400">0</val>
+		<val addr="1401">0</val>
+		<val addr="1403">0</val>
+		<val addr="1404">0</val>
+		<val addr="1405">0</val>
+		<val addr="1406">0</val>
+		<val addr="1410">0</val>
+		<val addr="1411">0</val>
+		<val addr="1412">0</val>
+		<val addr="1413">0</val>
+		<val addr="1414">0</val>
+		<val addr="1415">0</val>
+		<val addr="1416">test</val>
+		<val addr="1417">test</val>
+		<val addr="1418">test</val>
+		<val addr="1420">0</val>
+		<val addr="1421">0</val>
+		<val addr="1423">0</val>
+		<val addr="1424">0</val>
+		<val addr="1425">0</val>
+		<val addr="1426">0</val>
+		<val addr="1430">0</val>
+		<val addr="1431">0</val>
+		<val addr="1432">0</val>
+		<val addr="1433">0</val>
+		<val addr="1434">0</val>
+		<val addr="1435">0</val>
+		<val addr="1436">test</val>
+		<val addr="1437">test</val>
+		<val addr="1438">test</val>
+		<val addr="1440">0</val>
+		<val addr="1441">0</val>
+		<val addr="1443">0</val>
+		<val addr="1444">0</val>
+		<val addr="1445">0</val>
+		<val addr="1446">0</val>
+		<val addr="1450">0</val>
+		<val addr="1451">0</val>
+		<val addr="1452">0</val>
+		<val addr="1453">0</val>
+		<val addr="1454">0</val>
+		<val addr="1455">0</val>
+		<val addr="1456">test</val>
+		<val addr="1457">test</val>
+		<val addr="1458">test</val>
+	</regValuesToWrite>
+	<registers>
+		<register control="select" desc="Flags" key="1380">
+			<rpc mask="###" writable="yes" address="1380" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Unit ID" key="1381">
+			<rpc mask="###" writable="yes" address="1381" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="RTS Delay" key="1383">
+			<rpc mask="###" writable="yes" address="1383" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="RTS Hold" key="1384">
+			<rpc mask="###" writable="yes" address="1384" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Maximum Status / Coils" key="1385">
+			<rpc mask="###" writable="yes" address="1385" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Maximum Analog Registers" key="1386">
+			<rpc mask="###" writable="yes" address="1386" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Receive Characters" key="1390">
+			<rpc mask="###" writable="yes" address="1390" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Transmit Characters" key="1391">
+			<rpc mask="###" writable="yes" address="1391" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Receive Messages" key="1392">
+			<rpc mask="###" writable="yes" address="1392" type="Word" m="1312" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Transmit Messages" key="1393">
+			<rpc mask="###" writable="yes" address="1393" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Bad Receive Characters" key="1394">
+			<rpc mask="###" writable="yes" address="1394" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Bad Receive Messages" key="1395">
+			<rpc mask="###" writable="yes" address="1395" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Retries (#)" key="1396">
+			<rpc mask="###" writable="yes" address="1396" type="word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Error Count (#)" key="1397">
+			<rpc mask="###" writable="yes" address="1397" type="word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Status" key="1398">
+			<rpc mask="###" writable="yes" address="1398" type="word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Flags" key="1400">
+			<rpc mask="###" writable="yes" address="1400" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Unit ID" key="1401">
+			<rpc mask="###" writable="yes" address="1401" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="RTS Delay" key="1403">
+			<rpc mask="###" writable="yes" address="1403" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="RTS Hold" key="1404">
+			<rpc mask="###" writable="yes" address="1404" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Max Status/Coils" key="1405">
+			<rpc mask="###" writable="yes" address="1405" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Max Analog Regs" key="1406">
+			<rpc mask="###" writable="yes" address="1406" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Rx Chars" key="1410">
+			<rpc mask="###" writable="yes" address="1410" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Tx Chars" key="1411">
+			<rpc mask="###" writable="yes" address="1411" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Rx Msgs" key="1412">
+			<rpc mask="###" writable="yes" address="1412" type="Word" m="1312" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Tx Msgs" key="1413">
+			<rpc mask="###" writable="yes" address="1413" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Bad Rx Chars" key="1414">
+			<rpc mask="###" writable="yes" address="1414" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Bad Rx Msgs" key="1415">
+			<rpc mask="###" writable="yes" address="1415" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Retries" key="1416">
+			<rpc mask="###" writable="yes" address="1416" type="word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Error Count" key="1417">
+			<rpc mask="###" writable="yes" address="1417" type="word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Status" key="1418">
+			<rpc mask="###" writable="yes" address="1418" type="word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Flags" key="1420">
+			<rpc mask="###" writable="yes" address="1420" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Unit ID" key="1421">
+			<rpc mask="###" writable="yes" address="1421" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="RTS Delay" key="1423">
+			<rpc mask="###" writable="yes" address="1423" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="RTS Hold" key="1424">
+			<rpc mask="###" writable="yes" address="1424" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Max Status/Coils" key="1425">
+			<rpc mask="###" writable="yes" address="1425" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Max Analog Regs" key="1426">
+			<rpc mask="###" writable="yes" address="1426" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Rx Chars" key="1430">
+			<rpc mask="###" writable="yes" address="1430" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Tx Chars" key="1431">
+			<rpc mask="###" writable="yes" address="1431" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Rx Msgs" key="1432">
+			<rpc mask="###" writable="yes" address="1432" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Tx Msgs" key="1433">
+			<rpc mask="###" writable="yes" address="1433" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Bad Rx Chars" key="1434">
+			<rpc mask="###" writable="yes" address="1434" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Bad Rx Msgs" key="1435">
+			<rpc mask="###" writable="yes" address="1435" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Retries" key="1436">
+			<rpc mask="###" writable="yes" address="1436" type="word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Error Count" key="1437">
+			<rpc mask="###" writable="yes" address="1437" type="word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Status" key="1438">
+			<rpc mask="###" writable="yes" address="1438" type="word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Flags" key="1440">
+			<rpc mask="###" writable="yes" address="1440" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Unit ID" key="1441">
+			<rpc mask="###" writable="yes" address="1441" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="RTS Delay" key="1443">
+			<rpc mask="###" writable="yes" address="1443" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="RTS Hold" key="1444">
+			<rpc mask="###" writable="yes" address="1444" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Max Status/Coils" key="1445">
+			<rpc mask="###" writable="yes" address="1445" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Max Analog Regs" key="1446">
+			<rpc mask="###" writable="yes" address="1446" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Rx Chars" key="1450">
+			<rpc mask="###" writable="yes" address="1450" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Tx Chars" key="1451">
+			<rpc mask="###" writable="yes" address="1451" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Rx Msgs" key="1452">
+			<rpc mask="###" writable="yes" address="1452" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Tx Msgs" key="1453">
+			<rpc mask="###" writable="yes" address="1453" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Bad Rx Chars" key="1454">
+			<rpc mask="###" writable="yes" address="1454" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Bad Rx Msgs" key="1455">
+			<rpc mask="###" writable="yes" address="1455" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Retries" key="1456">
+			<rpc mask="###" writable="yes" address="1456" type="word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Error Count" key="1457">
+			<rpc mask="###" writable="yes" address="1457" type="word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Status" key="1458">
+			<rpc mask="###" writable="yes" address="1458" type="word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+	</registers>
+</RTUReadWriteReqDef>

@@ -1,0 +1,78 @@
+<jobs>
+	<job id="1" desc="Data Flow Automated Test for Verify Parameters SAMFS">
+		<vstest file="VerifyParametersWF.dll"/>
+		<parameters>
+		<parameter name="TestCaseFilter" value="TestCategory=SAMFS"/>
+		</parameters>
+		<Locals></Locals>
+		<AppSettings.Net>
+            	<add key="DeleteWellScript" value="..\AssetsDev\dbw.css"/>
+            	<add key="CreateWellScript" value="..\AssetsDev\mbw.css"/>
+            	<add key="OutputVerifyParametersCSV" value="..\AssetsDev\genverifycsv.css"/>
+            	<add key="zeroVerifyParametersFields" value="..\AssetsDev\zvpf.css"/>
+            	<add key="CleanBeforeStart" value="true"/>
+            	<add key="CleanWhenComplete" value="true"/>
+				<add key="MultipleBridges" value="false"/>
+            	<add key="RTUEmuFolder" value="C:\RTUEmu\"/>
+            	<add key="LiftRoot" value="%LIFTROOT"/>
+		<add key="NumberofWells" value="1"/>
+        </AppSettings.Net>
+	</job>
+	<job id="2" desc="Data Flow Automated Test for Verify Parameters SAMFW">
+		<vstest file="VerifyParametersWF.dll"/>
+		<parameters>
+		<parameter name="TestCaseFilter" value="TestCategory=SAMFW"/>
+		</parameters>
+		<Locals></Locals>
+		<AppSettings.Net>
+            	<add key="DeleteWellScript" value="..\AssetsDev\dbw.css"/>
+            	<add key="CreateWellScript" value="..\AssetsDev\mbw.css"/>
+            	<add key="OutputVerifyParametersCSV" value="..\AssetsDev\genverifycsv.css"/>
+            	<add key="zeroVerifyParametersFields" value="..\AssetsDev\zvpf.css"/>
+            	<add key="CleanBeforeStart" value="true"/>
+            	<add key="CleanWhenComplete" value="true"/>
+				<add key="MultipleBridges" value="false"/>
+            	<add key="RTUEmuFolder" value="C:\RTUEmu\"/>
+            	<add key="LiftRoot" value="%LIFTROOT"/>
+		<add key="NumberofWells" value="1"/>
+        </AppSettings.Net>
+	</job>
+	<job id="3" desc="Data Flow Automated Test for Verify Parameters SAMVS">
+		<vstest file="VerifyParametersWF.dll"/>
+		<parameters>
+		<parameter name="TestCaseFilter" value="TestCategory=SAMVS"/>
+		</parameters>
+		<Locals></Locals>
+		<AppSettings.Net>
+            	<add key="DeleteWellScript" value="..\AssetsDev\dbw.css"/>
+            	<add key="CreateWellScript" value="..\AssetsDev\mbw.css"/>
+            	<add key="OutputVerifyParametersCSV" value="..\AssetsDev\genverifycsv.css"/>
+            	<add key="zeroVerifyParametersFields" value="..\AssetsDev\zvpf.css"/>
+            	<add key="CleanBeforeStart" value="true"/>
+            	<add key="CleanWhenComplete" value="true"/>
+				<add key="MultipleBridges" value="false"/>
+            	<add key="RTUEmuFolder" value="C:\RTUEmu\"/>
+            	<add key="LiftRoot" value="%LIFTROOT"/>
+		<add key="NumberofWells" value="1"/>
+        </AppSettings.Net>
+	</job>
+	<job id="4" desc="Data Flow Automated Test for Verify Parameters SAMVW">
+		<vstest file="VerifyParametersWF.dll"/>
+		<parameters>
+		<parameter name="TestCaseFilter" value="TestCategory=SAMVW"/>
+		</parameters>
+		<Locals></Locals>
+		<AppSettings.Net>
+            	<add key="DeleteWellScript" value="..\AssetsDev\dbw.css"/>
+            	<add key="CreateWellScript" value="..\AssetsDev\mbw.css"/>
+            	<add key="OutputVerifyParametersCSV" value="..\AssetsDev\genverifycsv.css"/>
+            	<add key="zeroVerifyParametersFields" value="..\AssetsDev\zvpf.css"/>
+            	<add key="CleanBeforeStart" value="true"/>
+            	<add key="CleanWhenComplete" value="true"/>
+				<add key="MultipleBridges" value="false"/>
+            	<add key="RTUEmuFolder" value="C:\RTUEmu\"/>
+            	<add key="LiftRoot" value="%LIFTROOT"/>
+		<add key="NumberofWells" value="1"/>
+        </AppSettings.Net>
+	</job>
+</jobs>

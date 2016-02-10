@@ -1,0 +1,23 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol="BAKER" description="Test File" />
+	<regBlocks>
+		<block addr="1031" count="1" protocoldatatype="12" />
+		<block addr="1032" count="1" protocoldatatype="6" />
+		<block addr="1030" count="1" protocoldatatype="4" />
+		<block addr="1033" count="1" protocoldatatype="2" />
+	</regBlocks>
+	<registers>
+		<register control="text" desc="'CBE' Value Store Time (HH:MM:SS)" key="1031">
+			<rpc mask="###" writable="no" address="1031" type="Time" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="'CBE' Value Store Date (MM/DD/YYYY)" key="1032">
+			<rpc mask="###" writable="no" address="1032" type="Date" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="'CBE' Value (lbs.)" key="1030">
+			<rpc mask="###" writable="no" address="1030" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Crank Orientation ['0' = 90 deg.]['1' = 270 deg.]" key="1033">
+			<rpc mask="###" writable="no" address="1033" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+	</registers>
+</RTUReadWriteReqDef>

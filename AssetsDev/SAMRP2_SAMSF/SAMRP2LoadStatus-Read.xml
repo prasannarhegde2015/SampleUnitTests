@@ -1,0 +1,55 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNISRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+	<block addr="2569" count="13" protocoldatatype="4" />
+</regBlocks>
+
+<regValuesToWrite>
+</regValuesToWrite>
+<registers>
+	<register control="text" desc="Peak Load Since Commissioning (lbs.)" key="2567">
+	<rpc mask="###" writable="no" address="2567" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Yesterday's Peak Load (lbs.)" key="2568">
+	<rpc mask="###" writable="no" address="2568" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Last Stroke Peak Load (lbs.)" key="2569">
+	<rpc mask="###" writable="no" address="2569" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Minimum Load Since Commisioning (lbs.)" key="2570">
+	<rpc mask="###" writable="no" address="2570" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Yesterday's Minimum Load (lbs.)" key="2571">
+	<rpc mask="###" writable="no" address="2571" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Last Stroke Minimum Load (lbs.)" key="2572">
+	<rpc mask="###" writable="no" address="2572" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Record Low RPM" key="2573">
+	<rpc mask="###" writable="no" address="2573" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Last Stroke Low RPM" key="2575">
+	<rpc mask="###" writable="no" address="2575" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Record Peak Torque" key="2576">
+	<rpc mask="###" writable="no" address="2576" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Yesterday's Peak Torque" key="2577">
+	<rpc mask="###" writable="no" address="2577" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Last Stroke Peak Torque" key="2578">
+	<rpc mask="###" writable="no" address="2578" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Record Low Motor Power" key="2579">
+	<rpc mask="###" writable="no" address="2579" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Last Stroke Motor Power" key="2581">
+	<rpc mask="###" writable="no" address="2581" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Record Peak Polished Rod HP" key="2582">
+	<rpc mask="###" writable="no" address="2582" type="4" m="10" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="Yesterday's Peak Polished Rod HP" key="2583">
+	<rpc mask="###" writable="no" address="2583" type="4" m="10" c="0" fmt="1" />
+	</register>
+</registers></RTUReadWriteReqDef>

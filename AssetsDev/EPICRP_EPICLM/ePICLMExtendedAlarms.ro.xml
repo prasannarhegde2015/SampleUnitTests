@@ -1,0 +1,18 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol="BAKER" description="Test File" />
+	<regBlocks>
+		<block addr="520" count="2" protocoldatatype="4" />
+		<block addr="535" count="1" protocoldatatype="4" />
+	</regBlocks>
+	<registers>
+		<register control="bitfields" desc="RPOC Status Bits '1'" key="520">
+			<rpc mask="###" writable="no" address="520" type="Word" m="1" c="0">comm. fail</rpc>
+		</register>
+		<register control="bitfields" desc="RPOC Status Bits '2'" key="521">
+			<rpc mask="###" writable="no" address="521" type="Word" m="1" c="0">comm. fail</rpc>
+		</register>
+		<register control="bitfields" desc="RPOC Non-clearable Error Bits '1'" key="535">
+			<rpc mask="###" writable="no" address="535" type="Word" m="1" c="0">comm. fail</rpc>
+		</register>
+	</registers>
+</RTUReadWriteReqDef>

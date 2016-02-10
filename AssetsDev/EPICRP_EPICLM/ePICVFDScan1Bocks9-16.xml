@@ -1,0 +1,207 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol="BAKER" description="Test File" />
+	<regBlocks>
+		<block addr="1545" count="2" protocoldatatype="2" />
+		<block addr="1547" count="3" protocoldatatype="4" />
+		<block addr="1550" count="2" protocoldatatype="2" />
+		<block addr="1552" count="3" protocoldatatype="4" />
+		<block addr="1555" count="2" protocoldatatype="2" />
+		<block addr="1557" count="3" protocoldatatype="4" />
+		<block addr="1560" count="2" protocoldatatype="2" />
+		<block addr="1562" count="3" protocoldatatype="4" />
+		<block addr="1565" count="2" protocoldatatype="2" />
+		<block addr="1567" count="3" protocoldatatype="4" />
+		<block addr="1570" count="2" protocoldatatype="2" />
+		<block addr="1572" count="3" protocoldatatype="4" />
+		<block addr="1575" count="2" protocoldatatype="2" />
+		<block addr="1577" count="3" protocoldatatype="4" />
+		<block addr="1580" count="2" protocoldatatype="2" />
+		<block addr="1582" count="3" protocoldatatype="4" />
+		<block addr="1585" count="2" protocoldatatype="2" />
+		<block addr="1587" count="3" protocoldatatype="4" />
+	</regBlocks>
+	<regValuesToWrite>
+		<val addr="1545">0</val>
+		<val addr="1546">0</val>
+		<val addr="1547">0</val>
+		<val addr="1548">0</val>
+		<val addr="1549">0</val>
+		<val addr="1550">0</val>
+		<val addr="1551">0</val>
+		<val addr="1552">0</val>
+		<val addr="1553">0</val>
+		<val addr="1554">0</val>
+		<val addr="1555">0</val>
+		<val addr="1556">0</val>
+		<val addr="1557">0</val>
+		<val addr="1558">0</val>
+		<val addr="1559">0</val>
+		<val addr="1560">0</val>
+		<val addr="1561">0</val>
+		<val addr="1562">0</val>
+		<val addr="1563">0</val>
+		<val addr="1564">0</val>
+		<val addr="1565">0</val>
+		<val addr="1566">0</val>
+		<val addr="1567">0</val>
+		<val addr="1568">0</val>
+		<val addr="1569">0</val>
+		<val addr="1570">0</val>
+		<val addr="1571">0</val>
+		<val addr="1572">0</val>
+		<val addr="1573">0</val>
+		<val addr="1574">0</val>
+		<val addr="1575">0</val>
+		<val addr="1576">0</val>
+		<val addr="1577">0</val>
+		<val addr="1578">0</val>
+		<val addr="1579">0</val>
+		<val addr="1580">0</val>
+		<val addr="1581">0</val>
+		<val addr="1582">0</val>
+		<val addr="1583">0</val>
+		<val addr="1584">0</val>
+		<val addr="1585">0</val>
+		<val addr="1586">0</val>
+		<val addr="1587">0</val>
+		<val addr="1588">0</val>
+		<val addr="1589">0</val>
+	</regValuesToWrite>
+	<registers>
+		<register control="select" desc="Access" key="1545">
+			<rpc mask="###" writable="yes" address="1545" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Device Number" key="1546">
+			<rpc mask="###" writable="yes" address="1546" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Starting Register" key="1547">
+			<rpc mask="###" writable="yes" address="1547" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Registers (#)" key="1548">
+			<rpc mask="###" writable="yes" address="1548" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Index" key="1549">
+			<rpc mask="###" writable="yes" address="1549" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Access" key="1550">
+			<rpc mask="###" writable="yes" address="1550" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Device Number" key="1551">
+			<rpc mask="###" writable="yes" address="1551" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Starting Register" key="1552">
+			<rpc mask="###" writable="yes" address="1552" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Registers (#)" key="1553">
+			<rpc mask="###" writable="yes" address="1553" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Index" key="15154">
+			<rpc mask="###" writable="yes" address="1554" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Access" key="1555">
+			<rpc mask="###" writable="yes" address="1555" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Device Number" key="1556">
+			<rpc mask="###" writable="yes" address="1556" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Starting Register" key="1557">
+			<rpc mask="###" writable="yes" address="1557" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Registers (#)" key="1558">
+			<rpc mask="###" writable="yes" address="1558" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Index" key="1559">
+			<rpc mask="###" writable="yes" address="1559" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Access" key="1560">
+			<rpc mask="###" writable="yes" address="1560" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Device Number" key="1561">
+			<rpc mask="###" writable="yes" address="1561" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Starting Register" key="1562">
+			<rpc mask="###" writable="yes" address="1562" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Registers (#)" key="1563">
+			<rpc mask="###" writable="yes" address="1563" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Index" key="1564">
+			<rpc mask="###" writable="yes" address="1564" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Access" key="1565">
+			<rpc mask="###" writable="yes" address="1565" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Device Number" key="1566">
+			<rpc mask="###" writable="yes" address="1566" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Starting Register" key="1567">
+			<rpc mask="###" writable="yes" address="1567" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Registers (#)" key="1568">
+			<rpc mask="###" writable="yes" address="1568" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Index" key="1569">
+			<rpc mask="###" writable="yes" address="1569" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Access" key="1570">
+			<rpc mask="###" writable="yes" address="1570" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Device Number" key="1571">
+			<rpc mask="###" writable="yes" address="1571" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Starting Register" key="1572">
+			<rpc mask="###" writable="yes" address="1572" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Registers (#)" key="1573">
+			<rpc mask="###" writable="yes" address="1573" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Index" key="15174">
+			<rpc mask="###" writable="yes" address="1574" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Access" key="1575">
+			<rpc mask="###" writable="yes" address="1575" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Device Number" key="1576">
+			<rpc mask="###" writable="yes" address="1576" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Starting Register" key="1577">
+			<rpc mask="###" writable="yes" address="1577" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Registers (#)" key="1578">
+			<rpc mask="###" writable="yes" address="1578" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Index" key="1579">
+			<rpc mask="###" writable="yes" address="1579" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Access" key="1580">
+			<rpc mask="###" writable="yes" address="1580" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Device Number" key="1581">
+			<rpc mask="###" writable="yes" address="1581" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Starting Register" key="1582">
+			<rpc mask="###" writable="yes" address="1582" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Registers (#)" key="1583">
+			<rpc mask="###" writable="yes" address="1583" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Index" key="1584">
+			<rpc mask="###" writable="yes" address="1584" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Access" key="1585">
+			<rpc mask="###" writable="yes" address="1585" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Device Number" key="1586">
+			<rpc mask="###" writable="yes" address="1586" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Starting Register" key="1587">
+			<rpc mask="###" writable="yes" address="1587" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Registers (#)" key="1588">
+			<rpc mask="###" writable="yes" address="1588" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Index" key="1589">
+			<rpc mask="###" writable="yes" address="1589" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+	</registers>
+</RTUReadWriteReqDef>

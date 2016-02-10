@@ -1,0 +1,42 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNILRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+		<block addr="7625" count="16" protocoldatatype="4355" />
+	</regBlocks>
+<regValuesToWrite>
+	<val addr="7625">600</val>
+	<val addr="7627">600</val>
+	<val addr="7629">600</val>
+	<val addr="7631">600</val>
+	<val addr="7633">600</val>
+	<val addr="7635">600</val>
+	<val addr="7637">600</val>
+	<val addr="7639">600</val>
+</regValuesToWrite>
+<registers>
+		<register control="text" desc="console units (0=imperial/1=metric)" key="47625">
+		<rpc mask="#####" writable="yes" address="7625" type="4355" m="1" c="" fmt="0" altControlID="47625">comm fail</rpc>
+	</register>
+		<register control="text" desc="porta units (0=imperial/1=metric)" key="47627">
+		<rpc mask="#####" writable="yes" address="7627" type="4355" m="1" c="" fmt="0" altControlID="47627">comm fail</rpc>
+	</register>
+		<register control="text" desc="portb units (0=imperial/1=metric)" key="47629">
+		<rpc mask="#####" writable="yes" address="7629" type="4355" m="1" c="" fmt="0" altControlID="47629">comm fail</rpc>
+	</register>
+		<register control="text" desc="volume units (0=bbls,1=gals/ltrs,2=ft^3/m^3)" key="47631">
+		<rpc mask="#####" writable="yes" address="7631" type="4355" m="1" c="" fmt="0" altControlID="47631">comm fail</rpc>
+	</register>
+		<register control="text" desc="fluid flow units (0=bpd/smpd,1=gpm/lpm)" key="47633">
+		<rpc mask="#####" writable="yes" address="7633" type="4355" m="1" c="" fmt="0" altControlID="47633">comm fail</rpc>
+	</register>
+		<register control="text" desc="pressure units (0=psi/bar,1=kPa)" key="47635">
+		<rpc mask="#####" writable="yes" address="7635" type="4355" m="1" c="" fmt="0" altControlID="47635">comm fail</rpc>
+	</register>
+		<register control="text" desc="gas flow units (0=scfm/scmh,1=mcfd/mscmd)" key="47637">
+		<rpc mask="#####" writable="yes" address="7637" type="4355" m="1" c="" fmt="0" altControlID="47637">comm fail</rpc>
+	</register>
+		<register control="text" desc="counterweight units (0=in*lb/N*M,1=lb/kg)" key="47639">
+		<rpc mask="#####" writable="yes" address="7639" type="4355" m="1" c="" fmt="0" altControlID="47639">comm fail</rpc>
+	</register>
+</registers>
+</RTUReadWriteReqDef>

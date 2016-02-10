@@ -1,0 +1,20 @@
+<jobs>
+    <job id="1" desc="aescan Tests (defaults)">
+        <vstest file="aescan.test.dll"/>
+
+        <Locals>Admin2.Base.dll</Locals>
+        <Locals>Admin2.Configuration.dll</Locals>
+        <Locals>Admin2.Configuration.Interfaces.dll</Locals>
+        <Locals>Admin2.Database.dll</Locals>
+        <Locals>Admin2.Interfaces.dll</Locals>
+	<Locals>admin2.test.dll</Locals>
+	<Locals>etulz.dll</Locals>
+	<Locals>etulz.test.dll</Locals>
+	<Locals>Weatherford.Core.Comm.dll</Locals>
+	<Locals>Weatherford.Core.Logging.dll</Locals>
+        
+        <AppSettings.Net>
+         </AppSettings.Net>
+    </job>
+
+</jobs>

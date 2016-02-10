@@ -1,0 +1,309 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNISRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+	<block addr="1233" count="2" protocoldatatype="3" />
+	<block addr="1257" count="2" protocoldatatype="3" />
+	<block addr="1281" count="2" protocoldatatype="3" />
+	<block addr="1305" count="2" protocoldatatype="3" />
+	<block addr="1235" count="6" protocoldatatype="3" />
+	<block addr="1259" count="12" protocoldatatype="3" />
+	<block addr="1283" count="18" protocoldatatype="3" />
+	<block addr="1307" count="24" protocoldatatype="3" />
+	<block addr="1246" count="30" protocoldatatype="3" />
+	<block addr="1270" count="36" protocoldatatype="3" />
+	<block addr="1294" count="42" protocoldatatype="3" />
+	<block addr="1322" count="5" protocoldatatype="3" />
+</regBlocks>
+
+<regValuesToWrite>
+	<val addr="1233">600</val>
+	<val addr="1234">600</val>
+	<val addr="1257">600</val>
+	<val addr="1258">600</val>
+	<val addr="1281">600</val>
+	<val addr="1282">600</val>
+	<val addr="1305">600</val>
+	<val addr="1306">600</val>
+	<val addr="1235">600</val>
+	<val addr="1236">600</val>
+	<val addr="1237">600</val>
+	<val addr="1239">600</val>
+	<val addr="1241">600</val>
+	<val addr="1242">600</val>
+	<val addr="1243">600</val>
+	<val addr="1245">600</val>
+	<val addr="1259">600</val>
+	<val addr="1260">600</val>
+	<val addr="1261">600</val>
+	<val addr="1263">600</val>
+	<val addr="1265">600</val>
+	<val addr="1266">600</val>
+	<val addr="1267">600</val>
+	<val addr="1269">600</val>
+	<val addr="1283">600</val>
+	<val addr="1284">600</val>
+	<val addr="1285">600</val>
+	<val addr="1287">600</val>
+	<val addr="1289">600</val>
+	<val addr="1290">600</val>
+	<val addr="1291">600</val>
+	<val addr="1293">600</val>
+	<val addr="1307">600</val>
+	<val addr="1308">600</val>
+	<val addr="1309">600</val>
+	<val addr="1311">600</val>
+	<val addr="1313">600</val>
+	<val addr="1314">600</val>
+	<val addr="1315">600</val>
+	<val addr="1317">600</val>
+	<val addr="1246">600</val>
+	<val addr="1247">600</val>
+	<val addr="1248">600</val>
+	<val addr="1250">600</val>
+	<val addr="1252">600</val>
+	<val addr="1253">600</val>
+	<val addr="1254">600</val>
+	<val addr="1256">600</val>
+	<val addr="1270">600</val>
+	<val addr="1271">600</val>
+	<val addr="1272">600</val>
+	<val addr="1274">600</val>
+	<val addr="1276">600</val>
+	<val addr="1277">600</val>
+	<val addr="1278">600</val>
+	<val addr="1280">600</val>
+	<val addr="1294">600</val>
+	<val addr="1295">600</val>
+	<val addr="1296">600</val>
+	<val addr="1298">600</val>
+	<val addr="1300">600</val>
+	<val addr="1301">600</val>
+	<val addr="1302">600</val>
+	<val addr="1304">600</val>
+	<val addr="1318">600</val>
+	<val addr="1319">600</val>
+	<val addr="1320">600</val>
+	<val addr="1322">600</val>
+	<val addr="1324">600</val>
+	<val addr="1325">600</val>
+	<val addr="1326">600</val>
+	<val addr="1328">600</val>
+</regValuesToWrite>
+<registers>
+	<register control="text" desc="Address" key="1233">
+	<rpc mask="#####" writable="yes" address="1233" type="3" m="1" c="0" fmt="" />
+	</register>
+	<register control="select" desc="Data Type" key="93">
+	<rpc mask="###" writable="yes" address="1234" type="3" m="1" c="0" fmt="" />
+	</register>
+	<register control="text" desc="Address" key="1257">
+	<rpc mask="#####" writable="yes" address="1257" type="3" m="1" c="0" fmt="" />
+	</register>
+	<register control="select" desc="Data Type" key="1258">
+	<rpc mask="###" writable="yes" address="1258" type="3" m="1" c="0" fmt="" />
+	</register>
+	<register control="text" desc="Address" key="1281">
+	<rpc mask="#####" writable="yes" address="1281" type="3" m="1" c="0" fmt="" />
+	</register>
+	<register control="select" desc="Data Type" key="1282">
+	<rpc mask="###" writable="yes" address="1282" type="3" m="1" c="0" fmt="" />
+	</register>
+	<register control="text" desc="Address" key="1305">
+	<rpc mask="#####" writable="yes" address="1305" type="3" m="1" c="0" fmt="" />
+	</register>
+	<register control="select" desc="Data Type" key="1306">
+	<rpc mask="###" writable="yes" address="1306" type="3" m="1" c="0" fmt="" />
+	</register>
+	<register control="select" desc="Digital Output" key="1235">
+	<rpc mask="###" writable="yes" address="1235" type="3" m="1" c="0" fmt="" />
+	</register>
+	<register control="select" desc="Action" key="1236">
+	<rpc mask="###" writable="yes" address="1236" type="3" m="1" c="0" fmt="" />
+	</register>
+	<register control="text" desc="Alert Limit" key="1237">
+	<rpc mask="#######.##" writable="yes" address="1237" type="1539" m="1" c="" fmt="2" />
+	</register>
+	<register control="text" desc="Limit" key="1239">
+	<rpc mask="#######.##" writable="yes" address="1239" type="1539" m="1" c="" fmt="2" />
+	</register>
+	<register control="text" desc="Delay (x 100 ms)" key="1241">
+	<rpc mask="#####" writable="yes" address="1241" type="3" m="1" c="" fmt="2" />
+	</register>
+	<register control="text" desc="Digital Output Timer 'ON' (x 100 ms)" key="1242">
+	<rpc mask="#####" writable="yes" address="1242" type="3" m="1" c="" fmt="2" />
+	</register>
+	<register control="text" desc="Digital Output Timer 'OFF' (x 100 ms)" key="1243">
+	<rpc mask="#####" writable="yes" address="1243" type="3" m="1" c="" fmt="2" />
+	</register>
+	<register control="text" desc="Pulse Override (x 100 ms) " key="1245">
+	<rpc mask="#####" writable="yes" address="1245" type="3" m="1" c="" fmt="2" />
+	</register>
+	<register control="select" desc="Digital Output" key="1259">
+	<rpc mask="###" writable="yes" address="1259" type="3" m="1" c="0" fmt="" />
+	</register>
+	<register control="select" desc="Action" key="1260">
+	<rpc mask="###" writable="yes" address="1260" type="3" m="1" c="0" fmt="" />
+	</register>
+	<register control="text" desc="Alert Limit" key="1261">
+	<rpc mask="#######.##" writable="yes" address="1261" type="1539" m="1" c="" fmt="2" />
+	</register>
+	<register control="text" desc="Limit" key="1263">
+	<rpc mask="#######.##" writable="yes" address="1263" type="1539" m="1" c="" fmt="2" />
+	</register>
+	<register control="text" desc="Delay (x'100 ms)" key="1265">
+	<rpc mask="#####" writable="yes" address="1265" type="3" m="1" c="" fmt="2" />
+	</register>
+	<register control="text" desc="Digital Output 'ON' (x'100 ms)" key="1266">
+	<rpc mask="#####" writable="yes" address="1266" type="3" m="1" c="" fmt="2" />
+	</register>
+	<register control="text" desc="Digital Output 'OFF' (x'100 ms)" key="1267">
+	<rpc mask="#####" writable="yes" address="1267" type="3" m="1" c="" fmt="2" />
+	</register>
+	<register control="text" desc="Pulse Override (x 100 ms) " key="1269">
+	<rpc mask="#####" writable="yes" address="1269" type="3" m="1" c="" fmt="2" />
+	</register>
+	<register control="select" desc="Digital Output" key="1283">
+	<rpc mask="###" writable="yes" address="1283" type="3" m="1" c="0" fmt="" />
+	</register>
+	<register control="select" desc="Action" key="1284">
+	<rpc mask="###" writable="yes" address="1284" type="3" m="1" c="0" fmt="" />
+	</register>
+	<register control="text" desc="Alert Limit" key="1285">
+	<rpc mask="#######.##" writable="yes" address="1285" type="1539" m="1" c="" fmt="2" />
+	</register>
+	<register control="text" desc="Limit" key="1287">
+	<rpc mask="#######.##" writable="yes" address="1287" type="1539" m="1" c="" fmt="2" />
+	</register>
+	<register control="text" desc="Delay (x 100 ms)" key="1289">
+	<rpc mask="#####" writable="yes" address="1289" type="3" m="1" c="" fmt="2" />
+	</register>
+	<register control="text" desc="Digital Output 'ON' (x 100 ms)" key="1290">
+	<rpc mask="#####" writable="yes" address="1290" type="3" m="1" c="" fmt="2" />
+	</register>
+	<register control="text" desc="Digital Output Timer 'OFF' (x 100 ms)" key="1291">
+	<rpc mask="#####" writable="yes" address="1291" type="3" m="1" c="" fmt="2" />
+	</register>
+	<register control="text" desc="Pulse Override (x 100 ms) " key="1293">
+	<rpc mask="#####" writable="yes" address="1293" type="3" m="1" c="" fmt="2" />
+	</register>
+	<register control="select" desc="Digital Output" key="1307">
+	<rpc mask="###" writable="yes" address="1307" type="3" m="1" c="0" fmt="" />
+	</register>
+	<register control="select" desc="Action" key="1308">
+	<rpc mask="###" writable="yes" address="1308" type="3" m="1" c="0" fmt="" />
+	</register>
+	<register control="text" desc="Alert Limit" key="1309">
+	<rpc mask="#######.##" writable="yes" address="1309" type="1539" m="1" c="" fmt="2" />
+	</register>
+	<register control="text" desc="Limit" key="1311">
+	<rpc mask="#######.##" writable="yes" address="1311" type="1539" m="1" c="" fmt="2" />
+	</register>
+	<register control="text" desc="Delay (x 100 ms)" key="1313">
+	<rpc mask="#####" writable="yes" address="1313" type="3" m="1" c="" fmt="2" />
+	</register>
+	<register control="text" desc="Digital Output Timer 'ON' (x 100 ms)" key="1314">
+	<rpc mask="#####" writable="yes" address="1314" type="3" m="1" c="" fmt="2" />
+	</register>
+	<register control="text" desc="Digital Output Timer 'OFF' (x 100 ms)" key="1315">
+	<rpc mask="#####" writable="yes" address="1315" type="3" m="1" c="" fmt="2" />
+	</register>
+	<register control="text" desc="Pulse Override (x100 ms) " key="1317">
+	<rpc mask="#####" writable="yes" address="1317" type="3" m="1" c="" fmt="2" />
+	</register>
+	<register control="select" desc="Digital Output" key="1246">
+	<rpc mask="###" writable="yes" address="1246" type="3" m="1" c="0" fmt="" />
+	</register>
+	<register control="select" desc="Action" key="1247">
+	<rpc mask="###" writable="yes" address="1247" type="3" m="1" c="0" fmt="" />
+	</register>
+	<register control="text" desc="Alert Limit" key="1248">
+	<rpc mask="#######.##" writable="yes" address="1248" type="1539" m="1" c="" fmt="2" />
+	</register>
+	<register control="text" desc="Limit" key="1250">
+	<rpc mask="#######.##" writable="yes" address="1250" type="1539" m="1" c="" fmt="2" />
+	</register>
+	<register control="text" desc="Delay (x 100 ms)" key="1252">
+	<rpc mask="#####" writable="yes" address="1252" type="3" m="1" c="" fmt="2" />
+	</register>
+	<register control="text" desc="Digital Output Timer 'ON' (x 100 ms)" key="1253">
+	<rpc mask="#####" writable="yes" address="1253" type="3" m="1" c="" fmt="2" />
+	</register>
+	<register control="text" desc="Digital Output Timer 'OFF' (x 100 ms)" key="1254">
+	<rpc mask="#####" writable="yes" address="1254" type="3" m="1" c="" fmt="2" />
+	</register>
+	<register control="text" desc="Pulse Override (x100 ms) " key="1256">
+	<rpc mask="#####" writable="yes" address="1256" type="3" m="1" c="" fmt="2" />
+	</register>
+	<register control="select" desc="Digital Output" key="1270">
+	<rpc mask="###" writable="yes" address="1270" type="3" m="1" c="0" fmt="" />
+	</register>
+	<register control="select" desc="Action" key="1271">
+	<rpc mask="###" writable="yes" address="1271" type="3" m="1" c="0" fmt="" />
+	</register>
+	<register control="text" desc="Alert Limit" key="1272">
+	<rpc mask="#######.##" writable="yes" address="1272" type="1539" m="1" c="" fmt="2" />
+	</register>
+	<register control="text" desc="Limit" key="1274">
+	<rpc mask="#######.##" writable="yes" address="1274" type="1539" m="1" c="" fmt="2" />
+	</register>
+	<register control="text" desc="Delay (x 100 ms)" key="1276">
+	<rpc mask="#####" writable="yes" address="1276" type="3" m="1" c="" fmt="2" />
+	</register>
+	<register control="text" desc="Digital Output Timer 'ON' (x 100 ms)" key="1277">
+	<rpc mask="#####" writable="yes" address="1277" type="3" m="1" c="" fmt="2" />
+	</register>
+	<register control="text" desc="Digital Output Timer 'OFF' (x 100 ms)" key="1278">
+	<rpc mask="#####" writable="yes" address="1278" type="3" m="1" c="" fmt="2" />
+	</register>
+	<register control="text" desc="Pulse Override (x 100 ms) " key="1280">
+	<rpc mask="#####" writable="yes" address="1280" type="3" m="1" c="" fmt="2" />
+	</register>
+	<register control="select" desc="Digital Output" key="1294">
+	<rpc mask="###" writable="yes" address="1294" type="3" m="1" c="0" fmt="" />
+	</register>
+	<register control="select" desc="Action" key="1295">
+	<rpc mask="###" writable="yes" address="1295" type="3" m="1" c="0" fmt="" />
+	</register>
+	<register control="text" desc="Alert Limit" key="1296">
+	<rpc mask="#######.##" writable="yes" address="1296" type="1539" m="1" c="" fmt="2" />
+	</register>
+	<register control="text" desc="Limit" key="1298">
+	<rpc mask="#######.##" writable="yes" address="1298" type="1539" m="1" c="" fmt="2" />
+	</register>
+	<register control="text" desc="Delay (x 100 ms)" key="1300">
+	<rpc mask="#####" writable="yes" address="1300" type="3" m="1" c="" fmt="2" />
+	</register>
+	<register control="text" desc="Digital Output Timer 'ON' (x 100 ms)" key="1301">
+	<rpc mask="#####" writable="yes" address="1301" type="3" m="1" c="" fmt="2" />
+	</register>
+	<register control="text" desc="Digital Output Timer 'OFF' (x 100 ms)" key="1302">
+	<rpc mask="#####" writable="yes" address="1302" type="3" m="1" c="" fmt="2" />
+	</register>
+	<register control="text" desc="Pulse Override (x 100 ms) " key="1304">
+	<rpc mask="#####" writable="yes" address="1304" type="3" m="1" c="" fmt="2" />
+	</register>
+	<register control="select" desc="Digital Output" key="1318">
+	<rpc mask="###" writable="yes" address="1318" type="3" m="1" c="0" fmt="" />
+	</register>
+	<register control="select" desc="Action" key="1319">
+	<rpc mask="###" writable="yes" address="1319" type="3" m="1" c="0" fmt="" />
+	</register>
+	<register control="text" desc="Alert Limit" key="1320">
+	<rpc mask="#######.##" writable="yes" address="1320" type="1539" m="1" c="" fmt="2" />
+	</register>
+	<register control="text" desc="Limit" key="1322">
+	<rpc mask="#######.##" writable="yes" address="1322" type="1539" m="1" c="" fmt="2" />
+	</register>
+	<register control="text" desc="Delay (x 100 ms)" key="1324">
+	<rpc mask="#####" writable="yes" address="1324" type="3" m="1" c="" fmt="2" />
+	</register>
+	<register control="text" desc="Digital Output Timer 'ON' (x 100 ms)" key="1325">
+	<rpc mask="#####" writable="yes" address="1325" type="3" m="1" c="" fmt="2" />
+	</register>
+	<register control="text" desc="Digital Output Timer 'OFF' (x 100 ms)" key="1326">
+	<rpc mask="#####" writable="yes" address="1326" type="3" m="1" c="" fmt="2" />
+	</register>
+	<register control="text" desc="Pulse Override (x 100 ms) " key="1328">
+	<rpc mask="#####" writable="yes" address="1328" type="3" m="1" c="" fmt="2" />
+	</register>
+</registers></RTUReadWriteReqDef>

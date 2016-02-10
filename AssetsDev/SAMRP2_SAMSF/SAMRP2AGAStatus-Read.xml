@@ -1,0 +1,34 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNISRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+	<block addr="1971" count="16" protocoldatatype="1540" />
+</regBlocks>
+
+<regValuesToWrite>
+</regValuesToWrite>
+<registers>
+	<register control="text" desc="Gas Flow Rate [MCF/D]" key="1971">
+	<rpc mask="###" writable="no" address="1971" type="1540" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Yesterday's Gas Volume [MCF]" key="1973">
+	<rpc mask="###" writable="no" address="1973" type="1540" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Today's Gas Volume [MCF]" key="1975">
+	<rpc mask="###" writable="no" address="1975" type="1540" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Total Gas Volume [MCF]" key="1977">
+	<rpc mask="###" writable="no" address="1977" type="1540" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Differential Pressure" key="1979">
+	<rpc mask="###" writable="no" address="1979" type="1540" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Static Pressure" key="1981">
+	<rpc mask="###" writable="no" address="1981" type="1540" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Flowing Temp" key="1983">
+	<rpc mask="###" writable="no" address="1983" type="1540" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Supercompressibility" key="1985">
+	<rpc mask="###" writable="no" address="1985" type="1540" m="1" c="0" fmt="2" />
+	</register>
+</registers></RTUReadWriteReqDef>

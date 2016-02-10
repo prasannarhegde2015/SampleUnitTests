@@ -1,0 +1,26 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNILRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+		<block addr="2747" count="4" protocoldatatype="3" />
+	</regBlocks>
+<regValuesToWrite>
+	<val addr="2747">600</val>
+	<val addr="2748">600</val>
+	<val addr="2749">600</val>
+	<val addr="2750">600</val>
+</regValuesToWrite>
+<registers>
+		<register control="text" desc="Linear Pumping Unit Cornering Enabled(0/1=Dsbld/Enbld)" key="42747">
+		<rpc mask="#####" writable="yes" address="2747" type="3" m="1" c="0" fmt="str" altControlID="42747">comm fail</rpc>
+	</register>
+		<register control="text" desc="Cornering Decelaration Starting Position(%)" key="42748">
+		<rpc mask="#####" writable="yes" address="2748" type="3" m="1" c="0" fmt="str" altControlID="42748">comm fail</rpc>
+	</register>
+		<register control="text" desc="Cornering Accelaration Starting Position(%)" key="42749">
+		<rpc mask="#####" writable="yes" address="2749" type="3" m="1" c="0" fmt="str" altControlID="42749">comm fail</rpc>
+	</register>
+		<register control="text" desc="Cornering Pumping Speed(Hz)" key="42750">
+		<rpc mask="#####" writable="yes" address="2750" type="3" m="1" c="0" fmt="str" altControlID="42750">comm fail</rpc>
+	</register>
+</registers>
+</RTUReadWriteReqDef>

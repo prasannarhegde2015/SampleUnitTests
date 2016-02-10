@@ -1,0 +1,102 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNISRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+	<block addr="7021" count="6" protocoldatatype="4355" />
+	<block addr="7011" count="2" protocoldatatype="4355" />
+	<block addr="7409" count="4" protocoldatatype="4355" />
+	<block addr="7995" count="2" protocoldatatype="4355" />
+	<block addr="8103" count="2" protocoldatatype="4355" />
+	<block addr="7413" count="2" protocoldatatype="4355" />
+	<block addr="7417" count="4" protocoldatatype="4355" />
+	<block addr="7419" count="6" protocoldatatype="4355" />
+	<block addr="7453" count="2" protocoldatatype="4355" />
+	<block addr="7443" count="4" protocoldatatype="4355" />
+	<block addr="7451" count="2" protocoldatatype="4355" />
+	<block addr="7537" count="2" protocoldatatype="4355" />
+	<block addr="7533" count="4" protocoldatatype="4355" />
+	<block addr="7539" count="4" protocoldatatype="4355" />
+	<block addr="7455" count="2" protocoldatatype="4355" />
+	<block addr="7541" count="6" protocoldatatype="4355" />
+</regBlocks>
+
+<regValuesToWrite>
+	<val addr="7011">600</val>
+	<val addr="7409">600</val>
+</regValuesToWrite>
+<registers>
+	<register control="text" desc="Pump stroke counter (cycles)" key="47021">
+	<rpc mask="###" writable="no" address="7021" type="4355" m="1" c="0" fmt="0" altControlID="47021" />
+	</register>
+	<register control="text" desc="Fluid production meter [?]" key="47023">
+	<rpc mask="###" writable="no" address="7023" type="4355" m="1" c="0" fmt="0" altControlID="47023" />
+	</register>
+	<register control="text" desc="Input power meter (kwh)" key="47025">
+	<rpc mask="###" writable="no" address="7025" type="4355" m="10" c="0" fmt="1" altControlID="47025" />
+	</register>
+	<register control="select" desc="Reset all meters" key="47011">
+	<rpc mask="###" writable="yes" address="7011" type="4355" m="1" c="0" fmt="0" altControlID="47011" />
+	</register>
+	<register control="text" desc="Gauge time (hh.mm)" key="47409">
+	<rpc mask="###" writable="yes" address="7409" type="4355" m="100" c="0" fmt="2" altControlID="47409" />
+	</register>
+	<register control="text" desc="Gauge run time (hh.mm)" key="47411">
+	<rpc mask="###" writable="no" address="7411" type="4355" m="100" c="0" fmt="2" altControlID="47411" />
+	</register>
+	<register control="text" desc="Gauge run percent (x.xx%)" key="47995">
+	<rpc mask="###" writable="no" address="7995" type="4355" m="100" c="0" fmt="2" altControlID="47995" />
+	</register>
+	<register control="text" desc="Gauge POC down time (hh.mm)" key="48103">
+	<rpc mask="###" writable="no" address="8103" type="4355" m="100" c="0" fmt="2" altControlID="48103" />
+	</register>
+	<register control="text" desc="Gauge strokes" key="47413">
+	<rpc mask="###" writable="no" address="7413" type="4355" m="1" c="0" fmt="0" altControlID="47413" />
+	</register>
+	<register control="text" desc="Gauge fluid flow [?]" key="47417">
+	<rpc mask="###" writable="no" address="7417" type="4355" m="1" c="0" fmt="1" altControlID="47417" />
+	</register>
+	<register control="text" desc="Gauge fluid production [?]" key="47415">
+	<rpc mask="###" writable="no" address="7415" type="4355" m="1" c="0" fmt="1" altControlID="47415" />
+	</register>
+	<register control="text" desc="Gauge leakage [?]" key="47419">
+	<rpc mask="###" writable="no" address="7419" type="4355" m="1" c="0" fmt="1" altControlID="47419" />
+	</register>
+	<register control="text" desc="Gauge avg fill  (%)" key="47421">
+	<rpc mask="###" writable="no" address="7421" type="4355" m="1" c="0" fmt="0" altControlID="47421" />
+	</register>
+	<register control="text" desc="Gauge average spm (spm)" key="47423">
+	<rpc mask="###" writable="no" address="7423" type="4355" m="100" c="0" fmt="2" altControlID="47423" />
+	</register>
+	<register control="text" desc="Gauge POC count" key="47453">
+	<rpc mask="###" writable="no" address="7453" type="4355" m="1" c="0" fmt="0" altControlID="47453" />
+	</register>
+	<register control="text" desc="Gauge power meter (kwh/day)" key="47443">
+	<rpc mask="###" writable="no" address="7443" type="4355" m="10" c="0" fmt="1" altControlID="47443" />
+	</register>
+	<register control="text" desc="Gauge energy usage (kwh/barrel)" key="47445">
+	<rpc mask="###" writable="no" address="7445" type="4355" m="1000" c="0" fmt="3" altControlID="47445" />
+	</register>
+	<register control="text" desc="Gauge run time accum (hh.mm)" key="47451">
+	<rpc mask="###" writable="no" address="7451" type="4355" m="100" c="0" fmt="2" altControlID="47451" />
+	</register>
+	<register control="text" desc="Gauge strokes accum" key="47537">
+	<rpc mask="###" writable="no" address="7537" type="4355" m="1" c="0" fmt="0" altControlID="47537" />
+	</register>
+	<register control="text" desc="Gauge fluid production accum [?]" key="47533">
+	<rpc mask="###" writable="no" address="7533" type="4355" m="1" c="0" fmt="0" altControlID="47533" />
+	</register>
+	<register control="text" desc="Gauge leakage accum [?]" key="47535">
+	<rpc mask="###" writable="no" address="7535" type="4355" m="1" c="0" fmt="0" altControlID="47535" />
+	</register>
+	<register control="text" desc="Gauge avg fill accum (%)" key="47539">
+	<rpc mask="###" writable="no" address="7539" type="4355" m="1" c="0" fmt="0" altControlID="47539" />
+	</register>
+	<register control="text" desc="Gauge avg spm accum (spm)" key="47541">
+	<rpc mask="###" writable="no" address="7541" type="4355" m="100" c="0" fmt="2" altControlID="47541" />
+	</register>
+	<register control="text" desc="Gauge POC count accum" key="47455">
+	<rpc mask="###" writable="no" address="7455" type="4355" m="1" c="0" fmt="0" altControlID="47455" />
+	</register>
+	<register control="text" desc="Gauge power meter accum (kwh/day)" key="47543">
+	<rpc mask="###" writable="no" address="7543" type="4355" m="10" c="0" fmt="1" altControlID="47543" />
+	</register>
+</registers></RTUReadWriteReqDef>

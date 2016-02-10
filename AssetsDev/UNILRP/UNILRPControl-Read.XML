@@ -1,0 +1,30 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNISRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+	<block addr="7045" count="6" protocoldatatype="4355" />
+	<block addr="7469" count="2" protocoldatatype="4355" />
+</regBlocks>
+
+<regValuesToWrite>
+	<val addr="7047">600</val>
+	<val addr="7049">600</val>
+	<val addr="7467">600</val>
+	<val addr="7469">600</val>
+</regValuesToWrite>
+<registers>
+	<register control="text" desc="Running status" key="47045">
+	<rpc mask="#####" writable="no" address="7045" type="4355" m="1" c="0" fmt="0" altControlID="47045" />
+	</register>
+	<register control="select" desc="Remote run enable" key="47047">
+	<rpc mask="#####" writable="yes" address="7047" type="4355" m="1" c="0" fmt="1" altControlID="47047" />
+	</register>
+	<register control="select" desc="Remote fault reset" key="47049">
+	<rpc mask="#####" writable="yes" address="7049" type="4355" m="1" c="0" fmt="1" altControlID="47049" />
+	</register>
+	<register control="text" desc="Bridle Rod load (lb)" key="47467">
+	<rpc mask="#####" writable="yes" address="7467" type="4355" m="1" c="0" fmt="0" altControlID="47467" />
+	</register>
+	<register control="text" desc="Bridle Sep adjust (%)" key="47469">
+	<rpc mask="#####" writable="yes" address="7469" type="4355" m="1" c="0" fmt="0" altControlID="47469" />
+	</register>
+</registers></RTUReadWriteReqDef>

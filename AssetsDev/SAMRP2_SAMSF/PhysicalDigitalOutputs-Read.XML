@@ -1,0 +1,266 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNILRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+		<block addr="225" count="63" protocoldatatype="1" />
+	</regBlocks>
+<regValuesToWrite>
+	<val addr="225">600</val>
+	<val addr="226">600</val>
+	<val addr="227">600</val>
+	<val addr="228">600</val>
+	<val addr="229">600</val>
+	<val addr="230">600</val>
+	<val addr="231">600</val>
+	<val addr="232">600</val>
+	<val addr="233">600</val>
+	<val addr="234">600</val>
+	<val addr="235">600</val>
+	<val addr="236">600</val>
+	<val addr="237">600</val>
+	<val addr="238">600</val>
+	<val addr="239">600</val>
+	<val addr="240">600</val>
+	<val addr="241">600</val>
+	<val addr="242">600</val>
+	<val addr="243">600</val>
+	<val addr="244">600</val>
+	<val addr="245">600</val>
+	<val addr="246">600</val>
+	<val addr="247">600</val>
+	<val addr="248">600</val>
+	<val addr="249">600</val>
+	<val addr="250">600</val>
+	<val addr="251">600</val>
+	<val addr="252">600</val>
+	<val addr="253">600</val>
+	<val addr="254">600</val>
+	<val addr="255">600</val>
+	<val addr="256">600</val>
+	<val addr="257">600</val>
+	<val addr="258">600</val>
+	<val addr="259">600</val>
+	<val addr="260">600</val>
+	<val addr="261">600</val>
+	<val addr="262">600</val>
+	<val addr="263">600</val>
+	<val addr="264">600</val>
+	<val addr="265">600</val>
+	<val addr="266">600</val>
+	<val addr="267">600</val>
+	<val addr="268">600</val>
+	<val addr="269">600</val>
+	<val addr="270">600</val>
+	<val addr="271">600</val>
+	<val addr="272">600</val>
+	<val addr="273">600</val>
+	<val addr="274">600</val>
+	<val addr="275">600</val>
+	<val addr="276">600</val>
+	<val addr="277">600</val>
+	<val addr="278">600</val>
+	<val addr="279">600</val>
+	<val addr="280">600</val>
+	<val addr="281">600</val>
+	<val addr="282">600</val>
+	<val addr="283">600</val>
+	<val addr="284">600</val>
+	<val addr="285">600</val>
+	<val addr="286">600</val>
+	<val addr="287">600</val>
+	<val addr="288">600</val>
+</regValuesToWrite>
+<registers>
+		<register control="text" desc="Physical Digital Output 1" key="225">
+		<rpc mask="#####" writable="yes" address="225" type="1" m="1" c="" fmt="str" altControlID="225">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 2" key="226">
+		<rpc mask="#####" writable="yes" address="226" type="1" m="1" c="" fmt="str" altControlID="226">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 3" key="227">
+		<rpc mask="#####" writable="yes" address="227" type="1" m="1" c="" fmt="str" altControlID="227">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 4" key="228">
+		<rpc mask="#####" writable="yes" address="228" type="1" m="1" c="" fmt="str" altControlID="228">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 5" key="229">
+		<rpc mask="#####" writable="yes" address="229" type="1" m="1" c="" fmt="str" altControlID="229">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 6" key="230">
+		<rpc mask="#####" writable="yes" address="230" type="1" m="1" c="" fmt="str" altControlID="230">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 7" key="231">
+		<rpc mask="#####" writable="yes" address="231" type="1" m="1" c="" fmt="str" altControlID="231">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 8" key="232">
+		<rpc mask="#####" writable="yes" address="232" type="1" m="1" c="" fmt="str" altControlID="232">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 9" key="233">
+		<rpc mask="#####" writable="yes" address="233" type="1" m="1" c="" fmt="str" altControlID="233">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 10" key="234">
+		<rpc mask="#####" writable="yes" address="234" type="1" m="1" c="" fmt="str" altControlID="234">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 11" key="235">
+		<rpc mask="#####" writable="yes" address="235" type="1" m="1" c="" fmt="str" altControlID="235">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 12" key="236">
+		<rpc mask="#####" writable="yes" address="236" type="1" m="1" c="" fmt="str" altControlID="236">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 13" key="237">
+		<rpc mask="#####" writable="yes" address="237" type="1" m="1" c="" fmt="str" altControlID="237">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 14" key="238">
+		<rpc mask="#####" writable="yes" address="238" type="1" m="1" c="" fmt="str" altControlID="238">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 15" key="239">
+		<rpc mask="#####" writable="yes" address="239" type="1" m="1" c="" fmt="str" altControlID="239">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 16" key="240">
+		<rpc mask="#####" writable="yes" address="240" type="1" m="1" c="" fmt="str" altControlID="240">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 17" key="241">
+		<rpc mask="#####" writable="yes" address="241" type="1" m="1" c="" fmt="str" altControlID="241">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 18" key="242">
+		<rpc mask="#####" writable="yes" address="242" type="1" m="1" c="" fmt="str" altControlID="242">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 19" key="243">
+		<rpc mask="#####" writable="yes" address="243" type="1" m="1" c="" fmt="str" altControlID="243">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 20" key="244">
+		<rpc mask="#####" writable="yes" address="244" type="1" m="1" c="" fmt="str" altControlID="244">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 21" key="245">
+		<rpc mask="#####" writable="yes" address="245" type="1" m="1" c="" fmt="str" altControlID="245">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 22" key="246">
+		<rpc mask="#####" writable="yes" address="246" type="1" m="1" c="" fmt="str" altControlID="246">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 23" key="247">
+		<rpc mask="#####" writable="yes" address="247" type="1" m="1" c="" fmt="str" altControlID="247">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 24" key="248">
+		<rpc mask="#####" writable="yes" address="248" type="1" m="1" c="" fmt="str" altControlID="248">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 25" key="249">
+		<rpc mask="#####" writable="yes" address="249" type="1" m="1" c="" fmt="str" altControlID="249">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 26" key="250">
+		<rpc mask="#####" writable="yes" address="250" type="1" m="1" c="" fmt="str" altControlID="250">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 27" key="251">
+		<rpc mask="#####" writable="yes" address="251" type="1" m="1" c="" fmt="str" altControlID="251">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 28" key="252">
+		<rpc mask="#####" writable="yes" address="252" type="1" m="1" c="" fmt="str" altControlID="252">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 29" key="253">
+		<rpc mask="#####" writable="yes" address="253" type="1" m="1" c="" fmt="str" altControlID="253">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 30" key="254">
+		<rpc mask="#####" writable="yes" address="254" type="1" m="1" c="" fmt="str" altControlID="254">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 31" key="255">
+		<rpc mask="#####" writable="yes" address="255" type="1" m="1" c="" fmt="str" altControlID="255">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 32" key="256">
+		<rpc mask="#####" writable="yes" address="256" type="1" m="1" c="" fmt="str" altControlID="256">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 33" key="257">
+		<rpc mask="#####" writable="yes" address="257" type="1" m="1" c="" fmt="str" altControlID="257">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 34" key="258">
+		<rpc mask="#####" writable="yes" address="258" type="1" m="1" c="" fmt="str" altControlID="258">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 35" key="259">
+		<rpc mask="#####" writable="yes" address="259" type="1" m="1" c="" fmt="str" altControlID="259">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 36" key="260">
+		<rpc mask="#####" writable="yes" address="260" type="1" m="1" c="" fmt="str" altControlID="260">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 37" key="261">
+		<rpc mask="#####" writable="yes" address="261" type="1" m="1" c="" fmt="str" altControlID="261">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 38" key="262">
+		<rpc mask="#####" writable="yes" address="262" type="1" m="1" c="" fmt="str" altControlID="262">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 39" key="263">
+		<rpc mask="#####" writable="yes" address="263" type="1" m="1" c="" fmt="str" altControlID="263">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 40" key="264">
+		<rpc mask="#####" writable="yes" address="264" type="1" m="1" c="" fmt="str" altControlID="264">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 41" key="265">
+		<rpc mask="#####" writable="yes" address="265" type="1" m="1" c="" fmt="str" altControlID="265">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 42" key="266">
+		<rpc mask="#####" writable="yes" address="266" type="1" m="1" c="" fmt="str" altControlID="266">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 43" key="267">
+		<rpc mask="#####" writable="yes" address="267" type="1" m="1" c="" fmt="str" altControlID="267">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 44" key="268">
+		<rpc mask="#####" writable="yes" address="268" type="1" m="1" c="" fmt="str" altControlID="268">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 45" key="269">
+		<rpc mask="#####" writable="yes" address="269" type="1" m="1" c="" fmt="str" altControlID="269">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 46" key="270">
+		<rpc mask="#####" writable="yes" address="270" type="1" m="1" c="" fmt="str" altControlID="270">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 47" key="271">
+		<rpc mask="#####" writable="yes" address="271" type="1" m="1" c="" fmt="str" altControlID="271">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 48" key="272">
+		<rpc mask="#####" writable="yes" address="272" type="1" m="1" c="" fmt="str" altControlID="272">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 49" key="273">
+		<rpc mask="#####" writable="yes" address="273" type="1" m="1" c="" fmt="str" altControlID="273">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 50" key="274">
+		<rpc mask="#####" writable="yes" address="274" type="1" m="1" c="" fmt="str" altControlID="274">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 51" key="275">
+		<rpc mask="#####" writable="yes" address="275" type="1" m="1" c="" fmt="str" altControlID="275">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 52" key="276">
+		<rpc mask="#####" writable="yes" address="276" type="1" m="1" c="" fmt="str" altControlID="276">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 53" key="277">
+		<rpc mask="#####" writable="yes" address="277" type="1" m="1" c="" fmt="str" altControlID="277">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 54" key="278">
+		<rpc mask="#####" writable="yes" address="278" type="1" m="1" c="" fmt="str" altControlID="278">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 55" key="279">
+		<rpc mask="#####" writable="yes" address="279" type="1" m="1" c="" fmt="str" altControlID="279">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 56" key="280">
+		<rpc mask="#####" writable="yes" address="280" type="1" m="1" c="" fmt="str" altControlID="280">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 57" key="281">
+		<rpc mask="#####" writable="yes" address="281" type="1" m="1" c="" fmt="str" altControlID="281">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 58" key="282">
+		<rpc mask="#####" writable="yes" address="282" type="1" m="1" c="" fmt="str" altControlID="282">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 59" key="283">
+		<rpc mask="#####" writable="yes" address="283" type="1" m="1" c="" fmt="str" altControlID="283">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 60" key="284">
+		<rpc mask="#####" writable="yes" address="284" type="1" m="1" c="" fmt="str" altControlID="284">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 61" key="285">
+		<rpc mask="#####" writable="yes" address="285" type="1" m="1" c="" fmt="str" altControlID="285">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 62" key="286">
+		<rpc mask="#####" writable="yes" address="286" type="1" m="1" c="" fmt="str" altControlID="286">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 63" key="287">
+		<rpc mask="#####" writable="yes" address="287" type="1" m="1" c="" fmt="str" altControlID="287">comm fail</rpc>
+	</register>
+		<register control="text" desc="Physical Digital Output 64" key="288">
+		<rpc mask="#####" writable="yes" address="288" type="1" m="1" c="" fmt="str" altControlID="288">comm fail</rpc>
+	</register>
+</registers>
+</RTUReadWriteReqDef>

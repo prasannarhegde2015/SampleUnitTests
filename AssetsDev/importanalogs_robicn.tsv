@@ -1,0 +1,6 @@
+RTUDESCC	.I	DESCC	TYPEC	EUDESCC	SLOPER	OFFSETR	VIRTUALI	FUNCTIONC	PORDERI	POINT_TYPI	FIELD_ADRI	POINT_NUMI	POINT_AD4I	
+wellfromcmdline	24	Fixed Bits	Flow	PSI	1.0000000	0.0000000	0	no_conversion	0	3	65	0	0	
+wellfromcmdline	27	Forward Acc Time	Flow	PSI	1.0000000	0.0000000	0	no_conversion	0	3	69	0	0	
+wellfromcmdline	26	Forward Max Limit	Flow	PSI	1.0000000	0.0000000	0	no_conversion	0	3	67	0	0	
+wellfromcmdline	25	Velocity Demand	Flow	PSI	1.0000000	0.0000000	0	no_conversion	0	3	66	0	0	
+

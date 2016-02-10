@@ -1,0 +1,77 @@
+set DEBUG = 0;
+print "In GenVerifyCSV.css\n";
+
+// mcsscrip genverifycsv.css generateVerifyCSV "" 5 "C:\cslift\liftnt\run\\" -db beamdb -debugger
+int function generateVerifyCSV(int wellnum, char* apptype, char* filepath)
+{
+	char qry [256], filename[256], verifybfile[24];
+	int vue, rc, vtbl, i, dot, col;
+	
+	if (apptype == "BE")
+		verifybfile = "SPVPARM";
+	else if (apptype == "GL")
+		verifybfile = "GLDVPARM";
+	else if (apptype == "IN")
+		verifybfile = "INVPARM";
+	else if (apptype == "PC")
+		verifybfile = "PCVPARM";
+	else if (apptype == "PG")
+		verifybfile = "PGVPARM";
+	else if (apptype == "SU")
+		verifybfile = "SUVPARM";
+	else if (apptype == "OT")
+		verifybfile = "OTVPARM";
+	else
+	{
+		print"generateVerifyCSV - Invalid Apptype \n";
+		return 0;
+	}
+	
+	qry = "file " ++ verifybfile ++ " ; sel . address rtuval hostval; where baserec = " ++ wellnum ++ ";";
+
+	vue = vueaction( "CREATE", qry );
+    vueaction( "EVALUATE", vue );
+	
+	vtbl = tableaction ("CREATEFROMTABLE", vue);
+	if (DEBUG) tableaction("SHOW", vtbl);
+
+	if(tableaction("NUMROWS", vtbl))
+	{
+		// clean all the records in table for the next well
+		| verifybfile : "CURRENTREC" : -1 | = 0;
+		for (i = 0; i < tableaction("NUMROWS", vtbl); i = i + 1;)
+		{
+			dot = $vtbl[ i , "."  ];
+			| verifybfile : "ADDRESS" : dot 	| 	= 0;
+			| verifybfile : "BASEREC" : dot	| 	= 0;
+			| verifybfile : "RTUVAL" : dot  	| 	= 0;
+			| verifybfile : "HOSTVAL" : dot 	| 	= 0;
+			| verifybfile : "SAMPLEDATE" : dot| 	= 0;
+		}
+
+		col = tableaction ("COLUMNNUMBER", vtbl, ".");
+		tableaction ("DELETECOLUMN", vtbl, col); 
+		filename = filepath ++ "VerifyBE" ++ wellnum ++ ".csv";
+		stringaction ("TRIM", filename);
+		rc = tableaction ("SAVEASTEXTFILE", vtbl, filename, -1, ",");
+	}
+	else
+	{
+		print"generateVerifyCSV - No records found in " ++ verifybfile ++ " table. \n";
+		rc = 0;
+	}
+
+	if (HandleIsValid(vtbl)) tableaction("DELETE", vtbl);
+	if (HandleIsValid(vue)) vueaction("DELETE", vue);
+	vtbl = -1; vue = -1;
+	
+	return rc;
+}
+
+
+print "Out GenVerifyCSV.css\n";
+
+
+
+
+

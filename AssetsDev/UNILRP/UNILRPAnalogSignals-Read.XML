@@ -1,0 +1,53 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNISRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+	<block addr="7355" count="8" protocoldatatype="4355" />
+	<block addr="7781" count="2" protocoldatatype="4355" />
+	<block addr="8139" count="2" protocoldatatype="4355" />
+	<block addr="7789" count="2" protocoldatatype="4355" />
+	<block addr="7373" count="2" protocoldatatype="4355" />
+	<block addr="7363" count="8" protocoldatatype="4355" />
+</regBlocks>
+
+<regValuesToWrite>
+	<val addr="7363">600</val>
+	<val addr="7367">600</val>
+</regValuesToWrite>
+<registers>
+	<register control="text" desc="Casing prs value [?]" key="47355">
+	<rpc mask="#####" writable="no" address="7355" type="4355" m="1" c="0" fmt="2" altControlID="47355" />
+	</register>
+	<register control="text" desc="Casing temp value [?]" key="47357">
+	<rpc mask="#####" writable="no" address="7357" type="4355" m="1" c="0" fmt="2" altControlID="47357" />
+	</register>
+	<register control="text" desc="Tubing prs value [?]" key="47359">
+	<rpc mask="#####" writable="no" address="7359" type="4355" m="1" c="0" fmt="2" altControlID="47359" />
+	</register>
+	<register control="text" desc="Tubing temp value [?]" key="47361">
+	<rpc mask="#####" writable="no" address="7361" type="4355" m="1" c="0" fmt="2" altControlID="47361" />
+	</register>
+	<register control="text" desc="Water cut value [%]" key="47781">
+	<rpc mask="####.#" writable="no" address="7781" type="4355" m="10" c="0" fmt="1" altControlID="47781" />
+	</register>
+	<register control="text" desc="Fluid flow value " key="48139">
+	<rpc mask="#####" writable="no" address="8139" type="4355" m="1" c="0" fmt="0" altControlID="48139" />
+	</register>
+	<register control="text" desc="Gas flow value [?]" key="47789">
+	<rpc mask="####.#" writable="no" address="7789" type="4355" m="10" c="0" fmt="1" altControlID="47789" />
+	</register>
+	<register control="text" desc="Tank level value " key="47373">
+	<rpc mask="#####" writable="no" address="7373" type="4355" m="1" c="0" fmt="0" altControlID="47373" />
+	</register>
+	<register control="select" desc="User A units" key="47363">
+	<rpc mask="#####" writable="yes" address="7363" type="4355" m="1" c="0" fmt="0" altControlID="47363" />
+	</register>
+	<register control="text" desc="User A value[?]" key="47365">
+	<rpc mask="#####" writable="no" address="7365" type="4355" m="1" c="0" fmt="0" altControlID="47365" />
+	</register>
+	<register control="select" desc="User B units" key="47367">
+	<rpc mask="#####" writable="yes" address="7367" type="4355" m="1" c="0" fmt="0" altControlID="47367" />
+	</register>
+	<register control="text" desc="User B value[?]" key="47369">
+	<rpc mask="#####" writable="no" address="7369" type="4355" m="1" c="0" fmt="0" altControlID="47369" />
+	</register>
+</registers></RTUReadWriteReqDef>

@@ -1,0 +1,68 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNISRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+	<block addr="9703" count="14" protocoldatatype="1540" />
+	<block addr="9729" count="8" protocoldatatype="4" />
+</regBlocks>
+
+<regValuesToWrite>
+</regValuesToWrite>
+<registers>
+	<register control="text" desc="Current 'PIP'" key="9703">
+	<rpc mask="###" writable="no" address="9703" type="1540" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Current 'PIP' Status" key="9705">
+	<rpc mask="###" writable="no" address="9705" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Current 'Gas Liquid Ratio' Filtered" key="9706">
+	<rpc mask="###" writable="no" address="9706" type="1540" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Current 'Fluid Load' Filtered (lbs.)" key="9708">
+	<rpc mask="###" writable="no" address="9708" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Upstroke 'Fluid Load' (lbs.)" key="9709">
+	<rpc mask="###" writable="no" address="9709" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Downstroke 'Fluid Load' (lbs.)" key="9710">
+	<rpc mask="###" writable="no" address="9710" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Scaled Pump Buoyancy" key="9711">
+	<rpc mask="###" writable="no" address="9711" type="1540" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Average Tubing Gradient" key="9713">
+	<rpc mask="###" writable="no" address="9713" type="1540" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Oil Shrinkage Factor" key="9715">
+	<rpc mask="###" writable="no" address="9715" type="1540" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Pump Volume Efficiency Net Stroke (ins.)" key="9717">
+	<rpc mask="###" writable="no" address="9717" type="1540" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Pump Volume Efficiency Gross Stroke (ins.)" key="9719">
+	<rpc mask="###" writable="no" address="9719" type="1540" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="'PIP' Average Since Gauge Off Time" key="9729">
+	<rpc mask="###" writable="no" address="9729" type="4" m="10" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="Yesterday's Average 'PIP'" key="9730">
+	<rpc mask="###" writable="no" address="9730" type="4" m="10" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="Peak 'PIP' Since Gauge Off Time" key="9731">
+	<rpc mask="###" writable="no" address="9731" type="4" m="10" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="Yesterday's Peak 'PIP'" key="9732">
+	<rpc mask="###" writable="no" address="9732" type="4" m="10" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="Record Peak 'PIP'" key="9733">
+	<rpc mask="###" writable="no" address="9733" type="4" m="10" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="Minimum 'PIP' Since Gauge Off Time" key="9734">
+	<rpc mask="###" writable="no" address="9734" type="4" m="10" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="Yesterday's Minimum 'PIP'" key="9735">
+	<rpc mask="###" writable="no" address="9735" type="4" m="10" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="Record Minimum 'PIP'" key="9736">
+	<rpc mask="###" writable="no" address="9736" type="4" m="10" c="0" fmt="1" />
+	</register>
+</registers></RTUReadWriteReqDef>

@@ -1,0 +1,76 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol="BAKER" description="Test File" />
+	<regBlocks>
+		<block addr="805" count="1" protocoldatatype="2" />
+		<block addr="3002" count="2" protocoldatatype="4" />
+		<block addr="142" count="2" protocoldatatype="4" />
+		<block addr="811" count="2" protocoldatatype="4" />
+		<block addr="807" count="2" protocoldatatype="4" />
+		<block addr="810" count="4" protocoldatatype="4" />
+		<block addr="3006" count="1" protocoldatatype="2" />
+		<block addr="800" count="4" protocoldatatype="2" />
+		<block addr="806" count="2" protocoldatatype="4" />
+		<block addr="843" count="2" protocoldatatype="4" />
+		<block addr="808" count="2" protocoldatatype="4" />
+	</regBlocks>
+	<regValuesToWrite>
+		<val addr="805">0</val>
+		<val addr="3002">0</val>
+		<val addr="807">0</val>
+		<val addr="810">0</val>
+		<val addr="3006">0</val>
+		<val addr="800">0</val>
+		<val addr="801">0</val>
+		<val addr="802">0</val>
+		<val addr="803">0</val>
+		<val addr="806">0</val>
+		<val addr="843">0</val>
+	</regValuesToWrite>
+	<registers>
+		<register control="select" desc="Fluid Stroke Calculation Method (Pick List)" key="805">
+			<rpc mask="###" writable="yes" address="805" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Surface Stroke Length (in.)" key="3002">
+			<rpc mask="###" writable="yes" address="3002" type="Fltv" m="100.0" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Last Averaged SPM" key="142">
+			<rpc mask="###" writable="no" address="142" type="Fltv" m="100" c="0" fmt="1">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Production Today (B/D)" key="811">
+			<rpc mask="###" writable="no" address="811" type="Fltv" m="10" c="0" fmt="1">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Pump Size (in.)" key="807">
+			<rpc mask="###" writable="yes" address="807" type="Fltv" m="100.0" c="0" fmt="3">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Pump Efficiency (%)" key="810">
+			<rpc mask="###" writable="yes" address="810" type="Fltv" m="10" c="0" fmt="2 ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Production Yesterday (B/D)" key="812">
+			<rpc mask="###" writable="no" address="812" type="Fltv" m="10" c="0" fmt="1">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Production Water Cut (%)" key="">
+			<rpc mask="#####" writable="yes" address="3006" type="Byte" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="'X1' Location (% Position)" key="800">
+			<rpc mask="###" writable="yes" address="800" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="'X2' Location (% Position)" key="801">
+			<rpc mask="###" writable="yes" address="801" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="'Y1' Location (% Load)" key="802">
+			<rpc mask="###" writable="yes" address="802" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="'Y2' Location (% Load)" key="803">
+			<rpc mask="###" writable="yes" address="803" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Surface Stroke Length (in.)" key="806">
+			<rpc mask="###" writable="yes" address="806" type="Fltv" m="100" c="0" fmt="2  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Preset Fluid Stroke (in.)" key="843">
+			<rpc mask="###" writable="yes" address="843" type="Fltv" m="100" c="0" fmt="2  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Average Calculated Fluid Stroke Length (in.)" key="808">
+			<rpc mask="###" writable="no" address="808" type="Fltv" m="100" c="0" fmt="2">comm. fail</rpc>
+		</register>
+	</registers>
+</RTUReadWriteReqDef>

@@ -1,0 +1,52 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNISRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+	<block addr="2274" count="2" protocoldatatype="3" />
+	<block addr="2177" count="1" protocoldatatype="3" />
+	<block addr="2277" count="12" protocoldatatype="1539" />
+</regBlocks>
+
+<regValuesToWrite>
+	<val addr="2274">600</val>
+	<val addr="2275">600</val>
+	<val addr="2177">600</val>
+	<val addr="2276">600</val>
+	<val addr="2277">600</val>
+	<val addr="2279">600</val>
+	<val addr="2281">600</val>
+	<val addr="2283">600</val>
+	<val addr="2285">600</val>
+	<val addr="2287">600</val>
+</regValuesToWrite>
+<registers>
+	<register control="select" desc="Unit Type" key="2274">
+	<rpc mask="###" writable="yes" address="2274" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="select" desc="Rotation" key="2275">
+	<rpc mask="###" writable="yes" address="2275" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Stroke Length" key="2177">
+	<rpc mask="###" writable="yes" address="2177" type="3" m="100" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Counter Balance Phase Angle" key="2276">
+	<rpc mask="###" writable="yes" address="2276" type="6403" m="100" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="R Dimension" key="2277">
+	<rpc mask="###" writable="yes" address="2277" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="K Dimension" key="2279">
+	<rpc mask="###" writable="yes" address="2279" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="C Dimension" key="2281">
+	<rpc mask="###" writable="yes" address="2281" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="P Dimension" key="2283">
+	<rpc mask="###" writable="yes" address="2283" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="A Dimension" key="2285">
+	<rpc mask="###" writable="yes" address="2285" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="I Dimension" key="2287">
+	<rpc mask="###" writable="yes" address="2287" type="1539" m="1" c="0" fmt="2" />
+	</register>
+</registers></RTUReadWriteReqDef>

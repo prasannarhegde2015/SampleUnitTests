@@ -1,0 +1,83 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNISRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+	<block addr="8129" count="6" protocoldatatype="4355" />
+	<block addr="7059" count="6" protocoldatatype="4355" />
+	<block addr="7201" count="2" protocoldatatype="4355" />
+	<block addr="7237" count="2" protocoldatatype="4355" />
+	<block addr="7457" count="2" protocoldatatype="4355" />
+	<block addr="7343" count="2" protocoldatatype="4355" />
+	<block addr="7215" count="2" protocoldatatype="4355" />
+	<block addr="7045" count="6" protocoldatatype="4355" />
+	<block addr="7095" count="2" protocoldatatype="4355" />
+	<block addr="7239" count="2" protocoldatatype="4355" />
+	<block addr="7049" count="8" protocoldatatype="4355" />
+</regBlocks>
+
+<regValuesToWrite>
+	<val addr="8131">600</val>
+	<val addr="8133">600</val>
+	<val addr="7059">600</val>
+	<val addr="7061">600</val>
+	<val addr="7063">600</val>
+	<val addr="7201">600</val>
+	<val addr="7237">600</val>
+	<val addr="7457">600</val>
+	<val addr="7343">600</val>
+	<val addr="7047">600</val>
+	<val addr="7049">600</val>
+	<val addr="7239">600</val>
+</regValuesToWrite>
+<registers>
+	<register control="text" desc="LRP up position [inch]" key="48129">
+	<rpc mask="##.###" writable="no" address="8129" type="4355" m="1000" c="0" fmt="3" altControlID="48129" />
+	</register>
+	<register control="text" desc="LRP down position [inch]" key="48131">
+	<rpc mask="##.###" writable="yes" address="8131" type="4355" m="1000" c="0" fmt="3" altControlID="48131" />
+	</register>
+	<register control="text" desc="LRP snug auto initiate [inch]" key="48133">
+	<rpc mask="#####" writable="yes" address="8133" type="4355" m="1" c="0" fmt="0" altControlID="48133" />
+	</register>
+	<register control="text" desc="Unit rtd torque (1000 in lbs)" key="47059">
+	<rpc mask="###" writable="yes" address="7059" type="4355" m="1" c="0" fmt="0" altControlID="47059" />
+	</register>
+	<register control="text" desc="Unit rtd rod load (100 lbs)" key="47061">
+	<rpc mask="###" writable="yes" address="7061" type="4355" m="1" c="0" fmt="0" altControlID="47061" />
+	</register>
+	<register control="text" desc="Unit rtd stroke (in)" key="47063">
+	<rpc mask="###" writable="yes" address="7063" type="4355" m="1" c="0" fmt="0" altControlID="47063" />
+	</register>
+	<register control="text" desc="Dynacard load offset [?]" key="47201">
+	<rpc mask="###" writable="yes" address="7201" type="4355" m="1" c="0" fmt="0" altControlID="47201" />
+	</register>
+	<register control="text" desc="Dynacard tilt offset [?]" key="47237">
+	<rpc mask="###" writable="yes" address="7237" type="4355" m="1" c="0" fmt="0" altControlID="47237" />
+	</register>
+	<register control="text" desc="Downhole tilt offset (lb)" key="47457">
+	<rpc mask="###" writable="yes" address="7457" type="4355" m="1" c="0" fmt="0" altControlID="47457" />
+	</register>
+	<register control="select" desc="Well ID" key="47343">
+	<rpc mask="###" writable="yes" address="7343" type="4355" m="10" c="0" fmt="0" altControlID="47343" />
+	</register>
+	<register control="select" desc="Well ID State Value" key="47215">
+	<rpc mask="###" writable="no" address="7215" type="4355" m="1" c="0" fmt="0" altControlID="47215" />
+	</register>
+	<register control="text" desc="Running status" key="47045">
+	<rpc mask="#####" writable="no" address="7045" type="4355" m="1" c="0" fmt="0" altControlID="47045" />
+	</register>
+	<register control="select" desc="Remote run enable" key="47047">
+	<rpc mask="#####" writable="yes" address="7047" type="4355" m="1" c="0" fmt="1" altControlID="47047" />
+	</register>
+	<register control="select" desc="Remote fault reset" key="47049">
+	<rpc mask="#####" writable="yes" address="7049" type="4355" m="1" c="0" fmt="1" altControlID="47049" />
+	</register>
+	<register control="text" desc="S rod stroke [?]" key="47095">
+	<rpc mask="###.###" writable="no" address="7095" type="4355" m="1" c="0" fmt="3" altControlID="47095" />
+	</register>
+	<register control="text" desc="Rod Friction (lb)" key="47239">
+	<rpc mask="#.###" writable="yes" address="7239" type="4355" m="1" c="0" fmt="0" altControlID="47239" />
+	</register>
+	<register control="text" desc="API Balance Counterweight" key="47213">
+	<rpc mask="#.###" writable="no" address="7213" type="4355" m="1" c="0" fmt="0" altControlID="47213" />
+	</register>
+</registers></RTUReadWriteReqDef>

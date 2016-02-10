@@ -1,0 +1,726 @@
+
+int dbgcs;  dbgcs = 1;
+int rdbgcs; rdbgcs = 1;
+
+char gdelim[8]; gdelim = "\t";
+
+int function makemeavue( char* query )
+{
+	int vuehnd;
+	vuehnd = vueaction( "CREATE", query );
+	vueaction( "EVALUATE", vuehnd );
+	vueaction( "GOTOTOP" , vuehnd );
+	return vuehnd;
+}
+
+int function bettersaveastextfile ( int* th , char* filename , char* delimiter )
+{
+	char ctype [8];
+	char cname [128];
+	int ii;
+	int rc;
+	int origfltpre;
+	int origdblpre;
+	char actdelim [16];
+	
+	if ( delimiter == "" )
+	{
+		actdelim = ",";
+	}
+	else
+	{
+		actdelim = delimiter;
+	}
+	
+	for ( ii = 0; ii < tableaction ( "NUMCOLUMNS" , th ); ii = ii + 1; )
+	{
+		rc = tableaction ( "COLUMNNAME" , th , ii , cname );
+		ctype = tableaction ( "COLUMNTYPE" , th , ii );
+		ctype[1] = "\0";
+		cname = cname ++ ctype;
+		rc = tableaction ( "DEFINECOLUMN" , th, ii, cname , ctype );
+	}
+	//Save current precision info.
+	origfltpre = get_default_precision ( "real" );
+	origdblpre = get_default_precision ( "double" );
+	//Turn precision up to eleven.
+	set_default_precision ( "real" , 7 );
+	set_default_precision ( "double" , 14 );
+	//Write table.
+	rc = tableaction ( "SAVEASTEXTFILE" , th , filename , tableaction ( "NUMCOLUMNS" , th ) , actdelim );
+	//Restore original precision values.
+	set_default_precision ( "real" , origfltpre );
+	set_default_precision ( "double" , origdblpre );
+	return rc;
+}
+
+int function bettercreatefromtextfile ( char* filename , char* delimiter )
+{
+	int th;
+	char cname [128];
+	char ctype [8];
+	int rc;
+	int ii;
+	int lh;
+	int idx;
+	int ccount;
+	char actdelim [16];
+	print "in bettercreatefromtextfile\n";
+	if ( delimiter == "" )
+	{
+		actdelim = ",";
+	}
+	else
+	{
+		actdelim = delimiter;
+	}
+	
+	th = tableaction ( "CREATEFROMTEXTFILE" , filename, 32 , actdelim );
+	
+	if ( th < 1 )
+	{
+		print "Failure to create table from text file in function 'bettercreatefromtextfile'!\n";
+	}
+	else
+	{
+		lh = listaction ( "CREATEFROMROW" , th , 0 );
+		ccount = listaction ( "COUNT" , lh );
+		tableaction ( "DELETE" , th );
+		th = tableaction ( "CREATEFROMTEXTFILE" , filename, ccount , actdelim );
+		if ( th < 1 )
+		{
+			print "Failure to create table from text file in function 'bettercreatefromtextfile'!\n";
+			listaction ( "DELETE" , lh );
+			return 0;
+		}
+		tableaction ( "DELETEROW" , th , 0 );
+		if ( rdbgcs ) print "table columns = " , tableaction ( "NUMCOLUMNS" , th ) , ".\n";
+		
+		for ( ii = 0; ii < listaction ( "COUNT" , lh ); ii = ii + 1; )
+		{
+			cname = listaction ( "GET" , lh , ii );
+			idx = stringaction ( "LENGTH" , cname) - 1;
+			ctype = cname [ idx ];
+			ctype[1] = "\0";
+			cname [ idx ] = "\0";
+			if ( rdbgcs ) print "cname = '" , cname , "' ctype = '" , ctype , "'.\n";
+			tableaction ( "DEFINECOLUMN" , th , ii , cname , ctype );
+		}
+		listaction ( "DELETE" , lh );
+	}
+	
+	return th;
+}
+
+
+
+int function getrtutypptr ( char* rtutyp )
+{
+	int vh;
+	int rval;
+	vh = makemeavue ( "FILE RTUTYP; SEL . RTUTYP; WHERE RTUTYP = \"" ++ rtutyp ++ "\";" );
+	if ( vueaction ( "GETNUMRECORDS" , vh ) != 1 )
+	{
+		rval = -1;
+	}
+	else
+	{
+		vueaction ( "NEXTROW" , vh );
+		rval = vueaction ( "GETFIELD" , vh , "." );
+	}
+	vueaction ( "DELETE" , vh );
+	return rval;
+}
+
+int function getrturec ( char* rtudesc )
+{
+	int vh;
+	int rval;
+	vh = makemeavue ( "FILE RTUDES; SEL . DESC; WHERE DESC = \"" ++ rtudesc ++ "\" AND DEFINE != 0;" );
+	if ( vueaction ( "GETNUMRECORDS" , vh ) != 1 )
+	{
+		rval = -1;
+	}
+	else
+	{
+		vueaction ( "NEXTROW" , vh );
+		rval = vueaction ( "GETFIELD" , vh , "." );
+	}
+	vueaction ( "DELETE" , vh );
+	if ( rdbgcs ) print "RTU '" , rtudesc , "' has record number " , rval , ".\n";
+	return rval;
+}
+
+int function mkrtu ( char* rtudesc , int pchannel , int hw_rtu , char* rtutyp , char* altaddr )
+{
+	int rtutypptr;
+	int rtudot;
+	char status [ 128 ]; status = "                                                                                                                               ";
+	int rcode;
+	int rc;
+	
+	rtutypptr = getrtutypptr ( rtutyp );
+	if ( rtutypptr < 0 )
+	{
+		print "Could not find RTU type: '" , rtutyp , "', aborting.\n";
+		return 0;
+	}
+	
+	rc = scriptaction( "REMOTESCRIPT" , "MONITORPROC" , "define_rtu" , -1 , rtudesc , pchannel, hw_rtu , 
+											rtutypptr , altaddr , 0 , rtudot , status , rcode );
+	
+	if ((rc < 1) || (rcode < 1)) {
+		print "ERROR executing define_rtu.\n";
+		print "Status: '",status, "'\n rcode: ", rcode, "\n";
+		return 0;
+	}
+	print "New RTU '",rtudesc,"', RTUDOT: ",rtudot, ", status: '" , status , "'.\n";
+	
+	return 1;
+}
+
+
+//define_analog
+
+int function mkanl ( char *rtudesc , char* description , int virtual , char* funcname , int processing_order , char *point_type_c , 
+											char *field_address_c , char *point_num_c , char *address4_c , int configFlag )
+{
+	int anlg_record;
+	char status [ 128 ]; status = "                                                                                                                               ";
+	int rcode;
+	int rtu_record;
+	int rc;
+	
+	rtu_record = getrturec ( rtudesc );
+	if ( rtu_record <= 0 )
+	{
+		print "Could not find RTU '" , rtudesc , "', aborting.\n";
+		return -1;
+	}
+	
+	rc = scriptaction( "REMOTESCRIPT" , "MONITORPROC" , "define_analog" , rtu_record , -1 /* template_number */ , description , virtual , 
+											funcname , processing_order , point_type_c , field_address_c , point_num_c , address4_c , configFlag , anlg_record , 
+											status , rcode );
+	
+	if ( rc < 1 || rcode < 1 )
+	{
+		print "ERROR executing define_analog.\n";
+		print "Status: '" , status , "'\n rcode: ", rcode , "\n";
+		return -1;
+	}
+	print "Status = '" , status , "' rcode = " , rcode , " analog rec# " , anlg_record , ".\n";
+	
+	return anlg_record;
+}
+
+
+int function mkdis ( char *rtudesc , char* description , int virtual , char* funcname , int processing_order , char *point_type_c , 
+											char *field_address_c , char *point_num_c , char *address4_c , int configFlag )
+{
+	int disc_record;
+	char status [ 128 ]; status = "                                                                                                                               ";
+	int rcode;
+	int rtu_record;
+	int rc;
+	
+	rtu_record = getrturec ( rtudesc );
+	if ( rtu_record <= 0 )
+	{
+		print "Could not find RTU '" , rtudesc , "', aborting.\n";
+		return -1;
+	}
+	
+	rc = scriptaction( "REMOTESCRIPT" , "MONITORPROC" , "define_discrete" , rtu_record , -1 /* template_number */ , description , virtual , 
+											funcname , processing_order , point_type_c , field_address_c , point_num_c , address4_c , configFlag , disc_record , 
+											status , rcode );
+
+	if ( rc < 1 || rcode < 1 )
+	{
+		print "ERROR executing define_discrete.\n";
+		print "Status: '" , status , "'\n rcode: ", rcode , "\n";
+		return -1;
+	}
+	print "Status = '" , status , "' rcode = " , rcode , " analog rec# " , disc_record , ".\n";
+	
+	return disc_record;
+}
+
+
+int function exportanalogs ( char* rtudesc , char* filename )
+{
+	int vh;
+	int th;
+	int rtudot;
+	int ii;
+	int rval; rval = 1;
+	real rtemp;
+	double dtemp;
+	int cnum;
+	int andot;
+	char charval [64];
+	
+	vh = makemeavue ( "FILE RTUDES; SEL . DESC MFRNAM; WHERE DEFINE != 0 AND DESC = \"" ++ rtudesc ++ "\";" );
+	
+	
+	if ( vueaction ( "GETNUMRECORDS" , vh ) != 1 )
+	{
+		print "Error number of records (" , vueaction ( "GETNUMRECORDS" , vh ) , ") != 1, searching for RTU '" , rtudesc , "', aborting.\n";
+		rval = -1;
+		vueaction ( "DELETE" , vh );
+	}
+	else
+	{
+		vueaction ( "NEXTROW" , vh );
+		rtudot = vueaction ( "GETFIELD" , vh , "." );
+		vueaction ( "DELETE" , vh );
+		vh = makemeavue ( "FILE ANLOGA; SEL . DESC TYPE EUDESC SLOPE OFFSET VIRTUAL FUNCTION PORDER POINT_TYP FIELD_ADR POINT_NUM POINT_AD4; SCOPE '|RTUDES:RTU_ANL:" ++ rtudot ++ "|'; SORT DESC;" );
+		if ( vueaction ( "GETNUMRECORDS" , vh ) > 0 )
+		{
+			th = tableaction ( "CREATEFROMVUE" , vh );
+			tableaction ( "INSERTCOLUMN" , th , 0 );
+			tableaction ( "DEFINECOLUMN" , th , 0 , "RTUDESC" , "c" );
+			for ( ii = 0; ii < tableaction ( "NUMROWS" , th ); ii = ii + 1; )
+			{
+				tableaction ( "PUT" , th , ii , "RTUDESC" , rtudesc );
+				cnum = tableaction ( "COLUMNNUMBER" , th , "." );
+				andot = $th[ ii , cnum ] ;
+			}
+			rval = bettersaveastextfile ( th , filename , gdelim );
+			if ( rval < 1 )
+			{
+				print "Error saving to file: '" , filename , "'.\n";
+			}
+			else
+			{
+				print "Successfully exported " , tableaction ( "NUMROWS" , th ) , " analog(s) from RTU '" , rtudesc , "'.\n";
+			}
+		}
+	}
+	return rval;
+}
+
+int function exportanalogs_comp ( char* rtudesc , char* filename )
+{
+	int vh;
+	int th;
+	int rtudot;
+	int ii;
+	int rval; rval = 1;
+	double dtemp;
+	int cnum;
+	int andot;
+	
+	vh = makemeavue ( "FILE RTUDES; SEL . DESC MFRNAM; WHERE DEFINE != 0 AND DESC = \"" ++ rtudesc ++ "\";" );
+	
+	if ( vueaction ( "GETNUMRECORDS" , vh ) != 1 )
+	{
+		print "Error number of records (" , vueaction ( "GETNUMRECORDS" , vh ) , ") != 1, aborting.\n";
+		rval = -1;
+		vueaction ( "DELETE" , vh );
+	}
+	else
+	{
+		vueaction ( "NEXTROW" , vh );
+		rtudot = vueaction ( "GETFIELD" , vh , "." );
+		vueaction ( "DELETE" , vh );
+		vh = makemeavue ( "FILE ANLOGA; SEL . DESC TYPE EUDESC SLOPE OFFSET VIRTUAL FUNCTION PORDER POINT_TYP FIELD_ADR POINT_NUM POINT_AD4; SCOPE '|RTUDES:RTU_ANL:" ++ rtudot ++ "|'; SORT DESC; WHERE ACTIVE != 0;" );
+		if ( vueaction ( "GETNUMRECORDS" , vh ) > 0 )
+		{
+			th = tableaction ( "CREATEFROMVUE" , vh );
+			tableaction ( "INSERTCOLUMN" , th , 0 );
+			tableaction ( "DEFINECOLUMN" , th , 0 , "RTUDESC" , "c" );
+			for ( ii = 0; ii < tableaction ( "NUMROWS" , th ); ii = ii + 1; )
+			{
+				tableaction ( "PUT" , th , ii , "RTUDESC" , rtudesc );
+				andot = $th[ ii , "."];
+				cnum = tableaction ( "COLUMNNUMBER" , th , "SLOPE" );
+				if ( cnum >= 0 && andot > 0 )
+				{
+					dtemp = | "ANLOGA" : "SLOPE" : andot |;
+					$th[ ii , "SLOPE" ] = dtemp;
+				}
+				cnum = tableaction ( "COLUMNNUMBER" , th , "OFFSET" );
+				if ( cnum >= 0 && andot > 0 )
+				{
+					$th[ ii , "OFFSET" ] = | "ANLOGA" : "OFFSET" : andot |;
+				}
+			}
+			rval = tableaction ( "COMPRESSTOFILE" , th , filename );
+			if ( rval < 1 )
+			{
+				print "Error saving to file: '" , filename , "'.\n";
+			}
+		}
+	}
+	return rval;
+}
+
+
+int function exportdiscretes ( char* rtudesc , char* filename )
+{
+	int vh;
+	int th;
+	int rtudot;
+	int ii;
+	int rval; rval = 1;
+	real rtemp;
+	double dtemp;
+	int cnum;
+	int andot;
+	char charval [64];
+	
+	vh = makemeavue ( "FILE RTUDES; SEL . DESC MFRNAM; WHERE DEFINE != 0 AND DESC = \"" ++ rtudesc ++ "\";" );
+	
+	
+	if ( vueaction ( "GETNUMRECORDS" , vh ) != 1 )
+	{
+		print "Error number of records (" , vueaction ( "GETNUMRECORDS" , vh ) , ") != 1, searching for RTU '" , rtudesc , "', aborting.\n";
+		rval = -1;
+		vueaction ( "DELETE" , vh );
+	}
+	else
+	{
+		vueaction ( "NEXTROW" , vh );
+		rtudot = vueaction ( "GETFIELD" , vh , "." );
+		vueaction ( "DELETE" , vh );
+		vh = makemeavue ( "FILE DDESCA; SEL . DESC TYPE VIRTUAL FUNCTION PORDER POINT_TYP FIELD_ADR POINT_NUM POINT_AD4; SCOPE '|RTUDES:RTU_DIS:" ++ rtudot ++ "|'; SORT DESC;" );
+		if ( vueaction ( "GETNUMRECORDS" , vh ) > 0 )
+		{
+			th = tableaction ( "CREATEFROMVUE" , vh );
+			tableaction ( "INSERTCOLUMN" , th , 0 );
+			tableaction ( "DEFINECOLUMN" , th , 0 , "RTUDESC" , "c" );
+			for ( ii = 0; ii < tableaction ( "NUMROWS" , th ); ii = ii + 1; )
+			{
+				tableaction ( "PUT" , th , ii , "RTUDESC" , rtudesc );
+				cnum = tableaction ( "COLUMNNUMBER" , th , "." );
+				andot = $th[ ii , cnum ] ;
+			}
+			rval = bettersaveastextfile ( th , filename , gdelim );
+			if ( rval < 1 )
+			{
+				print "Error saving to file: '" , filename , "'.\n";
+			}
+			else
+			{
+				print "Successfully exported " , tableaction ( "NUMROWS" , th ) , " discrete(s) from RTU '" , rtudesc , "'.\n";
+			}
+		}
+	}
+	return rval;
+}
+
+
+int function testcompfile ( char* filename )
+{
+	int th;
+	int rc;
+	
+	th = tableaction ( "CREATEFROMCOMPRESSEDFILE" , filename );
+	if ( th < 1 )
+	{
+		print "Error loading from file: '" , filename , "', aborting.\n";
+		rc = 0;
+	}
+	else
+	{
+		tableaction ( "SHOW" , th );
+		tableaction ( "DELETE" , th );
+		rc = 1;
+	}
+	return rc;
+}
+
+int function importrtus ( char* filename )
+{
+	int th;
+	char rtudesc [32];
+	int pchannel;
+	int hw_rtu;
+	char rtutyp [32];
+	char altaddress [256];
+	int ii;
+	int rc;
+	
+	th = bettercreatefromtextfile ( filename , gdelim );
+	if ( th < 1 )
+	{
+		print "Failure to create table from file: " , filename , ".\n";
+		return 0;
+	}
+	
+	for ( ii = 0; ii < tableaction ( "NUMROWS" , th ); ii = ii + 1; )
+	{
+		rtudesc = $th[ ii , "DESC" ];
+		pchannel = $th[ ii , ">CHANNEL" ];
+		hw_rtu = $th[ ii , "HW_RTU" ];
+		rtutyp = $th[ ii , "RTUTYP" ];
+		altaddress = $th[ ii , "ALTADDRESS" ];
+		if ( rdbgcs ) print "DESC = '" , rtudesc , "', >CHANNEL = " , pchannel , ", HW_RTU = " , hw_rtu , ", RTUTYP = '" , rtutyp , "', ALTADDRESS = '" , altaddress , "'\n";
+		rc = mkrtu ( rtudesc , pchannel , hw_rtu , rtutyp , altaddress );
+	}
+	tableaction ( "DELETE" , th );
+	return rc;
+}
+
+int function importanalogs ( char* optrtudesc , char* filename )
+{
+// mkanl ( char *rtudesc , char* description , int virtual , char* funcname , int processing_order , char *point_type_c , char *field_address_c , char *point_num_c , char *address4_c , int configFlag )
+	int th;
+	int ii;
+	int anldot;
+	char rtudesc [32];
+	char description [32]; //validate length
+	int virtual;
+	char funcname [32]; //validate length
+	int processing_order;
+	char point_type_c [32]; //validate length
+	char field_address_c [32]; //validate length
+	char point_num_c [32]; //validate length
+	char address4_c[32]; //validate length"
+	char eudesc[32]; //validate length"
+	char type[32]; //validate length"
+	real slope;
+	real offset;
+	int isoptrtudesc; isoptrtudesc = 0;
+	
+	th = bettercreatefromtextfile ( filename , gdelim );
+	if ( th < 1 )
+	{
+		print "Failure creating a table from file '" , filename , "', aborting.\n";
+		return 0;
+	}
+	else
+	{
+		if ( optrtudesc != "" )
+		{
+			rtudesc = optrtudesc;
+			isoptrtudesc = 1;
+		}
+		if (rdbgcs) print "isoptrtudesc = " , isoptrtudesc , "\n";
+		int numrows;
+		numrows = tableaction ( "NUMROWS" , th );
+		int configFlag;
+		configFlag = 0;
+		for ( ii = 0; ii < numrows; ii = ii + 1; )
+		{
+			if ( isoptrtudesc == 0 )
+			{
+				rtudesc          = $th[ ii , "RTUDESC"   ];
+			}
+			description      = $th[ ii , "DESC"      ];
+			virtual          = $th[ ii , "VIRTUAL"   ];
+			funcname         = $th[ ii , "FUNCTION"  ];
+			processing_order = $th[ ii , "PORDER"    ];
+			point_type_c     = $th[ ii , "POINT_TYP" ];
+			field_address_c  = $th[ ii , "FIELD_ADR" ];
+			point_num_c      = $th[ ii , "POINT_NUM" ];
+			address4_c       = $th[ ii , "POINT_AD4" ];
+			
+			anldot = 0;
+			if ( rdbgcs ) print "RTUDESC = '" , rtudesc , "' , DESC = '" , description , "'\n";
+			// If this is the last analog set the config flag to 1 so that the scan list will be rebuilt.
+			if ( ii == ( numrows - 1 ) ) { configFlag = 1; }
+			anldot = mkanl ( rtudesc , description , virtual , funcname , processing_order , point_type_c , field_address_c , point_num_c , address4_c , configFlag );
+			
+			if ( anldot > 0 )
+			{
+				eudesc = $th[ ii , "EUDESC" ];
+				type   = $th[ ii , "TYPE"   ];
+				slope  = $th[ ii , "SLOPE"  ];
+				offset = $th[ ii , "OFFSET" ];
+				//Assign values to record.
+				| "ANLOGA" : "EUDESC" : anldot | = eudesc;
+				| "ANLOGA" : "TYPE"   : anldot | = type;
+				| "ANLOGA" : "SLOPE"  : anldot | = slope;
+				| "ANLOGA" : "OFFSET" : anldot | = offset;
+			}
+			else
+			{
+				print "Failure adding analog '" , description , "' to RTU '" , rtudesc , ".\n";
+			}
+			
+		}
+		
+		tableaction ( "DELETE" , th );
+	}
+	return 1;
+}
+
+
+int function importdiscretes ( char* optrtudesc , char* filename )
+{
+	int th;
+	int ii;
+	int disdot;
+	char rtudesc [32];
+	char description [32]; //validate length
+	int virtual;
+	char funcname [32]; //validate length
+	int processing_order;
+	char point_type_c [32]; //validate length
+	char field_address_c [32]; //validate length
+	char point_num_c [32]; //validate length
+	char address4_c[32]; //validate length"
+	char type[32]; //validate length"
+	int isoptrtudesc; isoptrtudesc = 0;
+	
+	th = bettercreatefromtextfile ( filename , gdelim );
+	if ( th < 1 )
+	{
+		print "Failure creating a table from file '" , filename , "', aborting.\n";
+		return 0;
+	}
+	else
+	{
+		if ( optrtudesc != "" )
+		{
+			rtudesc = optrtudesc;
+			isoptrtudesc = 1;
+		}
+		if (rdbgcs) print "isoptrtudesc = " , isoptrtudesc , "\n";
+		int numrows;
+		numrows = tableaction ( "NUMROWS" , th );
+		int configFlag;
+		configFlag = 0;
+		for ( ii = 0; ii < numrows; ii = ii + 1; )
+		{
+			if ( isoptrtudesc == 0 )
+			{
+				rtudesc          = $th[ ii , "RTUDESC"   ];
+			}
+			description      = $th[ ii , "DESC"      ];
+			virtual          = $th[ ii , "VIRTUAL"   ];
+			funcname         = $th[ ii , "FUNCTION"  ];
+			processing_order = $th[ ii , "PORDER"    ];
+			point_type_c     = $th[ ii , "POINT_TYP" ];
+			field_address_c  = $th[ ii , "FIELD_ADR" ];
+			point_num_c      = $th[ ii , "POINT_NUM" ];
+			address4_c       = $th[ ii , "POINT_AD4" ];
+			
+			disdot = 0;
+			if ( rdbgcs ) print "RTUDESC = '" , rtudesc , "' , DESC = '" , description , "'\n";
+			// If this is the last discrete set the config flag to 1 so that the scan list will be rebuilt.
+			if ( ii == ( numrows - 1 ) ) { configFlag = 1; }
+			disdot = mkdis ( rtudesc , description , virtual , funcname , processing_order , point_type_c , field_address_c , point_num_c , address4_c , configFlag );
+			
+			if ( disdot > 0 )
+			{
+				type   = $th[ ii , "TYPE"   ];
+				//Assign values to record.
+				| "DDESCA" : "TYPE"   : disdot | = type;
+			}
+			else
+			{
+				print "Failure adding discrete '" , description , "' to RTU '" , rtudesc , ".\n";
+			}
+			
+		}
+		
+		tableaction ( "DELETE" , th );
+	}
+	return 1;
+}
+
+
+int function importanalogsforrtutyp ( char* rtutyp , char* filename )
+{
+	int vh;
+	int ii;
+	char rtudesc [32];
+	int rc; rc = 1;
+	
+	vh = makemeavue ( "FILE RTUDES; SEL . DESC; WHERE DEFINE != 0 AND MFRNAM = \"" ++ rtutyp ++ "\";" );
+	if ( vh < 1 )
+	{
+		print "Error creating vue for MFRNAM: '" , rtutyp , "', aborting.\n";
+		return 0;
+	}
+	for ( ii = vueaction ( "NEXTROW" , vh ); ii >= 0; ii = vueaction ( "NEXTROW" , vh ); )
+	{
+		rtudesc = vueaction ( "GETFIELD" , vh , "DESC" );
+		rc = importanalogs ( rtudesc , filename );
+	}
+	
+	vueaction ( "DELETE" , vh );
+	return rc;
+}
+
+
+int function deleteAnalog( char *rtuDesc , char *analogDesc )
+{
+	int ii, vh, vh2, rc, rcode, rtuDot, anlogaDot;
+	char status [ 128 ]; status = "                                                                                                                               ";
+	
+	vh = makemeavue( "FILE RTUDES; SEL . DESC; WHERE DEFINE != 0 AND DESC = \"" ++ rtuDesc ++ "\";" );
+	
+	if ( vueaction( "GETNUMRECORDS" , vh ) == 1 )
+	{
+		vueaction( "NEXTROW" , vh );
+		rtuDot = vueaction( "GETFIELD" , vh , "." );
+		
+		vh2 = makemeavue( "FILE ANLOGA; SEL . DESC;SCOPE |RTUDES:RTU_ANL:" ++ rtuDot ++ "|; WHERE DEFINE != 0 AND DESC = \"" ++ analogDesc ++ "\";" );
+		if ( vueaction( "GETNUMRECORDS" , vh2 ) == 1 )
+		{
+			vueaction( "NEXTROW" , vh2 );
+			anlogaDot = vueaction( "GETFIELD" , vh2 , "." );
+			rc = scriptaction( "REMOTESCRIPT" , "MONITORPROC" , "delete_analog" , rtuDot , 1 /* config_flag */ , anlogaDot , status , rcode , "MCSSCRIP" );
+			print "rc = " , rc , ", rcode = " , rcode , ", status = \"" , status , "\".\n";
+		}
+		else
+		{
+			printe "Did not find one analog on RTU with description \"" , analogDesc , "\".\n";
+		}
+		vueaction( "DELETE" , vh2 );
+	}
+	else
+	{
+		printe "Did not find one RTU with description \"" , rtuDesc , "\".\n";
+	}
+	vueaction( "DELETE" , vh );
+	
+	return 1;
+}
+
+
+int function deleteDiscrete( char *rtuDesc , char *discreteDesc )
+{
+	int ii, vh, vh2, rc, rcode, rtuDot, ddescaDot;
+	char status [ 128 ]; status = "                                                                                                                               ";
+	
+	vh = makemeavue( "FILE RTUDES; SEL . DESC; WHERE DEFINE != 0 AND DESC = \"" ++ rtuDesc ++ "\";" );
+	
+	if ( vueaction( "GETNUMRECORDS" , vh ) == 1 )
+	{
+		vueaction( "NEXTROW" , vh );
+		rtuDot = vueaction( "GETFIELD" , vh , "." );
+		
+		vh2 = makemeavue( "FILE DDESCA; SEL . DESC;SCOPE |RTUDES:RTU_DIS:" ++ rtuDot ++ "|; WHERE DEFINE != 0 AND DESC = \"" ++ discreteDesc ++ "\";" );
+		if ( vueaction( "GETNUMRECORDS" , vh2 ) == 1 )
+		{
+			vueaction( "NEXTROW" , vh2 );
+			ddescaDot = vueaction( "GETFIELD" , vh2 , "." );
+			rc = scriptaction( "REMOTESCRIPT" , "MONITORPROC" , "delete_discrete" , rtuDot , 1 /* config_flag */ , ddescaDot , status , rcode , "MCSSCRIP" );
+			print "rc = " , rc , ", rcode = " , rcode , ", status = \"" , status , "\".\n";
+		}
+		else
+		{
+			printe "Did not find one discrete on RTU with description \"" , discreteDesc , "\".\n";
+		}
+		vueaction( "DELETE" , vh2 );
+	}
+	else
+	{
+		printe "Did not find one RTU with description \"" , rtuDesc , "\".\n";
+	}
+	vueaction( "DELETE" , vh );
+	
+	return 1;
+}
+
+
+int function checksyntax ()
+{
+	print "checksyntax\n";
+	return 1;
+}
+

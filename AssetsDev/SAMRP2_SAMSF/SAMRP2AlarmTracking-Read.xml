@@ -1,0 +1,74 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNISRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+	<block addr="1203" count="16" protocoldatatype="3" />
+</regBlocks>
+
+<regValuesToWrite>
+	<val addr="1203">600</val>
+	<val addr="1204">600</val>
+	<val addr="1205">600</val>
+	<val addr="1206">600</val>
+	<val addr="1207">600</val>
+	<val addr="1208">600</val>
+	<val addr="1209">600</val>
+	<val addr="1210">600</val>
+	<val addr="1211">600</val>
+	<val addr="1212">600</val>
+	<val addr="1213">600</val>
+	<val addr="1214">600</val>
+	<val addr="1215">600</val>
+	<val addr="1216">600</val>
+	<val addr="1217">600</val>
+	<val addr="1218">600</val>
+</regValuesToWrite>
+<registers>
+	<register control="text" desc="Alarm Track '1'" key="1203">
+	<rpc mask="###" writable="yes" address="1203" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Alarm Track '2'" key="1204">
+	<rpc mask="###" writable="yes" address="1204" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Alarm Track '3'" key="1205">
+	<rpc mask="###" writable="yes" address="1205" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Alarm Track '4'" key="1206">
+	<rpc mask="###" writable="yes" address="1206" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Alarm Track '5'" key="1207">
+	<rpc mask="###" writable="yes" address="1207" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Alarm Track '6'" key="1208">
+	<rpc mask="###" writable="yes" address="1208" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Alarm Track '7'" key="1209">
+	<rpc mask="###" writable="yes" address="1209" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Alarm Track '8'" key="1210">
+	<rpc mask="###" writable="yes" address="1210" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Alarm Track '9'" key="1211">
+	<rpc mask="###" writable="yes" address="1211" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Alarm Track '10'" key="1212">
+	<rpc mask="###" writable="yes" address="1212" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Alarm Track '11'" key="1213">
+	<rpc mask="###" writable="yes" address="1213" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Alarm Track '12'" key="1214">
+	<rpc mask="###" writable="yes" address="1214" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Alarm Track '13'" key="1215">
+	<rpc mask="###" writable="yes" address="1215" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Alarm Track '14'" key="1216">
+	<rpc mask="###" writable="yes" address="1216" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Alarm Track '15'" key="1217">
+	<rpc mask="###" writable="yes" address="1217" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Alarm Track '16'" key="1218">
+	<rpc mask="###" writable="yes" address="1218" type="3" m="1" c="0" fmt="str" />
+	</register>
+</registers></RTUReadWriteReqDef>

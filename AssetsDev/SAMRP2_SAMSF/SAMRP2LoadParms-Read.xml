@@ -1,0 +1,55 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNISRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+	<block addr="2226" count="2" protocoldatatype="3" />
+	<block addr="2233" count="1" protocoldatatype="3" />
+	<block addr="2349" count="1" protocoldatatype="3" />
+	<block addr="2567" count="3" protocoldatatype="4" />
+	<block addr="2613" count="1" protocoldatatype="4" />
+	<block addr="2238" count="1" protocoldatatype="3" />
+	<block addr="2508" count="1" protocoldatatype="4" />
+</regBlocks>
+
+<regValuesToWrite>
+	<val addr="2226">600</val>
+	<val addr="2228">600</val>
+	<val addr="2233">600</val>
+	<val addr="2349">600</val>
+	<val addr="2613">600</val>
+	<val addr="2238">600</val>
+</regValuesToWrite>
+<registers>
+	<register control="text" desc="Peak Load Limit (lbs.)" key="2226">
+	<rpc mask="###" writable="yes" address="2226" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Minumum Load Limit (lbs.)" key="2228">
+	<rpc mask="###" writable="yes" address="2228" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Peak Torque Limit" key="2233">
+	<rpc mask="###" writable="yes" address="2233" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Peak Allowed Polished Rod HP" key="2349">
+	<rpc mask="###.#" writable="yes" address="2349" type="3" m="10" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="Peak Load Since Commission (lbs.)" key="2567">
+	<rpc mask="###" writable="no" address="2567" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Last Stroke Peak Load (lbs.)" key="2569">
+	<rpc mask="###" writable="no" address="2569" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Minimum Load Since Commissioning (lbs.)" key="2570">
+	<rpc mask="###" writable="no" address="2570" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Last Stroke Minimum Load (lbs.)" key="2572">
+	<rpc mask="###" writable="no" address="2572" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Fluid Load (lbs.)" key="2613">
+	<rpc mask="###" writable="yes" address="2613" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Reference Fluid Load (lbs.)" key="2238">
+	<rpc mask="###" writable="yes" address="2238" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Normal Peak Load (lbs.)" key="">
+	<rpc mask="###" writable="no" address="2508" type="4" m="1" c="0" fmt="str" />
+	</register>
+</registers></RTUReadWriteReqDef>

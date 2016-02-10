@@ -1,0 +1,51 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol="BAKER" description="Test File" />
+	<regBlocks>
+		<block addr="78" count="1" protocoldatatype="4" />
+		<block addr="84" count="1" protocoldatatype="4" />
+		<block addr="80" count="1" protocoldatatype="4" />
+		<block addr="86" count="1" protocoldatatype="4" />
+		<block addr="83" count="1" protocoldatatype="4" />
+		<block addr="79" count="1" protocoldatatype="4" />
+		<block addr="85" count="1" protocoldatatype="4" />
+		<block addr="87" count="5" protocoldatatype="4" />
+	</regBlocks>
+	<registers>
+		<register control="text" desc="Current Value From Load Cell (lbs.)" key="78">
+			<rpc mask="###" writable="no" address="78" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Maximum Load Over Last Pump Cycle (lbs.)" key="84">
+			<rpc mask="###" writable="no" address="84" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Maximum Load Over Last Stroke (lbs.)" key="80">
+			<rpc mask="###" writable="no" address="80" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Maximum Load From Last Power-up (lbs.)" key="86">
+			<rpc mask="###" writable="no" address="86" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Minimum Load Last Pump Cycle (lbs.)" key="83">
+			<rpc mask="###" writable="no" address="83" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Minimum Load Over Last Stroke (lbs.)" key="79">
+			<rpc mask="###" writable="no" address="79" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Minimum Load Since Last Power-up (lbs.)" key="85">
+			<rpc mask="###" writable="no" address="85" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Load Span Over Last Stroke (lbs.)" key="87">
+			<rpc mask="###" writable="no" address="87" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Lowest Load Span Since Power-up (lbs.)" key="88">
+			<rpc mask="###" writable="no" address="88" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Average Load Over Last Stroke (lbs.)" key="89">
+			<rpc mask="###" writable="no" address="89" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Lowest Average Load Since Power-up (lbs.)" key="90">
+			<rpc mask="###" writable="no" address="90" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Highest Average Load Since Power-up (lbs.)" key="91">
+			<rpc mask="###" writable="no" address="91" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+	</registers>
+</RTUReadWriteReqDef>

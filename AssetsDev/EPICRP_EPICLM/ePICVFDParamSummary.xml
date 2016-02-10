@@ -1,0 +1,48 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol="BAKER" description="Test File" />
+	<regBlocks>
+		<block addr="1266" count="2" protocoldatatype="9" />
+		<block addr="1276" count="1" protocoldatatype="9" />
+		<block addr="1270" count="3" protocoldatatype="4" />
+		<block addr="1259" count="1" protocoldatatype="4" />
+		<block addr="1254" count="2" protocoldatatype="4" />
+		<block addr="1803" count="1" protocoldatatype="4" />
+	</regBlocks>
+	<regValuesToWrite>
+		<val addr="1254">test</val>
+		<val addr="1255">test</val>
+		<val addr="1803">0</val>
+	</regValuesToWrite>
+	<registers>
+		<register control="text" desc="VSD Run Mode" key="1266">
+			<rpc mask="###" writable="no" address="1266" type="Dspl" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Average Pump Fill Position (%)" key="1267">
+			<rpc mask="###" writable="no" address="1267" type="Dspl" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Current Pump Fill Position (%)" key="1276">
+			<rpc mask="###" writable="no" address="1276" type="Dspl" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Measured SPM" key="1270">
+			<rpc mask="###" writable="no" address="1270" type="word" m="100" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Current Minimum SPM" key="1271">
+			<rpc mask="###" writable="no" address="1271" type="word" m="100" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Current Maximum SPM" key="1272">
+			<rpc mask="###" writable="no" address="1272" type="word" m="100" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Control Output (%)" key="1259">
+			<rpc mask="###" writable="no" address="1259" type="word" m="100" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Minimum Control Output (%)" key="1254">
+			<rpc mask="###" writable="yes" address="1254" type="word" m="100" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Maximum Control Output (%)" key="1255">
+			<rpc mask="###" writable="yes" address="1255" type="word" m="100" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Maximum Current (Amps)" key="1803">
+			<rpc mask="###" writable="yes" address="1803" type="Word" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+	</registers>
+</RTUReadWriteReqDef>

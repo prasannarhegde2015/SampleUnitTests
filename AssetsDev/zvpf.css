@@ -1,0 +1,62 @@
+
+int function makemeavue( char* query )
+{
+	int vuehnd;
+	vuehnd = vueaction("CREATE", query);
+	vueaction("EVALUATE", vuehnd);
+	vueaction("GOTOTOP", vuehnd);
+	return vuehnd;
+}
+
+int function zeroVerifyParametersFields( int wellNumber )
+{
+	int vh, ii;
+	char dbField[ 128 ];
+	vh = makemeavue( "FILE VERIFYCL; SEL . DBFIELD; WHERE MFRNAM = \"" ++ | "SPOCCA" : "RTUTYP" : wellNumber | ++ "\" AND DEFINE != 0;" );
+	for ( ii = vueaction( "NEXTROW" , vh ); ii >= 0; ii = vueaction( "NEXTROW" , vh ); )
+	{
+		dbField = vueaction( "GETFIELD" , vh , "DBFIELD" );
+		stringaction( "TRIM" , dbField );
+		print "Zeroing out field \"" , dbField , ".\n";
+		| "SPOCCA" : dbField : wellNumber | = 0;
+	}
+	print "Cleared " , vueaction( "GETNUMRECORDS" , vh ) , " field(s) on well \"" , | "SPOCCA" : "DESC" : wellNumber | , ".\n";
+	vueaction( "DELETE" , vh );
+	return 1;
+}
+
+int function zeroVerifyParametersFieldsESP( int wellNumber )
+{
+	int vh, ii;
+	char dbField[ 128 ];
+	vh = makemeavue( "FILE VERIFYCL; SEL . DBFIELD; WHERE MFRNAM = \"" ++ | "SUBWLI" : "RTUTYP" : wellNumber | ++ "\" AND DEFINE != 0;" );
+	for ( ii = vueaction( "NEXTROW" , vh ); ii >= 0; ii = vueaction( "NEXTROW" , vh ); )
+	{
+		dbField = vueaction( "GETFIELD" , vh , "DBFIELD" );
+		stringaction( "TRIM" , dbField );
+		print "Zeroing out field \"" , dbField , ".\n";
+		| "SUBWLI" : dbField : wellNumber | = 0;
+	}
+	print "Cleared " , vueaction( "GETNUMRECORDS" , vh ) , " field(s) on well \"" , | "SUBWLI" : "DESC" : wellNumber | , ".\n";
+	vueaction( "DELETE" , vh );
+	return 1;
+}
+
+int function zeroVerifyParametersFieldsInjection( int wellNumber )
+{
+	int vh, ii;
+	char dbField[ 128 ];
+	vh = makemeavue( "FILE VERIFYCL; SEL . DBFIELD; WHERE MFRNAM = \"" ++ | "SWCWLI" : "RTUTYP" : wellNumber | ++ "\" AND DEFINE != 0;" );
+	for ( ii = vueaction( "NEXTROW" , vh ); ii >= 0; ii = vueaction( "NEXTROW" , vh ); )
+	{
+		dbField = vueaction( "GETFIELD" , vh , "DBFIELD" );
+		stringaction( "TRIM" , dbField );
+		print "Zeroing out field \"" , dbField , ".\n";
+		| "SWCWLI" : dbField : wellNumber | = 0;
+	}
+	print "Cleared " , vueaction( "GETNUMRECORDS" , vh ) , " field(s) on well \"" , | "SWCWLI" : "DESC" : wellNumber | , ".\n";
+	vueaction( "DELETE" , vh );
+	return 1;
+}
+
+

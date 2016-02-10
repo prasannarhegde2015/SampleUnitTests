@@ -1,0 +1,44 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNISRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+	<block addr="2151" count="1" protocoldatatype="3" />
+	<block addr="2170" count="1" protocoldatatype="3" />
+	<block addr="2174" count="6" protocoldatatype="3" />
+</regBlocks>
+
+<regValuesToWrite>
+	<val addr="2151">600</val>
+	<val addr="2170">600</val>
+	<val addr="2174">600</val>
+	<val addr="2175">600</val>
+	<val addr="2176">600</val>
+	<val addr="2177">600</val>
+	<val addr="2178">600</val>
+	<val addr="2179">600</val>
+</regValuesToWrite>
+<registers>
+	<register control="select" desc="Load Transducer Type" key="2151">
+	<rpc mask="###" writable="yes" address="2151" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="select" desc="Intrinsic Safety Barrier" key="2170">
+	<rpc mask="###" writable="yes" address="2170" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="select" desc="Position Transducer Type" key="2174">
+	<rpc mask="###" writable="yes" address="2174" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="select" desc="Position Lag Compensation" key="2175">
+	<rpc mask="###" writable="yes" address="2175" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Position Threshold Raw" key="2176">
+	<rpc mask="###" writable="yes" address="2176" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Stroke Length (ins.)" key="2177">
+	<rpc mask="###" writable="yes" address="2177" type="3" m="100" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Pump Depth (ft.)" key="2178">
+	<rpc mask="###" writable="yes" address="2178" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Generated Position Phase Synch" key="2179">
+	<rpc mask="###" writable="yes" address="2179" type="3" m="1" c="0" fmt="str" />
+	</register>
+</registers></RTUReadWriteReqDef>

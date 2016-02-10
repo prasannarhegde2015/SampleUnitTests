@@ -1,0 +1,62 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNISRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+	<block addr="7585" count="28" protocoldatatype="4355" />
+</regBlocks>
+
+<regValuesToWrite>
+	<val addr="7585">600</val>
+	<val addr="7587">600</val>
+	<val addr="7589">600</val>
+	<val addr="7591">600</val>
+	<val addr="7597">600</val>
+	<val addr="7599">600</val>
+	<val addr="7601">600</val>
+	<val addr="7603">600</val>
+	<val addr="7605">600</val>
+	<val addr="7611">600</val>
+</regValuesToWrite>
+<registers>
+	<register control="select" desc="Rod load span mask" key="47585">
+	<rpc mask="###" writable="yes" address="7585" type="4355" m="1" c="0" fmt="0" altControlID="47585" />
+	</register>
+	<register control="text" desc="Rod load span fault [?]" key="47587">
+	<rpc mask="###" writable="yes" address="7587" type="4355" m="1" c="0" fmt="0" altControlID="47587" />
+	</register>
+	<register control="text" desc="Rod load span start (strokes)" key="47589">
+	<rpc mask="###" writable="yes" address="7589" type="4355" m="1" c="0" fmt="0" altControlID="47589" />
+	</register>
+	<register control="text" desc="Rod load span strokes (strokes)" key="47591">
+	<rpc mask="###" writable="yes" address="7591" type="4355" m="1" c="0" fmt="0" altControlID="47591" />
+	</register>
+	<register control="text" desc="Rod load span state" key="47593">
+	<rpc mask="###" writable="no" address="7593" type="4355" m="1" c="0" fmt="0" altControlID="47593" />
+	</register>
+	<register control="text" desc="Rod load span violations" key="47595">
+	<rpc mask="###" writable="no" address="7595" type="4355" m="1" c="0" fmt="0" altControlID="47595" />
+	</register>
+	<register control="text" desc="Rod load span restart delay (mins)" key="47597">
+	<rpc mask="###" writable="yes" address="7597" type="4355" m="100" c="0" fmt="2" altControlID="47597" />
+	</register>
+	<register control="select" desc="Low pump load mask" key="47599">
+	<rpc mask="###" writable="yes" address="7599" type="4355" m="1" c="0" fmt="0" altControlID="47599" />
+	</register>
+	<register control="text" desc="Low pump load fault" key="47601">
+	<rpc mask="###" writable="yes" address="7601" type="4355" m="1" c="0" fmt="0" altControlID="47601" />
+	</register>
+	<register control="text" desc="Low pump load start (strokes)" key="47603">
+	<rpc mask="###" writable="yes" address="7603" type="4355" m="1" c="0" fmt="0" altControlID="47603" />
+	</register>
+	<register control="text" desc="Low pump load strokes (strokes)" key="47605">
+	<rpc mask="###" writable="yes" address="7605" type="4355" m="1" c="0" fmt="0" altControlID="47605" />
+	</register>
+	<register control="text" desc="Low pump load state" key="47607">
+	<rpc mask="###" writable="no" address="7607" type="4355" m="1" c="0" fmt="0" altControlID="47607" />
+	</register>
+	<register control="text" desc="Low pump load violations" key="47609">
+	<rpc mask="###" writable="no" address="7609" type="4355" m="1" c="0" fmt="0" altControlID="47609" />
+	</register>
+	<register control="text" desc="Low pump load restart delay (mins)" key="47611">
+	<rpc mask="###" writable="yes" address="7611" type="4355" m="100" c="0" fmt="2" altControlID="47611" />
+	</register>
+</registers></RTUReadWriteReqDef>

@@ -1,0 +1,184 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNISRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+	<block addr="2241" count="6" protocoldatatype="3" />
+	<block addr="2227" count="2" protocoldatatype="3" />
+	<block addr="2234" count="1" protocoldatatype="3" />
+	<block addr="2224" count="1" protocoldatatype="3" />
+	<block addr="2231" count="1" protocoldatatype="3" />
+	<block addr="2240" count="1" protocoldatatype="3" />
+	<block addr="2247" count="1" protocoldatatype="3" />
+	<block addr="2239" count="2" protocoldatatype="3" />
+	<block addr="2195" count="3" protocoldatatype="3" />
+	<block addr="2206" count="4" protocoldatatype="3" />
+	<block addr="2208" count="2" protocoldatatype="3" />
+	<block addr="2198" count="7" protocoldatatype="3" />
+	<block addr="2235" count="1" protocoldatatype="3" />
+	<block addr="2223" count="2" protocoldatatype="3" />
+	<block addr="2230" count="2" protocoldatatype="3" />
+	<block addr="2260" count="1" protocoldatatype="3" />
+	<block addr="2510" count="1" protocoldatatype="4" />
+	<block addr="2261" count="1" protocoldatatype="3" />
+	<block addr="2236" count="1" protocoldatatype="3" />
+</regBlocks>
+
+<regValuesToWrite>
+	<val addr="2241">600</val>
+	<val addr="2242">600</val>
+	<val addr="2243">600</val>
+	<val addr="2244">600</val>
+	<val addr="2245">600</val>
+	<val addr="2246">600</val>
+	<val addr="2227">600</val>
+	<val addr="2229">600</val>
+	<val addr="2234">600</val>
+	<val addr="2224">600</val>
+	<val addr="2231">600</val>
+	<val addr="2240">600</val>
+	<val addr="2247">600</val>
+	<val addr="2239">600</val>
+	<val addr="2237">600</val>
+	<val addr="2195">600</val>
+	<val addr="2196">600</val>
+	<val addr="2197">600</val>
+	<val addr="2206">600</val>
+	<val addr="2207">600</val>
+	<val addr="2205">600</val>
+	<val addr="2208">600</val>
+	<val addr="2209">600</val>
+	<val addr="2198">600</val>
+	<val addr="2199">600</val>
+	<val addr="2200">600</val>
+	<val addr="2201">600</val>
+	<val addr="2202">600</val>
+	<val addr="2203">600</val>
+	<val addr="2204">600</val>
+	<val addr="2235">600</val>
+	<val addr="2223">600</val>
+	<val addr="2225">600</val>
+	<val addr="2230">600</val>
+	<val addr="2232">600</val>
+	<val addr="2260">600</val>
+	<val addr="2510">600</val>
+	<val addr="2261">600</val>
+	<val addr="2236">600</val>
+</regValuesToWrite>
+<registers>
+	<register control="text" desc="Load Pumpoff Setpoint (lbs.)" key="2139">
+	<rpc mask="###" writable="yes" address="2241" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Position Pumpoff Setpoint (ins.)" key="2140">
+	<rpc mask="###" writable="yes" address="2242" type="3" m="100" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Consecutive Pumpoff Strokes Allowed (#)" key="2141">
+	<rpc mask="###" writable="yes" address="2243" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Load Malfunction Setpoint (lbs.)" key="2142">
+	<rpc mask="###" writable="yes" address="2244" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Position Malfunction Setpoint (ins.)" key="2143">
+	<rpc mask="###" writable="yes" address="2245" type="3" m="100" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Consecutive 'Malfunction Strokes' Allowed (#)" key="2144">
+	<rpc mask="###" writable="yes" address="2246" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Consecutive 'Peak Load' Allowed (#)" key="2125">
+	<rpc mask="###" writable="yes" address="2227" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Consecutive 'Minimum Load' Allowed (#)" key="2127">
+	<rpc mask="###" writable="yes" address="2229" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Consecutive 'Peak Torque' Allowed (#)" key="2132">
+	<rpc mask="###" writable="yes" address="2234" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Consecutive 'Low RPM' Allowed (#)" key="2122">
+	<rpc mask="###" writable="yes" address="2224" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Consecutive 'No RPM' Allowed (#)" key="2129">
+	<rpc mask="###" writable="yes" address="2231" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Consecutive 'No Crank' Allowed (#)" key="2138">
+	<rpc mask="###" writable="yes" address="2240" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Consecutive 'Malfunction Violations' Allowed (#)" key="2145">
+	<rpc mask="###" writable="yes" address="2247" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Consecutive 'Log. Expression' Allowed (#)" key="2137">
+	<rpc mask="###" writable="yes" address="2239" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Consecutive 'Low Power' Allowed (#)" key="2135">
+	<rpc mask="###" writable="yes" address="2237" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="select" desc="Control Mode" key="2101">
+	<rpc mask="###" writable="yes" address="2195" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="select" desc="Operation Mode" key="2102">
+	<rpc mask="###" writable="yes" address="2196" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="select" desc="Host Switch" key="2103">
+	<rpc mask="###" writable="yes" address="2197" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Downtime Hours" key="2112">
+	<rpc mask="###" writable="yes" address="2206" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Downtime Minutes" key="2113">
+	<rpc mask="###" writable="yes" address="2207" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="select" desc="Downtime Mode" key="2111">
+	<rpc mask="###" writable="yes" address="2205" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Auto Downtime Steps (#)" key="2114">
+	<rpc mask="###" writable="yes" address="2208" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Auto Downtime Ends (#)" key="2115">
+	<rpc mask="###" writable="yes" address="2209" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Timed Mode 'Hours On'" key="2104">
+	<rpc mask="###" writable="yes" address="2198" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Timed Mode 'Minutes On'" key="2105">
+	<rpc mask="###" writable="yes" address="2199" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Timed Mode 'Hours Off'" key="2106">
+	<rpc mask="###" writable="yes" address="2200" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Timed Mode 'Minutes Off'" key="2107">
+	<rpc mask="###" writable="yes" address="2201" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Power On Delay (sec.)" key="2108">
+	<rpc mask="###" writable="yes" address="2202" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Start Alert Time (sec.)" key="2109">
+	<rpc mask="###" writable="yes" address="2203" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Strokes in MinPump State (#)" key="2110">
+	<rpc mask="###" writable="yes" address="2204" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Peak Torque Start Delay" key="2133">
+	<rpc mask="###" writable="yes" address="2235" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Low RPM Limit" key="2121">
+	<rpc mask="###" writable="yes" address="2223" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Low RPM Start Delay" key="2123">
+	<rpc mask="###" writable="yes" address="2225" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="No RPM Limit" key="2128">
+	<rpc mask="###" writable="yes" address="2230" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="No RPM Start Delay" key="2130">
+	<rpc mask="###" writable="yes" address="2232" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Belt Slippage Reference (%)" key="2147">
+	<rpc mask="###" writable="yes" address="2260" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Current SPM" key="2155">
+	<rpc mask="###" writable="yes" address="2510" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Current Motor RPM" key="2196">
+	<rpc mask="###" writable="yes" address="2261" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Reference Revolutions (NREV)" key="2148">
+	<rpc mask="###" writable="yes" address="2236" type="3" m="1" c="0" fmt="str" />
+	</register>
+</registers></RTUReadWriteReqDef>

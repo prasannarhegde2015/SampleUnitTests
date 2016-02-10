@@ -1,0 +1,46 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNISRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+	<block addr="1426" count="8" protocoldatatype="3" />
+</regBlocks>
+
+<regValuesToWrite>
+	<val addr="1425">600</val>
+	<val addr="1426">600</val>
+	<val addr="1427">600</val>
+	<val addr="1428">600</val>
+	<val addr="1429">600</val>
+	<val addr="1430">600</val>
+	<val addr="1432">600</val>
+	<val addr="1433">600</val>
+	<val addr="1434">600</val>
+</regValuesToWrite>
+<registers>
+	<register control="text" desc="RTU Calendar Year [1997-2038]" key="1425">
+	<rpc mask="###" writable="yes" address="1425" type="3" m="1" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="RTU Calendar Month [1-12]" key="1426">
+	<rpc mask="###" writable="yes" address="1426" type="3" m="1" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="RTU Calendar Day [1-31]" key="1427">
+	<rpc mask="###" writable="yes" address="1427" type="3" m="1" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="RTU Clock Hour [0-23]" key="1428">
+	<rpc mask="###" writable="yes" address="1428" type="3" m="1" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="RTU Clock Minute [0-59]" key="1429">
+	<rpc mask="###" writable="yes" address="1429" type="3" m="1" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="RTU Clock Second [0-59]" key="1430">
+	<rpc mask="###" writable="yes" address="1430" type="3" m="1" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="Daylight savings time [1=on]" key="1432">
+	<rpc mask="###" writable="yes" address="1432" type="3" m="1" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="Gauge off time [0-23]" key="1433">
+	<rpc mask="###" writable="yes" address="1433" type="3" m="1" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="Gauge off time [0-59]" key="1434">
+	<rpc mask="###" writable="yes" address="1434" type="3" m="1" c="0" fmt="1" />
+	</register>
+</registers></RTUReadWriteReqDef>

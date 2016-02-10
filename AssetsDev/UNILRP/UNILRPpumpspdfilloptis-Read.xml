@@ -1,0 +1,160 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNISRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+	<block addr="7045" count="2" protocoldatatype="4355" />
+	<block addr="7013" count="4" protocoldatatype="4355" />
+	<block addr="7259" count="6" protocoldatatype="4355" />
+	<block addr="7275" count="8" protocoldatatype="4355" />
+	<block addr="7303" count="4" protocoldatatype="4355" />
+	<block addr="7097" count="4" protocoldatatype="4355" />
+	<block addr="7019" count="2" protocoldatatype="4355" />
+	<block addr="7249" count="2" protocoldatatype="4355" />
+	<block addr="7475" count="6" protocoldatatype="4355" />
+	<block addr="7125" count="2" protocoldatatype="4355" />
+	<block addr="7339" count="2" protocoldatatype="4355" />
+	<block addr="7273" count="2" protocoldatatype="4355" />
+	<block addr="7381" count="4" protocoldatatype="4355" />
+	<block addr="7017" count="2" protocoldatatype="4355" />
+	<block addr="7283" count="4" protocoldatatype="4355" />
+	<block addr="7505" count="2" protocoldatatype="4355" />
+	<block addr="7509" count="2" protocoldatatype="4355" />
+	<block addr="7287" count="2" protocoldatatype="4355" />
+	<block addr="7765" count="2" protocoldatatype="4355" />
+	<block addr="7507" count="2" protocoldatatype="4355" />
+	<block addr="7837" count="6" protocoldatatype="4355" />
+</regBlocks>
+
+<regValuesToWrite>
+	<val addr="7013">600</val>
+	<val addr="7259">600</val>
+	<val addr="7261">600</val>
+	<val addr="7275">600</val>
+	<val addr="7277">600</val>
+	<val addr="7279">600</val>
+	<val addr="7281">600</val>
+	<val addr="7303">600</val>
+	<val addr="7305">600</val>
+	<val addr="7249">600</val>
+	<val addr="7475">600</val>
+	<val addr="7477">600</val>
+	<val addr="7479">600</val>
+	<val addr="7125">600</val>
+	<val addr="7339">600</val>
+	<val addr="7273">600</val>
+	<val addr="7283">600</val>
+	<val addr="7285">600</val>
+	<val addr="7509">600</val>
+	<val addr="7287">600</val>
+	<val addr="7765">600</val>
+	<val addr="7507">600</val>
+	<val addr="7837">600</val>
+	<val addr="7839">600</val>
+	<val addr="7841">600</val>
+</regValuesToWrite>
+<registers>
+	<register control="text" desc="Running status" key="47045">
+	<rpc mask="#####" writable="no" address="7045" type="4355" m="1" c="0" fmt="0" altControlID="47045" />
+	</register>
+	<register control="select" desc="Speed mode select" key="47013">
+	<rpc mask="###" writable="yes" address="7013" type="4355" m="1" c="0" fmt="0" />
+	</register>
+	<register control="select" desc="Pump speed source" key="47015">
+	<rpc mask="###" writable="no" address="7015" type="4355" m="1" c="0" fmt="0" altControlID="47015" />
+	</register>
+	<register control="text" desc="Motor base rpm (rpm)" key="47259">
+	<rpc mask="###" writable="yes" address="7259" type="4355" m="1" c="0" fmt="0" altControlID="47259" />
+	</register>
+	<register control="text" desc="Motor max rpm (rpm)" key="47261">
+	<rpc mask="###" writable="yes" address="7261" type="4355" m="1" c="0" fmt="0" altControlID="47261" />
+	</register>
+	<register control="text" desc="maximum possible spm (spm)" key="47263">
+	<rpc mask="###" writable="no" address="7263" type="4355" m="10" c="0" fmt="2" altControlID="47263" />
+	</register>
+	<register control="text" desc="Up Max spm (spm)" key="47275">
+	<rpc mask="###" writable="yes" address="7275" type="4355" m="10" c="0" fmt="1" altControlID="47275" />
+	</register>
+	<register control="text" desc="Up Min spm (spm)" key="47277">
+	<rpc mask="###" writable="yes" address="7277" type="4355" m="10" c="0" fmt="1" altControlID="47277" />
+	</register>
+	<register control="text" desc="Down Max spm (spm)" key="47279">
+	<rpc mask="###" writable="yes" address="7279" type="4355" m="10" c="0" fmt="1" altControlID="47279" />
+	</register>
+	<register control="text" desc="Down Min spm (spm)" key="47281">
+	<rpc mask="###" writable="yes" address="7281" type="4355" m="10" c="0" fmt="1" altControlID="47281" />
+	</register>
+	<register control="text" desc="External up spm (spm)" key="47303">
+	<rpc mask="###" writable="yes" address="7303" type="4355" m="10" c="0" fmt="1" altControlID="47303" />
+	</register>
+	<register control="text" desc="External down spm (spm)" key="47305">
+	<rpc mask="###" writable="yes" address="7305" type="4355" m="10" c="0" fmt="1" altControlID="47305" />
+	</register>
+	<register control="text" desc="Request spm up (spm)" key="47097">
+	<rpc mask="###" writable="no" address="7097" type="4355" m="10" c="0" fmt="1" altControlID="47097" />
+	</register>
+	<register control="text" desc="Request spm down (spm)" key="47099">
+	<rpc mask="###" writable="no" address="7099" type="4355" m="10" c="0" fmt="1" altControlID="47099" />
+	</register>
+	<register control="text" desc="Pump average spm (spm)" key="47019">
+	<rpc mask="###" writable="no" address="7019" type="4355" m="100" c="0" fmt="2" altControlID="47019" />
+	</register>
+	<register control="select" desc="Fill source" key="47249">
+	<rpc mask="###" writable="yes" address="7249" type="4355" m="1" c="0" fmt="0" altControlID="47249" />
+	</register>
+	<register control="select" desc="Fill trigger mode" key="47475">
+	<rpc mask="###" writable="yes" address="7475" type="4355" m="1" c="0" fmt="0" altControlID="47475" />
+	</register>
+	<register control="text" desc="% pump load" key="47477">
+	<rpc mask="###" writable="yes" address="7477" type="4355" m="1" c="0" fmt="0" altControlID="47477" />
+	</register>
+	<register control="text" desc="% API max load" key="47479">
+	<rpc mask="###" writable="yes" address="7479" type="4355" m="1" c="0" fmt="0" altControlID="47479" />
+	</register>
+	<register control="text" desc="Fill low trigger (lbs)" key="47125">
+	<rpc mask="###" writable="yes" address="7125" type="4355" m="1" c="0" fmt="0" altControlID="47125" />
+	</register>
+	<register control="text" desc="Fill high trigger (lbs)" key="47339">
+	<rpc mask="###" writable="yes" address="7339" type="4355" m="1" c="0" fmt="0" altControlID="47339" />
+	</register>
+	<register control="text" desc="Pump rate adjust (%)" key="47273">
+	<rpc mask="#.###" writable="yes" address="7273" type="4355" m="1" c="0" fmt="0" altControlID="47273" />
+	</register>
+	<register control="text" desc="Gas fill monitor (%)" key="47381">
+	<rpc mask="###" writable="no" address="7381" type="4355" m="1" c="0" fmt="0" />
+	</register>
+	<register control="text" desc="Liquid fill monitor (%)" key="47383">
+	<rpc mask="###" writable="no" address="7383" type="4355" m="1" c="0" fmt="0" />
+	</register>
+	<register control="text" desc="Pump fill monitor (%)" key="47017">
+	<rpc mask="###" writable="no" address="7017" type="4355" m="1" c="0" fmt="0" altControlID="47017" />
+	</register>
+	<register control="text" desc="Optimize maximum fill (%)" key="47283">
+	<rpc mask="###" writable="yes" address="7283" type="4355" m="1" c="0" fmt="0" altControlID="47283" />
+	</register>
+	<register control="text" desc="Optimize target fill (%)" key="47285">
+	<rpc mask="###" writable="yes" address="7285" type="4355" m="1" c="0" fmt="0" altControlID="47285" />
+	</register>
+	<register control="text" desc="Target fill band" key="47505">
+	<rpc mask="###" writable="no" address="7505" type="4355" m="1" c="0" fmt="0" altControlID="47505" />
+	</register>
+	<register control="text" desc="Optimize start spm (spm)" key="47509">
+	<rpc mask="###" writable="yes" address="7509" type="4355" m="10" c="0" fmt="1" altControlID="47509" />
+	</register>
+	<register control="text" desc="Optimize down boost (%)" key="47287">
+	<rpc mask="###" writable="yes" address="7287" type="4355" m="1" c="0" fmt="0" altControlID="47287" />
+	</register>
+	<register control="text" desc="Optimize ki" key="47765">
+	<rpc mask="#####" writable="yes" address="7765" type="4355" m="1000" c="0" fmt="3" altControlID="47765" />
+	</register>
+	<register control="text" desc="Optimize kp (%)" key="47507">
+	<rpc mask="##.###" writable="yes" address="7507" type="4355" m="1" c="0" fmt="0" altControlID="47507" />
+	</register>
+	<register control="select" desc="Optimize cycle mode" key="47837">
+	<rpc mask="#####" writable="yes" address="7837" type="4355" m="1" c="0" fmt="0" altControlID="47837" />
+	</register>
+	<register control="text" desc="Optimize cycle fill (%)" key="47839">
+	<rpc mask="#####" writable="yes" address="7839" type="4355" m="1" c="0" fmt="0" altControlID="47839" />
+	</register>
+	<register control="text" desc="Optimize cycle time (min)" key="47841">
+	<rpc mask="#####" writable="yes" address="7841" type="4355" m="1" c="0" fmt="0" altControlID="47841" />
+	</register>
+</registers></RTUReadWriteReqDef>

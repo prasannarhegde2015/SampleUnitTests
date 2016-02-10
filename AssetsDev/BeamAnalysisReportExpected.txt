@@ -1,0 +1,104 @@
+Beam Analysis Report
+--------------------------------------------------------------------------------
+
+Well Name : SAMVS_0001 Date / Time : 12/08/2015 06:51:06 PM ID : OPERATOR 
+Comment :  Downhole Analysis Method : Gibbs Damping Factor  
+Damping Factor Upstroke  Damping Factor Down stroke  
+
+--------------------------------------------------------------------------------
+Physical Parameters
+
+--------------------------------------------------------------------------------
+
+Pumping Unit : L-CRM-912-427-168- CW  Card Type : Full  Test : 02/09/2016  RPC : SAMRP2  
+Pump Period : 9.41 sec Top Perf : 10450 feet Oil : 10.5 bbl Method : ????  
+Unit SPM : 6.38  Bottom Perf : 10450 feet Water : 1.2 bbl Hours On : 0.00  
+Meas Stroke Length : 167.9 inch Anchor Depth : 9785 feet Gas : 0.0 mcf API Gravity : 39.00 API 
+Calc Stroke Length : 168.1 inch Total Rod Length : 9775 feet Fluid : 11.7 bbl Water Sg : 1.18 sg 
+Pump Size : 1.75 inch Meas Pump Depth : 9775 feet Cut : 10 % Gas Sg : 0.90 sg 
+Tubing OD : 2.875 inch Depth Diff : 0 feet GOR : 0 SCF/B Tubing Grad (man) : 0.260 psi/ft 
+Casing OD : 7.000 inch Plug-Back TD : 0 feet Casing % Oil : 100 % Casing Grad : 0.351 psi/ft 
+
+--------------------------------------------------------------------------------
+Pumping Unit Data
+
+--------------------------------------------------------------------------------
+
+Gear Box Rating (1000) : 912 Kinchlbs (%) Rating Existing CBT : 1972.8 Kinchlbs FL Temp : 60.0 DegF 
+API Torque Max (Up) : 497.0 Kinchlbs 54 Optimum CBT : 1837.0 Kinchlbs Tubing Pressure : 1.0 PSI 
+API Torque Min (Up) : -333.0 Kinchlbs 36 Beam Rating : 427 clbs Casing Pressure : 1.0 PSI 
+API Torque Max (Down) : 668.0 Kinchlbs 73 Meas Beam Load : 291 clbs FAP (man/cal) : 6047/491 feet/feet 
+API Torque Min (Down) : -93.0 Kinchlbs 10 (%) of Rating : 68  PIP (man/cal) : 2123/178 PSI/PSI 
+API Torque W/ Optimum CBT : 534.0 Kinchlbs 58       
+
+--------------------------------------------------------------------------------
+Rods
+
+--------------------------------------------------------------------------------
+
+Rod Type /  Service Minimum Maximum Maximum  Damping Damping  
+Diameter (inch) Grade Number Length (feet) Factor Stress (PSI) Stress (PSI) Allowable Range (PSI) (%) Allow Dev Drag Up Down Guides? 
+              
+1.000 W -T66/XD 84.0 2100 1.0 17897 37114 38815 50.0 0.00 0.00 0.01 0.03  
+1.000 W -T66/XD 18.0 450 1.0 11940 29203 42537 41.0 0.00 0.00 0.01 0.03 4 
+1.000 W -T66/XD 20.0 500 1.0 10709 27429 43307 39.0 0.00 0.00 0.01 0.03  
+0.875 W -T66/XD 22.0 550 1.0 12128 33217 42420 50.0 0.00 0.00 0.01 0.02 4 
+0.875 W -T66/XD 9.0 225 1.0 10655 30953 43340 47.0 0.00 0.00 0.01 0.02 4 
+0.875 W -T66/XD 93.0 2325 1.0 10081 30003 43699 46.0 0.00 0.00 0.01 0.02  
+0.750 W -T66/XD 129.0 3225 1.0 5543 26848 46536 46.0 0.00 0.00 0.01 0.02  
+1.000 W -T66/XD 16.0 400 1.0 -1310 6962 50819 16.0 0.00 0.00 0.01 0.02 4 
+
+--------------------------------------------------------------------------------
+Loads
+
+--------------------------------------------------------------------------------
+
+Rods + Fluid 26685 lbs 
+
+ Rods Load Value (lbs) 
+Location Peak DH (lbs) Avg DH (lbs) Calc PO (lbs) Normal Surface Peak Surface (lbs) (%) Diff Rods + Fluid 26685 
+         
+UpStroke 4136 3948 6101 0 29149 100.0 Buoy Rods 20584 
+DownStroke -2074 -1739 0 0 14056 100.0 Dry Rods 22144 
+Difference 6209 5687 6101 0 15093 100.0 Fluid Inrt? Yes 
+
+--------------------------------------------------------------------------------
+DH Pump
+
+--------------------------------------------------------------------------------
+
+ Ratios 
+ Stroke (inch) (%) Fillage Displacement (24.0) (bbl/d) Displacement (0.00) (bbl/d) Vol Efficiency (%) Quantitative Relationship Value 
+        
+Surface 167.9  380.4 0.0 0.0 N/No 0.25 
+DownHole 152.8  346.1 0.0 0.0 Fo/Skr 0.24 
+Total Fluid 144.9 94.8 328.2 0.0 0.0 Sp/S 0.91 
+
+--------------------------------------------------------------------------------
+Motor
+
+--------------------------------------------------------------------------------
+
+   (%) Loading Electro Mechanical Efficiency (%) 
+Type : NEMA D  Surface : 80.00 
+Motor HP/Size : 60   DH Card : 61.67  
+Slip/Torque Range : 3   Production : 10.03 
+Polished Rod HP : 18.12  30.20 
+DH Card HP : 13.97  23.28 
+DH Hydraulic HP : 2.27  3.78 
+
+--------------------------------------------------------------------------------
+Energy
+
+--------------------------------------------------------------------------------
+
+    24 Hrs Runtime Yesterday Runtime 
+Average HP : 22.65  Daily Runtime : 24.00  0.00  
+Average KW : 16.89  Estimated Annual Cost : 12575.26  0.00  
+Cost $/KW-Hr : 0.09  Estimated Daily Cost : 34.45  0.00  
+Cost $/Bbl Oil : 0.00 $/bbl Capacitor In Place : 0.00 
+Cost $/Bbl Grs : 0.00 $/bbl Required Average Power Factor : 0.00  
+KW-Hr/Bbl Grs : 1.44  Recommended +/- KVAR (Peak PF) : 0.00  
+   Recommended +/- KVAR (Avg PF) : 0.00  
+
+--------------------------------------------------------------------------------

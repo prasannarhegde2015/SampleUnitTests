@@ -1,0 +1,752 @@
+
+int g_wellCount;
+g_wellCount = 40;
+
+
+char g_altAddress_Native[129] , g_rtuName_Native[32] , g_sepName_Native[8] , g_sepDesc_Native[32] , g_baseWellName_Native[32];
+g_altAddress_Native   = "127.0.0.1/20202";
+g_rtuName_Native      = "WTCS7X_Native";
+g_sepName_Native      = "NTVSEP";
+g_sepDesc_Native      = "Native Separator";
+g_baseWellName_Native = "WTWELL";
+
+int g_channel_Native , g_hw_rtu_Native , g_wellStartNumber_Native, g_wellAddressStart_Native;
+g_channel_Native          = 9;
+g_hw_rtu_Native           = 94;
+g_wellStartNumber_Native  = 1;
+g_wellAddressStart_Native = 3000;
+
+
+char g_altAddress_LLISPE[129] , g_rtuName_LLISPE[32] , g_sepName_LLISPE[8] , g_sepDesc_LLISPE[32] , g_baseWellName_LLISPE[32];
+g_altAddress_LLISPE   = "WTCS7X_WHEE";
+g_rtuName_LLISPE      = "WTCS7X_LLISPE";
+g_sepName_LLISPE      = "SPESEP";
+g_sepDesc_LLISPE      = "LLISPE Separator";
+g_baseWellName_LLISPE = g_baseWellName_Native;
+
+int g_channel_LLISPE , g_hw_rtu_LLISPE , g_wellStartNumber_LLISPE, g_wellAddressStart_LLISPE;
+g_channel_LLISPE          = 109;
+g_hw_rtu_LLISPE           = 0;
+g_wellStartNumber_LLISPE  = g_wellStartNumber_Native + g_wellCount;
+g_wellAddressStart_LLISPE = g_wellAddressStart_Native + g_wellCount;
+
+
+int function makemeavue( char *query )
+{
+	int vuehnd;
+	vuehnd = vueaction( "create" , query );
+	vueaction( "evaluate" , vuehnd );
+	vueaction( "gototop" , vuehnd );
+	return vuehnd;
+}
+
+
+int dbgcs;  dbgcs = 0;
+int rdbgcs; rdbgcs = 0;
+
+char gdelim[8]; gdelim = "\t";
+
+int function bettersaveastextfile( int* th , char* filename , char* delimiter )
+{
+	char ctype [8];
+	char cname [128];
+	int ii;
+	int rc;
+	int origfltpre;
+	int origdblpre;
+	char actdelim [16];
+	
+	if ( delimiter == "" )
+	{
+		actdelim = ",";
+	}
+	else
+	{
+		actdelim = delimiter;
+	}
+	
+	for ( ii = 0; ii < tableaction( "NUMCOLUMNS" , th ); ii = ii + 1; )
+	{
+		rc = tableaction( "COLUMNNAME" , th , ii , cname );
+		ctype = tableaction( "COLUMNTYPE" , th , ii );
+		ctype[1] = "\0";
+		cname = cname ++ ctype;
+		rc = tableaction( "DEFINECOLUMN" , th , ii , cname , ctype );
+	}
+	//Save current precision info.
+	origfltpre = get_default_precision( "real" );
+	origdblpre = get_default_precision( "double" );
+	//Turn precision up to eleven.
+	set_default_precision( "real" , 7 );
+	set_default_precision( "double" , 14 );
+	//Write table.
+	rc = tableaction( "SAVEASTEXTFILE" , th , filename , tableaction( "NUMCOLUMNS" , th ) , actdelim );
+	//Restore original precision values.
+	set_default_precision( "real" , origfltpre );
+	set_default_precision( "double" , origdblpre );
+	return rc;
+}
+
+
+int function bettercreatefromtextfile( char* filename , char* delimiter )
+{
+	int th;
+	char cname [128];
+	char ctype [8];
+	int rc;
+	int ii;
+	int lh;
+	int idx;
+	int ccount;
+	char actdelim [16];
+	print "in bettercreatefromtextfile\n";
+	if ( delimiter == "" )
+	{
+		actdelim = ",";
+	}
+	else
+	{
+		actdelim = delimiter;
+	}
+	
+	th = tableaction( "CREATEFROMTEXTFILE" , filename, 32 , actdelim );
+	
+	if ( th < 1 )
+	{
+		print "Failure to create table from text file in function 'bettercreatefromtextfile'!\n";
+	}
+	else
+	{
+		lh = listaction( "CREATEFROMROW" , th , 0 );
+		ccount = listaction( "COUNT" , lh );
+		tableaction( "DELETE" , th );
+		th = tableaction( "CREATEFROMTEXTFILE" , filename , ccount , actdelim );
+		if ( th < 1 )
+		{
+			print "Failure to create table from text file in function 'bettercreatefromtextfile'!\n";
+			listaction ( "DELETE" , lh );
+			return 0;
+		}
+		tableaction( "DELETEROW" , th , 0 );
+		if ( rdbgcs ) print "table columns = " , tableaction( "NUMCOLUMNS" , th ) , ".\n";
+		
+		for ( ii = 0; ii < listaction( "COUNT" , lh ); ii = ii + 1; )
+		{
+			cname = listaction( "GET" , lh , ii );
+			idx = stringaction( "LENGTH" , cname) - 1;
+			ctype = cname [ idx ];
+			ctype[1] = "\0";
+			cname [ idx ] = "\0";
+			if ( rdbgcs ) print "cname = '" , cname , "' ctype = '" , ctype , "'.\n";
+			tableaction( "DEFINECOLUMN" , th , ii , cname , ctype );
+		}
+		listaction( "DELETE" , lh );
+	}
+	
+	return th;
+}
+
+
+int function defineWTCS7XRTU( int channel , int hw_rtu , char *altaddy , char *rtuName )
+{
+	int vh , rtu_record , pRTUTYP , pRTUSUBTYP , rc , rcode;
+	char status[256] , rtutyp[8];
+	status = "                                                                                                                                                                                                                                                               ";
+	
+	rtutyp = "WTCS7X";
+	pRTUSUBTYP = -1;
+	
+	vh = makemeavue( "FILE RTUTYP; SEL . RTUTYP HASSUBTYPES; WHERE DEFINE != 0 AND RTUTYP = \"" ++ rtutyp ++ "\";" );
+	if( vueaction( "GETNUMRECORDS" , vh ) == 1 )
+	{
+		vueaction( "NEXTROW" , vh );
+		pRTUTYP = vueaction( "GETFIELD" , vh , "." );
+		rc = scriptaction( "REMOTESCRIPT" , "MONITORPROC" , "rtu_add" , 0 , rtuName , channel , hw_rtu , pRTUTYP , altaddy , rtu_record , pRTUSUBTYP , rtuName , status , rcode );
+		if ( ! rc || rcode <= 0 )
+		{
+			rtu_record = 0;
+			printe "rtu_add: rcode = " , rcode , ", rc = " , rc , ", status = \"" , status , "\".\n";
+		}
+		else
+		{
+			print "rtu_add: rcode = " , rcode , ", rc = " , rc , ", status = \"" , status , "\".\n";
+		}
+	}
+	else
+	{
+		print "Error, found " ++ vueaction( "GETNUMRECORDS" , vh ) ++ " records matching RTUTYP '" ++ rtutyp ++ "', expected 1!\n";
+	}
+	vueaction( "DELETE" , vh );
+	return rtu_record;
+}
+
+
+int function defineSeparator( int rtu_record , char *sepName , char *sepDesc )
+{
+	int template_record , plcsepno , copy_flag , config_flag , sep_record , rcode , rc;
+	char sep_type[32] , status[256];
+	
+	template_record = -1;
+	sep_type = "PLC";
+	plcsepno = 0;
+	copy_flag = 0;
+	config_flag = 1;
+	rcode = 0;
+	sep_record = -1;
+	
+	rc = scriptaction( "REMOTESCRIPT" , "WELLTESTPROC" , "define_separator_2" ,
+		template_record , sepName , sep_type , sepDesc , rtu_record , plcsepno , 
+		copy_flag , config_flag , sep_record , status , rcode );
+	
+	if ( ! rc || rcode <= 0 )
+	{
+		printe "define_separator_2: rcode = " , rcode , ", rc = " , rc , ", status = \"" , status , "\".\n";
+	}
+	else
+	{
+		print "define_separator_2: rcode = " , rcode , ", rc = " , rc , ", status = \"" , status , "\".\n";
+	}
+	
+	return sep_record;
+}
+
+
+int function makeSomeWells( int dotList , int channel , char *altaddy , int wellStartNumber , char *baseWellName , int wellAddressStart , int wellCount )
+{
+	int vh , ii , pRTUTYP , pRTUSUBTYP , rc , rcode , wldot , rval , hw_rtu;
+	char lwname[32] , lname[8] , wname[8] , status[256] , rtutyp[8];
+	
+	rval = 1;
+	rtutyp = "NONE";
+	
+	hw_rtu = wellAddressStart;
+	
+	vh = makemeavue( "FILE RTUTYP; SEL . RTUTYP HASSUBTYPES; WHERE DEFINE != 0 AND RTUTYP = \"" ++ rtutyp ++ "\";" );
+	if( vueaction( "GETNUMRECORDS" , vh ) == 1 )
+	{
+		vueaction( "NEXTROW" , vh );
+		pRTUTYP = vueaction( "GETFIELD" , vh , "." );
+		pRTUSUBTYP = -1;
+		
+		for ( ii = wellStartNumber; ii < wellCount + wellStartNumber; ii = ii + 1;)
+		{
+			status = "                                                                                                                                                                                                                                                               ";
+			
+			lwname = baseWellName;
+			if ( ii < 10 )
+			{
+				lwname = lwname ++ "0";
+			}
+			lwname = lwname ++ ii;
+			lname = lwname;
+			lname[6] = "\0";
+			if ( stringaction( "LENGTH" , lwname ) > 6 )
+			{
+				wname = lwname[6];
+				wname[6] = "\0";
+			}
+			else
+			{
+				wname = "";
+			}
+			
+			rc = scriptaction( "REMOTESCRIPT" , "BEAMPROC" , "addbeamwell_rtusubtyp" , -1 , lname , wname , lwname , lwname , "" , "" , "" , "" , pRTUTYP , pRTUSUBTYP , hw_rtu , channel , altaddy , wldot , status , rcode );
+			print "Attempt to make well: '" , lwname , "', rc = " , rc , " rcode = " , rcode , ", status = '" , status , "'.\n";
+			if (rc < 1)
+			{
+				rval = 0;
+				break;
+			}
+			else
+			{
+				listaction( "ADD" , dotList , wldot );
+				hw_rtu = hw_rtu + 1;
+			}
+		}
+	}
+	else
+	{
+		print "Error, found " ++ vueaction( "GETNUMRECORDS" , vh ) ++ " records matching RTUTYP '" ++ rtutyp ++ "', expected 1!\n";
+	}
+	vueaction( "DELETE" , vh );
+	return rval;
+}
+
+
+int function addWellsToHeader( int wellList , int separatorRecord , int rtuRecord )
+{
+	int bslcv , vh , ii , headerRecord , rval , wellCount , fcode , outputBit , productionState , pointType , bitNumber , address4 , posRecord , rcode , rc , positionList , spoccaRecord , masterwlRecord , positionCount;
+	char headerName[8] , positionName[8] , outputAddress[8] , fieldAddress[8] , status[256] , welhv[16];
+	
+	rval = 0;
+	positionList = -1;
+	
+	wellCount = listaction( "COUNT" , wellList );
+	
+	vh = makemeavue( "FILE TSTHED; SEL . HEDNAME; SCOPE |TSTSEP:SEP_HED:" ++ separatorRecord ++ "|;");
+	
+	positionCount = 40;
+	
+	for ( bslcv = 0; bslcv < 1; bslcv = bslcv + 1;)
+	{
+		if( vueaction( "GETNUMRECORDS" , vh ) <= 0 )
+		{
+			break;
+		}
+		
+		vueaction( "NEXTROW" , vh );
+		headerRecord = vueaction( "GETFIELD" , vh , "." );
+		
+		fcode = 0; // What is this?
+		outputAddress = "0"; // AUTO only.
+		outputBit = 0; // AUTO only.
+		productionState = 0; // What is this?
+		pointType = 0;
+		fieldAddress = "0";
+		bitNumber = 0;
+		address4 = 0;
+		
+		positionList = listaction( "CREATE" , positionCount );
+		
+		for ( ii = 0; ii < positionCount; ii = ii + 1;)
+		{
+			status = "                                                                                                                                                                                                                                                               ";
+			rcode = -1;
+			rc = 0;
+			positionName = "-";
+			if (ii < 9)
+			{
+				positionName = positionName ++ "0";
+			}
+			positionName = positionName ++ ( ii + 1 );
+			
+			rc = scriptaction( "REMOTESCRIPT" , "WELLTESTPROC" , "define_header_position" , headerRecord , positionName , fcode , outputAddress , outputBit, productionState , pointType, fieldAddress , bitNumber , address4 , rtuRecord , rtuRecord , posRecord , status , rcode );
+			
+			if ( ! rc || rcode < 1 )
+			{
+				printe "Failed adding header position #" , ( ii + 1 ) , ".\n";
+				break;
+			}
+			listaction( "ADD" , positionList , posRecord );
+		}
+		if ( ii == positionCount )
+		{
+			rval = 1;
+		}
+	}
+	
+	if ( rval )
+	{
+		for ( ii = 0; ii < wellCount; ii = ii + 1;)
+		{
+			posRecord = listaction( "GET" , positionList , ii );
+			spoccaRecord = listaction( "GET" , wellList , ii );
+			masterwlRecord = | "SPOCCA" : ">TSTWELL" : spoccaRecord |;
+			| "TSTPOS" : ">TSTWELLP" : posRecord | = masterwlRecord;
+			| "TSTPOS" : "ACTIVE" : posRecord | = 1;
+			| "SPOCCA" : ">TSTPOSW" : spoccaRecord | = posRecord;
+			| "SPOCCA" : "WELSEP" : spoccaRecord | = | "TSTSEP" : "SEPID" : separatorRecord |;
+			welhv = "H1" ++ | "TSTPOS" : "POSNAME" : posRecord |;
+			| "SPOCCA" : "WELHV" : spoccaRecord | = welhv;
+			| "SPOCCA" : ">BERULE" : spoccaRecord | = 0;
+			| "SPOCCA" : "MAXTEST" : spoccaRecord | = 6.0;
+			| "SPOCCA" : "SEPPURGE" : spoccaRecord | = 0.1;
+		}
+		for ( ii = wellCount; ii < positionCount; ii = ii + 1;)
+		{
+			posRecord = listaction( "GET" , positionList , ii );
+			| "TSTPOS" : ">TSTWELLP" : posRecord | = -1;
+		}
+	}
+	if ( positionList > 0 )
+	{
+		listaction( "DELETE" , positionList );
+	}
+	vueaction( "DELETE" , vh );
+	return rval;
+}
+
+
+int function doIt( int channel , int hw_rtu , char* altaddy , char *rtuName , char *sepName , char *sepDesc , int wellStartNumber , char *baseWellName , int wellAddressStart , int wellCount )
+{
+	int rtuRecord , separatorRecord , wellList , ii , rval;
+	wellList = -1;
+	rval = 0;
+	rtuRecord = defineWTCS7XRTU( channel ,  hw_rtu ,  altaddy , rtuName );
+	for ( ii = 0; ii < 1; ii = ii + 1;)
+	{
+		if ( rtuRecord <= 0 )
+		{
+			break;
+		}
+		separatorRecord = defineSeparator( rtuRecord , sepName , sepDesc );
+		if ( separatorRecord < 1 )
+		{
+			break;
+		}
+		| "TSTSEP" : ">TSTWELL" : separatorRecord | = wellStartNumber + 6;
+		wellList = listaction( "CREATE" , 5 );
+		if ( ! makeSomeWells( wellList , channel , altaddy , wellStartNumber , baseWellName , wellAddressStart , wellCount ) )
+		{
+			break;
+		}
+		if ( ! addWellsToHeader( wellList , separatorRecord , rtuRecord ) )
+		{
+			break;
+		}
+
+		// Last step in 'loop'.
+		rval = 1;
+	}
+	
+	// Cleanup time.
+	if ( wellList > -1 )
+	{
+		listaction( "DELETE" , wellList );
+	}
+	return rval;
+}
+
+
+int function doBoth()
+{
+	//doIt( int channel , int hw_rtu , char* altaddy , char *rtuName , char *sepName , char *sepDesc , int wellStartNumber , char *baseWellName , int wellAddressStart )
+	doIt( g_channel_Native , g_hw_rtu_Native , g_altAddress_Native , g_rtuName_Native , g_sepName_Native , g_sepDesc_Native , g_wellStartNumber_Native , g_baseWellName_Native , g_wellAddressStart_Native , g_wellCount );
+	doIt( g_channel_LLISPE , g_hw_rtu_LLISPE , g_altAddress_LLISPE , g_rtuName_LLISPE , g_sepName_LLISPE , g_sepDesc_LLISPE , g_wellStartNumber_LLISPE , g_baseWellName_LLISPE , g_wellAddressStart_LLISPE , g_wellCount );
+	return 5;
+}
+
+
+int function undoIt( char *rtuName , char *sepName , char *sepDesc , int wellStartNumber , char *baseWellName , int wellCount )
+{
+	int ii , vh , posRecord , spoccaRecord , sepRecord , rtuRecord , rc , rcode , rval , firstWellDot , deletedWellCount;
+	char status[260] , desc[80] , firstWellName[32];
+	
+	rval = 1;
+	
+	firstWellName = baseWellName;
+	if ( wellStartNumber < 10 )
+	{
+		firstWellName = firstWellName ++ "0";
+	}
+	firstWellName = firstWellName ++ wellStartNumber;
+	
+	vh = makemeavue( "FILE SPOCCA; SEL .; WHERE DEFINE != 0 AND LWNAME = \"" ++ firstWellName ++ "\";" );
+	if ( vueaction( "GETNUMRECORDS" , vh ) != 1 )
+	{
+		printe "Found " , vueaction( "GETNUMRECORDS" , vh ) , " well(s) when searching for the first well, expected 1.\n";
+		vueaction( "DELETE" , vh );
+		return 0;
+	}
+	vueaction( "NEXTROW" , vh );
+	firstWellDot = vueaction( "GETFIELD" , vh , "." );
+	vueaction( "DELETE" , vh );
+	
+	vh = makemeavue( "FILE SPOCCA; SEL . DESC >TSTPOSW; WHERE DEFINE != 0 AND LWNAME = \"" ++ baseWellName ++ "*\" AND . >= " ++ firstWellDot ++ ";" );
+	
+	deletedWellCount = 0;
+	for ( ii = vueaction( "NEXTROW" , vh ); ii >= 0; ii = vueaction( "NEXTROW" , vh ); )
+	{
+		if ( deletedWellCount >= wellCount )
+		{
+			break;
+		}
+		spoccaRecord = vueaction( "GETFIELD" , vh , "." );
+		desc = vueaction( "GETFIELD" , vh , "DESC" );
+		posRecord = vueaction( "GETFIELD" , vh , ">TSTPOSW" );
+		
+		if ( posRecord > 0 )
+		{
+			| "TSTPOS" : ">TSTWELLP" : posRecord | = -1;
+			dbaction( "REALLYWRITE" , "TSTPOS" , posRecord );
+		}
+		| "SPOCCA" : ">TSTPOSW" : spoccaRecord | = -1;
+		| "SPOCCA" : "WELSEP" : spoccaRecord | = -1;
+		| "SPOCCA" : "WELHV" : spoccaRecord | = "none";
+		| "SPOCCA" : ">BERULE" : spoccaRecord | = 0;
+		| "SPOCCA" : "MAXTEST" : spoccaRecord | = 0.0;
+		| "SPOCCA" : "SEPPURGE" : spoccaRecord | = 0.0;
+		dbaction( "REALLYWRITE" , "SPOCCA" , spoccaRecord );
+		
+		rc = 0;
+		rcode = 0;
+		status = "                                                                                                                                                                                                                                                               ";
+		rc = scriptaction( "REMOTESCRIPT" , "WELLTESTPROC" , "delete_header_position" , posRecord , status , rcode );
+		print "Delete separator position # " , posRecord , ", rc = " , rc , ", rcode = " , rcode , ", status = '" , status , "'.\n";
+		
+		rc = 0;
+		rcode = 0;
+		status = "                                                                                                                                                                                                                                                               ";
+		rc = scriptaction( "REMOTESCRIPT" , "BEAMPROC" , "deletebeamwell" , spoccaRecord , 1 , rcode , status , "MCSSSCRIP" );
+		
+		print "Delete well # " , spoccaRecord , ", rc = " , rc , ", rcode = " , rcode , ", status = '" , status , "'.\n";
+		deletedWellCount = deletedWellCount + 1;
+	}
+	if ( vueaction( "GETNUMRECORDS" , vh ) == 0 )
+	{
+		printe "Found no matching wells.\n";
+		rval = 0;
+	}
+	vueaction( "DELETE" , vh );
+	
+	
+	vh = makemeavue( "FILE TSTSEP; SEL . ; WHERE DEFINE != 0 AND SEPID = \"" ++ sepName ++ "\" AND DESC = \"" ++ sepDesc ++ ";" );
+	if( vueaction( "GETNUMRECORDS" , vh ) == 1 )
+	{
+		vueaction( "NEXTROW" , vh );
+		sepRecord = vueaction( "GETFIELD" , vh , "." );
+		| "TSTSEP" : ">TSTWELL" : sepRecord | = -1;
+		rc = 0;
+		rcode = 0;
+		status = "                                                                                                                                                                                                                                                               ";
+		rc = scriptaction( "REMOTESCRIPT" , "WELLTESTPROC" , "delete_separator" , sepRecord , status , rcode );
+		
+		print "Delete separator # " , sepRecord , ", rc = " , rc , ", rcode = " , rcode , ", status = '" , status , "'.\n";
+	}
+	else if ( vueaction( "GETNUMRECORDS" , vh ) == 0 )
+	{
+		printe "Found no separators.\n";
+		rval = 0;
+	}
+	else
+	{
+		printe "Found too many separators.\n";
+		rval = 0;
+	}
+	vueaction( "DELETE" , vh );
+	
+	vh = makemeavue( "FILE RTUDES; SEL . ; WHERE DEFINE != 0 AND DESC = \"" ++ rtuName ++ "\";" );
+	if( vueaction( "GETNUMRECORDS" , vh ) == 1 )
+	{
+		vueaction( "NEXTROW" , vh );
+		rtuRecord = vueaction( "GETFIELD" , vh , "." );
+		rc = 0;
+		rcode = 0;
+		status = "                                                                                                                                                                                                                                                               ";
+		rc = scriptaction( "REMOTESCRIPT" , "MONITORPROC" , "delete_rtu" , rtuRecord , status , rcode , "MCSSCRIP" );
+		
+		print "Delete RTU # " , rtuRecord , ", rc = " , rc , ", rcode = " , rcode , ", status = '" , status , "'.\n";
+	}
+	else if ( vueaction( "GETNUMRECORDS" , vh ) == 0 )
+	{
+		printe "Found no RTUs.\n";
+		rval = 0;
+	}
+	else
+	{
+		printe "Found too many RTUs.\n";
+		rval = 0;
+	}
+	vueaction( "DELETE" , vh );
+	
+	return rval;
+}
+
+
+int function undoBoth()
+{
+	//int function undoIt( char *rtuName , char *sepName , char *sepDesc , int wellStartNumber , char *baseWellName )
+	undoIt( g_rtuName_Native , g_sepName_Native , g_sepDesc_Native , g_wellStartNumber_Native , g_baseWellName_Native , g_wellCount );
+	undoIt( g_rtuName_LLISPE , g_sepName_LLISPE , g_sepDesc_LLISPE , g_wellStartNumber_LLISPE , g_baseWellName_LLISPE , g_wellCount );
+	return 7;
+}
+
+
+int function getSequence( int sepRec , int isDemand )
+{
+	int rval , rcode , rc , tab;
+	char functionName[256];
+	
+	if ( isDemand )
+	{
+		functionName = "getdemandsequenceforRTU";
+	}
+	else
+	{
+		functionName = "getsequenceforRTU";
+	}
+	rval = -1;
+	tab = -1;
+	
+	rc = scriptaction( "REMOTESCRIPT" , "WELLTESTPROC" , functionName , sepRec , "CSHANDLE" , tab , rcode );
+	
+	if ( rc > 0 && rcode > 0 )
+	{
+		return tab;
+	}
+	return 0;
+}
+
+
+int function dumpSequenceToFile( char *sepDesc , char *fileName , int isDemand )
+{
+	int vh , bslcv , tab , sepDot , rc , rowCount , ii;
+	char posname[8];
+	
+	scriptaction( "BREAKPOINT" );
+	
+	vh = makemeavue( "FILE TSTSEP; SEL . DESC; WHERE DESC = \"" ++ sepDesc ++ "\" AND DEFINE != 0;" );
+	for ( bslcv = 0; bslcv < 1; bslcv = bslcv + 1;)
+	{
+		if ( vueaction( "GETNUMRECORDS" , vh ) != 1 )
+		{
+			printe "Expected one record, found " , vueaction( "GETNUMRECORDS" , vh ) , ".\n";
+			break;
+		}
+		vueaction( "NEXTROW" , vh );
+		sepDot = vueaction( "GETFIELD" , vh , "." );
+		tab = getSequence( sepDot , isDemand );
+		if ( tab <= 0 )
+		{
+			printe "Failed to get sequence.\n";
+			break;
+		}
+		if ( ! isDemand )
+		{
+			rowCount = tableaction( "NUMROWS" , tab );
+			// Apparently the posname is total lies.
+			for (ii = 0; ii < rowCount; ii = ii + 1;)
+			{
+				posname = "-";
+				if ( ii < 9 )
+				{
+					posname = posname ++ "0";
+				}
+				posname = posname ++ ( ii + 1 );
+				$tab[ ii , "POSNAME" ] = posname;
+			}
+		}
+		rc = bettersaveastextfile( tab , fileName , "," );
+		tableaction( "DELETE" , tab );
+		if ( ! rc )
+		{
+			printe "Failed to save table to file \"" , fileName , "\".\n";
+			break;
+		}
+	}
+	vueaction( "DELETE" , vh );
+	return 57;
+}
+
+
+int function saveDemandTest( char *sepDesc , int posNum )
+{
+	int vh , bslcv , tab , sepDot , rc , rcode;
+	char posName[8] , userName[64] , systemName[32] , status[256];
+	
+	scriptaction( "BREAKPOINT" );
+	
+	vh = makemeavue( "FILE TSTSEP; SEL . DESC; WHERE DESC = \"" ++ sepDesc ++ "\" AND DEFINE != 0;" );
+	for ( bslcv = 0; bslcv < 1; bslcv = bslcv + 1;)
+	{
+		if ( vueaction( "GETNUMRECORDS" , vh ) != 1 )
+		{
+			printe "Expected one record, found " , vueaction( "GETNUMRECORDS" , vh ) , ".\n";
+			break;
+		}
+		vueaction( "NEXTROW" , vh );
+		sepDot = vueaction( "GETFIELD" , vh , "." );
+		tab = tableaction( "CREATE" , 1 , 1 );
+		tableaction( "DEFINECOLUMN" , tab , 0 , "POSNAME" , "C" );
+		posName = "";
+		if ( posNum < 10 )
+		{
+			posName = "0";
+		}
+		posName = posName ++ posNum;
+		tableaction( "PUT" , tab , 0 , 0 , posName );
+		status = "                                                                                                                                                                                                                                                               ";
+		cfunction( "GETUSERNAME" , userName );
+		cfunction( "GETMACHINENAME" , systemName );
+		rcode = sepDot;
+		
+		rc = scriptaction( "REMOTESCRIPT" , "WELLTESTPROC" , "SaveDemandTest" , rcode , status , userName , systemName , "CSHANDLE" , tab );
+		
+		print "SaveDemandTest rc = " , rc , ", rcode = " , rcode , ", status = '" , status , "'.\n";
+		tableaction( "DELETE" , tab );
+	}
+	vueaction( "DELETE" , vh );
+	return 17;
+}
+
+
+int function saveSequence( char *sepDesc , char *fileName )
+{
+	int vh , vh2 , ii , bslcv , tab , svrTab , sepDot , rc , rcode , abortFlag;
+	char userName[64] , systemName[32] , status[256] , posName[8] , lwname[128];
+	
+	scriptaction( "BREAKPOINT" );
+	
+	abortFlag = 0;
+	
+	vh = makemeavue( "FILE TSTSEP; SEL . DESC; WHERE DESC = \"" ++ sepDesc ++ "\" AND DEFINE != 0;" );
+	for ( bslcv = 0; bslcv < 1; bslcv = bslcv + 1;)
+	{
+		if ( vueaction( "GETNUMRECORDS" , vh ) != 1 )
+		{
+			printe "Expected one record, found " , vueaction( "GETNUMRECORDS" , vh ) , ".\n";
+			break;
+		}
+		vueaction( "NEXTROW" , vh );
+		sepDot = vueaction( "GETFIELD" , vh , "." );
+		tab = bettercreatefromtextfile( fileName , "," );
+		if ( tab < 1 )
+		{
+			printe "Failed to load data from file \"" , fileName , "\".\n";
+			break;
+		}
+		
+		status = "                                                                                                                                                                                                                                                               ";
+		cfunction( "GETUSERNAME" , userName );
+		cfunction( "GETMACHINENAME" , systemName );
+		rcode = sepDot;
+		
+		rc = scriptaction( "REMOTESCRIPT" , "WELLTESTPROC" , "SaveSeqToDB" , rcode , status , userName , systemName , "CSHANDLE" , tab );
+		
+		print "SaveSeqToDB rc = " , rc , ", rcode = " , rcode , ", status = '" , status , "'.\n";
+		tableaction( "DELETE" , tab );
+	}
+	vueaction( "DELETE" , vh );
+	return 13;
+}
+
+
+/*
+"start_sep"
+"stop_separator"
+"stop_test"
+"EmergencyShutDown"
+*/
+int function doCommand( char *sepDesc , char *command )
+{
+	int vh , bslcv , rc , rcode , sepDot , abort;
+	char userName[64] , status[256];
+	
+	vh = makemeavue( "FILE TSTSEP; SEL . DESC; WHERE DESC = \"" ++ sepDesc ++ "\" AND DEFINE != 0;" );
+	for ( bslcv = 0; bslcv < 1; bslcv = bslcv + 1;)
+	{
+		if ( vueaction( "GETNUMRECORDS" , vh ) != 1 )
+		{
+			printe "Expected one record, found " , vueaction( "GETNUMRECORDS" , vh ) , ".\n";
+			break;
+		}
+		vueaction( "NEXTROW" , vh );
+		sepDot = vueaction( "GETFIELD" , vh , "." );
+		
+		status = "                                                                                                                                                                                                                                                               ";
+		cfunction( "GETUSERNAME" , userName );
+		rc = scriptaction( "REMOTESCRIPT" , "WELLTESTPROC" , "lowis_wtest_command" , command , sepDot , userName , abort , rcode , status );
+
+		print "lowis_wtest_command command \"" , command , "\": rc = " , rc , ", rcode = " , rcode , ", status = '" , status , "'.\n";
+	}
+	vueaction( "DELETE" , vh );
+	return 18;
+}
+
+
+int function synchk()
+{
+	print "wheeeeee.\n";
+	return 47;
+}
+

@@ -1,0 +1,105 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol="BAKER" description="Test File" />
+	<regBlocks>
+		<block addr="50" count="1" protocoldatatype="2" />
+		<block addr="51" count="2" protocoldatatype="12" />
+		<block addr="390" count="1" protocoldatatype="12" />
+		<block addr="391" count="1" protocoldatatype="6" />
+		<block addr="394" count="1" protocoldatatype="12" />
+		<block addr="396" count="1" protocoldatatype="12" />
+		<block addr="397" count="1" protocoldatatype="6" />
+		<block addr="862" count="1" protocoldatatype="2" />
+		<block addr="850" count="1" protocoldatatype="12" />
+		<block addr="851" count="1" protocoldatatype="2" />
+		<block addr="852" count="2" protocoldatatype="12" />
+		<block addr="854" count="1" protocoldatatype="2" />
+		<block addr="855" count="2" protocoldatatype="12" />
+		<block addr="857" count="1" protocoldatatype="2" />
+		<block addr="858" count="2" protocoldatatype="12" />
+		<block addr="860" count="1" protocoldatatype="2" />
+		<block addr="861" count="1" protocoldatatype="12" />
+	</regBlocks>
+	<regValuesToWrite>
+		<val addr="50">0</val>
+		<val addr="51">0</val>
+		<val addr="52">0</val>
+		<val addr="862">0</val>
+		<val addr="850">0</val>
+		<val addr="851">0</val>
+		<val addr="852">0</val>
+		<val addr="853">0</val>
+		<val addr="854">0</val>
+		<val addr="855">0</val>
+		<val addr="856">0</val>
+		<val addr="857">0</val>
+		<val addr="858">0</val>
+		<val addr="859">0</val>
+		<val addr="860">0</val>
+		<val addr="861">0</val>
+	</regValuesToWrite>
+	<registers>
+		<register control="checkbox" desc="Peak Energy Control Enable" key="50">
+			<rpc mask="###" writable="yes" address="50" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Begin Well Run Inhibit Time (Well Down)" key="51">
+			<rpc mask="###" writable="yes" address="51" type="Time" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="End Well Run Inhibit Time (Well On)" key="52">
+			<rpc mask="###" writable="yes" address="52" type="Time" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Time of Last Fatal Error or AC Power Fail" key="390">
+			<rpc mask="###" writable="no" address="390" type="Time" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Date of Last Fatal Error or AC Power Fail" key="391">
+			<rpc mask="###" writable="no" address="391" type="Date" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Interval of Last Fatal Error or AC Power Fail" key="394">
+			<rpc mask="###" writable="no" address="394" type="Time" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Time of Last RPC Control State Change" key="396">
+			<rpc mask="###" writable="no" address="396" type="Time" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Date of Last RPC Control State Change" key="397">
+			<rpc mask="###" writable="no" address="397" type="Date" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="checkbox" desc="Weekend/Weekday Run Enable" key="862">
+			<rpc mask="###" writable="yes" address="862" type="Byte" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Start Time 'A'- Weekend" key="850">
+			<rpc mask="###" writable="yes" address="850" type="Time" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Run Mode 'A' - Weekend" key="851">
+			<rpc mask="###" writable="yes" address="851" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Cycle Time 'A' - Weekend" key="852">
+			<rpc mask="###" writable="yes" address="852" type="Time" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Start Time 'B' - Weekend" key="853">
+			<rpc mask="###" writable="yes" address="853" type="Time" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Run Mode 'B' - Weekend" key="854">
+			<rpc mask="###" writable="yes" address="854" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Cycle Time 'B' - Weekend" key="855">
+			<rpc mask="###" writable="yes" address="855" type="Time" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Start time 'A' - Weekday" key="856">
+			<rpc mask="###" writable="yes" address="856" type="Time" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Run Mode 'A' - Weekday" key="857">
+			<rpc mask="###" writable="yes" address="857" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Cycle Time 'A' - Weekday" key="858">
+			<rpc mask="###" writable="yes" address="858" type="Time" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Start Time 'B' - Weekday" key="859">
+			<rpc mask="###" writable="yes" address="859" type="Time" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Run Mode 'B' - Weekday" key="860">
+			<rpc mask="###" writable="yes" address="860" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Cycle Time 'B' - Weekday" key="861">
+			<rpc mask="###" writable="yes" address="861" type="Time" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+	</registers>
+</RTUReadWriteReqDef>

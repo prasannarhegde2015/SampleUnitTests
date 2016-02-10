@@ -1,0 +1,5 @@
+RTUDESCC	.I	DESCC	TYPEC	EUDESCC	SLOPER	OFFSETR	VIRTUALI	FUNCTIONC	PORDERI	POINT_TYPI	FIELD_ADRI	POINT_NUMI	POINT_AD4I
+wellfromcmdline	0	Valve Check Timestamp	Flow	PSI	1	0	0	no_conversion	0	515	5003	0	0
+wellfromcmdline	0	Bubble Point Pressure	Flow	PSI	1	0	0	no_conversion	0	1539	2370	0	0
+wellfromcmdline	0	Casing Head Pressure	Flow	PSI	1	0	0	no_conversion	0	6403	2384	0	0
+wellfromcmdline	0	Cal. Load Xducer Max Weight	Flow	PSI	1	0	0	no_conversion	0	3	2153	0	0

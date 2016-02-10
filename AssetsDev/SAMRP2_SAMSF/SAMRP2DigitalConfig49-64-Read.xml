@@ -1,0 +1,202 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNISRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+	<block addr="935" count="48" protocoldatatype="3" />
+</regBlocks>
+
+<regValuesToWrite>
+	<val addr="935">600</val>
+	<val addr="936">600</val>
+	<val addr="937">600</val>
+	<val addr="938">600</val>
+	<val addr="939">600</val>
+	<val addr="940">600</val>
+	<val addr="941">600</val>
+	<val addr="942">600</val>
+	<val addr="943">600</val>
+	<val addr="944">600</val>
+	<val addr="945">600</val>
+	<val addr="946">600</val>
+	<val addr="947">600</val>
+	<val addr="948">600</val>
+	<val addr="949">600</val>
+	<val addr="950">600</val>
+	<val addr="951">600</val>
+	<val addr="952">600</val>
+	<val addr="953">600</val>
+	<val addr="954">600</val>
+	<val addr="955">600</val>
+	<val addr="956">600</val>
+	<val addr="957">600</val>
+	<val addr="958">600</val>
+	<val addr="959">600</val>
+	<val addr="960">600</val>
+	<val addr="961">600</val>
+	<val addr="962">600</val>
+	<val addr="963">600</val>
+	<val addr="964">600</val>
+	<val addr="965">600</val>
+	<val addr="966">600</val>
+	<val addr="967">600</val>
+	<val addr="968">600</val>
+	<val addr="969">600</val>
+	<val addr="970">600</val>
+	<val addr="971">600</val>
+	<val addr="972">600</val>
+	<val addr="973">600</val>
+	<val addr="974">600</val>
+	<val addr="975">600</val>
+	<val addr="976">600</val>
+	<val addr="977">600</val>
+	<val addr="978">600</val>
+	<val addr="979">600</val>
+	<val addr="980">600</val>
+	<val addr="981">600</val>
+	<val addr="982">600</val>
+</regValuesToWrite>
+<registers>
+	<register control="group" desc="Config1" key="935">
+	<rpc mask="###" writable="yes" address="935" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config2" key="936">
+	<rpc mask="###" writable="yes" address="936" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config3" key="937">
+	<rpc mask="###" writable="yes" address="937" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config1" key="938">
+	<rpc mask="###" writable="yes" address="938" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config2" key="939">
+	<rpc mask="###" writable="yes" address="939" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config3" key="940">
+	<rpc mask="###" writable="yes" address="940" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config1" key="941">
+	<rpc mask="###" writable="yes" address="941" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config2" key="942">
+	<rpc mask="###" writable="yes" address="942" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config3" key="943">
+	<rpc mask="###" writable="yes" address="943" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config1" key="944">
+	<rpc mask="###" writable="yes" address="944" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config2" key="945">
+	<rpc mask="###" writable="yes" address="945" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config3" key="946">
+	<rpc mask="###" writable="yes" address="946" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config1" key="947">
+	<rpc mask="###" writable="yes" address="947" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config2" key="948">
+	<rpc mask="###" writable="yes" address="948" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config3" key="949">
+	<rpc mask="###" writable="yes" address="949" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config1" key="950">
+	<rpc mask="###" writable="yes" address="950" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config2" key="951">
+	<rpc mask="###" writable="yes" address="951" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config3" key="952">
+	<rpc mask="###" writable="yes" address="952" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config1" key="953">
+	<rpc mask="###" writable="yes" address="953" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config2" key="954">
+	<rpc mask="###" writable="yes" address="954" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config3" key="955">
+	<rpc mask="###" writable="yes" address="955" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config1" key="956">
+	<rpc mask="###" writable="yes" address="956" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config2" key="957">
+	<rpc mask="###" writable="yes" address="957" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config3" key="958">
+	<rpc mask="###" writable="yes" address="958" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config1" key="959">
+	<rpc mask="###" writable="yes" address="959" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config2" key="960">
+	<rpc mask="###" writable="yes" address="960" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config3" key="961">
+	<rpc mask="###" writable="yes" address="961" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config1" key="962">
+	<rpc mask="###" writable="yes" address="962" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config2" key="963">
+	<rpc mask="###" writable="yes" address="963" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config3" key="964">
+	<rpc mask="###" writable="yes" address="964" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config1" key="965">
+	<rpc mask="###" writable="yes" address="965" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config2" key="966">
+	<rpc mask="###" writable="yes" address="966" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config3" key="967">
+	<rpc mask="###" writable="yes" address="967" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config1" key="968">
+	<rpc mask="###" writable="yes" address="968" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config2" key="969">
+	<rpc mask="###" writable="yes" address="969" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config3" key="970">
+	<rpc mask="###" writable="yes" address="970" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config1" key="971">
+	<rpc mask="###" writable="yes" address="971" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config2" key="972">
+	<rpc mask="###" writable="yes" address="972" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config3" key="973">
+	<rpc mask="###" writable="yes" address="973" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config1" key="974">
+	<rpc mask="###" writable="yes" address="974" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config2" key="975">
+	<rpc mask="###" writable="yes" address="975" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config3" key="976">
+	<rpc mask="###" writable="yes" address="976" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config1" key="977">
+	<rpc mask="###" writable="yes" address="977" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config2" key="978">
+	<rpc mask="###" writable="yes" address="978" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config3" key="979">
+	<rpc mask="###" writable="yes" address="979" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config1" key="980">
+	<rpc mask="###" writable="yes" address="980" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config2" key="981">
+	<rpc mask="###" writable="yes" address="981" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config3" key="982">
+	<rpc mask="###" writable="yes" address="982" type="3" m="1" c="0" fmt="str" />
+	</register>
+</registers></RTUReadWriteReqDef>

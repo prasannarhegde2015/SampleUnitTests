@@ -1,0 +1,72 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol="BAKER" description="Test File" />
+	<regBlocks>
+		<block addr="1293" count="1" protocoldatatype="9" />
+		<block addr="1470" count="1" protocoldatatype="4" />
+		<block addr="1473" count="1" protocoldatatype="4" />
+		<block addr="1471" count="1" protocoldatatype="4" />
+		<block addr="1474" count="1" protocoldatatype="4" />
+		<block addr="1472" count="1" protocoldatatype="4" />
+		<block addr="1475" count="4" protocoldatatype="4" />
+		<block addr="1480" count="9" protocoldatatype="4" />
+	</regBlocks>
+	<registers>
+		<register control="select" desc="'Rod Load Control' State" key="1293">
+			<rpc mask="###" writable="no" address="1293" type="Dspl" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Latest 'Rod Load Control' Event Load (lbs.)" key="1470">
+			<rpc mask="###" writable="no" address="1470" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Latest 'Rod Load Control' Event Duration (mSec.)" key="1473">
+			<rpc mask="###" writable="no" address="1473" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Next to Latest 'Rod Load Control' Event Load (lbs.)" key="1471">
+			<rpc mask="###" writable="no" address="1471" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Next to Latest 'Rod Load Control' Event Duration (mSec.)" key="1474">
+			<rpc mask="###" writable="no" address="1474" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Earliest 'Rod Load Control' Event Load (lbs.)" key="1472">
+			<rpc mask="###" writable="no" address="1472" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Earliest 'Rod Load Control' Event Duration (mSec.)" key="1475">
+			<rpc mask="###" writable="no" address="1475" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Latest 'Rod Load Control' Event Sequence Number" key="1476">
+			<rpc mask="###" writable="no" address="1476" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Next to Latest 'Rod Load Control' Event Sequence Number" key="1477">
+			<rpc mask="###" writable="no" address="1477" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Earliest 'Rod Load Control' Event Sequence Number" key="1478">
+			<rpc mask="###" writable="no" address="1478" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Current 'Rod Load Control' High Event Count During Current Gauge Period (#)" key="1480">
+			<rpc mask="###" writable="no" address="1480" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Yesterdays 'Rod Load Control' High Event Count at Gauge Off Time (#)" key="1481">
+			<rpc mask="###" writable="no" address="1481" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Day Before Yesterday 'Rod Load Control' High Event Count at Gauge Off Time (#)" key="1482">
+			<rpc mask="###" writable="no" address="1482" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Current 'Rod Load Control' Low Event Count During Current Gauge Period (#)" key="1483">
+			<rpc mask="###" writable="no" address="1483" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Yesterday 'Rod Load Control' Low Event Count at Gauge Off Time (#)" key="1484">
+			<rpc mask="###" writable="no" address="1484" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Day Before Yesterday 'Rod Load Control' Low Event Count at Gauge Off Time (#)" key="1485">
+			<rpc mask="###" writable="no" address="1485" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Latest 'Rod Load Control' Event Minimum Speed Attained During the Event (SPM)" key="1486">
+			<rpc mask="###" writable="no" address="1486" type="Word" m="10" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Next to Latest 'Rod Load Control' Event Minimum Speed Attained (SPM)" key="1487">
+			<rpc mask="###" writable="no" address="1487" type="Word" m="10" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Earliest 'Rod Load Control' Event Minimum Speed Attained (SPM)" key="1488">
+			<rpc mask="###" writable="no" address="1488" type="Word" m="10" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+	</registers>
+</RTUReadWriteReqDef>

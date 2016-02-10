@@ -1,0 +1,158 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol="BAKER" description="Test File" />
+	<regBlocks>
+		<block addr="21" count="1" protocoldatatype="2" />
+		<block addr="23" count="2" protocoldatatype="2" />
+		<block addr="22" count="1" protocoldatatype="2" />
+		<block addr="26" count="1" protocoldatatype="2" />
+		<block addr="230" count="2" protocoldatatype="2" />
+		<block addr="20" count="1" protocoldatatype="12" />
+		<block addr="25" count="1" protocoldatatype="12" />
+		<block addr="204" count="1" protocoldatatype="2" />
+		<block addr="205" count="2" protocoldatatype="12" />
+		<block addr="232" count="1" protocoldatatype="12" />
+		<block addr="235" count="1" protocoldatatype="12" />
+		<block addr="233" count="2" protocoldatatype="2" />
+		<block addr="236" count="1" protocoldatatype="2" />
+		<block addr="237" count="1" protocoldatatype="12" />
+		<block addr="238" count="1" protocoldatatype="2" />
+		<block addr="221" count="1" protocoldatatype="12" />
+		<block addr="220" count="1" protocoldatatype="2" />
+		<block addr="261" count="1" protocoldatatype="12" />
+		<block addr="260" count="1" protocoldatatype="2" />
+		<block addr="53" count="1" protocoldatatype="12" />
+		<block addr="36" count="1" protocoldatatype="12" />
+		<block addr="37" count="1" protocoldatatype="2" />
+		<block addr="207" count="1" protocoldatatype="12" />
+		<block addr="34" count="1" protocoldatatype="2" />
+		<block addr="619" count="1" protocoldatatype="2" />
+		<block addr="200" count="1" protocoldatatype="2" />
+		<block addr="29" count="1" protocoldatatype="2" />
+	</regBlocks>
+	<regValuesToWrite>
+		<val addr="21">0</val>
+		<val addr="23">0</val>
+		<val addr="24">0</val>
+		<val addr="22">0</val>
+		<val addr="26">0</val>
+		<val addr="230">0</val>
+		<val addr="231">0</val>
+		<val addr="20">0</val>
+		<val addr="25">0</val>
+		<val addr="204">0</val>
+		<val addr="206">0</val>
+		<val addr="232">0</val>
+		<val addr="235">0</val>
+		<val addr="233">0</val>
+		<val addr="234">0</val>
+		<val addr="236">0</val>
+		<val addr="237">0</val>
+		<val addr="238">0</val>
+		<val addr="221">0</val>
+		<val addr="220">0</val>
+		<val addr="261">0</val>
+		<val addr="260">0</val>
+		<val addr="53">0</val>
+		<val addr="36">0</val>
+		<val addr="37">0</val>
+		<val addr="34">0</val>
+		<val addr="619">0</val>
+		<val addr="200">0</val>
+		<val addr="29">0</val>
+	</regValuesToWrite>
+	<registers>
+		<register control="text" desc="Surface Pump Off Setpoint Position (%)                     " key="21">
+			<rpc mask="###" writable="yes" address="21" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Surface Pump Off Setpoint Load (%)                         " key="23">
+			<rpc mask="###" writable="yes" address="23" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Consecutive PO Strokes Before Idle Time (#)             " key="24">
+			<rpc mask="###" writable="yes" address="24" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Pump Off Action                         " key="22">
+			<rpc mask="###" writable="yes" address="22" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Pump Off Control Method (Pick List)                " key="26">
+			<rpc mask="###" writable="yes" address="26" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Immediate Pumpoffs For Violation (#)        " key="230">
+			<rpc mask="###" writable="yes" address="230" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Immediate Pumpoff Violation Action (Pick List)         " key="231">
+			<rpc mask="###" writable="yes" address="231" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Idle Time Following Pump Off            " key="20">
+			<rpc mask="###" writable="yes" address="20" type="Time" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Pump-up Delay Time                      " key="25">
+			<rpc mask="###" writable="yes" address="25" type="Time" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Cycle Run Times to Average For Software Timer (#)        " key="204">
+			<rpc mask="###" writable="yes" address="204" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Calculated Software Timer Run Time" key="205">
+			<rpc mask="###" writable="no" address="205" type="Time" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Manual Run Time Value                   " key="206">
+			<rpc mask="###" writable="yes" address="206" type="Time" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Minimum Allowed Cycle Run Time          " key="232">
+			<rpc mask="###" writable="yes" address="232" type="Time" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Maximum Allowed Cycle Run Time          " key="235">
+			<rpc mask="###" writable="yes" address="235" type="Time" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Minimum Cycle Violations For Action (#)     " key="233">
+			<rpc mask="###" writable="yes" address="233" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Minimum Cycle Violation Action (Pick List)         " key="234">
+			<rpc mask="###" writable="yes" address="234" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Maximum Cycle Violation Action (Pick List)         " key="236">
+			<rpc mask="###" writable="yes" address="236" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Maximum Allowed Daily Run Time          " key="237">
+			<rpc mask="###" writable="yes" address="237" type="Time" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Max. Daily R/T Violation Action (Pick List)        " key="238">
+			<rpc mask="###" writable="yes" address="238" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Power Fail Multiplied Time Maximum          " key="221">
+			<rpc mask="###" writable="yes" address="221" type="Time" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Power Fail Off Time Multiplier          " key="220">
+			<rpc mask="###" writable="yes" address="220" type="Byte" m="10" c="0" fmt="1">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Control Failure Time Before Action      " key="261">
+			<rpc mask="###" writable="yes" address="261" type="Time" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Control Failure Action (Pick List)                 " key="260">
+			<rpc mask="###" writable="yes" address="260" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="AC Power Fail Re-start Delay Interval   " key="53">
+			<rpc mask="###" writable="yes" address="53" type="Time" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Target Cycle Time (Auto Idle)           " key="36">
+			<rpc mask="###" writable="yes" address="36" type="Time" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Reduce Cyle Time (Auto Idle) (Pick List)           " key="37">
+			<rpc mask="###" writable="yes" address="37" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Base Daily Run Time (hr.)       " key="">
+			<rpc mask="###" writable="no" address="207" type="Time" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Base Run Time Deviation (%)    " key="">
+			<rpc mask="###" writable="yes" address="34" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Base Pump Cycles (#)" key="">
+			<rpc mask="###" writable="yes" address="619" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Pump Cycle Deviation (%)" key="">
+			<rpc mask="###" writable="yes" address="200" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Inferred Production Deviation (%)" key="">
+			<rpc mask="###" writable="yes" address="29" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+	</registers>
+</RTUReadWriteReqDef>

@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VerifyParametersWF", "IntegrationTests\VerifyParametersWF\VerifyParametersWF.csproj", "{3E413E16-15E8-4E97-A2B7-96E8BC5FE7A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrentStatusWF.test", "IntegrationTests\CurrentStatusWF.test\CurrentStatusWF.test.csproj", "{416CF24C-BA5B-46B2-840C-A046B0DF6B75}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTUReadWriteWF.test", "IntegrationTests\RTUReadWriteWF.test\RTUReadWriteWF.test.csproj", "{290DEE5C-0CB1-4A8F-80A3-9914CC665BFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandsWF.test", "IntegrationTests\CommandsWF.test\CommandsWF.test.csproj", "{C3A6AEB7-5AEA-424E-AAF5-1ED2401FA32C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MOPTests", "IntegrationTests\MOPWF.test\MOPTests.csproj", "{78D3EF9F-EF7E-48B4-AE98-8E0EDF0F7E89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZZZScriptDBTest.test", "IntegrationTests\ZZZScriptDBTest.test\ZZZScriptDBTest.test.csproj", "{76D0F1CD-6279-4EB1-B93F-05CDFE249184}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BARTests", "IntegrationTests\BAReport.test\BARTests.csproj", "{E9CF0862-DE06-41BE-9893-A17E2C6ABE87}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3E413E16-15E8-4E97-A2B7-96E8BC5FE7A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E413E16-15E8-4E97-A2B7-96E8BC5FE7A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E413E16-15E8-4E97-A2B7-96E8BC5FE7A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E413E16-15E8-4E97-A2B7-96E8BC5FE7A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{416CF24C-BA5B-46B2-840C-A046B0DF6B75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{416CF24C-BA5B-46B2-840C-A046B0DF6B75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{416CF24C-BA5B-46B2-840C-A046B0DF6B75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{416CF24C-BA5B-46B2-840C-A046B0DF6B75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{290DEE5C-0CB1-4A8F-80A3-9914CC665BFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{290DEE5C-0CB1-4A8F-80A3-9914CC665BFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{290DEE5C-0CB1-4A8F-80A3-9914CC665BFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{290DEE5C-0CB1-4A8F-80A3-9914CC665BFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3A6AEB7-5AEA-424E-AAF5-1ED2401FA32C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3A6AEB7-5AEA-424E-AAF5-1ED2401FA32C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3A6AEB7-5AEA-424E-AAF5-1ED2401FA32C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3A6AEB7-5AEA-424E-AAF5-1ED2401FA32C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78D3EF9F-EF7E-48B4-AE98-8E0EDF0F7E89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78D3EF9F-EF7E-48B4-AE98-8E0EDF0F7E89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78D3EF9F-EF7E-48B4-AE98-8E0EDF0F7E89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78D3EF9F-EF7E-48B4-AE98-8E0EDF0F7E89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76D0F1CD-6279-4EB1-B93F-05CDFE249184}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76D0F1CD-6279-4EB1-B93F-05CDFE249184}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76D0F1CD-6279-4EB1-B93F-05CDFE249184}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76D0F1CD-6279-4EB1-B93F-05CDFE249184}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9CF0862-DE06-41BE-9893-A17E2C6ABE87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9CF0862-DE06-41BE-9893-A17E2C6ABE87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9CF0862-DE06-41BE-9893-A17E2C6ABE87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9CF0862-DE06-41BE-9893-A17E2C6ABE87}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

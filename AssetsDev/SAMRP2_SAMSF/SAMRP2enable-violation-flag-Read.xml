@@ -1,0 +1,22 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNISRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+	<block addr="2217" count="6" protocoldatatype="515" />
+</regBlocks>
+
+<regValuesToWrite>
+	<val addr="2217">600</val>
+	<val addr="2219">600</val>
+	<val addr="2221">600</val>
+</regValuesToWrite>
+<registers>
+	<register control="bitfields" desc="Violations Enabled [bits]" key="2217">
+	<rpc mask="###" writable="yes" address="2217" type="515" m="1" c="0" fmt="str" />
+	</register>
+	<register control="bitfields" desc="Violations Enabled [bits]" key="2219">
+	<rpc mask="###" writable="yes" address="2219" type="515" m="1" c="0" fmt="str" />
+	</register>
+	<register control="bitfields" desc="Violations Enabled [bits]" key="2221">
+	<rpc mask="###" writable="yes" address="2221" type="515" m="1" c="0" fmt="str" />
+	</register>
+</registers></RTUReadWriteReqDef>

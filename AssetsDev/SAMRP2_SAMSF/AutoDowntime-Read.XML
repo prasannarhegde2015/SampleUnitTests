@@ -1,0 +1,100 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNILRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+		<block addr="8412" count="30" protocoldatatype="4" />
+	</regBlocks>
+<regValuesToWrite>
+</regValuesToWrite>
+<registers>
+		<register control="text" desc="Downtime (Minutes)" key="38412">
+		<rpc mask="#####" writable="no" address="8412" type="4" m="1" c="0" fmt="str" altControlID="38412">comm fail</rpc>
+	</register>
+		<register control="text" desc="Runtime (Minutes)" key="38413">
+		<rpc mask="#####" writable="no" address="8413" type="4" m="1" c="0" fmt="str" altControlID="38413">comm fail</rpc>
+	</register>
+		<register control="text" desc="Downtime (Minutes)" key="38414">
+		<rpc mask="#####" writable="no" address="8414" type="4" m="1" c="0" fmt="str" altControlID="38414">comm fail</rpc>
+	</register>
+		<register control="text" desc="Runtime (Minutes)" key="38415">
+		<rpc mask="#####" writable="no" address="8415" type="4" m="1" c="0" fmt="str" altControlID="38415">comm fail</rpc>
+	</register>
+		<register control="text" desc="Downtime (Minutes)" key="38416">
+		<rpc mask="#####" writable="no" address="8416" type="4" m="1" c="0" fmt="str" altControlID="38416">comm fail</rpc>
+	</register>
+		<register control="text" desc="Runtime (Minutes)" key="38417">
+		<rpc mask="#####" writable="no" address="8417" type="4" m="1" c="0" fmt="str" altControlID="38417">comm fail</rpc>
+	</register>
+		<register control="text" desc="Downtime (Minutes)" key="38418">
+		<rpc mask="#####" writable="no" address="8418" type="4" m="1" c="0" fmt="str" altControlID="38418">comm fail</rpc>
+	</register>
+		<register control="text" desc="Runtime (Minutes)" key="38419">
+		<rpc mask="#####" writable="no" address="8419" type="4" m="1" c="0" fmt="str" altControlID="38419">comm fail</rpc>
+	</register>
+		<register control="text" desc="Downtime (Minutes)" key="38420">
+		<rpc mask="#####" writable="no" address="8420" type="4" m="1" c="0" fmt="str" altControlID="38420">comm fail</rpc>
+	</register>
+		<register control="text" desc="Runtime (Minutes)" key="38421">
+		<rpc mask="#####" writable="no" address="8421" type="4" m="1" c="0" fmt="str" altControlID="38421">comm fail</rpc>
+	</register>
+		<register control="text" desc="Downtime (Minutes)" key="38422">
+		<rpc mask="#####" writable="no" address="8422" type="4" m="1" c="0" fmt="str" altControlID="38422">comm fail</rpc>
+	</register>
+		<register control="text" desc="Runtime (Minutes)" key="38423">
+		<rpc mask="#####" writable="no" address="8423" type="4" m="1" c="0" fmt="str" altControlID="38423">comm fail</rpc>
+	</register>
+		<register control="text" desc="Downtime (Minutes)" key="38424">
+		<rpc mask="#####" writable="no" address="8424" type="4" m="1" c="0" fmt="str" altControlID="38424">comm fail</rpc>
+	</register>
+		<register control="text" desc="Runtime (Minutes)" key="38425">
+		<rpc mask="#####" writable="no" address="8425" type="4" m="1" c="0" fmt="str" altControlID="38425">comm fail</rpc>
+	</register>
+		<register control="text" desc="Downtime (Minutes)" key="38426">
+		<rpc mask="#####" writable="no" address="8426" type="4" m="1" c="0" fmt="str" altControlID="38426">comm fail</rpc>
+	</register>
+		<register control="text" desc="Runtime (Minutes)" key="38427">
+		<rpc mask="#####" writable="no" address="8427" type="4" m="1" c="0" fmt="str" altControlID="38427">comm fail</rpc>
+	</register>
+		<register control="text" desc="Downtime (Minutes)" key="38428">
+		<rpc mask="#####" writable="no" address="8428" type="4" m="1" c="0" fmt="str" altControlID="38428">comm fail</rpc>
+	</register>
+		<register control="text" desc="Runtime (Minutes)" key="38429">
+		<rpc mask="#####" writable="no" address="8429" type="4" m="1" c="0" fmt="str" altControlID="38429">comm fail</rpc>
+	</register>
+		<register control="text" desc="Downtime (Minutes)" key="38430">
+		<rpc mask="#####" writable="no" address="8430" type="4" m="1" c="0" fmt="str" altControlID="38430">comm fail</rpc>
+	</register>
+		<register control="text" desc="Runtime (Minutes)" key="38431">
+		<rpc mask="#####" writable="no" address="8431" type="4" m="1" c="0" fmt="str" altControlID="38431">comm fail</rpc>
+	</register>
+		<register control="text" desc="Downtime (Minutes)" key="38432">
+		<rpc mask="#####" writable="no" address="8432" type="4" m="1" c="0" fmt="str" altControlID="38432">comm fail</rpc>
+	</register>
+		<register control="text" desc="Runtime (Minutes)" key="38433">
+		<rpc mask="#####" writable="no" address="8433" type="4" m="1" c="0" fmt="str" altControlID="38433">comm fail</rpc>
+	</register>
+		<register control="text" desc="Downtime (Minutes)" key="38434">
+		<rpc mask="#####" writable="no" address="8434" type="4" m="1" c="0" fmt="str" altControlID="38434">comm fail</rpc>
+	</register>
+		<register control="text" desc="Runtime (Minutes)" key="38435">
+		<rpc mask="#####" writable="no" address="8435" type="4" m="1" c="0" fmt="str" altControlID="38435">comm fail</rpc>
+	</register>
+		<register control="text" desc="Downtime (Minutes)" key="38436">
+		<rpc mask="#####" writable="no" address="8436" type="4" m="1" c="0" fmt="str" altControlID="38436">comm fail</rpc>
+	</register>
+		<register control="text" desc="Runtime (Minutes)" key="38437">
+		<rpc mask="#####" writable="no" address="8437" type="4" m="1" c="0" fmt="str" altControlID="38437">comm fail</rpc>
+	</register>
+		<register control="text" desc="Downtime (Minutes)" key="38438">
+		<rpc mask="#####" writable="no" address="8438" type="4" m="1" c="0" fmt="str" altControlID="38438">comm fail</rpc>
+	</register>
+		<register control="text" desc="Runtime (Minutes)" key="38439">
+		<rpc mask="#####" writable="no" address="8439" type="4" m="1" c="0" fmt="str" altControlID="38439">comm fail</rpc>
+	</register>
+		<register control="text" desc="Downtime (Minutes)" key="38440">
+		<rpc mask="#####" writable="no" address="8440" type="4" m="1" c="0" fmt="str" altControlID="38440">comm fail</rpc>
+	</register>
+		<register control="text" desc="Runtime (Minutes)" key="38441">
+		<rpc mask="#####" writable="no" address="8441" type="4" m="1" c="0" fmt="str" altControlID="38441">comm fail</rpc>
+	</register>
+</registers>
+</RTUReadWriteReqDef>

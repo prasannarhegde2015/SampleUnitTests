@@ -1,0 +1,65 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNISRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+	<block addr="2152" count="18" protocoldatatype="515" />
+	<block addr="2180" count="1" protocoldatatype="3" />
+</regBlocks>
+
+<regValuesToWrite>
+</regValuesToWrite>
+<registers>
+	<register control="text" desc="Load Transducer Input Swing" key="2152">
+	<rpc mask="###" writable="no" address="2152" type="3" m="1000" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Calibrated Load Transducer Maximum Weight (lbs.)" key="2153">
+	<rpc mask="###" writable="no" address="2153" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="select" desc="Load Transducer Gain" key="2154">
+	<rpc mask="###" writable="no" address="2154" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="select" desc="Load Transducer Polarity" key="2155">
+	<rpc mask="###" writable="no" address="2155" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Start Load Threshold" key="2156">
+	<rpc mask="###" writable="no" address="2156" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Load Threshold" key="2157">
+	<rpc mask="###" writable="no" address="2157" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Load Zero Offset" key="2158">
+	<rpc mask="###" writable="no" address="2158" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Load at Standing Valve Scaled (lbs.)" key="2159">
+	<rpc mask="###" writable="no" address="2159" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Load at Standing Valve Raw (lbs.)" key="2160">
+	<rpc mask="###" writable="no" address="2160" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Load Maximum Calibration Scaled (lbs.)" key="2161">
+	<rpc mask="###" writable="no" address="2161" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Load Minimum Calibration Scaled (lbs.)" key="2162">
+	<rpc mask="###" writable="no" address="2162" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Load Maximum Calibration Raw (lbs.)" key="2163">
+	<rpc mask="###" writable="no" address="2163" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Load Minimum Calibration Raw (lbs.)" key="2164">
+	<rpc mask="###" writable="no" address="2164" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Remote Calibration Load Maximum (lbs.)" key="2165">
+	<rpc mask="###" writable="no" address="2165" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Remote Calibration Load Minimum (lbs.)" key="2166">
+	<rpc mask="###" writable="no" address="2166" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Threshold Adjust Register" key="2167">
+	<rpc mask="###" writable="no" address="2167" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Load Gain Register" key="2168">
+	<rpc mask="###" writable="no" address="2168" type="515" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Crank Start Detect" key="2180">
+	<rpc mask="###" writable="no" address="2180" type="3" m="1" c="0" fmt="str" />
+	</register>
+</registers></RTUReadWriteReqDef>

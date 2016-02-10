@@ -1,0 +1,127 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol="BAKER" description="Test File" />
+	<regBlocks>
+		<block addr="218" count="1" protocoldatatype="4" />
+		<block addr="219" count="1" protocoldatatype="2" />
+		<block addr="211" count="1" protocoldatatype="4" />
+		<block addr="213" count="2" protocoldatatype="2" />
+		<block addr="208" count="1" protocoldatatype="4" />
+		<block addr="209" count="1" protocoldatatype="2" />
+		<block addr="210" count="1" protocoldatatype="4" />
+		<block addr="212" count="1" protocoldatatype="4" />
+		<block addr="215" count="2" protocoldatatype="2" />
+		<block addr="223" count="1" protocoldatatype="4" />
+		<block addr="222" count="1" protocoldatatype="2" />
+		<block addr="225" count="1" protocoldatatype="2" />
+		<block addr="78" count="1" protocoldatatype="4" />
+		<block addr="84" count="1" protocoldatatype="4" />
+		<block addr="80" count="1" protocoldatatype="4" />
+		<block addr="86" count="1" protocoldatatype="4" />
+		<block addr="83" count="1" protocoldatatype="4" />
+		<block addr="79" count="1" protocoldatatype="4" />
+		<block addr="85" count="1" protocoldatatype="4" />
+		<block addr="87" count="5" protocoldatatype="4" />
+	</regBlocks>
+	<regValuesToWrite>
+		<val addr="218">0</val>
+		<val addr="219">0</val>
+		<val addr="211">0</val>
+		<val addr="213">0</val>
+		<val addr="214">0</val>
+		<val addr="208">0</val>
+		<val addr="209">0</val>
+		<val addr="210">0</val>
+		<val addr="212">0</val>
+		<val addr="215">0</val>
+		<val addr="216">0</val>
+		<val addr="223">0</val>
+		<val addr="222">0</val>
+		<val addr="225">0</val>
+	</regValuesToWrite>
+	<registers>
+		<register control="text" desc="Normal 'Peak' Load (lbs.)" key="">
+			<rpc mask="" writable="" address="" type="" m="" c="" fmt="">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Normal 'Minimum' Load (lbs.)" key="">
+			<rpc mask="" writable="" address="" type="" m="" c="" fmt="">comm. fail</rpc>
+		</register>
+		<register control="text" desc="'High-High' Load Limit (lbs.)" key="218">
+			<rpc mask="###" writable="yes" address="218" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="'High-High' Load Violation Action (Pick List)" key="219">
+			<rpc mask="###" writable="yes" address="219" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="'High Load' Limit (lbs.)" key="211">
+			<rpc mask="###" writable="yes" address="211" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Consecutive 'High Load' Violation Strokes (#)" key="213">
+			<rpc mask="###" writable="yes" address="213" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="'High Load' Violation Action (Pick List)" key="214">
+			<rpc mask="###" writable="yes" address="214" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="'Low-Low' Load Limit (lbs.)" key="208">
+			<rpc mask="###" writable="yes" address="208" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="'Low-Low' Load Violation Action (Pick List)" key="209">
+			<rpc mask="###" writable="yes" address="209" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="'Low Load' Limit (lbs.)" key="210">
+			<rpc mask="###" writable="yes" address="210" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Lowest Allowed 'Average Load' Limit (lbs.)" key="212">
+			<rpc mask="###" writable="yes" address="212" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Consecutive 'Low Load' Violation Strokes (#)" key="215">
+			<rpc mask="###" writable="yes" address="215" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="'Low Load' Violation Action (Pick List)" key="216">
+			<rpc mask="###" writable="yes" address="216" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Minimum Valid 'Load Span' (lbs.)         " key="223">
+			<rpc mask="###" writable="yes" address="223" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Low 'Load Span'/'Card Area' Violations For Action (#)" key="222">
+			<rpc mask="###" writable="yes" address="222" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Low 'Load Span'/'Card Area' Violation Action (Pick List)         " key="225">
+			<rpc mask="###" writable="yes" address="225" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Current Value From Load Cell (lbs.)" key="78">
+			<rpc mask="###" writable="no" address="78" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Maximum Load Last Pump Cycle (lbs.)" key="84">
+			<rpc mask="###" writable="no" address="84" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Maximum Load Last Stroke (lbs.)" key="80">
+			<rpc mask="###" writable="no" address="80" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Maximum Load Since Last Power-up (lbs.)" key="86">
+			<rpc mask="###" writable="no" address="86" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Minimum Load Last Pump Cycle (lbs.)" key="83">
+			<rpc mask="###" writable="no" address="83" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Minimum Load Last Stroke (lbs.)" key="79">
+			<rpc mask="###" writable="no" address="79" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Minimum Load Since Last Power-up (lbs.)" key="85">
+			<rpc mask="###" writable="no" address="85" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Load Span Last Stroke (lbs.)" key="87">
+			<rpc mask="###" writable="no" address="87" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Lowest Load Span Since Power-up (lbs.)" key="88">
+			<rpc mask="###" writable="no" address="88" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Average Load Last Stroke (lbs.)" key="89">
+			<rpc mask="###" writable="no" address="89" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Lowest Average Load Since Power-up (lbs.)" key="90">
+			<rpc mask="###" writable="no" address="90" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Highest Average Load Since Power-up (lbs.)" key="91">
+			<rpc mask="###" writable="no" address="91" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+	</registers>
+</RTUReadWriteReqDef>

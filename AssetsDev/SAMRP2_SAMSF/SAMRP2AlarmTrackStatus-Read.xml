@@ -1,0 +1,201 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNISRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+	<block addr="2342" count="1" protocoldatatype="4" />
+	<block addr="2345" count="1" protocoldatatype="4" />
+	<block addr="2348" count="1" protocoldatatype="4" />
+	<block addr="2351" count="1" protocoldatatype="4" />
+	<block addr="2354" count="1" protocoldatatype="4" />
+	<block addr="2357" count="1" protocoldatatype="4" />
+	<block addr="2360" count="1" protocoldatatype="4" />
+	<block addr="2363" count="1" protocoldatatype="4" />
+	<block addr="2366" count="1" protocoldatatype="4" />
+	<block addr="2369" count="1" protocoldatatype="4" />
+	<block addr="2372" count="1" protocoldatatype="4" />
+	<block addr="2375" count="1" protocoldatatype="4" />
+	<block addr="2378" count="1" protocoldatatype="4" />
+	<block addr="2381" count="1" protocoldatatype="4" />
+	<block addr="2384" count="1" protocoldatatype="4" />
+	<block addr="2387" count="1" protocoldatatype="4" />
+	<block addr="2343" count="1" protocoldatatype="4" />
+	<block addr="2346" count="1" protocoldatatype="4" />
+	<block addr="2349" count="1" protocoldatatype="4" />
+	<block addr="2352" count="1" protocoldatatype="4" />
+	<block addr="2355" count="1" protocoldatatype="4" />
+	<block addr="2358" count="1" protocoldatatype="4" />
+	<block addr="2361" count="1" protocoldatatype="4" />
+	<block addr="2364" count="1" protocoldatatype="4" />
+	<block addr="2367" count="1" protocoldatatype="4" />
+	<block addr="2370" count="1" protocoldatatype="4" />
+	<block addr="2373" count="1" protocoldatatype="4" />
+	<block addr="2376" count="1" protocoldatatype="4" />
+	<block addr="2379" count="1" protocoldatatype="4" />
+	<block addr="2382" count="1" protocoldatatype="4" />
+	<block addr="2385" count="1" protocoldatatype="4" />
+	<block addr="2388" count="1" protocoldatatype="4" />
+	<block addr="2344" count="1" protocoldatatype="4" />
+	<block addr="2347" count="1" protocoldatatype="4" />
+	<block addr="2350" count="1" protocoldatatype="4" />
+	<block addr="2353" count="1" protocoldatatype="4" />
+	<block addr="2356" count="1" protocoldatatype="4" />
+	<block addr="2359" count="1" protocoldatatype="4" />
+	<block addr="2362" count="1" protocoldatatype="4" />
+	<block addr="2365" count="1" protocoldatatype="4" />
+	<block addr="2368" count="1" protocoldatatype="4" />
+	<block addr="2371" count="1" protocoldatatype="4" />
+	<block addr="2374" count="1" protocoldatatype="4" />
+	<block addr="2377" count="1" protocoldatatype="4" />
+	<block addr="2380" count="1" protocoldatatype="4" />
+	<block addr="2383" count="1" protocoldatatype="4" />
+	<block addr="2386" count="1" protocoldatatype="4" />
+	<block addr="2389" count="1" protocoldatatype="4" />
+</regBlocks>
+
+<regValuesToWrite>
+</regValuesToWrite>
+<registers>
+	<register control="text" desc="Track '1'" key="2342">
+	<rpc mask="###" writable="no" address="2342" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Track '2'" key="2345">
+	<rpc mask="###" writable="no" address="2345" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Track '3'" key="2348">
+	<rpc mask="###" writable="no" address="2348" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Track '4'" key="2351">
+	<rpc mask="###" writable="no" address="2351" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Track '5'" key="2354">
+	<rpc mask="###" writable="no" address="2354" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Track '6'" key="2357">
+	<rpc mask="###" writable="no" address="2357" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Track '7'" key="2360">
+	<rpc mask="###" writable="no" address="2360" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Track '8'" key="2363">
+	<rpc mask="###" writable="no" address="2363" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Track '9'" key="2366">
+	<rpc mask="###" writable="no" address="2366" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Track '10'" key="2369">
+	<rpc mask="###" writable="no" address="2369" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Track '11'" key="2372">
+	<rpc mask="###" writable="no" address="2372" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Track '12'" key="2375">
+	<rpc mask="###" writable="no" address="2375" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Track '13'" key="2378">
+	<rpc mask="###" writable="no" address="2378" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Track '14'" key="2381">
+	<rpc mask="###" writable="no" address="2381" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Track '15'" key="2384">
+	<rpc mask="###" writable="no" address="2384" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Track '16'" key="2387">
+	<rpc mask="###" writable="no" address="2387" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="" key="2343">
+	<rpc mask="###" writable="no" address="2343" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="" key="2346">
+	<rpc mask="###" writable="no" address="2346" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="" key="2349">
+	<rpc mask="###" writable="no" address="2349" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="" key="2352">
+	<rpc mask="###" writable="no" address="2352" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="" key="2355">
+	<rpc mask="###" writable="no" address="2355" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="" key="2358">
+	<rpc mask="###" writable="no" address="2358" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="" key="2361">
+	<rpc mask="###" writable="no" address="2361" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="" key="2364">
+	<rpc mask="###" writable="no" address="2364" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="" key="2367">
+	<rpc mask="###" writable="no" address="2367" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="" key="2370">
+	<rpc mask="###" writable="no" address="2370" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="" key="2373">
+	<rpc mask="###" writable="no" address="2373" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="" key="2376">
+	<rpc mask="###" writable="no" address="2376" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="" key="2379">
+	<rpc mask="###" writable="no" address="2379" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="" key="2382">
+	<rpc mask="###" writable="no" address="2382" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="" key="2385">
+	<rpc mask="###" writable="no" address="2385" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="" key="2388">
+	<rpc mask="###" writable="no" address="2388" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="" key="2344">
+	<rpc mask="###" writable="no" address="2344" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="" key="2347">
+	<rpc mask="###" writable="no" address="2347" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="" key="2350">
+	<rpc mask="###" writable="no" address="2350" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="" key="2353">
+	<rpc mask="###" writable="no" address="2353" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="" key="2356">
+	<rpc mask="###" writable="no" address="2356" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="" key="2359">
+	<rpc mask="###" writable="no" address="2359" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="" key="2362">
+	<rpc mask="###" writable="no" address="2362" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="" key="2365">
+	<rpc mask="###" writable="no" address="2365" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="" key="2368">
+	<rpc mask="###" writable="no" address="2368" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="" key="2371">
+	<rpc mask="###" writable="no" address="2371" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="" key="2374">
+	<rpc mask="###" writable="no" address="2374" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="" key="2377">
+	<rpc mask="###" writable="no" address="2377" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="" key="2380">
+	<rpc mask="###" writable="no" address="2380" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="" key="2383">
+	<rpc mask="###" writable="no" address="2383" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="" key="2386">
+	<rpc mask="###" writable="no" address="2386" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="" key="2389">
+	<rpc mask="###" writable="no" address="2389" type="4" m="1" c="0" fmt="str" />
+	</register>
+</registers></RTUReadWriteReqDef>

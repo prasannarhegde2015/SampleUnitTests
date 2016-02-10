@@ -1,0 +1,57 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol="BAKER" description="Test File" />
+	<regBlocks>
+		<block addr="3020" count="3" protocoldatatype="54" />
+		<block addr="3025" count="3" protocoldatatype="54" />
+		<block addr="3030" count="3" protocoldatatype="54" />
+		<block addr="3035" count="3" protocoldatatype="54" />
+		<block addr="3040" count="3" protocoldatatype="54" />
+	</regBlocks>
+	<registers>
+		<register control="text" desc="Density (lbs./cu.ft.)" key="3020">
+			<rpc mask="###" writable="no" address="3020" type="IEEE" m="1" c="0" fmt="3">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Modulus of Elasticity (psi) " key="3021">
+			<rpc mask="###" writable="no" address="3021" type="IEEE" m="1" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Speed of Sound (ft./sec.)" key="3022">
+			<rpc mask="###" writable="no" address="3022" type="IEEE" m="1" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Density (lbs./cu.ft.)" key="3025">
+			<rpc mask="###" writable="no" address="3025" type="IEEE" m="1" c="0" fmt="3">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Modulus of Elasticity (psi) " key="3026">
+			<rpc mask="###" writable="no" address="3026" type="IEEE" m="1" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Speed of Sound (ft./sec.)" key="3027">
+			<rpc mask="###" writable="no" address="3027" type="IEEE" m="1" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Density (lbs./cu.ft.)" key="3030">
+			<rpc mask="###" writable="no" address="3030" type="IEEE" m="1" c="0" fmt="3">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Modulus of Elasticity (psi) " key="3031">
+			<rpc mask="###" writable="no" address="3031" type="IEEE" m="1" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Speed of Sound (ft./sec.)" key="3032">
+			<rpc mask="###" writable="no" address="3032" type="IEEE" m="1" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Density (lbs./cu.ft.)" key="3035">
+			<rpc mask="###" writable="no" address="3035" type="IEEE" m="1" c="0" fmt="3">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Modulus of Elasticity (psi) " key="3036">
+			<rpc mask="###" writable="no" address="3036" type="IEEE" m="1" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Speed of Sound (ft./sec.)" key="3037">
+			<rpc mask="###" writable="no" address="3037" type="IEEE" m="1" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Density (lbs./cu.ft.)" key="3040">
+			<rpc mask="###" writable="no" address="3040" type="IEEE" m="1" c="0" fmt="3">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Modulus of Elasticity (psi) " key="3041">
+			<rpc mask="###" writable="no" address="3041" type="IEEE" m="1" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Speed of Sound (ft /sec )" key="3042">
+			<rpc mask="###" writable="no" address="3042" type="IEEE" m="1" c="0" fmt="2">comm. fail</rpc>
+		</register>
+	</registers>
+</RTUReadWriteReqDef>

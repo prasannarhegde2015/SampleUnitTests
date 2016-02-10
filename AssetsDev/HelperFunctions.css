@@ -1,0 +1,121 @@
+// mcsscrip HelperFunctions.css getScanTimeRTU "" 2 "C:\cslift\\" -1 -db proddb
+int function getScanTimeRTU(int rturec, char *filepath, int wellrecord)
+{
+	int hvue, scandt, scandatetbl, rc;
+	char qry[100], scantm[6], scandate[24], filename[128];
+	
+	// get scandate (MM/DD/YYYY) and scantime (HH:MM)
+	hvue = 0;
+	qry = "file RTUDES where . = " ++ rturec ++ "; sel SCANTIME_Y SCANCHAR";
+	hvue = vueaction( "CREATE", qry );
+    vueaction( "EVALUATE", hvue );
+	scriptaction("BREAKPOINT");
+	
+	if ( vueaction( "GETNUMRECORDS" , hvue ) < 0)
+	{
+		if ( wellrecord > 0 )
+		{
+			printe "No ScanTime info found for well record ", wellrecord, "\n";
+		}
+		else
+		{
+			printe "No ScanTime info found for RTU record ", rturec, "\n";
+		}
+		vueaction( "DELETE", hvue );
+		return 0;
+	}
+	
+	scandt = vueaction( "GETFIELD", hvue, "SCANTIME_Y", 0 );
+    scantm = vueaction( "GETFIELD", hvue, "SCANCHAR", 0 );
+	datetime ( scandate , scandt , "%m/%d/%Y" );
+	
+	scandatetbl = tableaction ("CREATE", 1, 2);
+	tableaction ("DEFINECOLUMN", scandatetbl, 0, "ScanDate", "CHAR");
+	tableaction ("DEFINECOLUMN", scandatetbl, 1, "ScanTime", "CHAR");
+	$scandatetbl[0, 0] = scandate;
+	$scandatetbl[0, 1] = scantm;
+	
+	tableaction("SHOW", scandatetbl);
+
+	if (tableaction("NUMROWS", scandatetbl))
+	{
+		if ( wellrecord > 0 )
+		{
+			filename = filepath ++ "Scan" ++ wellrecord ++ ".txt";
+		}
+		else
+		{
+			filename = filepath ++ "Scan" ++ rturec ++ ".txt";
+		}
+		stringaction ("TRIM", filename);
+		rc = tableaction ("SAVEASTEXTFILE", scandatetbl, filename, -1, ",");
+	}
+	else
+	{
+		if ( wellrecord > 0 )
+		{
+			printe "getScanTimeRTU - Failed to create scan time table for well record " ++ wellrecord ++ ".\n";
+		}
+		else
+		{
+			printe "getScanTimeRTU - Failed to create scan time table for RTU record " ++ rturec ++ ".\n";
+		}
+	}
+	
+	if ( wellrecord > 0 )
+	{
+		print "For well record ", wellrecord, ", Scan Date = ", scandate, ", Scan Time = ", scantm, "\n";
+	}
+	else
+	{
+		print "For RTU record ", rturec, ", Scan Date = ", scandate, ", Scan Time = ", scantm, "\n";
+	}
+	if (HandleIsValid(scandatetbl)) tableaction("DELETE", scandatetbl);
+	if (HandleIsValid(hvue)) vueaction("DELETE", hvue);
+    hvue = -1; scandatetbl = -1;
+    return 1;
+}
+
+// mcsscrip HelperFunctions.css getScanTime "" 2 "PC" "C:\cslift\\" -db proddb -debugger
+int function getScanTime(int wellrecord, char* appType, char* filepath)
+{
+	char qry[100], wellFile[24];
+	int hvue, rturec; 
+	
+	if (appType == "BE")
+		wellFile = "SPOCCA";
+	else if (appType == "GL")
+		wellFile = "GLDWLI";
+	else if (appType == "IN")
+		wellFile = "SWCWLI";
+	else if (appType == "PC")
+		wellFile = "PCPWLI";
+	else if (appType == "PG")
+		wellFile = "PGLWLI";
+	else if (appType == "SU")
+		wellFile = "SUBWLI";
+	else if (appType == "OT")
+		wellFile = "OTHWLI";
+	else
+	{
+		printe "getScanTime - Invalid appType passed.\n";
+		return 0;
+	}
+
+	qry = "file " ++ wellFile ++ "; where . = " ++ wellrecord ++ "; sel >RTUDES";
+
+	hvue = vueaction( "CREATE", qry );
+    vueaction( "EVALUATE", hvue );
+	scriptaction("BREAKPOINT");
+    rturec = vueaction( "GETFIELD", hvue, ">RTUDES", 0 );
+
+	if ( rturec <= 0 || vueaction( "GETNUMRECORDS" , hvue ) < 0)
+	{
+		print "getScanTime - Invalid rtu record for well record ", wellrecord, "\n";
+		vueaction( "DELETE", hvue );
+		return 0;
+	}
+	vueaction( "DELETE", hvue );
+	
+	return getScanTimeRTU(rturec, filepath, wellrecord);
+}

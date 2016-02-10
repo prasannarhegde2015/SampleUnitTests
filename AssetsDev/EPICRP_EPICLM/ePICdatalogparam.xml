@@ -1,0 +1,193 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol="BAKER" description="Test File" />
+	<regBlocks>
+		<block addr="890" count="8" protocoldatatype="4" />
+		<block addr="898" count="1" protocoldatatype="2" />
+		<block addr="900" count="24" protocoldatatype="4" />
+		<block addr="930" count="24" protocoldatatype="4" />
+	</regBlocks>
+	<regValuesToWrite>
+		<val addr="890">0</val>
+		<val addr="891">0</val>
+		<val addr="892">0</val>
+		<val addr="893">0</val>
+		<val addr="894">0</val>
+		<val addr="895">0</val>
+		<val addr="896">0</val>
+		<val addr="897">0</val>
+		<val addr="898">0</val>
+	</regValuesToWrite>
+	<registers>
+		<register control="text" desc="Channel '1' Parameter" key="890">
+			<rpc mask="###" writable="yes" address="890" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Channel '2' Parameter" key="891">
+			<rpc mask="###" writable="yes" address="891" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Channel '3' Parameter" key="892">
+			<rpc mask="###" writable="yes" address="892" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Channel '4' Parameter" key="893">
+			<rpc mask="###" writable="yes" address="893" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Channel '5' Parameter" key="894">
+			<rpc mask="###" writable="yes" address="894" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Channel '6' Parameter" key="895">
+			<rpc mask="###" writable="yes" address="895" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Channel '7' Parameter" key="896">
+			<rpc mask="###" writable="yes" address="896" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Channel '8' Parameter" key="897">
+			<rpc mask="###" writable="yes" address="897" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Select Channel For Display" key="898">
+			<rpc mask="###" writable="yes" address="898" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Last Value" key="900">
+			<rpc mask="###" writable="no" address="900" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="1 Hour Ago" key="901">
+			<rpc mask="###" writable="no" address="901" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="2 Hours Ago" key="902">
+			<rpc mask="###" writable="no" address="902" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="3 Hours Ago" key="903">
+			<rpc mask="###" writable="no" address="903" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="4 Hours Ago" key="904">
+			<rpc mask="###" writable="no" address="904" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="5 Hours Ago" key="905">
+			<rpc mask="###" writable="no" address="905" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="6 Hours Ago" key="906">
+			<rpc mask="###" writable="no" address="906" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="7 Hours Ago" key="907">
+			<rpc mask="###" writable="no" address="907" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="8 Hours Ago" key="908">
+			<rpc mask="###" writable="no" address="908" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="9 Hours Ago" key="909">
+			<rpc mask="###" writable="no" address="909" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="10 Hours Ago" key="910">
+			<rpc mask="###" writable="no" address="910" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="11 Hours Ago" key="911">
+			<rpc mask="###" writable="no" address="911" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="12 Hours Ago" key="912">
+			<rpc mask="###" writable="no" address="912" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="13 Hours Ago" key="913">
+			<rpc mask="###" writable="no" address="913" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="14 Hours Ago" key="914">
+			<rpc mask="###" writable="no" address="914" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="15 Hours Ago" key="915">
+			<rpc mask="###" writable="no" address="915" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="16 Hours Ago" key="916">
+			<rpc mask="###" writable="no" address="916" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="17 Hours Ago" key="917">
+			<rpc mask="###" writable="no" address="917" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="18 Hours Ago" key="918">
+			<rpc mask="###" writable="no" address="918" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="19 Hours Ago" key="919">
+			<rpc mask="###" writable="no" address="919" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="20 Hours Ago" key="920">
+			<rpc mask="###" writable="no" address="920" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="21 Hours Ago" key="921">
+			<rpc mask="###" writable="no" address="921" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="22 Hours Ago" key="922">
+			<rpc mask="###" writable="no" address="922" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="23 Hours Ago" key="923">
+			<rpc mask="###" writable="no" address="923" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Last Value" key="930">
+			<rpc mask="###" writable="no" address="930" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="1 Day Ago" key="931">
+			<rpc mask="###" writable="no" address="931" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="2 Days Ago       " key="932">
+			<rpc mask="###" writable="no" address="932" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="3 Days Ago" key="933">
+			<rpc mask="###" writable="no" address="933" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="4 Days Ago" key="934">
+			<rpc mask="###" writable="no" address="934" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="5 Days Ago" key="935">
+			<rpc mask="###" writable="no" address="935" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="6 Days Ago" key="936">
+			<rpc mask="###" writable="no" address="936" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="7 Days Ago" key="937">
+			<rpc mask="###" writable="no" address="937" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="8 Days Ago" key="938">
+			<rpc mask="###" writable="no" address="938" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="9 Days Ago" key="939">
+			<rpc mask="###" writable="no" address="939" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="10 Days Ago" key="940">
+			<rpc mask="###" writable="no" address="940" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="11 Days Ago" key="941">
+			<rpc mask="###" writable="no" address="941" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="12 Days Ago" key="942">
+			<rpc mask="###" writable="no" address="942" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="13 Days Ago" key="943">
+			<rpc mask="###" writable="no" address="943" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="14 Days Ago" key="944">
+			<rpc mask="###" writable="no" address="944" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="15 Days Ago" key="945">
+			<rpc mask="###" writable="no" address="945" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="16 Days Ago" key="946">
+			<rpc mask="###" writable="no" address="946" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="17 Days Ago" key="947">
+			<rpc mask="###" writable="no" address="947" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="18 Days Ago" key="948">
+			<rpc mask="###" writable="no" address="948" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="19 Days Ago" key="949">
+			<rpc mask="###" writable="no" address="949" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="20 Days Ago" key="950">
+			<rpc mask="###" writable="no" address="950" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="21 Days Ago" key="951">
+			<rpc mask="###" writable="no" address="951" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="22 Days Ago" key="952">
+			<rpc mask="###" writable="no" address="952" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="23 Days Ago" key="953">
+			<rpc mask="###" writable="no" address="953" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+	</registers>
+</RTUReadWriteReqDef>

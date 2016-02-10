@@ -1,0 +1,42 @@
+int function Disable_RTUEmu_EPICRP_Update(int wellRec, int *rc)
+{
+      int numreqs, hlist, datatype, address[1], count[1], type[1];
+      char status[50];
+      
+      rc = 0;
+      hlist = listaction ("CREATE", 1);
+      numreqs = 1;
+      datatype = 13; // TYPE_CSARG
+      address[0] = 520;
+      count[0] = 1;
+      type[0] = 4; // Type is csASC4 (word).
+      listaction ("PUT", hlist, 0, 1); // write a 1 to the register
+
+      cfunction( "RTU_RANDOM_WRITE_DESCRIPTION", "BAKER", "BEAMPROC", wellRec, numreqs, datatype, address, count, type, hlist, rc, status, "Disable Some Updates");
+
+      listaction( "DELETE" , hlist );
+
+      return rc;
+}
+
+
+int function Enable_RTUEmu_EPICRP_Update(int wellRec, int *rc)
+{
+      int numreqs, hlist, datatype, address[1], count[1], type[1];
+      char status[50];
+      
+      rc = 0;
+      hlist = listaction ("CREATE", 1);
+      numreqs = 1;
+      datatype = 13; // TYPE_CSARG
+      address[0] = 520;
+      count[0] = 1;
+      type[0] = 4; // Type is csASC4 (word).
+      listaction ("PUT", hlist, 0, 3); // write a 3 to the register to start updating again
+
+      cfunction( "RTU_RANDOM_WRITE_DESCRIPTION", "BAKER", "BEAMPROC", wellRec, numreqs, datatype, address, count, type, hlist, rc, status, "Disable Some Updates");
+
+      listaction( "DELETE" , hlist );
+
+      return rc;
+}

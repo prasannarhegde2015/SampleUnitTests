@@ -1,0 +1,147 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol="BAKER" description="Test File" />
+	<regBlocks>
+		<block addr="3045" count="2" protocoldatatype="2" />
+		<block addr="3047" count="2" protocoldatatype="54" />
+		<block addr="3050" count="2" protocoldatatype="2" />
+		<block addr="3052" count="2" protocoldatatype="54" />
+		<block addr="3055" count="2" protocoldatatype="2" />
+		<block addr="3057" count="2" protocoldatatype="54" />
+		<block addr="3060" count="2" protocoldatatype="2" />
+		<block addr="3062" count="2" protocoldatatype="54" />
+		<block addr="3065" count="2" protocoldatatype="2" />
+		<block addr="3067" count="2" protocoldatatype="54" />
+		<block addr="3070" count="2" protocoldatatype="2" />
+		<block addr="3072" count="2" protocoldatatype="54" />
+		<block addr="3075" count="2" protocoldatatype="2" />
+		<block addr="3077" count="2" protocoldatatype="54" />
+		<block addr="3080" count="2" protocoldatatype="2" />
+		<block addr="3082" count="2" protocoldatatype="54" />
+		<block addr="3085" count="2" protocoldatatype="2" />
+		<block addr="3087" count="2" protocoldatatype="54" />
+		<block addr="3090" count="2" protocoldatatype="2" />
+		<block addr="3092" count="2" protocoldatatype="54" />
+	</regBlocks>
+	<registers>
+		<register control="select" desc="Rod Type (1-5)" key="3045">
+			<rpc mask="###" writable="no" address="3045" type="Byte" m="1" c="0" fmt="">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Rod Count (#)" key="3046">
+			<rpc mask="###" writable="no" address="3046" type="Byte" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Rod Diameter (in.)" key="3047">
+			<rpc mask="###" writable="no" address="3047" type="IEEE" m="1" c="0" fmt="3">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Length Per Rod (ft.)" key="3048">
+			<rpc mask="###" writable="no" address="3048" type="IEEE" m="1" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Rod Type (1-5)" key="3050">
+			<rpc mask="###" writable="no" address="3050" type="Byte" m="1" c="0" fmt="">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Rod Count (#)" key="3051">
+			<rpc mask="###" writable="no" address="3051" type="Byte" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Rod Diameter (in.)" key="3052">
+			<rpc mask="###" writable="no" address="3052" type="IEEE" m="1" c="0" fmt="3">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Length Per Rod (ft.)" key="3053">
+			<rpc mask="###" writable="no" address="3053" type="IEEE" m="1" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Rod Type (1-5)" key="3055">
+			<rpc mask="###" writable="no" address="3055" type="Byte" m="1" c="0" fmt="">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Rod Count (#)" key="3056">
+			<rpc mask="###" writable="no" address="3056" type="Byte" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc=" Rod Diameter (in.)" key="3057">
+			<rpc mask="###" writable="no" address="3057" type="IEEE" m="1" c="0" fmt="3">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Length Per Rod (ft.)" key="3058">
+			<rpc mask="###" writable="no" address="3058" type="IEEE" m="1" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Rod Type (1-5)" key="3060">
+			<rpc mask="###" writable="no" address="3060" type="Byte" m="1" c="0" fmt="">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Rod Count (#)" key="3061">
+			<rpc mask="###" writable="no" address="3061" type="Byte" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Rod Diameter (in.)" key="3062">
+			<rpc mask="###" writable="no" address="3062" type="IEEE" m="1" c="0" fmt="3">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Length Per Rod (ft.)" key="3063">
+			<rpc mask="###" writable="no" address="3063" type="IEEE" m="1" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Rod Type (1-5)" key="3065">
+			<rpc mask="###" writable="no" address="3065" type="Byte" m="1" c="0" fmt="">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Rod Count (#)" key="3066">
+			<rpc mask="###" writable="no" address="3066" type="Byte" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Rod Diameter (in.)" key="3067">
+			<rpc mask="###" writable="no" address="3067" type="IEEE" m="1" c="0" fmt="3">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Length Per Rod (ft.)" key="3068">
+			<rpc mask="###" writable="no" address="3068" type="IEEE" m="1" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Rod Type (1-5)" key="3070">
+			<rpc mask="###" writable="no" address="3070" type="Byte" m="1" c="0" fmt="">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Rod Count (#)" key="3071">
+			<rpc mask="###" writable="no" address="3071" type="Byte" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Rod Diameter (in.)" key="3072">
+			<rpc mask="###" writable="no" address="3072" type="IEEE" m="1" c="0" fmt="3">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Length Per Rod (ft.)" key="3073">
+			<rpc mask="###" writable="no" address="3073" type="IEEE" m="1" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Rod Type (1-5)" key="3075">
+			<rpc mask="###" writable="no" address="3075" type="Byte" m="1" c="0" fmt="">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Rod Count (#)" key="3076">
+			<rpc mask="###" writable="no" address="3076" type="Byte" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Rod Diameter (in.)" key="3077">
+			<rpc mask="###" writable="no" address="3077" type="IEEE" m="1" c="0" fmt="3">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Length Per Rod (ft.)" key="3078">
+			<rpc mask="###" writable="no" address="3078" type="IEEE" m="1" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Rod Type (1-5)" key="3080">
+			<rpc mask="###" writable="no" address="3080" type="Byte" m="1" c="0" fmt="">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Rod Count (#)" key="3081">
+			<rpc mask="###" writable="no" address="3081" type="Byte" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Rod Diameter (in.)" key="3082">
+			<rpc mask="###" writable="no" address="3082" type="IEEE" m="1" c="0" fmt="3">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Length Per Rod (ft.)" key="3083">
+			<rpc mask="###" writable="no" address="3083" type="IEEE" m="1" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Rod Type (1-5)" key="3085">
+			<rpc mask="###" writable="no" address="3085" type="Byte" m="1" c="0" fmt="">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Rod Count (#)" key="3086">
+			<rpc mask="###" writable="no" address="3086" type="Byte" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Rod Diameter (in.)" key="3087">
+			<rpc mask="###" writable="no" address="3087" type="IEEE" m="1" c="0" fmt="3">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Length Per Rod (ft.)" key="3088">
+			<rpc mask="###" writable="no" address="3088" type="IEEE" m="1" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Rod Type (1-5)" key="3090">
+			<rpc mask="###" writable="no" address="3090" type="Byte" m="1" c="0" fmt="">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Rod Count (#)" key="3091">
+			<rpc mask="###" writable="no" address="3091" type="Byte" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Rod Diameter (in.)" key="3092">
+			<rpc mask="###" writable="no" address="3092" type="IEEE" m="1" c="0" fmt="3">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Length Per Rod (ft.)" key="3093">
+			<rpc mask="###" writable="no" address="3093" type="IEEE" m="1" c="0" fmt="2">comm. fail</rpc>
+		</register>
+	</registers>
+</RTUReadWriteReqDef>

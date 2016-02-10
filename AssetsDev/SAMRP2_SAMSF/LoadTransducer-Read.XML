@@ -1,0 +1,22 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNILRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+		<block addr="2167" count="4" protocoldatatype="3" />
+	</regBlocks>
+<regValuesToWrite>
+	<val addr="2167">600</val>
+	<val addr="2168">600</val>
+	<val addr="2170">600</val>
+</regValuesToWrite>
+<registers>
+		<register control="text" desc="Threshold Adjust Register" key="42167">
+		<rpc mask="#####" writable="yes" address="2167" type="3" m="1" c="" fmt="str" altControlID="42167">comm fail</rpc>
+	</register>
+		<register control="text" desc="Load Gain Register" key="42168">
+		<rpc mask="#####" writable="yes" address="2168" type="515" m="1" c="" fmt="str" altControlID="42168">comm fail</rpc>
+	</register>
+		<register control="text" desc="Intrinsic Safety Barrier Support" key="42170">
+		<rpc mask="#####" writable="yes" address="2170" type="3" m="1" c="" fmt="str" altControlID="42170">comm fail</rpc>
+	</register>
+</registers>
+</RTUReadWriteReqDef>

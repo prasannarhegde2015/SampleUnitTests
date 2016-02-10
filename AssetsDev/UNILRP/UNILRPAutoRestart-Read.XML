@@ -1,0 +1,180 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNISRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+	<block addr="7853" count="20" protocoldatatype="4355" />
+	<block addr="7879" count="58" protocoldatatype="4355" />
+	<block addr="8115" count="2" protocoldatatype="4355" />
+	<block addr="8119" count="2" protocoldatatype="4355" />
+	<block addr="7883" count="60" protocoldatatype="4355" />
+</regBlocks>
+
+<regValuesToWrite>
+	<val addr="7853">600</val>
+	<val addr="7859">600</val>
+	<val addr="7861">600</val>
+	<val addr="7863">600</val>
+	<val addr="7865">600</val>
+	<val addr="7867">600</val>
+	<val addr="7869">600</val>
+	<val addr="7871">600</val>
+	<val addr="7879">600</val>
+	<val addr="7881">600</val>
+	<val addr="7883">600</val>
+	<val addr="7885">600</val>
+	<val addr="7887">600</val>
+	<val addr="7889">600</val>
+	<val addr="7891">600</val>
+	<val addr="7893">600</val>
+	<val addr="7895">600</val>
+	<val addr="7897">600</val>
+	<val addr="7899">600</val>
+	<val addr="7901">600</val>
+	<val addr="7903">600</val>
+	<val addr="7905">600</val>
+	<val addr="7907">600</val>
+	<val addr="7909">600</val>
+	<val addr="7911">600</val>
+	<val addr="7913">600</val>
+	<val addr="7915">600</val>
+	<val addr="7917">600</val>
+	<val addr="7919">600</val>
+	<val addr="7921">600</val>
+	<val addr="7923">600</val>
+	<val addr="7925">600</val>
+	<val addr="7927">600</val>
+	<val addr="7929">600</val>
+	<val addr="7931">600</val>
+	<val addr="7933">600</val>
+	<val addr="7935">600</val>
+	<val addr="8115">600</val>
+	<val addr="8119">600</val>
+	<val addr="8143">600</val>
+</regValuesToWrite>
+<registers>
+	<register control="text" desc="Restart attempts" key="47853">
+	<rpc mask="#####" writable="yes" address="7853" type="4355" m="1" c="0" fmt="0" altControlID="47853" />
+	</register>
+	<register control="text" desc="Restart counter" key="47855">
+	<rpc mask="#####" writable="no" address="7855" type="4355" m="1" c="0" fmt="0" altControlID="47855" />
+	</register>
+	<register control="text" desc="Restart timer [min]" key="47857">
+	<rpc mask="#####" writable="no" address="7857" type="4355" m="100" c="0" fmt="2" altControlID="47857" />
+	</register>
+	<register control="text" desc="Run verify time [min]" key="47859">
+	<rpc mask="#####" writable="yes" address="7859" type="4355" m="100" c="0" fmt="2" altControlID="47859" />
+	</register>
+	<register control="text" desc="Low prs flow delay " key="47861">
+	<rpc mask="#####" writable="yes" address="7861" type="4355" m="100" c="0" fmt="2" altControlID="47861" />
+	</register>
+	<register control="text" desc="Powerup restart delay " key="47863">
+	<rpc mask="###.##" writable="yes" address="7863" type="4355" m="100" c="0" fmt="2" altControlID="47863" />
+	</register>
+	<register control="text" desc="Fault restart delay " key="47865">
+	<rpc mask="###.##" writable="yes" address="7865" type="4355" m="100" c="0" fmt="2" altControlID="47865" />
+	</register>
+	<register control="text" desc="Thermal restart delay " key="47867">
+	<rpc mask="###.##" writable="yes" address="7867" type="4355" m="100" c="0" fmt="2" altControlID="47867" />
+	</register>
+	<register control="select" desc="External stop restart override" key="47869">
+	<rpc mask="#####" writable="yes" address="7869" type="4355" m="1" c="0" fmt="0" altControlID="47869" />
+	</register>
+	<register control="text" desc="External stop restart delay [min]" key="47871">
+	<rpc mask="###.##" writable="yes" address="7871" type="4355" m="100" c="0" fmt="2" altControlID="47871" />
+	</register>
+	<register control="text" desc="Auto restart delay [min]" key="47879">
+	<rpc mask="###.##" writable="yes" address="7879" type="4355" m="100" c="0" fmt="2" altControlID="47879" />
+	</register>
+	<register control="select" desc="Emergency sd restart override" key="47881">
+	<rpc mask="###.##" writable="yes" address="7881" type="4355" m="1" c="0" fmt="0" altControlID="47881" />
+	</register>
+	<register control="text" desc="Emergency sd restart delay [min]" key="47883">
+	<rpc mask="###.##" writable="yes" address="7883" type="4355" m="100" c="0" fmt="2" altControlID="47883" />
+	</register>
+	<register control="text" desc="Casing prs restart delay [min]" key="47885">
+	<rpc mask="###.##" writable="yes" address="7885" type="4355" m="100" c="0" fmt="2" altControlID="47885" />
+	</register>
+	<register control="text" desc="Casing temp restart delay [min]" key="47887">
+	<rpc mask="###.##" writable="yes" address="7887" type="4355" m="100" c="0" fmt="2" altControlID="47887" />
+	</register>
+	<register control="text" desc="Tubing prs restart delay [min]" key="47889">
+	<rpc mask="###.##" writable="yes" address="7889" type="4355" m="100" c="0" fmt="2" altControlID="47889" />
+	</register>
+	<register control="text" desc="Tubing temp restart delay [min]" key="47891">
+	<rpc mask="###.##" writable="yes" address="7891" type="4355" m="100" c="0" fmt="2" altControlID="47891" />
+	</register>
+	<register control="text" desc="Fluid flow restart delay [min]" key="47893">
+	<rpc mask="###.##" writable="yes" address="7893" type="4355" m="100" c="0" fmt="2" altControlID="47893" />
+	</register>
+	<register control="text" desc="Gas flow restart delay [min]" key="47895">
+	<rpc mask="###.##" writable="yes" address="7895" type="4355" m="100" c="0" fmt="2" altControlID="47895" />
+	</register>
+	<register control="text" desc="Water cut restart delay [min]" key="47897">
+	<rpc mask="###.##" writable="yes" address="7897" type="4355" m="100" c="0" fmt="2" altControlID="47897" />
+	</register>
+	<register control="text" desc="Tank level restart delay [min]" key="47899">
+	<rpc mask="###.##" writable="yes" address="7899" type="4355" m="100" c="0" fmt="2" altControlID="47899" />
+	</register>
+	<register control="text" desc="Air bal prs restart delay [min]" key="47901">
+	<rpc mask="###.##" writable="yes" address="7901" type="4355" m="100" c="0" fmt="2" altControlID="47901" />
+	</register>
+	<register control="text" desc="Solar cur restart delay [min]" key="47903">
+	<rpc mask="###.##" writable="yes" address="7903" type="4355" m="100" c="0" fmt="2" altControlID="47903" />
+	</register>
+	<register control="text" desc="Air pump prs restart delay [min]" key="47905">
+	<rpc mask="###.##" writable="yes" address="7905" type="4355" m="100" c="0" fmt="2" altControlID="47905" />
+	</register>
+	<register control="text" desc="User A restart delay[min]" key="47907">
+	<rpc mask="###.##" writable="yes" address="7907" type="4355" m="100" c="0" fmt="2" altControlID="47907" />
+	</register>
+	<register control="text" desc="User B restart delay [min]" key="47909">
+	<rpc mask="###.##" writable="yes" address="7909" type="4355" m="100" c="0" fmt="2" altControlID="47909" />
+	</register>
+	<register control="text" desc="Low prs flow restart delay [min]" key="47911">
+	<rpc mask="###.##" writable="yes" address="7911" type="4355" m="100" c="0" fmt="2" altControlID="47911" />
+	</register>
+	<register control="text" desc="High prs restart delay [min]" key="47913">
+	<rpc mask="###.##" writable="yes" address="7913" type="4355" m="100" c="0" fmt="2" altControlID="47913" />
+	</register>
+	<register control="text" desc="Security breach restart delay [min]" key="47915">
+	<rpc mask="###.##" writable="yes" address="7915" type="4355" m="100" c="0" fmt="2" altControlID="47915" />
+	</register>
+	<register control="text" desc="Gas leak restart delay [min]" key="47917">
+	<rpc mask="###.##" writable="yes" address="7917" type="4355" m="100" c="0" fmt="2" altControlID="47917" />
+	</register>
+	<register control="text" desc="Db thermal restart delay [min]" key="47919">
+	<rpc mask="###.##" writable="yes" address="7919" type="4355" m="100" c="0" fmt="2" altControlID="47919" />
+	</register>
+	<register control="text" desc="Eng fault restart delay [min]" key="47921">
+	<rpc mask="###.##" writable="yes" address="7921" type="4355" m="100" c="0" fmt="2" altControlID="47921" />
+	</register>
+	<register control="text" desc="Tank lvl restart delay [min]" key="47923">
+	<rpc mask="###.##" writable="yes" address="7923" type="4355" m="100" c="0" fmt="2" altControlID="47923" />
+	</register>
+	<register control="text" desc="Vibration restart delay [min]" key="47925">
+	<rpc mask="###.##" writable="yes" address="7925" type="4355" m="100" c="0" fmt="2" altControlID="47925" />
+	</register>
+	<register control="text" desc="Oil leak restart delay [min]" key="47927">
+	<rpc mask="###.##" writable="yes" address="7927" type="4355" m="100" c="0" fmt="2" altControlID="47927" />
+	</register>
+	<register control="text" desc="Low power restart delay [min]" key="47929">
+	<rpc mask="###.##" writable="yes" address="7929" type="4355" m="100" c="0" fmt="2" altControlID="47929" />
+	</register>
+	<register control="text" desc="User 1 fault restart delay [min]" key="47931">
+	<rpc mask="###.##" writable="yes" address="7931" type="4355" m="100" c="0" fmt="2" altControlID="47931" />
+	</register>
+	<register control="text" desc="User 2 fault restart delay [min]" key="47933">
+	<rpc mask="###.##" writable="yes" address="7933" type="4355" m="100" c="0" fmt="2" altControlID="47933" />
+	</register>
+	<register control="text" desc="User 3 fault restart delay [min]" key="47935">
+	<rpc mask="###.##" writable="yes" address="7935" type="4355" m="100" c="0" fmt="2" altControlID="47935" />
+	</register>
+	<register control="text" desc="High prs2 restart delay [min]" key="48115">
+	<rpc mask="###.##" writable="yes" address="8115" type="4355" m="100" c="0" fmt="2" altControlID="48115" />
+	</register>
+	<register control="text" desc="Stuffing box restart delay [min]" key="48119">
+	<rpc mask="###.##" writable="yes" address="8119" type="4355" m="100" c="0" fmt="2" altControlID="48119" />
+	</register>
+	<register control="text" desc="Motor Thermal Restart Delay " key="48143">
+	<rpc mask="###.##" writable="yes" address="8143" type="4355" m="100" c="0" fmt="2" altControlID="48143" />
+	</register>
+</registers></RTUReadWriteReqDef>

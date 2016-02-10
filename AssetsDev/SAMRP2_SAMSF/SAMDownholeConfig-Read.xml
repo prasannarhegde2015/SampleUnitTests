@@ -1,0 +1,95 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNISRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+	<block addr="2177" count="2" protocoldatatype="3" />
+	<block addr="2188" count="1" protocoldatatype="3" />
+	<block addr="2268" count="7" protocoldatatype="3" />
+	<block addr="2296" count="1" protocoldatatype="3" />
+	<block addr="2302" count="2" protocoldatatype="1539" />
+	<block addr="2314" count="2" protocoldatatype="1539" />
+	<block addr="2326" count="2" protocoldatatype="1539" />
+	<block addr="2338" count="6" protocoldatatype="1539" />
+</regBlocks>
+
+<regValuesToWrite>
+</regValuesToWrite>
+<registers>
+	<register control="text" desc="Stroke Length" key="2177">
+	<rpc mask="###" writable="no" address="2177" type="3" m="100" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Pump Depth" key="2178">
+	<rpc mask="###" writable="no" address="2178" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Pump Diameter" key="2188">
+	<rpc mask="###" writable="no" address="2188" type="3" m="100" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Damping Factor" key="2268">
+	<rpc mask="###" writable="no" address="2268" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Stuffing Box Friction" key="2270">
+	<rpc mask="###" writable="no" address="2270" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Tubing Head Pressure" key="2271">
+	<rpc mask="###" writable="no" address="2271" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Tubing Gradient" key="2272">
+	<rpc mask="###" writable="no" address="2272" type="1539" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Pumping Unit Type" key="2274">
+	<rpc mask="###" writable="no" address="2274" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Crank Rotation [0=CW]" key="2275">
+	<rpc mask="###" writable="no" address="2275" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="R Dimension" key="2277">
+	<rpc mask="###" writable="no" address="2277" type="1539" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="K Dimension" key="2279">
+	<rpc mask="###" writable="no" address="2279" type="1539" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="C Dimension" key="2281">
+	<rpc mask="###" writable="no" address="2281" type="1539" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="P Dimension" key="2283">
+	<rpc mask="###" writable="no" address="2283" type="1539" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="A Dimension" key="2285">
+	<rpc mask="###" writable="no" address="2285" type="1539" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="I Dimension" key="2287">
+	<rpc mask="###" writable="no" address="2287" type="1539" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Nbr Tapers ( Max 6 )" key="2289">
+	<rpc mask="###" writable="no" address="2289" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Rod Types" key="2290">
+	<rpc mask="###" writable="no" address="2290" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="6 Taper Rod Intervals" key="2296">
+	<rpc mask="###" writable="no" address="2296" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="6 Taper Rod Diameters" key="2302">
+	<rpc mask="###" writable="no" address="2302" type="1539" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="6 Taper Rod Weights" key="2314">
+	<rpc mask="###" writable="no" address="2314" type="1539" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="6 Taper Rod Modulus" key="2326">
+	<rpc mask="###" writable="no" address="2326" type="1539" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Motor Type [0=NEMA 1=UHS]" key="2338">
+	<rpc mask="###" writable="no" address="2338" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Full Load Horsepower" key="2339">
+	<rpc mask="###" writable="no" address="2339" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Full Load RPM" key="2340">
+	<rpc mask="###" writable="no" address="2340" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Synch Speed" key="2341">
+	<rpc mask="###" writable="no" address="2341" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Max Reduced Torque" key="2342">
+	<rpc mask="###" writable="no" address="2342" type="1539" m="1" c="0" fmt="str" />
+	</register>
+</registers></RTUReadWriteReqDef>

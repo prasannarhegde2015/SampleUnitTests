@@ -1,0 +1,287 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol="BAKER" description="Test File" />
+	<regBlocks>
+		<block addr="5430" count="93" protocoldatatype="4" />
+	</regBlocks>
+	<registers>
+		<register control="text" desc="Today" key="5430">
+			<rpc mask="###" writable="no" address="5430" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Yesterday" key="5431">
+			<rpc mask="###" writable="no" address="5431" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="2 Days Ago" key="5432">
+			<rpc mask="###" writable="no" address="5432" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="3 Days Ago" key="5433">
+			<rpc mask="###" writable="no" address="5433" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="4 Days Ago" key="5434">
+			<rpc mask="###" writable="no" address="5434" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="5 Days Ago" key="5435">
+			<rpc mask="###" writable="no" address="5435" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="6 Days Ago" key="5436">
+			<rpc mask="###" writable="no" address="5436" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="7 Days Ago" key="5437">
+			<rpc mask="###" writable="no" address="5437" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="8 Days Ago" key="5438">
+			<rpc mask="###" writable="no" address="5438" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="9 Days Ago" key="5439">
+			<rpc mask="###" writable="no" address="5439" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="10 Days Ago" key="5440">
+			<rpc mask="###" writable="no" address="5440" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="11 Days Ago" key="5441">
+			<rpc mask="###" writable="no" address="5441" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="12 Days Ago" key="5442">
+			<rpc mask="###" writable="no" address="5442" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="13 Days Ago" key="5443">
+			<rpc mask="###" writable="no" address="5443" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="14 Days Ago" key="5444">
+			<rpc mask="###" writable="no" address="5444" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="15 Days Ago" key="5445">
+			<rpc mask="###" writable="no" address="5445" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="16 Days Ago" key="5446">
+			<rpc mask="###" writable="no" address="5446" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="17 Days Ago" key="5447">
+			<rpc mask="###" writable="no" address="5447" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="18 Days Ago" key="5448">
+			<rpc mask="###" writable="no" address="5448" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="19 Days Ago" key="5449">
+			<rpc mask="###" writable="no" address="5449" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="20 Days Ago" key="5450">
+			<rpc mask="###" writable="no" address="5450" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="21 Days Ago" key="5451">
+			<rpc mask="###" writable="no" address="5451" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="22 Days Ago" key="5452">
+			<rpc mask="###" writable="no" address="5452" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="23 Days Ago" key="5453">
+			<rpc mask="###" writable="no" address="5453" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="24 Days Ago" key="5454">
+			<rpc mask="###" writable="no" address="5454" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="25 Days Ago" key="5455">
+			<rpc mask="###" writable="no" address="5455" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="26 Days Ago" key="5456">
+			<rpc mask="###" writable="no" address="5456" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="27 Days Ago" key="5457">
+			<rpc mask="###" writable="no" address="5457" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="28 Days Ago" key="5458">
+			<rpc mask="###" writable="no" address="5458" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="29 Days Ago" key="5459">
+			<rpc mask="###" writable="no" address="5459" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="30 Days Ago" key="5460">
+			<rpc mask="###" writable="no" address="5460" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Today" key="5461">
+			<rpc mask="###" writable="no" address="5461" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Yesterday" key="5462">
+			<rpc mask="###" writable="no" address="5462" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="2 Days Ago" key="5463">
+			<rpc mask="###" writable="no" address="5463" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="3 Days Ago" key="5464">
+			<rpc mask="###" writable="no" address="5464" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="4 Days Ago" key="5465">
+			<rpc mask="###" writable="no" address="5465" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="5 Days Ago" key="5466">
+			<rpc mask="###" writable="no" address="5466" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="6 Days Ago" key="5467">
+			<rpc mask="###" writable="no" address="5467" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="7 Days Ago" key="5468">
+			<rpc mask="###" writable="no" address="5468" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="8 Days Ago" key="5469">
+			<rpc mask="###" writable="no" address="5469" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="9 Days Ago" key="5470">
+			<rpc mask="###" writable="no" address="5470" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="10 Days Ago" key="5471">
+			<rpc mask="###" writable="no" address="5471" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="11 Days Ago" key="5472">
+			<rpc mask="###" writable="no" address="5472" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="12 Days Ago" key="5473">
+			<rpc mask="###" writable="no" address="5473" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="13 Days Ago" key="5474">
+			<rpc mask="###" writable="no" address="5474" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="14 Days Ago" key="5475">
+			<rpc mask="###" writable="no" address="5475" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="15 Days Ago" key="5476">
+			<rpc mask="###" writable="no" address="5476" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="16 Days Ago" key="5477">
+			<rpc mask="###" writable="no" address="5477" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="17 Days Ago" key="5478">
+			<rpc mask="###" writable="no" address="5478" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="18 Days Ago" key="5479">
+			<rpc mask="###" writable="no" address="5479" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="19 Days Ago" key="5480">
+			<rpc mask="###" writable="no" address="5480" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="20 Days Ago" key="5481">
+			<rpc mask="###" writable="no" address="5481" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="21 Days Ago" key="5482">
+			<rpc mask="###" writable="no" address="5482" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="22 Days Ago" key="5483">
+			<rpc mask="###" writable="no" address="5483" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="23 Days Ago" key="5484">
+			<rpc mask="###" writable="no" address="5484" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="24 Days Ago" key="5485">
+			<rpc mask="###" writable="no" address="5485" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="25 Days Ago" key="5486">
+			<rpc mask="###" writable="no" address="5486" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="26 Days Ago" key="5487">
+			<rpc mask="###" writable="no" address="5487" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="27 Days Ago" key="5488">
+			<rpc mask="###" writable="no" address="5488" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="28 Days Ago" key="5489">
+			<rpc mask="###" writable="no" address="5489" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="29 Days Ago" key="5490">
+			<rpc mask="###" writable="no" address="5490" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="30 Days Ago" key="5491">
+			<rpc mask="###" writable="no" address="5491" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Today" key="5492">
+			<rpc mask="###" writable="no" address="5492" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Yesterday" key="5493">
+			<rpc mask="###" writable="no" address="5493" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="2 Days Ago" key="5494">
+			<rpc mask="###" writable="no" address="5494" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="3 Days Ago" key="5495">
+			<rpc mask="###" writable="no" address="5495" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="4 Days Ago" key="5496">
+			<rpc mask="###" writable="no" address="5496" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="5 Days Ago" key="5497">
+			<rpc mask="###" writable="no" address="5497" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="6 Days Ago" key="5498">
+			<rpc mask="###" writable="no" address="5498" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="7 Days Ago" key="5499">
+			<rpc mask="###" writable="no" address="5499" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="8 Days Ago" key="5500">
+			<rpc mask="###" writable="no" address="5500" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="9 Days Ago" key="5501">
+			<rpc mask="###" writable="no" address="5501" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="10 Days Ago" key="5502">
+			<rpc mask="###" writable="no" address="5502" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="11 Days Ago" key="5503">
+			<rpc mask="###" writable="no" address="5503" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="12 Days Ago" key="5504">
+			<rpc mask="###" writable="no" address="5504" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="13 Days Ago" key="5505">
+			<rpc mask="###" writable="no" address="5505" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="14 Days Ago" key="5506">
+			<rpc mask="###" writable="no" address="5506" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="15 Days Ago" key="5507">
+			<rpc mask="###" writable="no" address="5507" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="16 Days Ago" key="5508">
+			<rpc mask="###" writable="no" address="5508" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="17 Days Ago" key="5509">
+			<rpc mask="###" writable="no" address="5509" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="18 Days Ago" key="5510">
+			<rpc mask="###" writable="no" address="5510" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="19 Days Ago" key="5511">
+			<rpc mask="###" writable="no" address="5511" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="20 Days Ago" key="5512">
+			<rpc mask="###" writable="no" address="5512" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="21 Days Ago" key="5513">
+			<rpc mask="###" writable="no" address="5513" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="22 Days Ago" key="5514">
+			<rpc mask="###" writable="no" address="5514" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="23 Days Ago" key="5515">
+			<rpc mask="###" writable="no" address="5515" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="24 Days Ago" key="5516">
+			<rpc mask="###" writable="no" address="5516" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="25 Days Ago" key="5517">
+			<rpc mask="###" writable="no" address="5517" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="26 Days Ago" key="5518">
+			<rpc mask="###" writable="no" address="5518" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="27 Days Ago" key="5519">
+			<rpc mask="###" writable="no" address="5519" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="28 Days Ago" key="5520">
+			<rpc mask="###" writable="no" address="5520" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="29 Days Ago" key="5521">
+			<rpc mask="###" writable="no" address="5521" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+		<register control="text" desc="30 Days Ago" key="5522">
+			<rpc mask="###" writable="no" address="5522" type="Word" m="0.1" c="0" fmt="0">comm. fail</rpc>
+		</register>
+	</registers>
+</RTUReadWriteReqDef>

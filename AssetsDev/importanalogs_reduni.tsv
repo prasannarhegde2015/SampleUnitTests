@@ -1,0 +1,3 @@
+RTUDESCC	.I	DESCC	TYPEC	EUDESCC	SLOPER	OFFSETR	VIRTUALI	FUNCTIONC	PORDERI	POINT_TYPI	FIELD_ADRI	POINT_NUMI	POINT_AD4I
+wellfromcmdline	1	Load Overload Trip Setpoint             	CPV	RAW	1	0	0	no_conversion	0	3	222	0	0
+wellfromcmdline	1	Supply voltage             	CPV	RAW	1	0	0	no_conversion	0	4	2104	0	0

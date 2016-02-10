@@ -1,0 +1,11 @@
+<jobs>
+    <job id="1" desc="Weatherford.core.logging.test (defaults)">
+        <vstest file="weatherford.core.logging.test.dll"/>
+
+        <Locals>weatherford.core.logging.test.dll</Locals>
+        <Locals>Weatherford.Core.Logging.dll</Locals>
+        <AppSettings.Net>
+         </AppSettings.Net>
+    </job>
+
+</jobs>

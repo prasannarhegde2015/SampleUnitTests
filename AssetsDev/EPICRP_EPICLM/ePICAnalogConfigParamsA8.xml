@@ -1,0 +1,75 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol="BAKER" description="Test File" />
+	<regBlocks>
+		<block addr="783" count="3" protocoldatatype="2" />
+		<block addr="786" count="3" protocoldatatype="4" />
+		<block addr="789" count="2" protocoldatatype="2" />
+		<block addr="791" count="1" protocoldatatype="4" />
+		<block addr="792" count="2" protocoldatatype="2" />
+		<block addr="780" count="3" protocoldatatype="4" />
+		<block addr="795" count="2" protocoldatatype="4" />
+	</regBlocks>
+	<regValuesToWrite>
+		<val addr="783">0</val>
+		<val addr="784">0</val>
+		<val addr="785">0</val>
+		<val addr="786">0</val>
+		<val addr="787">0</val>
+		<val addr="788">0</val>
+		<val addr="789">0</val>
+		<val addr="790">0</val>
+		<val addr="791">0</val>
+		<val addr="792">0</val>
+		<val addr="793">0</val>
+	</regValuesToWrite>
+	<registers>
+		<register control="select" desc="'AI8' Analog Input Type" key="783">
+			<rpc mask="###" writable="yes" address="783" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="'AI8' Decimal Places" key="784">
+			<rpc mask="###" writable="yes" address="784" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="'AI8' Engineering Unit Label" key="785">
+			<rpc mask="###" writable="yes" address="785" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="'AI8' Scaling - Low Value" key="786">
+			<rpc mask="###" writable="yes" address="786" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="'AI8' Scaling - High Value" key="787">
+			<rpc mask="###" writable="yes" address="787" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="'AI8' Lower Alarm Limit" key="788">
+			<rpc mask="###" writable="yes" address="788" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="'AI8' Lower Alarm Action '1'" key="789">
+			<rpc mask="###" writable="yes" address="789" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="'AI8' Lower Alarm Action '2'" key="790">
+			<rpc mask="###" writable="yes" address="790" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="'AI8' Upper Alarm Limit" key="791">
+			<rpc mask="###" writable="yes" address="791" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="'AI8' Upper Alarm Action '1'" key="792">
+			<rpc mask="###" writable="yes" address="792" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="'AI8' Upper Alarm Action '2'" key="793">
+			<rpc mask="###" writable="yes" address="793" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="'AI8' Raw A/D Channel Value Counts / Volts" key="780">
+			<rpc mask="###" writable="no" address="780" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="'AI8' Input Value in Offset Volts" key="781">
+			<rpc mask="###" writable="no" address="781" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="'AI8' Scaled Engineering Unit Input Value" key="782">
+			<rpc mask="###" writable="no" address="782" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="'AI8' Lowest Recorded Input Value" key="795">
+			<rpc mask="###" writable="no" address="795" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="'AI8' Highest Recorded Input Value        " key="796">
+			<rpc mask="###" writable="no" address="796" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+	</registers>
+</RTUReadWriteReqDef>

@@ -1,0 +1,163 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNISRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+	<block addr="2289" count="2" protocoldatatype="3" />
+	<block addr="2296" count="1" protocoldatatype="3" />
+	<block addr="2302" count="2" protocoldatatype="1539" />
+	<block addr="2314" count="2" protocoldatatype="1539" />
+	<block addr="2326" count="2" protocoldatatype="1539" />
+	<block addr="2291" count="1" protocoldatatype="3" />
+	<block addr="2297" count="1" protocoldatatype="3" />
+	<block addr="2304" count="2" protocoldatatype="1539" />
+	<block addr="2316" count="2" protocoldatatype="1539" />
+	<block addr="2328" count="2" protocoldatatype="1539" />
+	<block addr="2292" count="1" protocoldatatype="3" />
+	<block addr="2298" count="1" protocoldatatype="3" />
+	<block addr="2306" count="2" protocoldatatype="1539" />
+	<block addr="2318" count="2" protocoldatatype="1539" />
+	<block addr="2330" count="2" protocoldatatype="1539" />
+	<block addr="2293" count="1" protocoldatatype="3" />
+	<block addr="2299" count="1" protocoldatatype="3" />
+	<block addr="2308" count="2" protocoldatatype="1539" />
+	<block addr="2320" count="2" protocoldatatype="1539" />
+	<block addr="2332" count="2" protocoldatatype="1539" />
+	<block addr="2294" count="1" protocoldatatype="3" />
+	<block addr="2300" count="1" protocoldatatype="3" />
+	<block addr="2310" count="2" protocoldatatype="1539" />
+	<block addr="2322" count="2" protocoldatatype="1539" />
+	<block addr="2334" count="2" protocoldatatype="1539" />
+	<block addr="2295" count="1" protocoldatatype="3" />
+	<block addr="2301" count="1" protocoldatatype="3" />
+	<block addr="2312" count="2" protocoldatatype="1539" />
+	<block addr="2324" count="2" protocoldatatype="1539" />
+	<block addr="2336" count="2" protocoldatatype="1539" />
+</regBlocks>
+
+<regValuesToWrite>
+	<val addr="2289">600</val>
+	<val addr="2290">600</val>
+	<val addr="2296">600</val>
+	<val addr="2302">600</val>
+	<val addr="2314">600</val>
+	<val addr="2326">600</val>
+	<val addr="2291">600</val>
+	<val addr="2297">600</val>
+	<val addr="2304">600</val>
+	<val addr="2316">600</val>
+	<val addr="2328">600</val>
+	<val addr="2292">600</val>
+	<val addr="2298">600</val>
+	<val addr="2306">600</val>
+	<val addr="2318">600</val>
+	<val addr="2330">600</val>
+	<val addr="2293">600</val>
+	<val addr="2299">600</val>
+	<val addr="2308">600</val>
+	<val addr="2320">600</val>
+	<val addr="2332">600</val>
+	<val addr="2294">600</val>
+	<val addr="2300">600</val>
+	<val addr="2310">600</val>
+	<val addr="2322">600</val>
+	<val addr="2334">600</val>
+	<val addr="2295">600</val>
+	<val addr="2301">600</val>
+	<val addr="2312">600</val>
+	<val addr="2324">600</val>
+	<val addr="2336">600</val>
+</regValuesToWrite>
+<registers>
+	<register control="select" desc="Number of Tapers" key="2289">
+	<rpc mask="###" writable="yes" address="2289" type="3" m="1" c="0" fmt="" />
+	</register>
+	<register control="select" desc="Rod Type" key="2290">
+	<rpc mask="###" writable="yes" address="2290" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Interval" key="2296">
+	<rpc mask="###" writable="yes" address="2296" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Diameter" key="2302">
+	<rpc mask="###" writable="yes" address="2302" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Weight" key="2314">
+	<rpc mask="###" writable="yes" address="2314" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Modulus" key="2326">
+	<rpc mask="###" writable="yes" address="2326" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="select" desc="Rod Type" key="2291">
+	<rpc mask="###" writable="yes" address="2291" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Interval" key="2297">
+	<rpc mask="###" writable="yes" address="2297" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Diameter" key="2304">
+	<rpc mask="###" writable="yes" address="2304" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Weight" key="2316">
+	<rpc mask="###" writable="yes" address="2316" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Modulus" key="2328">
+	<rpc mask="###" writable="yes" address="2328" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="select" desc="Rod Type" key="2292">
+	<rpc mask="###" writable="yes" address="2292" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Interval" key="2298">
+	<rpc mask="###" writable="yes" address="2298" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Diameter" key="2306">
+	<rpc mask="###" writable="yes" address="2306" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Weight" key="2318">
+	<rpc mask="###" writable="yes" address="2318" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Modulus" key="2330">
+	<rpc mask="###" writable="yes" address="2330" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="select" desc="Rod Type" key="2293">
+	<rpc mask="###" writable="yes" address="2293" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Interval" key="2299">
+	<rpc mask="###" writable="yes" address="2299" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Diameter" key="2308">
+	<rpc mask="###" writable="yes" address="2308" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Weight" key="2320">
+	<rpc mask="###" writable="yes" address="2320" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Modulus" key="2332">
+	<rpc mask="###" writable="yes" address="2332" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="select" desc="Rod Type" key="2294">
+	<rpc mask="###" writable="yes" address="2294" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Interval" key="2300">
+	<rpc mask="###" writable="yes" address="2300" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Diameter" key="2310">
+	<rpc mask="###" writable="yes" address="2310" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Weight" key="2322">
+	<rpc mask="###" writable="yes" address="2322" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Modulus" key="2334">
+	<rpc mask="###" writable="yes" address="2334" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="select" desc="Rod Type" key="2295">
+	<rpc mask="###" writable="yes" address="2295" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Interval" key="2301">
+	<rpc mask="###" writable="yes" address="2301" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Diameter" key="2312">
+	<rpc mask="###" writable="yes" address="2312" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Weight" key="2324">
+	<rpc mask="###" writable="yes" address="2324" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Modulus" key="2336">
+	<rpc mask="###" writable="yes" address="2336" type="1539" m="1" c="0" fmt="2" />
+	</register>
+</registers></RTUReadWriteReqDef>

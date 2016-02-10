@@ -1,0 +1,60 @@
+<jobs>
+	<job id="1" desc="Automated Test to Read SAMRP2_SAMFS controller">
+		<vstest file="RTUReadWriteWF.test.dll"/>
+		<parameters>
+			<parameter name="TestCaseFilter" value="TestCategory=Read"/>
+		</parameters>
+		<AppSettings.Net>
+			<add key="Host" value="localhost"/> 
+			<add key="Rtutyp" value="SAMFS"/>
+            <add key="Wellnum" value="1"/>
+			<add key="Mode" value="read"/>
+			<add key="BufferDataType" value="csArg"/>
+            <add key="DeleteWellScript" value="..\AssetsDev\dbw.css"/>
+            <add key="CreateWellScript" value="..\AssetsDev\mbw.css"/>
+            <add key="CleanBeforeStart" value="true"/>
+            <add key="CleanWhenComplete" value="true"/>
+            <add key="RTUEmuFolder" value="C:\RTUEmu\"/>
+            <add key="LiftRoot" value="C:\csLift\lift\Default\root"/>
+        </AppSettings.Net>
+	</job>	
+	<job id="2" desc="Automated Test to Read UNILRP controller">
+		<vstest file="RTUReadWriteWF.test.dll"/>
+		<parameters>
+			<parameter name="TestCaseFilter" value="TestCategory=Read"/>
+		</parameters>
+		<AppSettings.Net>
+			<add key="Host" value="localhost"/> 
+			<add key="Rtutyp" value="UNILRP"/>
+            <add key="Wellnum" value="1"/>
+			<add key="Mode" value="read"/>
+			<add key="BufferDataType" value="csArg"/>
+            <add key="DeleteWellScript" value="..\AssetsDev\dbw.css"/>
+            <add key="CreateWellScript" value="..\AssetsDev\mbw.css"/>
+            <add key="CleanBeforeStart" value="true"/>
+            <add key="CleanWhenComplete" value="true"/>
+            <add key="RTUEmuFolder" value="C:\RTUEmu\"/>
+            <add key="LiftRoot" value="C:\csLift\lift\Default\root"/>
+        </AppSettings.Net>
+	</job>	
+	<job id="3" desc="Automated Test to Read EPICRP_EPICLM Controller">
+		<vstest file="RTUReadWriteWF.test.dll"/>
+		<parameters>
+			<parameter name="TestCaseFilter" value="TestCategory=Read"/>
+		</parameters>
+		<AppSettings.Net>
+			<add key="Host" value="localhost"/> 
+			<add key="Rtutyp" value="EPICLM"/>
+            <add key="Wellnum" value="1"/>
+			<add key="Mode" value="read"/>
+			<add key="BufferDataType" value="csArg"/>
+            <add key="DeleteWellScript" value="..\AssetsDev\dbw.css"/>
+            <add key="CreateWellScript" value="..\AssetsDev\mbw.css"/>
+            <add key="CleanBeforeStart" value="true"/>
+            <add key="CleanWhenComplete" value="true"/>
+            <add key="RTUEmuFolder" value="C:\RTUEmu\"/>
+            <add key="LiftRoot" value="C:\csLift\lift\Default\root"/>
+        </AppSettings.Net>
+	</job>	
+	
+</jobs>

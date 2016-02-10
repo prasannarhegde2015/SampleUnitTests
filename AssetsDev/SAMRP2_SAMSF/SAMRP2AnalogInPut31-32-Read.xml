@@ -1,0 +1,108 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNISRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+	<block addr="601" count="5" protocoldatatype="3" />
+	<block addr="620" count="6" protocoldatatype="3" />
+	<block addr="640" count="1" protocoldatatype="3" />
+</regBlocks>
+
+<regValuesToWrite>
+	<val addr="601">600</val>
+	<val addr="602">600</val>
+	<val addr="603">600</val>
+	<val addr="605">600</val>
+	<val addr="607">600</val>
+	<val addr="609">600</val>
+	<val addr="611">600</val>
+	<val addr="613">600</val>
+	<val addr="615">600</val>
+	<val addr="616">600</val>
+	<val addr="617">600</val>
+	<val addr="620">600</val>
+	<val addr="621">600</val>
+	<val addr="622">600</val>
+	<val addr="623">600</val>
+	<val addr="625">600</val>
+	<val addr="627">600</val>
+	<val addr="629">600</val>
+	<val addr="631">600</val>
+	<val addr="633">600</val>
+	<val addr="635">600</val>
+	<val addr="636">600</val>
+	<val addr="637">600</val>
+	<val addr="640">600</val>
+</regValuesToWrite>
+<registers>
+	<register control="group" desc="Config Register" key="601">
+	<rpc mask="###" writable="yes" address="601" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="select" desc="Units" key="602">
+	<rpc mask="###" writable="yes" address="602" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Value @ full scale" key="603">
+	<rpc mask="###" writable="yes" address="603" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Value @ min scale" key="605">
+	<rpc mask="###" writable="yes" address="605" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Low Alarm Setpoint" key="607">
+	<rpc mask="###" writable="yes" address="607" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Low Alert Setpoint" key="609">
+	<rpc mask="###" writable="yes" address="609" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="High Alarm Setpoint" key="611">
+	<rpc mask="###" writable="yes" address="611" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="High Alert Setpoint Delay" key="613">
+	<rpc mask="###" writable="yes" address="613" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Low Setpoint Delay" key="615">
+	<rpc mask="###" writable="yes" address="615" type="3" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="High Setpoint Delay" key="616">
+	<rpc mask="###" writable="yes" address="616" type="3" m="1" c="0" fmt="2" />
+	</register>
+	<register control="select" desc="Range" key="617">
+	<rpc mask="###" writable="yes" address="617" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="select" desc="Alarms" key="620">
+	<rpc mask="###" writable="yes" address="620" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config Register" key="621">
+	<rpc mask="###" writable="yes" address="621" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="select" desc="Units" key="622">
+	<rpc mask="###" writable="yes" address="622" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Value @ full scale" key="623">
+	<rpc mask="###" writable="yes" address="623" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Value @ min scale" key="625">
+	<rpc mask="###" writable="yes" address="625" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Low Alarm Setpoint" key="627">
+	<rpc mask="###" writable="yes" address="627" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Low Alert Setpoint" key="629">
+	<rpc mask="###" writable="yes" address="629" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="High Alarm Setpoint" key="631">
+	<rpc mask="###" writable="yes" address="631" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="High Alert Setpoint Delay" key="633">
+	<rpc mask="###" writable="yes" address="633" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Low Setpoint Delay" key="635">
+	<rpc mask="###" writable="yes" address="635" type="3" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="High Setpoint Delay" key="636">
+	<rpc mask="###" writable="yes" address="636" type="3" m="1" c="0" fmt="2" />
+	</register>
+	<register control="select" desc="Range" key="637">
+	<rpc mask="###" writable="yes" address="637" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="select" desc="Alarms" key="640">
+	<rpc mask="###" writable="yes" address="640" type="3" m="1" c="0" fmt="str" />
+	</register>
+</registers></RTUReadWriteReqDef>

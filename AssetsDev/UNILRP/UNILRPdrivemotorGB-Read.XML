@@ -1,0 +1,86 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNISRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+	<block addr="7251" count="6" protocoldatatype="4355" />
+	<block addr="7123" count="2" protocoldatatype="4355" />
+	<block addr="7091" count="2" protocoldatatype="4355" />
+	<block addr="7259" count="6" protocoldatatype="4355" />
+	<block addr="7293" count="2" protocoldatatype="4355" />
+	<block addr="7265" count="2" protocoldatatype="4355" />
+	<block addr="7269" count="4" protocoldatatype="4355" />
+	<block addr="7113" count="2" protocoldatatype="4355" />
+	<block addr="7235" count="2" protocoldatatype="4355" />
+	<block addr="7391" count="2" protocoldatatype="4355" />
+	<block addr="7081" count="4" protocoldatatype="4355" />
+	<block addr="7081" count="6" protocoldatatype="4355" />
+</regBlocks>
+
+<regValuesToWrite>
+	<val addr="7251">600</val>
+	<val addr="7253">600</val>
+	<val addr="7123">600</val>
+	<val addr="7259">600</val>
+	<val addr="7261">600</val>
+	<val addr="7293">600</val>
+	<val addr="7265">600</val>
+	<val addr="7269">600</val>
+	<val addr="7271">600</val>
+	<val addr="7113">600</val>
+	<val addr="7235">600</val>
+</regValuesToWrite>
+<registers>
+	<register control="text" desc="Motor rated power (hp)" key="47251">
+	<rpc mask="###" writable="yes" address="7251" type="4355" m="100" c="0" fmt="2" altControlID="47251" />
+	</register>
+	<register control="text" desc="Motor rated current (amps rms)" key="47253">
+	<rpc mask="###" writable="yes" address="7253" type="4355" m="100" c="0" fmt="2" altControlID="47253" />
+	</register>
+	<register control="text" desc="Max current (amps rms)" key="47255">
+	<rpc mask="###" writable="no" address="7255" type="4355" m="100" c="0" fmt="2" altControlID="47255" />
+	</register>
+	<register control="text" desc="Motor rms limit (amps rms)" key="47123">
+	<rpc mask="###" writable="yes" address="7123" type="4355" m="100" c="0" fmt="2" altControlID="47123" />
+	</register>
+	<register control="text" desc="Motor Thermal RMS (amps rms)" key="47091">
+	<rpc mask="###" writable="no" address="7091" type="4355" m="100" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Motor base rpm (rpm)" key="47259">
+	<rpc mask="###" writable="yes" address="7259" type="4355" m="1" c="0" fmt="0" altControlID="47259" />
+	</register>
+	<register control="text" desc="Motor max rpm (rpm)" key="47261">
+	<rpc mask="###" writable="yes" address="7261" type="4355" m="1" c="0" fmt="0" altControlID="47261" />
+	</register>
+	<register control="text" desc="Motor max spm (spm)" key="47263">
+	<rpc mask="###" writable="no" address="7263" type="4355" m="10" c="0" fmt="1" altControlID="47263" />
+	</register>
+	<register control="text" desc="System gain. (1/sec/sec)" key="47293">
+	<rpc mask="###" writable="yes" address="7293" type="4355" m="1000" c="0" fmt="3" altControlID="47293" />
+	</register>
+	<register control="text" desc="System Wn (rad/sec)" key="47265">
+	<rpc mask="###" writable="yes" address="7265" type="4355" m="10" c="0" fmt="2" altControlID="47265" />
+	</register>
+	<register control="text" desc="Accelaration time (sec)" key="47269">
+	<rpc mask="###" writable="yes" address="7269" type="4355" m="1000" c="0" fmt="3" altControlID="47269" />
+	</register>
+	<register control="text" desc="Decelaration time (sec)" key="47271">
+	<rpc mask="###" writable="yes" address="7271" type="4355" m="1000" c="0" fmt="3" altControlID="47271" />
+	</register>
+	<register control="text" desc="Gear ratio (x:1)" key="47113">
+	<rpc mask="###" writable="yes" address="7113" type="4355" m="100" c="0" fmt="2" altControlID="47113" />
+	</register>
+	<register control="text" desc="Gearbox efficiency. (%)" key="47235">
+	<rpc mask="###" writable="yes" address="7235" type="4355" m="10" c="0" fmt="1" altControlID="47235" />
+	</register>
+	<register control="text" desc="Motor Max Torque (ft*lb)" key="47391">
+	<rpc mask="###" writable="no" address="7391" type="4355" m="100" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Peak up torque [?]" key="47081">
+	<rpc mask="###" writable="no" address="7081" type="4355" m="1" c="0" fmt="0" altControlID="47081" />
+	</register>
+	<register control="text" desc="Peak down torque [?]" key="47083">
+	<rpc mask="###" writable="no" address="7083" type="4355" m="1" c="0" fmt="0" altControlID="47083" />
+	</register>
+	<register control="text" desc="Balance monitor [?]" key="47117">
+	<rpc mask="###" writable="no" address="7117" type="4355" m="1" c="0" fmt="0" altControlID="47117" />
+	</register>
+</registers></RTUReadWriteReqDef>

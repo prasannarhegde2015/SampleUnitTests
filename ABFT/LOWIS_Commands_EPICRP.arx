@@ -1,0 +1,62 @@
+<jobs>
+<job id="1" desc="Data Flow Automated Test for CommandsWF.test(EPICLM)">
+		<vstest file="CommandsWF.test.dll"/>
+		<parameters>
+		<parameter name="TestCaseFilter" value="TestCategory=EPICLM"/>
+		</parameters>
+		<Locals></Locals>
+		<AppSettings.Net>
+            	<add key="DeleteWellScript" value="..\AssetsDev\dbw.css"/>
+            	<add key="CreateWellScript" value="..\AssetsDev\mbw.css"/>
+            	 <add key="CSVOptionScript" value="..\AssetsDev\setcsvoption.css" />
+ 		<add key="EPICLMRDDHCfgFile" value="..\AssetsDev\EPICLMDownholeConfiguration-Read.xml"/>
+		<add key="ConfigBEWellScript" value="..\AssetsDev\configBEProps.css"/>
+		<add key="EPICLMExpDH" value="..\AssetsDev\ExpectedReadEPICLM.XML"/>
+		<add key="EmuUpdates" value="..\AssetsDev\EmuUpdates.css" />
+		<add key="ScanTimeScript" value="..\AssetsDev\HelperFunctions.css" />
+            	<add key="CleanBeforeStart" value="true"/>
+            	<add key="CleanWhenComplete" value="true"/>
+            	<add key="RTUEmuFolder" value="C:\RTUEmu\"/>
+            	<add key="LiftRoot" value="%LIFTROOT"/>
+		<add key="NumberofWells" value="1"/>
+        </AppSettings.Net>
+	</job>
+<job id="2" desc="Data Flow Automated Test for CommandsWF.test(EPICFS)">
+		<vstest file="CommandsWF.test.dll"/>
+		<parameters>
+		<parameter name="TestCaseFilter" value="TestCategory=EPICFS"/>
+		</parameters>
+		<Locals></Locals>
+		<AppSettings.Net>
+            	<add key="DeleteWellScript" value="..\AssetsDev\dbw.css"/>
+            	<add key="CreateWellScript" value="..\AssetsDev\mbw.css"/>
+            	 <add key="CSVOptionScript" value="..\AssetsDev\setcsvoption.css" />
+		<add key="EmuUpdates" value="..\AssetsDev\EmuUpdates.css" />
+		<add key="ScanTimeScript" value="..\AssetsDev\HelperFunctions.css" />
+            	<add key="CleanBeforeStart" value="true"/>
+            	<add key="CleanWhenComplete" value="true"/>
+            	<add key="RTUEmuFolder" value="C:\RTUEmu\"/>
+            	<add key="LiftRoot" value="%LIFTROOT"/>
+		<add key="NumberofWells" value="1"/>
+        </AppSettings.Net>
+	</job>
+<job id="3" desc="Data Flow Automated Test for CommandsWF.test(EPICVF)">
+		<vstest file="CommandsWF.test.dll"/>
+		<parameters>
+		<parameter name="TestCaseFilter" value="TestCategory=EPICVF"/>
+		</parameters>
+		<Locals></Locals>
+		<AppSettings.Net>
+            	<add key="DeleteWellScript" value="..\AssetsDev\dbw.css"/>
+            	<add key="CreateWellScript" value="..\AssetsDev\mbw.css"/>
+            	 <add key="CSVOptionScript" value="..\AssetsDev\setcsvoption.css" />
+		<add key="EmuUpdates" value="..\AssetsDev\EmuUpdates.css" />
+		<add key="ScanTimeScript" value="..\AssetsDev\HelperFunctions.css" />
+            	<add key="CleanBeforeStart" value="true"/>
+            	<add key="CleanWhenComplete" value="true"/>
+            	<add key="RTUEmuFolder" value="C:\RTUEmu\"/>
+            	<add key="LiftRoot" value="%LIFTROOT"/>
+		<add key="NumberofWells" value="1"/>
+        </AppSettings.Net>
+	</job>
+</jobs>

@@ -1,0 +1,6 @@
+RTUDESCC	.I	DESCC	TYPEC	EUDESCC	SLOPER	OFFSETR	VIRTUALI	FUNCTIONC	PORDERI	POINT_TYPI	FIELD_ADRI	POINT_NUMI	POINT_AD4I
+wellfromcmdline	0	Pump Off Setpoint Position (%)	Flow	PSI	1	0	0	no_conversion	0	2	21	0	0
+wellfromcmdline	0	Minimum' Load Over Last Stroke (lbs.)	Flow	PSI	1	0	0	no_conversion	0	4	79	0	0
+wellfromcmdline	0	Pump-up Delay Time (HH:MM:SS)	Flow	PSI	1	0	0	no_conversion	0	5	25	0	0
+wellfromcmdline	0	Rod Type '1' Density (lbs./cu.ft.)	Flow	PSI	1	0	0	no_conversion	0	54	3020	0	0
+wellfromcmdline	0	Current Cycle Run Time Interval (Secs)	Flow	PSI	1	0	0	no_conversion	0	12	400	0	0

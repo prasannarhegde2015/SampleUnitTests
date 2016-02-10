@@ -1,0 +1,130 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNISRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+	<block addr="7715" count="28" protocoldatatype="4355" />
+	<block addr="7673" count="2" protocoldatatype="4355" />
+	<block addr="7467" count="4" protocoldatatype="4355" />
+	<block addr="7243" count="2" protocoldatatype="4355" />
+	<block addr="7833" count="2" protocoldatatype="4355" />
+	<block addr="7405" count="2" protocoldatatype="4355" />
+	<block addr="7847" count="4" protocoldatatype="4355" />
+	<block addr="7239" count="2" protocoldatatype="4355" />
+	<block addr="7835" count="2" protocoldatatype="4355" />
+	<block addr="8127" count="2" protocoldatatype="4355" />
+	<block addr="8121" count="2" protocoldatatype="4355" />
+	<block addr="8123" count="2" protocoldatatype="4355" />
+</regBlocks>
+
+<regValuesToWrite>
+	<val addr="7715">600</val>
+	<val addr="7717">600</val>
+	<val addr="7719">600</val>
+	<val addr="7721">600</val>
+	<val addr="7723">600</val>
+	<val addr="7727">600</val>
+	<val addr="7729">600</val>
+	<val addr="7731">600</val>
+	<val addr="7733">600</val>
+	<val addr="7735">600</val>
+	<val addr="7737">600</val>
+	<val addr="7741">600</val>
+	<val addr="7673">600</val>
+	<val addr="7467">600</val>
+	<val addr="7469">600</val>
+	<val addr="7243">600</val>
+	<val addr="7833">600</val>
+	<val addr="7405">600</val>
+	<val addr="7847">600</val>
+	<val addr="7849">600</val>
+	<val addr="7239">600</val>
+	<val addr="7835">600</val>
+	<val addr="8127">600</val>
+	<val addr="8121">600</val>
+	<val addr="8123">600</val>
+</regValuesToWrite>
+<registers>
+	<register control="select" desc="High rod load mask" key="47715">
+	<rpc mask="#####" writable="yes" address="7715" type="4355" m="1" c="0" fmt="0" altControlID="47715" />
+	</register>
+	<register control="text" desc="High rod load fault [?]" key="47717">
+	<rpc mask="#####" writable="yes" address="7717" type="4355" m="1" c="0" fmt="0" altControlID="47717" />
+	</register>
+	<register control="text" desc="High rod load start [strokes]" key="47719">
+	<rpc mask="#####" writable="yes" address="7719" type="4355" m="1" c="0" fmt="0" altControlID="47719" />
+	</register>
+	<register control="text" desc="High rod load strokes [strokes]" key="47721">
+	<rpc mask="#####" writable="yes" address="7721" type="4355" m="1" c="0" fmt="0" altControlID="47721" />
+	</register>
+	<register control="select" desc="High rod load state" key="47723">
+	<rpc mask="#####" writable="yes" address="7723" type="4355" m="1" c="0" fmt="0" altControlID="47723" />
+	</register>
+	<register control="text" desc="High rod load violations [strokes]" key="47725">
+	<rpc mask="#####" writable="no" address="7725" type="4355" m="1" c="0" fmt="0" altControlID="47725" />
+	</register>
+	<register control="text" desc="High rod load restart delay [min]" key="47727">
+	<rpc mask="###.##" writable="yes" address="7727" type="4355" m="100" c="0" fmt="2" altControlID="47727" />
+	</register>
+	<register control="select" desc="Low rod load mask" key="47729">
+	<rpc mask="#####" writable="yes" address="7729" type="4355" m="1" c="0" fmt="0" altControlID="47729" />
+	</register>
+	<register control="text" desc="Low rod load fault [?]" key="47731">
+	<rpc mask="#####" writable="yes" address="7731" type="4355" m="1" c="0" fmt="0" altControlID="47731" />
+	</register>
+	<register control="text" desc="Low rod load start [strokes]" key="47733">
+	<rpc mask="#####" writable="yes" address="7733" type="4355" m="1" c="0" fmt="0" altControlID="47733" />
+	</register>
+	<register control="text" desc="Low rod load strokes [strokes]" key="47735">
+	<rpc mask="#####" writable="yes" address="7735" type="4355" m="1" c="0" fmt="0" altControlID="47735" />
+	</register>
+	<register control="select" desc="Low rod load state" key="47737">
+	<rpc mask="#####" writable="yes" address="7737" type="4355" m="1" c="0" fmt="0" altControlID="47737" />
+	</register>
+	<register control="text" desc="Low rod load violations [strokes]" key="47739">
+	<rpc mask="#####" writable="no" address="7739" type="4355" m="1" c="0" fmt="0" altControlID="47739" />
+	</register>
+	<register control="text" desc="Low rod load restart delay [min]" key="47741">
+	<rpc mask="###.##" writable="yes" address="7741" type="4355" m="100" c="0" fmt="2" altControlID="47741" />
+	</register>
+	<register control="select" desc="Bridle control enable" key="47673">
+	<rpc mask="#####" writable="yes" address="7673" type="4355" m="1" c="0" fmt="0" altControlID="47673" />
+	</register>
+	<register control="text" desc="Bridle rod load [lb]" key="47467">
+	<rpc mask="#####" writable="yes" address="7467" type="4355" m="1" c="0" fmt="0" altControlID="47467" />
+	</register>
+	<register control="text" desc="Bridle sep adjust [%]" key="47469">
+	<rpc mask="#####" writable="yes" address="7469" type="4355" m="1" c="0" fmt="0" altControlID="47469" />
+	</register>
+	<register control="text" desc="Fluid level offset [?]" key="47243">
+	<rpc mask="#####" writable="yes" address="7243" type="4355" m="1" c="0" fmt="0" altControlID="47243" />
+	</register>
+	<register control="text" desc="Pump rate adjust [?]" key="47833">
+	<rpc mask="#####" writable="yes" address="7833" type="4355" m="1" c="0" fmt="0" altControlID="47833" />
+	</register>
+	<register control="text" desc="POC Minimum Fill" key="47405">
+	<rpc mask="#####" writable="yes" address="7405" type="4355" m="1" c="0" fmt="0" altControlID="47405" />
+	</register>
+	<register control="text" desc="POC max shutoff [min]" key="47847">
+	<rpc mask="#####" writable="yes" address="7847" type="4355" m="1" c="0" fmt="0" altControlID="47847" />
+	</register>
+	<register control="text" desc="POC min shutoff [min]" key="47849">
+	<rpc mask="#####" writable="yes" address="7849" type="4355" m="1" c="0" fmt="0" altControlID="47849" />
+	</register>
+	<register control="text" desc="Rod friction" key="47239">
+	<rpc mask="#####" writable="yes" address="7239" type="4355" m="1" c="0" fmt="0" altControlID="47239" />
+	</register>
+	<register control="text" desc="Stuff box friction [?]" key="47835">
+	<rpc mask="#####" writable="yes" address="7835" type="4355" m="1" c="0" fmt="0" altControlID="47835" />
+	</register>
+	<register control="text" desc="Rod friction contrast [%]" key="48127">
+	<rpc mask="#####" writable="yes" address="8127" type="4355" m="1" c="0" fmt="0" altControlID="48127" />
+	</register>
+	<register control="select" desc="Auto rod friction enable [?]" key="48121">
+	<rpc mask="#####" writable="yes" address="8121" type="4355" m="1" c="0" fmt="0" altControlID="48121" />
+	</register>
+	<register control="text" desc="Auto rod friction offset [?]" key="48125">
+	<rpc mask="#####" writable="no" address="8125" type="4355" m="1" c="0" fmt="0" altControlID="48125" />
+	</register>
+	<register control="text" desc="Auto rod friction" key="48123">
+	<rpc mask="#####" writable="yes" address="8123" type="4355" m="1" c="0" fmt="0" altControlID="48123" />
+	</register>
+</registers></RTUReadWriteReqDef>

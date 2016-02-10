@@ -1,0 +1,249 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNISRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+	<block addr="641" count="7" protocoldatatype="3" />
+	<block addr="652" count="1" protocoldatatype="3" />
+	<block addr="656" count="14" protocoldatatype="3" />
+	<block addr="667" count="1" protocoldatatype="3" />
+	<block addr="671" count="21" protocoldatatype="3" />
+	<block addr="682" count="1" protocoldatatype="3" />
+	<block addr="686" count="28" protocoldatatype="3" />
+	<block addr="697" count="1" protocoldatatype="3" />
+	<block addr="701" count="35" protocoldatatype="3" />
+	<block addr="712" count="1" protocoldatatype="3" />
+	<block addr="716" count="42" protocoldatatype="3" />
+	<block addr="727" count="1" protocoldatatype="3" />
+	<block addr="731" count="49" protocoldatatype="3" />
+	<block addr="742" count="1" protocoldatatype="3" />
+	<block addr="746" count="56" protocoldatatype="3" />
+	<block addr="757" count="1" protocoldatatype="3" />
+</regBlocks>
+
+<regValuesToWrite>
+	<val addr="641">600</val>
+	<val addr="642">600</val>
+	<val addr="643">600</val>
+	<val addr="645">600</val>
+	<val addr="647">600</val>
+	<val addr="649">600</val>
+	<val addr="652">600</val>
+	<val addr="656">600</val>
+	<val addr="657">600</val>
+	<val addr="658">600</val>
+	<val addr="660">600</val>
+	<val addr="662">600</val>
+	<val addr="664">600</val>
+	<val addr="667">600</val>
+	<val addr="671">600</val>
+	<val addr="672">600</val>
+	<val addr="673">600</val>
+	<val addr="675">600</val>
+	<val addr="677">600</val>
+	<val addr="679">600</val>
+	<val addr="682">600</val>
+	<val addr="686">600</val>
+	<val addr="687">600</val>
+	<val addr="688">600</val>
+	<val addr="690">600</val>
+	<val addr="692">600</val>
+	<val addr="694">600</val>
+	<val addr="697">600</val>
+	<val addr="701">600</val>
+	<val addr="702">600</val>
+	<val addr="703">600</val>
+	<val addr="705">600</val>
+	<val addr="707">600</val>
+	<val addr="709">600</val>
+	<val addr="712">600</val>
+	<val addr="716">600</val>
+	<val addr="717">600</val>
+	<val addr="718">600</val>
+	<val addr="720">600</val>
+	<val addr="722">600</val>
+	<val addr="724">600</val>
+	<val addr="727">600</val>
+	<val addr="731">600</val>
+	<val addr="732">600</val>
+	<val addr="733">600</val>
+	<val addr="735">600</val>
+	<val addr="737">600</val>
+	<val addr="739">600</val>
+	<val addr="742">600</val>
+	<val addr="746">600</val>
+	<val addr="747">600</val>
+	<val addr="748">600</val>
+	<val addr="750">600</val>
+	<val addr="752">600</val>
+	<val addr="754">600</val>
+	<val addr="757">600</val>
+</regValuesToWrite>
+<registers>
+	<register control="group" desc="Config Register" key="641">
+	<rpc mask="###" writable="yes" address="641" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Units" key="642">
+	<rpc mask="###" writable="yes" address="642" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Value @ full scale" key="643">
+	<rpc mask="###" writable="yes" address="643" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Value @ min scale" key="645">
+	<rpc mask="###" writable="yes" address="645" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Override Value" key="647">
+	<rpc mask="###" writable="yes" address="647" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="select" desc="Override State" key="649">
+	<rpc mask="###" writable="yes" address="649" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="select" desc="Range" key="652">
+	<rpc mask="###" writable="yes" address="652" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config Register" key="656">
+	<rpc mask="###" writable="yes" address="656" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Units" key="657">
+	<rpc mask="###" writable="yes" address="657" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Value @ full scale" key="658">
+	<rpc mask="###" writable="yes" address="658" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Value @ min scale" key="660">
+	<rpc mask="###" writable="yes" address="660" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Override Value" key="662">
+	<rpc mask="###" writable="yes" address="662" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="select" desc="Override State" key="664">
+	<rpc mask="###" writable="yes" address="664" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="select" desc="Range" key="667">
+	<rpc mask="###" writable="yes" address="667" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config Register" key="671">
+	<rpc mask="###" writable="yes" address="671" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Units" key="672">
+	<rpc mask="###" writable="yes" address="672" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Value @ full scale" key="673">
+	<rpc mask="###" writable="yes" address="673" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Value @ min scale" key="675">
+	<rpc mask="###" writable="yes" address="675" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Override Value" key="677">
+	<rpc mask="###" writable="yes" address="677" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="select" desc="Override State" key="679">
+	<rpc mask="###" writable="yes" address="679" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="select" desc="Range" key="682">
+	<rpc mask="###" writable="yes" address="682" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config Register" key="686">
+	<rpc mask="###" writable="yes" address="686" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Units" key="687">
+	<rpc mask="###" writable="yes" address="687" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Value @ full scale" key="688">
+	<rpc mask="###" writable="yes" address="688" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Value @ min scale" key="690">
+	<rpc mask="###" writable="yes" address="690" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Override Value" key="692">
+	<rpc mask="###" writable="yes" address="692" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="select" desc="Override State" key="694">
+	<rpc mask="###" writable="yes" address="694" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="select" desc="Range" key="697">
+	<rpc mask="###" writable="yes" address="697" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config Register" key="701">
+	<rpc mask="###" writable="yes" address="701" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Units" key="702">
+	<rpc mask="###" writable="yes" address="702" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Value @ full scale" key="703">
+	<rpc mask="###" writable="yes" address="703" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Value @ min scale" key="705">
+	<rpc mask="###" writable="yes" address="705" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Override Value" key="707">
+	<rpc mask="###" writable="yes" address="707" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="select" desc="Override State" key="709">
+	<rpc mask="###" writable="yes" address="709" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="select" desc="Range" key="712">
+	<rpc mask="###" writable="yes" address="712" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config Register" key="716">
+	<rpc mask="###" writable="yes" address="716" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Units" key="717">
+	<rpc mask="###" writable="yes" address="717" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Value @ full scale" key="718">
+	<rpc mask="###" writable="yes" address="718" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Value @ min scale" key="720">
+	<rpc mask="###" writable="yes" address="720" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Override Value" key="722">
+	<rpc mask="###" writable="yes" address="722" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="select" desc="Override State" key="724">
+	<rpc mask="###" writable="yes" address="724" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="select" desc="Range" key="727">
+	<rpc mask="###" writable="yes" address="727" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config Register" key="731">
+	<rpc mask="###" writable="yes" address="731" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Units" key="732">
+	<rpc mask="###" writable="yes" address="732" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Value @ full scale" key="733">
+	<rpc mask="###" writable="yes" address="733" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Value @ min scale" key="735">
+	<rpc mask="###" writable="yes" address="735" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Override Value" key="737">
+	<rpc mask="###" writable="yes" address="737" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="select" desc="Override State" key="739">
+	<rpc mask="###" writable="yes" address="739" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="select" desc="Range" key="742">
+	<rpc mask="###" writable="yes" address="742" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Config Register" key="746">
+	<rpc mask="###" writable="yes" address="746" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Units" key="747">
+	<rpc mask="###" writable="yes" address="747" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Value @ full scale" key="748">
+	<rpc mask="###" writable="yes" address="748" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Value @ min scale" key="750">
+	<rpc mask="###" writable="yes" address="750" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Override Value" key="752">
+	<rpc mask="###" writable="yes" address="752" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="select" desc="Override State" key="754">
+	<rpc mask="###" writable="yes" address="754" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="select" desc="Range" key="757">
+	<rpc mask="###" writable="yes" address="757" type="3" m="1" c="0" fmt="str" />
+	</register>
+</registers></RTUReadWriteReqDef>

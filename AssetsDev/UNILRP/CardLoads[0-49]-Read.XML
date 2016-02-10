@@ -1,0 +1,160 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNILRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+		<block addr="10401" count="100" protocoldatatype="4355" />
+	</regBlocks>
+<regValuesToWrite>
+</regValuesToWrite>
+<registers>
+		<register control="text" desc="Card Load  1" key="50401">
+		<rpc mask="#####" writable="no" address="10401" type="4355" m="10" c="" fmt="str" altControlID="50401">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  2" key="50403">
+		<rpc mask="#####" writable="no" address="10403" type="4355" m="10" c="" fmt="str" altControlID="50403">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  3" key="50405">
+		<rpc mask="#####" writable="no" address="10405" type="4355" m="10" c="" fmt="str" altControlID="50405">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  4" key="50407">
+		<rpc mask="#####" writable="no" address="10407" type="4355" m="10" c="" fmt="str" altControlID="50407">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  5" key="50409">
+		<rpc mask="#####" writable="no" address="10409" type="4355" m="10" c="" fmt="str" altControlID="50409">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  6" key="50411">
+		<rpc mask="#####" writable="no" address="10411" type="4355" m="10" c="" fmt="str" altControlID="50411">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  7" key="50413">
+		<rpc mask="#####" writable="no" address="10413" type="4355" m="10" c="" fmt="str" altControlID="50413">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  8" key="50415">
+		<rpc mask="#####" writable="no" address="10415" type="4355" m="10" c="" fmt="str" altControlID="50415">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  9" key="50417">
+		<rpc mask="#####" writable="no" address="10417" type="4355" m="10" c="" fmt="str" altControlID="50417">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  10" key="50419">
+		<rpc mask="#####" writable="no" address="10419" type="4355" m="10" c="" fmt="str" altControlID="50419">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  11" key="50421">
+		<rpc mask="#####" writable="no" address="10421" type="4355" m="10" c="" fmt="str" altControlID="50421">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  12" key="50423">
+		<rpc mask="#####" writable="no" address="10423" type="4355" m="10" c="" fmt="str" altControlID="50423">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  13" key="50425">
+		<rpc mask="#####" writable="no" address="10425" type="4355" m="10" c="" fmt="str" altControlID="50425">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  14" key="50427">
+		<rpc mask="#####" writable="no" address="10427" type="4355" m="10" c="" fmt="str" altControlID="50427">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  15" key="50429">
+		<rpc mask="#####" writable="no" address="10429" type="4355" m="10" c="" fmt="str" altControlID="50429">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  16" key="50431">
+		<rpc mask="#####" writable="no" address="10431" type="4355" m="10" c="" fmt="str" altControlID="50431">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  17" key="50433">
+		<rpc mask="#####" writable="no" address="10433" type="4355" m="10" c="" fmt="str" altControlID="50433">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  18" key="50435">
+		<rpc mask="#####" writable="no" address="10435" type="4355" m="10" c="" fmt="str" altControlID="50435">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  19" key="50437">
+		<rpc mask="#####" writable="no" address="10437" type="4355" m="10" c="" fmt="str" altControlID="50437">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  20" key="50439">
+		<rpc mask="#####" writable="no" address="10439" type="4355" m="10" c="" fmt="str" altControlID="50439">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  21" key="50441">
+		<rpc mask="#####" writable="no" address="10441" type="4355" m="10" c="" fmt="str" altControlID="50441">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  22" key="50443">
+		<rpc mask="#####" writable="no" address="10443" type="4355" m="10" c="" fmt="str" altControlID="50443">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  23" key="50445">
+		<rpc mask="#####" writable="no" address="10445" type="4355" m="10" c="" fmt="str" altControlID="50445">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  24" key="50447">
+		<rpc mask="#####" writable="no" address="10447" type="4355" m="10" c="" fmt="str" altControlID="50447">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  25" key="50449">
+		<rpc mask="#####" writable="no" address="10449" type="4355" m="10" c="" fmt="str" altControlID="50449">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  26" key="50451">
+		<rpc mask="#####" writable="no" address="10451" type="4355" m="10" c="" fmt="str" altControlID="50451">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  27" key="50453">
+		<rpc mask="#####" writable="no" address="10453" type="4355" m="10" c="" fmt="str" altControlID="50453">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  28" key="50455">
+		<rpc mask="#####" writable="no" address="10455" type="4355" m="10" c="" fmt="str" altControlID="50455">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  29" key="50457">
+		<rpc mask="#####" writable="no" address="10457" type="4355" m="10" c="" fmt="str" altControlID="50457">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  30" key="50459">
+		<rpc mask="#####" writable="no" address="10459" type="4355" m="10" c="" fmt="str" altControlID="50459">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  31" key="50461">
+		<rpc mask="#####" writable="no" address="10461" type="4355" m="10" c="" fmt="str" altControlID="50461">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  32" key="50463">
+		<rpc mask="#####" writable="no" address="10463" type="4355" m="10" c="" fmt="str" altControlID="50463">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  33" key="50465">
+		<rpc mask="#####" writable="no" address="10465" type="4355" m="10" c="" fmt="str" altControlID="50465">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  34" key="50467">
+		<rpc mask="#####" writable="no" address="10467" type="4355" m="10" c="" fmt="str" altControlID="50467">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  35" key="50469">
+		<rpc mask="#####" writable="no" address="10469" type="4355" m="10" c="" fmt="str" altControlID="50469">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  36" key="50471">
+		<rpc mask="#####" writable="no" address="10471" type="4355" m="10" c="" fmt="str" altControlID="50471">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  37" key="50473">
+		<rpc mask="#####" writable="no" address="10473" type="4355" m="10" c="" fmt="str" altControlID="50473">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  38" key="50475">
+		<rpc mask="#####" writable="no" address="10475" type="4355" m="10" c="" fmt="str" altControlID="50475">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  39" key="50477">
+		<rpc mask="#####" writable="no" address="10477" type="4355" m="10" c="" fmt="str" altControlID="50477">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  40" key="50479">
+		<rpc mask="#####" writable="no" address="10479" type="4355" m="10" c="" fmt="str" altControlID="50479">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  41" key="50481">
+		<rpc mask="#####" writable="no" address="10481" type="4355" m="10" c="" fmt="str" altControlID="50481">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  42" key="50483">
+		<rpc mask="#####" writable="no" address="10483" type="4355" m="10" c="" fmt="str" altControlID="50483">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  43" key="50485">
+		<rpc mask="#####" writable="no" address="10485" type="4355" m="10" c="" fmt="str" altControlID="50485">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  44" key="50487">
+		<rpc mask="#####" writable="no" address="10487" type="4355" m="10" c="" fmt="str" altControlID="50487">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  45" key="50489">
+		<rpc mask="#####" writable="no" address="10489" type="4355" m="10" c="" fmt="str" altControlID="50489">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  46" key="50491">
+		<rpc mask="#####" writable="no" address="10491" type="4355" m="10" c="" fmt="str" altControlID="50491">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  47" key="50493">
+		<rpc mask="#####" writable="no" address="10493" type="4355" m="10" c="" fmt="str" altControlID="50493">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  48" key="50495">
+		<rpc mask="#####" writable="no" address="10495" type="4355" m="10" c="" fmt="str" altControlID="50495">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  49" key="50497">
+		<rpc mask="#####" writable="no" address="10497" type="4355" m="10" c="" fmt="str" altControlID="50497">comm fail</rpc>
+	</register>
+		<register control="text" desc="Card Load  50" key="50499">
+		<rpc mask="#####" writable="no" address="10499" type="4355" m="10" c="" fmt="str" altControlID="50499">comm fail</rpc>
+	</register>
+</registers>
+</RTUReadWriteReqDef>

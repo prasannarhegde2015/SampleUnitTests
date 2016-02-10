@@ -1,0 +1,62 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNILRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+		<block addr="2520" count="10" protocoldatatype="4" />
+		<block addr="2520" count="1" protocoldatatype="1540" />
+		<block addr="2520" count="1" protocoldatatype="4" />
+		<block addr="2520" count="1" protocoldatatype="516" />
+		<block addr="2520" count="1" protocoldatatype="4" />
+	</regBlocks>
+<regValuesToWrite>
+</regValuesToWrite>
+<registers>
+		<register control="text" desc="Well State" key="32501">
+		<rpc mask="#####" writable="no" address="2501" type="4" m="1" c="" fmt="str" altControlID="32501">comm fail</rpc>
+	</register>
+		<register control="text" desc="Hours in current state" key="32502">
+		<rpc mask="#####" writable="no" address="2502" type="4" m="1" c="" fmt="str" altControlID="32502">comm fail</rpc>
+	</register>
+		<register control="text" desc="Minutes and Seconds in State" key="32503">
+		<rpc mask="#####" writable="no" address="2503" type="4" m="1" c="" fmt="str" altControlID="32503">comm fail</rpc>
+	</register>
+		<register control="text" desc="Present Downtime [Min]" key="32504">
+		<rpc mask="#####" writable="no" address="2504" type="4" m="1" c="" fmt="str" altControlID="32504">comm fail</rpc>
+	</register>
+		<register control="text" desc="Status of Auto Downtime mode" key="32505">
+		<rpc mask="#####" writable="no" address="2505" type="4" m="1" c="" fmt="str" altControlID="32505">comm fail</rpc>
+	</register>
+		<register control="text" desc="Stroke Period [sec/stroke]" key="32506">
+		<rpc mask="#####" writable="no" address="2506" type="4" m="100" c="" fmt="str" altControlID="32506">comm fail</rpc>
+	</register>
+		<register control="text" desc="Failure Control Mode" key="32507">
+		<rpc mask="#####" writable="no" address="2507" type="4" m="1" c="" fmt="str" altControlID="32507">comm fail</rpc>
+	</register>
+		<register control="text" desc="Crnt Scaled Load" key="32508">
+		<rpc mask="#####" writable="no" address="2508" type="4" m="1" c="" fmt="str" altControlID="32508">comm fail</rpc>
+	</register>
+		<register control="text" desc="Crnt Scaled Position" key="32509">
+		<rpc mask="#####" writable="no" address="2509" type="4" m="100" c="" fmt="str" altControlID="32509">comm fail</rpc>
+	</register>
+		<register control="text" desc="Current Motor RPM" key="32510">
+		<rpc mask="#####" writable="no" address="2510" type="4" m="1" c="" fmt="str" altControlID="32510">comm fail</rpc>
+	</register>
+		<register control="text" desc="Current Torque" key="32511">
+		<rpc mask="#####" writable="no" address="2511" type="1540" m="1" c="" fmt="str" altControlID="32511">comm fail</rpc>
+	</register>
+		<register control="text" desc="Current HP" key="32513">
+		<rpc mask="#####" writable="no" address="2513" type="1540" m="1" c="" fmt="str" altControlID="32513">comm fail</rpc>
+	</register>
+		<register control="text" desc="Nbr Strokes in Min Pump State" key="32515">
+		<rpc mask="#####" writable="no" address="2515" type="4" m="1" c="" fmt="str" altControlID="32515">comm fail</rpc>
+	</register>
+		<register control="text" desc="Nbr Strokes since Commission" key="32516">
+		<rpc mask="#####" writable="no" address="2516" type="516" m="1" c="" fmt="str" altControlID="32516">comm fail</rpc>
+	</register>
+		<register control="text" desc="Nbr Strokes since Last Pump" key="32518">
+		<rpc mask="#####" writable="no" address="2518" type="516" m="1" c="" fmt="str" altControlID="32518">comm fail</rpc>
+	</register>
+		<register control="text" desc="Laptop/Host Calibration State" key="32520">
+		<rpc mask="#####" writable="no" address="2520" type="4" m="1" c="" fmt="str" altControlID="32520">comm fail</rpc>
+	</register>
+</registers>
+</RTUReadWriteReqDef>

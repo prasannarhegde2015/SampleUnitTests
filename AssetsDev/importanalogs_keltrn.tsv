@@ -1,0 +1,5 @@
+RTUDESCC	.I	DESCC	TYPEC	EUDESCC	SLOPER	OFFSETR	VIRTUALI	FUNCTIONC	PORDERI	POINT_TYPI	FIELD_ADRI	POINT_NUMI	POINT_AD4I
+wellfromcmdline	1	Power Factor Set01 Setpoint	CPV	RAW	1	0	0	no_conversion	0	4	21	0	0
+wellfromcmdline	1	Overload Retry Time	CPV	RAW	1	0	0	no_conversion	0	4	47	0	0
+wellfromcmdline	1	Overload Alarm Action	CPV	RAW	1	0	0	no_conversion	0	4	113	0	0
+wellfromcmdline	1	Pressure switch bypass delay	CPV	RAW	1	0	0	no_conversion	0	4	152	0	0

@@ -1,0 +1,26 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNISRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+	<block addr="2353" count="6" protocoldatatype="1539" />
+</regBlocks>
+
+<regValuesToWrite>
+	<val addr="2351">600</val>
+	<val addr="2353">600</val>
+	<val addr="2355">600</val>
+	<val addr="2356">600</val>
+</regValuesToWrite>
+<registers>
+	<register control="text" desc="Distance Between Sprockets (ins.)" key="2351">
+	<rpc mask="###" writable="yes" address="2351" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Sprocket Radius (ins.)" key="2353">
+	<rpc mask="###" writable="yes" address="2353" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="select" desc="Malfunction Digital Output Channel" key="2355">
+	<rpc mask="###" writable="yes" address="2355" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Output Ratio" key="2356">
+	<rpc mask="###" writable="yes" address="2356" type="1539" m="1" c="0" fmt="2" />
+	</register>
+</registers></RTUReadWriteReqDef>

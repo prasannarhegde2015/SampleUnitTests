@@ -1,0 +1,44 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNISRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+	<block addr="2525" count="1" protocoldatatype="4" />
+	<block addr="8922" count="1" protocoldatatype="4" />
+	<block addr="2518" count="2" protocoldatatype="3" />
+	<block addr="2614" count="1" protocoldatatype="4" />
+	<block addr="2264" count="2" protocoldatatype="1539" />
+	<block addr="2508" count="1" protocoldatatype="3" />
+</regBlocks>
+
+<regValuesToWrite>
+	<val addr="2518">600</val>
+	<val addr="2519">600</val>
+	<val addr="2264">600</val>
+	<val addr="2507">600</val>
+	<val addr="2508">600</val>
+</regValuesToWrite>
+<registers>
+	<register control="text" desc="Current SPM" key="2525">
+	<rpc mask="###" writable="no" address="2525" type="4" m="100" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="VFD Output Frequency" key="8922">
+	<rpc mask="###" writable="no" address="8922" type="4" m="100" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="VFD Max Working Speed" key="2518">
+	<rpc mask="###" writable="yes" address="2518" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="VFD Min Working Speed" key="2519">
+	<rpc mask="###" writable="yes" address="2519" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Pump Fillage" key="2614">
+	<rpc mask="###" writable="no" address="2614" type="4" m="100" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Reference Pump Fillage" key="2264">
+	<rpc mask="###" writable="yes" address="2264" type="1539" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="VFD Speed Increase" key="2507">
+	<rpc mask="###" writable="yes" address="2507" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="VFD Speed Decrease" key="2508">
+	<rpc mask="###" writable="yes" address="2508" type="3" m="1" c="0" fmt="str" />
+	</register>
+</registers></RTUReadWriteReqDef>

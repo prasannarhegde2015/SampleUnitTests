@@ -1,0 +1,28 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol="BAKER" description="Test File" />
+	<regBlocks>
+		<block addr="155" count="5" protocoldatatype="9" />
+	</regBlocks>
+	<regValuesToWrite>
+		<val addr="156">0</val>
+		<val addr="157">0</val>
+		<val addr="158">0</val>
+	</regValuesToWrite>
+	<registers>
+		<register control="text" desc="Ethernet 'MAC' Address" key="155">
+			<rpc mask="###############" writable="no" address="155" type="Dspl" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Ethernet 'IP' Address" key="156">
+			<rpc mask="###############" writable="yes" address="156" type="Dspl" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Ethernet Netmask Address" key="157">
+			<rpc mask="###############" writable="yes" address="157" type="Dspl" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Ethernet Gateway Address" key="158">
+			<rpc mask="###############" writable="yes" address="158" type="Dspl" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Ethernet Status" key="159">
+			<rpc mask="###############" writable="no" address="159" type="Dspl" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+	</registers>
+</RTUReadWriteReqDef>

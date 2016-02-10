@@ -1,0 +1,56 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNISRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+	<block addr="7625" count="2" protocoldatatype="4355" />
+	<block addr="7545" count="2" protocoldatatype="4355" />
+	<block addr="7627" count="2" protocoldatatype="4355" />
+	<block addr="7547" count="2" protocoldatatype="4355" />
+	<block addr="7629" count="2" protocoldatatype="4355" />
+	<block addr="7549" count="2" protocoldatatype="4355" />
+	<block addr="7631" count="8" protocoldatatype="4355" />
+</regBlocks>
+
+<regValuesToWrite>
+	<val addr="7625">600</val>
+	<val addr="7545">600</val>
+	<val addr="7627">600</val>
+	<val addr="7547">600</val>
+	<val addr="7629">600</val>
+	<val addr="7549">600</val>
+	<val addr="7631">600</val>
+	<val addr="7633">600</val>
+	<val addr="7635">600</val>
+	<val addr="7637">600</val>
+</regValuesToWrite>
+<registers>
+	<register control="select" desc="Connected Port" key="12345">
+	<rpc mask="#" writable="yes" address="7625" type="4355" m="1" c="0" fmt="0" altControlID="47625" />
+	</register>
+	<register control="select" desc="Console Units" key="47625">
+	<rpc mask="#" writable="yes" address="7545" type="4355" m="1" c="0" fmt="0" />
+	</register>
+	<register control="text" desc="Console RTU Gap" key="47545">
+	<rpc mask="#" writable="yes" address="7627" type="4355" m="1" c="0" fmt="0" altControlID="47627" />
+	</register>
+	<register control="select" desc="Port A Units" key="47627">
+	<rpc mask="#" writable="yes" address="7547" type="4355" m="1" c="0" fmt="0" />
+	</register>
+	<register control="text" desc="Port A RTU Gap" key="47547">
+	<rpc mask="#" writable="yes" address="7629" type="4355" m="1" c="0" fmt="0" altControlID="47629" />
+	</register>
+	<register control="select" desc="Port B Units" key="47629">
+	<rpc mask="#" writable="yes" address="7549" type="4355" m="1" c="0" fmt="0" altControlID="47625" />
+	</register>
+	<register control="text" desc="Port B RTU Gap" key="47549">
+	<rpc mask="###" writable="yes" address="7631" type="4355" m="1" c="0" fmt="0" altControlID="47631" />
+	</register>
+	<register control="select" desc="Volume Units" key="47631">
+	<rpc mask="###" writable="yes" address="7633" type="4355" m="1" c="0" fmt="0" altControlID="47633" />
+	</register>
+	<register control="select" desc="Fluid Flow Units" key="47633">
+	<rpc mask="###" writable="yes" address="7635" type="4355" m="1" c="0" fmt="0" altControlID="47635" />
+	</register>
+	<register control="select" desc="Pressure Units" key="47635">
+	<rpc mask="###" writable="yes" address="7637" type="4355" m="1" c="0" fmt="0" altControlID="47637" />
+	</register>
+</registers></RTUReadWriteReqDef>

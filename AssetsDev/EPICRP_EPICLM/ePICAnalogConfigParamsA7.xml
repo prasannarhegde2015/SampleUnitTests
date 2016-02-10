@@ -1,0 +1,75 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol="BAKER" description="Test File" />
+	<regBlocks>
+		<block addr="763" count="3" protocoldatatype="2" />
+		<block addr="766" count="3" protocoldatatype="4" />
+		<block addr="769" count="2" protocoldatatype="2" />
+		<block addr="771" count="1" protocoldatatype="4" />
+		<block addr="772" count="2" protocoldatatype="2" />
+		<block addr="760" count="3" protocoldatatype="4" />
+		<block addr="775" count="2" protocoldatatype="4" />
+	</regBlocks>
+	<regValuesToWrite>
+		<val addr="763">0</val>
+		<val addr="764">0</val>
+		<val addr="765">0</val>
+		<val addr="766">0</val>
+		<val addr="767">0</val>
+		<val addr="768">0</val>
+		<val addr="769">0</val>
+		<val addr="770">0</val>
+		<val addr="771">0</val>
+		<val addr="772">0</val>
+		<val addr="773">0</val>
+	</regValuesToWrite>
+	<registers>
+		<register control="select" desc="'AI7' Analog Input Type                   " key="763">
+			<rpc mask="###" writable="yes" address="763" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="'AI7' Decimal Places                      " key="764">
+			<rpc mask="###" writable="yes" address="764" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="'AI7' Engineering Unit Label                           " key="765">
+			<rpc mask="###" writable="yes" address="765" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="'AI7' Scaling - Low Value                 " key="766">
+			<rpc mask="###" writable="yes" address="766" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="'AI7' Scaling - High Value                " key="767">
+			<rpc mask="###" writable="yes" address="767" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="'AI7' Lower Alarm Limit                   " key="768">
+			<rpc mask="###" writable="yes" address="768" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="'AI7' Lower Alarm Action '1'                " key="769">
+			<rpc mask="###" writable="yes" address="769" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="'AI7' Lower Alarm Action '2'                " key="770">
+			<rpc mask="###" writable="yes" address="770" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="'AI7' Upper Alarm Limit" key="771">
+			<rpc mask="###" writable="yes" address="771" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="'AI7' Upper Alarm Action '1'" key="772">
+			<rpc mask="###" writable="yes" address="772" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="'AI7' Upper Alarm Action '2'" key="773">
+			<rpc mask="###" writable="yes" address="773" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="'AI7' Raw A/D Channel Value Counts / Volts" key="760">
+			<rpc mask="###" writable="no" address="760" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="'AI7' Input Value in Offset Volts" key="761">
+			<rpc mask="###" writable="no" address="761" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="'AI7' Scaled Engineering Unit Input Value" key="762">
+			<rpc mask="###" writable="no" address="762" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="'AI7' Lowest Recorded Input Value" key="775">
+			<rpc mask="###" writable="no" address="775" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="'AI7' Highest Recorded Input Value" key="776">
+			<rpc mask="###" writable="no" address="776" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+	</registers>
+</RTUReadWriteReqDef>

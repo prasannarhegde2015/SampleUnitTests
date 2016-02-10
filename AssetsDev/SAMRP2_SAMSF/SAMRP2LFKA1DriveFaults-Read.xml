@@ -1,0 +1,46 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNISRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+	<block addr="2675" count="9" protocoldatatype="4" />
+</regBlocks>
+
+<regValuesToWrite>
+</regValuesToWrite>
+<registers>
+	<register control="text" desc="Trip Code" key="2669">
+	<rpc mask="###" writable="no" address="2669" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Drive Fault Set Time Stamp" key="2671">
+	<rpc mask="###" writable="no" address="2671" type="516" m="1" c="0" fmt="timestamp" />
+	</register>
+	<register control="text" desc="Drive Fault Clear Time Stamp" key="2673">
+	<rpc mask="###" writable="no" address="2673" type="516" m="1" c="0" fmt="timestamp" />
+	</register>
+	<register control="text" desc="Output Frequency" key="2675">
+	<rpc mask="###" writable="no" address="2675" type="4" m="100" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Commanded Frequency" key="2676">
+	<rpc mask="###" writable="no" address="2676" type="4" m="100" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Output Current" key="2677">
+	<rpc mask="###" writable="no" address="2677" type="4" m="100" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="DC Bus Voltage" key="2678">
+	<rpc mask="###" writable="no" address="2678" type="4" m="100" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Digital Input Status" key="2679">
+	<rpc mask="###" writable="no" address="2679" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Output Voltage" key="2680">
+	<rpc mask="###" writable="no" address="2680" type="4" m="100" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Elapsed Time" key="2681">
+	<rpc mask="###" writable="no" address="2681" type="4" m="100" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Status Word '1'" key="2682">
+	<rpc mask="###" writable="no" address="2682" type="4" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Status Word '3'" key="2683">
+	<rpc mask="###" writable="no" address="2683" type="4" m="1" c="0" fmt="str" />
+	</register>
+</registers></RTUReadWriteReqDef>

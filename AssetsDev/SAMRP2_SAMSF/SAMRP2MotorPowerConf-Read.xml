@@ -1,0 +1,30 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNISRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+	<block addr="2340" count="5" protocoldatatype="1539" />
+</regBlocks>
+
+<regValuesToWrite>
+	<val addr="2339">600</val>
+	<val addr="2340">600</val>
+	<val addr="2341">600</val>
+	<val addr="2342">600</val>
+	<val addr="2344">600</val>
+</regValuesToWrite>
+<registers>
+	<register control="text" desc="Full Load 'Horsepower'" key="2339">
+	<rpc mask="###" writable="yes" address="2339" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Full Load 'RPM'" key="2340">
+	<rpc mask="###" writable="yes" address="2340" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Synch Speed" key="2341">
+	<rpc mask="###" writable="yes" address="2341" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Maximum Reduced Torque" key="2342">
+	<rpc mask="###" writable="yes" address="2342" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="'Q' Factor" key="2344">
+	<rpc mask="###" writable="yes" address="2344" type="1539" m="1" c="0" fmt="2" />
+	</register>
+</registers></RTUReadWriteReqDef>

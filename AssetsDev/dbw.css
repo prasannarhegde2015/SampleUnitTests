@@ -1,0 +1,89 @@
+
+
+int function makemeavue( char *query )
+{
+	int vuehnd;
+	vuehnd = vueaction( "CREATE" , query );
+	vueaction( "EVALUATE" , vuehnd );
+	vueaction( "GOTOTOP" , vuehnd );
+	return vuehnd;
+}
+
+
+int function deletegenericwell( char *cond , int doit , char *wellTable , char *processor , char *deleteFunction )
+{
+	int vh, ii, dot, rc, rcode;
+	char status[ 256 ];
+	char desc[ 64 ];
+	vh = makemeavue( "FILE " ++ wellTable ++ "; SEL . DESC; WHERE DEFINE != 0;" ++ cond ++ ";" );
+	
+	for ( ii = vueaction( "NEXTROW" , vh ); ii >= 0; ii = vueaction( "NEXTROW" , vh ); )
+	{
+		status = "                                                                                                                                                                                                                                                               ";
+		dot = vueaction( "GETFIELD" , vh , "." );
+		desc = vueaction( "GETFIELD" , vh , "DESC" );
+		print "Deleting well # " ++ dot ++ " '" ++ desc ++ "'.\n";
+		if ( doit )
+		{
+			rc = scriptaction( "REMOTESCRIPT" , processor , deleteFunction , dot , 1 , rcode , status , "MCSSSCRIP" );
+			print "rc = " ++ rc ++ ", rcode = " ++ rcode ++ ", status = '" ++ status ++ "'.\n";
+			if ( ! rc || ! rcode )
+			{
+				break;
+			}
+		}
+	}
+	return 42;
+}
+
+
+int function deletebeamwells( char *cond , int doit )
+{
+	return deletegenericwell( cond , doit , "SPOCCA" , "BEAMPROC" , "deletebeamwell" );
+}
+
+
+int function deleteinjectionwells( char *cond , int doit )
+{
+	int vh, ii, dot, rc, rcode;
+	char status[ 256 ];
+	char desc[ 64 ];
+	vh = makemeavue( "FILE SWCWLI; SEL . DESC; WHERE DEFINE != 0;" ++ cond ++ ";" );
+	
+	for ( ii = vueaction( "NEXTROW" , vh ); ii >= 0; ii = vueaction( "NEXTROW" , vh ); )
+	{
+		status = "                                                                                                                                                                                                                                                               ";
+		dot = vueaction( "GETFIELD" , vh , "." );
+		desc = vueaction( "GETFIELD" , vh , "DESC" );
+		print "Deleting well # " ++ dot ++ " '" ++ desc ++ "'.\n";
+		if ( doit )
+		{
+			rc = scriptaction( "REMOTESCRIPT" , "INJECTPROC" , "delete_injwell" , dot , status , rcode , "MCSSSCRIP" );
+			print "rc = " ++ rc ++ ", rcode = " ++ rcode ++ ", status = '" ++ status ++ "'.\n";
+			if ( ! rc || ! rcode )
+			{
+				break;
+			}
+		}
+	}
+	return 7;
+}
+
+
+int function deletesubswells( char *cond , int doit )
+{
+	return deletegenericwell( cond , doit , "SUBWLI" , "SUBPROC" , "deletesubwell" );
+}
+
+
+int function deletepcpwells( char *cond , int doit )
+{
+	return deletegenericwell( cond , doit , "PCPWLI" , "PCPPROC" , "deletepcpwell" );
+}
+
+
+int function deletegldwells( char *cond , int doit )
+{
+	return deletegenericwell( cond , doit , "GLDWLI" , "GLDPROC" , "deletegldwell" );
+}
+

@@ -1,0 +1,47 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNISRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+	<block addr="5003" count="2" protocoldatatype="515" />
+	<block addr="5017" count="4" protocoldatatype="6403" />
+</regBlocks>
+
+<regValuesToWrite>
+</regValuesToWrite>
+<registers>
+	<register control="text" desc="Time Stamp" key="5003">
+	<rpc mask="###" writable="no" address="5003" type="515" m="1" c="0" fmt="timestamp" />
+	</register>
+	<register control="text" desc="Standing Valve Value" key="5006">
+	<rpc mask="###" writable="no" address="5006" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Travelling Valve Value" key="5008">
+	<rpc mask="###" writable="no" address="5008" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Fluid Load" key="5010">
+	<rpc mask="###" writable="no" address="5010" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Counterbalance Value" key="5011">
+	<rpc mask="###" writable="no" address="5011" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Counterbalance Position" key="5013">
+	<rpc mask="###" writable="no" address="5013" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Counterbalance Stroke Direction" key="5014">
+	<rpc mask="###" writable="no" address="5014" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Residual Friction Value" key="5015">
+	<rpc mask="###" writable="no" address="5015" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Leakage Mark 1 Value" key="5017">
+	<rpc mask="###" writable="no" address="5017" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Leakage Mark 2 Value" key="5019">
+	<rpc mask="###" writable="no" address="5019" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Leakage Mark 3 Value" key="5021">
+	<rpc mask="###" writable="no" address="5021" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Calculated Leakage" key="5023">
+	<rpc mask="###" writable="no" address="5023" type="6403" m="10.0" c="0" fmt="2" />
+	</register>
+</registers></RTUReadWriteReqDef>

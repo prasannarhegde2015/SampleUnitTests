@@ -1,0 +1,256 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNISRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+	<block addr="2001" count="5" protocoldatatype="3" />
+	<block addr="2009" count="5" protocoldatatype="3" />
+	<block addr="2006" count="2" protocoldatatype="1539" />
+	<block addr="2014" count="6" protocoldatatype="3" />
+	<block addr="2062" count="9" protocoldatatype="1539" />
+	<block addr="2078" count="16" protocoldatatype="3" />
+	<block addr="2063" count="1" protocoldatatype="3" />
+	<block addr="2089" count="1" protocoldatatype="3" />
+	<block addr="2008" count="1" protocoldatatype="3" />
+	<block addr="2090" count="3" protocoldatatype="3" />
+	<block addr="2054" count="5" protocoldatatype="1539" />
+</regBlocks>
+
+<regValuesToWrite>
+	<val addr="2001">600</val>
+	<val addr="2002">600</val>
+	<val addr="2003">600</val>
+	<val addr="2004">600</val>
+	<val addr="2005">600</val>
+	<val addr="2009">600</val>
+	<val addr="2011">600</val>
+	<val addr="2013">600</val>
+	<val addr="2006">600</val>
+	<val addr="2014">600</val>
+	<val addr="2015">600</val>
+	<val addr="2016">600</val>
+	<val addr="2017">600</val>
+	<val addr="2018">600</val>
+	<val addr="2019">600</val>
+	<val addr="2062">600</val>
+	<val addr="2064">600</val>
+	<val addr="2065">600</val>
+	<val addr="2067">600</val>
+	<val addr="2069">600</val>
+	<val addr="2070">600</val>
+	<val addr="2071">600</val>
+	<val addr="2073">600</val>
+	<val addr="2078">600</val>
+	<val addr="2079">600</val>
+	<val addr="2080">600</val>
+	<val addr="2081">600</val>
+	<val addr="2083">600</val>
+	<val addr="2084">600</val>
+	<val addr="2086">600</val>
+	<val addr="2088">600</val>
+	<val addr="2063">600</val>
+	<val addr="2089">600</val>
+	<val addr="2008">600</val>
+	<val addr="2090">600</val>
+	<val addr="2091">600</val>
+	<val addr="2093">600</val>
+	<val addr="2094">600</val>
+	<val addr="2020">600</val>
+	<val addr="2022">600</val>
+	<val addr="2024">600</val>
+	<val addr="2026">600</val>
+	<val addr="2028">600</val>
+	<val addr="2030">600</val>
+	<val addr="2032">600</val>
+	<val addr="2034">600</val>
+	<val addr="2036">600</val>
+	<val addr="2038">600</val>
+	<val addr="2040">600</val>
+	<val addr="2042">600</val>
+	<val addr="2044">600</val>
+	<val addr="2046">600</val>
+	<val addr="2048">600</val>
+	<val addr="2050">600</val>
+	<val addr="2052">600</val>
+	<val addr="2054">600</val>
+	<val addr="2056">600</val>
+	<val addr="2058">600</val>
+	<val addr="2060">600</val>
+</regValuesToWrite>
+<registers>
+	<register control="select" desc="Enable AGA Calculation" key="2001">
+	<rpc mask="###" writable="yes" address="2001" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="group" desc="Tap Location" key="2002">
+	<rpc mask="###" writable="yes" address="2002" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="select" desc="Differential Pressure Channel" key="2003">
+	<rpc mask="###" writable="yes" address="2003" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="select" desc="Flowing Temperature Channel" key="2004">
+	<rpc mask="###" writable="yes" address="2004" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="select" desc="Flowing Pressure Channel" key="2005">
+	<rpc mask="###" writable="yes" address="2005" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="User Entered Flowing Pressure" key="2009">
+	<rpc mask="###" writable="yes" address="2009" type="1539" m="1" c="0" fmt="3" />
+	</register>
+	<register control="text" desc="User Entered Flowing Temperature" key="2011">
+	<rpc mask="###" writable="yes" address="2011" type="1539" m="1" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="Base Temperature" key="2013">
+	<rpc mask="###" writable="yes" address="2013" type="3" m="100" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="Heating Value" key="2006">
+	<rpc mask="###" writable="yes" address="2006" type="1539" m="1" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="Base Pressure" key="2014">
+	<rpc mask="###" writable="yes" address="2014" type="3" m="100" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="Reference Temperature Specific Gravity" key="2015">
+	<rpc mask="###" writable="yes" address="2015" type="3" m="100" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="Reference Pressure Specific Gravity" key="2016">
+	<rpc mask="###" writable="yes" address="2016" type="3" m="100" c="0" fmt="3" />
+	</register>
+	<register control="text" desc="Reference Temperature Combustion" key="2017">
+	<rpc mask="###" writable="yes" address="2017" type="3" m="100" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="Reference Temperature Heating Value" key="2018">
+	<rpc mask="###" writable="yes" address="2018" type="3" m="100" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="Reference Pressure Heating Value" key="2019">
+	<rpc mask="###" writable="yes" address="2019" type="3" m="100" c="0" fmt="3" />
+	</register>
+	<register control="text" desc="Orifice Diameter" key="2062">
+	<rpc mask="###" writable="yes" address="2062" type="3" m="1000" c="0" fmt="3" />
+	</register>
+	<register control="text" desc="Pipe and Orifice Measurement Temperature" key="2064">
+	<rpc mask="###" writable="yes" address="2064" type="3" m="100" c="0" fmt="3" />
+	</register>
+	<register control="text" desc="Viscosity" key="2065">
+	<rpc mask="###" writable="yes" address="2065" type="1539" m="1" c="0" fmt="4" />
+	</register>
+	<register control="text" desc="Isentropic Exponent" key="2067">
+	<rpc mask="###" writable="yes" address="2067" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="AGA Calibration Factor" key="2069">
+	<rpc mask="###" writable="yes" address="2069" type="3" m="100" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="Atmospheric Adjustment Pressure" key="2070">
+	<rpc mask="###" writable="yes" address="2070" type="3" m="100" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="Constant Differential Pressure" key="2071">
+	<rpc mask="###" writable="yes" address="2071" type="1539" m="1" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="Differential Pressure Zero Cutoff" key="2073">
+	<rpc mask="###" writable="yes" address="2073" type="1539" m="1" c="0" fmt="1" />
+	</register>
+	<register control="select" desc="Flowing Pressure Slave Dev. Number" key="2078">
+	<rpc mask="###" writable="yes" address="2078" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="select" desc="Differential Pressure Slave Dev. Number" key="2079">
+	<rpc mask="###" writable="yes" address="2079" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="select" desc="Flowing Temperature Slave Dev. Number" key="2080">
+	<rpc mask="###" writable="yes" address="2080" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Energy Content" key="2081">
+	<rpc mask="###" writable="yes" address="2081" type="1539" m="1" c="0" fmt="str" />
+	</register>
+	<register control="select" desc="'Fpv' Calculation Mode" key="2083">
+	<rpc mask="###" writable="yes" address="2083" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Full Well Stream Factor" key="2084">
+	<rpc mask="###" writable="yes" address="2084" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Low Flow Cutoff Delay" key="2086">
+	<rpc mask="###" writable="yes" address="2086" type="1539" m="1" c="0" fmt="str" />
+	</register>
+	<register control="select" desc="Pipe Diameter Format" key="2088">
+	<rpc mask="###" writable="yes" address="2088" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Pipe Diameter" key="2063">
+	<rpc mask="###" writable="yes" address="2063" type="3" m="100" c="0" fmt="3" />
+	</register>
+	<register control="select" desc="Gas Specific Gravity Format" key="2089">
+	<rpc mask="###" writable="yes" address="2089" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Gas Specific Gravity" key="2008">
+	<rpc mask="###" writable="yes" address="2008" type="3" m="100" c="0" fmt="2" />
+	</register>
+	<register control="select" desc="Flow Meter Type" key="2090">
+	<rpc mask="###" writable="yes" address="2090" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Turbine Meter Constant" key="2091">
+	<rpc mask="###" writable="yes" address="2091" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Turbine Meter Accumulator Number" key="2093">
+	<rpc mask="###" writable="yes" address="2093" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="select" desc="Gas Mixture Format" key="2094">
+	<rpc mask="###" writable="yes" address="2094" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="'Methane'" key="2020">
+	<rpc mask="###" writable="yes" address="2020" type="1539" m="1" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="'N2'" key="2022">
+	<rpc mask="###" writable="yes" address="2022" type="1539" m="1" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="'CO2'" key="2024">
+	<rpc mask="###" writable="yes" address="2024" type="1539" m="1" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="'Ethane'" key="2026">
+	<rpc mask="###" writable="yes" address="2026" type="1539" m="1" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="'Propane'" key="2028">
+	<rpc mask="###" writable="yes" address="2028" type="1539" m="1" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="'H2O'" key="2030">
+	<rpc mask="###" writable="yes" address="2030" type="1539" m="1" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="'H2S'" key="2032">
+	<rpc mask="###" writable="yes" address="2032" type="1539" m="1" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="'Hydrogen'" key="2034">
+	<rpc mask="###" writable="yes" address="2034" type="1539" m="1" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="'CO'" key="2036">
+	<rpc mask="###" writable="yes" address="2036" type="1539" m="1" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="'Oxygen'" key="2038">
+	<rpc mask="###" writable="yes" address="2038" type="1539" m="1" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="'I-Butane'" key="2040">
+	<rpc mask="###" writable="yes" address="2040" type="1539" m="1" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="'N-Butane'" key="2042">
+	<rpc mask="###" writable="yes" address="2042" type="1539" m="1" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="'I-Pentane'" key="2044">
+	<rpc mask="###" writable="yes" address="2044" type="1539" m="1" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="'N-Pentane'" key="2046">
+	<rpc mask="###" writable="yes" address="2046" type="1539" m="1" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="'Hexane'" key="2048">
+	<rpc mask="###" writable="yes" address="2048" type="1539" m="1" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="'Heptane'" key="2050">
+	<rpc mask="###" writable="yes" address="2050" type="1539" m="1" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="'Octane'" key="2052">
+	<rpc mask="###" writable="yes" address="2052" type="1539" m="1" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="'Nonane'" key="2054">
+	<rpc mask="###" writable="yes" address="2054" type="1539" m="1" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="'Decane'" key="2056">
+	<rpc mask="###" writable="yes" address="2056" type="1539" m="1" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="'Helium'" key="2058">
+	<rpc mask="###" writable="yes" address="2058" type="1539" m="1" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="'Argon'" key="2060">
+	<rpc mask="###" writable="yes" address="2060" type="1539" m="1" c="0" fmt="1" />
+	</register>
+</registers></RTUReadWriteReqDef>

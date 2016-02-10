@@ -1,0 +1,29 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNILRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+		<block addr="4999" count="2" protocoldatatype="1539" />
+		<block addr="4999" count="1" protocoldatatype="3" />
+		<block addr="4999" count="2" protocoldatatype="1539" />
+		<block addr="4999" count="1" protocoldatatype="3" />
+	</regBlocks>
+<regValuesToWrite>
+	<val addr="4994">600</val>
+	<val addr="4996">600</val>
+	<val addr="4997">600</val>
+	<val addr="4999">600</val>
+</regValuesToWrite>
+<registers>
+		<register control="text" desc="Crank Switch Mounting Error Angle" key="44994">
+		<rpc mask="#####" writable="yes" address="4994" type="1539" m="1" c="" fmt="2" altControlID="44994">comm fail</rpc>
+	</register>
+		<register control="text" desc="Crank Switch Position" key="44996">
+		<rpc mask="#####" writable="yes" address="4996" type="3" m="1" c="" fmt="str" altControlID="44996">comm fail</rpc>
+	</register>
+		<register control="text" desc="Crank Switch Phase Angle" key="44997">
+		<rpc mask="#####" writable="yes" address="4997" type="1539" m="1" c="" fmt="2" altControlID="44997">comm fail</rpc>
+	</register>
+		<register control="text" desc="Crank Switch Mounting Error Adj. Directi" key="44999">
+		<rpc mask="#####" writable="yes" address="4999" type="3" m="1" c="" fmt="str" altControlID="44999">comm fail</rpc>
+	</register>
+</registers>
+</RTUReadWriteReqDef>

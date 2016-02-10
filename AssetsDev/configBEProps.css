@@ -1,0 +1,70 @@
+// mcsscrip configBEProps.css configBEWellProperties "" 5 -db beamdb -debugger 
+int function configBEWellProperties(int wellrec)
+{
+	setcurrenttablerow ( "SPOCCA", wellrec ) ;
+	
+	// Set BE well properties
+	|"TOPERF"|		=		4558;				
+	|"BOTPRF"|		=		5220;
+	|"PDPTH"|		=		5081;
+	|"PDPTHV"|		=		5081;
+	|"PDIAM1"|		=		2;
+	|"TODIM"|       =		2.875;
+	|"REPOIL"|      =		22;
+	|"REPWATER"|    =		105;
+	|"APIGRV"|      =		25;
+	|"SPGW"|        =		1.05;
+	|"TUBGRAD"|     =		0.429;
+	|"FLVLFS"|		=		5050;
+	|"FAP"|			=		31;
+	|"REPDATE"|		=		currenttime();
+	|"WRSPIN"|		=		3;
+	|"STLTH1"|		=		74.1;
+	|"TORTYP"|		=		"A";
+	|"ROTATE"|		=		"CW";
+	|"MOTYPE"|		=		"N";
+	|"MHPWR"|		=		3;
+	|"MOTRQR"|		=		1;
+	|"CRDSGN"|		=		"100108M";
+	|"EPLM_P3007"|	=		0.5; // Damping Factor
+	
+	// add the rod taper
+	scriptaction ("BREAKPOINT");
+	int rc; rc = 0;
+	int template_number; template_number = 0;
+	int tapernum; tapernum = 1;
+	int taperrec; taperrec = 0;
+	int rodrec; rodrec = 10;
+	int joints; joints = 56;
+	real jointlth; jointlth = 30.0;
+	real derating; derating = 0.0;
+	real dev; dev = 0.0;
+	real dragn; dragn = 0.0;
+	char guide[24]; guide = "";
+	char errMsg[256]; errMsg = "																";
+	int rcode;  rcode = -1;
+	
+	rc = scriptaction
+	(
+		"REMOTESCRIPT",
+		"BEAMPROC",
+		"define_taper_enhanced",
+		template_number,
+		tapernum,
+		wellrec,
+		rodrec,
+		taperrec,
+		joints,
+		jointlth,
+		derating,
+		dev,
+		dragn,
+		guide,
+		errMsg,
+		rcode
+	);
+	
+	return 1;
+}
+
+

@@ -1,0 +1,115 @@
+
+int function setBeamprocCsvFilePath(char *filePath)
+{
+	int rc;
+	rc = fileaction("FILEEXISTS", filePath);
+	if (rc)
+	{
+		rc = stringaction("OPTIONPUT", filePath, "CURRENTSTATUSDATAOUTPUTFOLDER", "BEAMPROC");
+		if (rc)
+		{
+			print "Success.\n";
+		}
+		else
+		{
+			printe "Error setting option.\n";
+		}
+	}
+	else
+	{
+		printe "Invalid folder path '", filePath , "'.\n";
+	}
+	return 1;
+}
+
+int function setEspprocCsvFilePath(char *filePath)
+{
+	int rc;
+	rc = fileaction("FILEEXISTS", filePath);
+	if (rc)
+	{
+		rc = stringaction("OPTIONPUT", filePath, "CURRENTSTATUSDATAOUTPUTFOLDER", "SUBPROC");
+		if (rc)
+		{
+			print "Success.\n";
+		}
+		else
+		{
+			printe "Error setting option.\n";
+		}
+	}
+	else
+	{
+		printe "Invalid folder path '", filePath , "'.\n";
+	}
+	return 1;
+}
+
+int function setInjectprocCsvFilePath(char *filePath)
+{
+	int rc;
+	rc = fileaction("FILEEXISTS", filePath);
+	if (rc)
+	{
+		rc = stringaction("OPTIONPUT", filePath, "CURRENTSTATUSDATAOUTPUTFOLDER", "INJECTPROC");
+		if (rc)
+		{
+			print "Success.\n";
+		}
+		else
+		{
+			printe "Error setting option.\n";
+		}
+	}
+	else
+	{
+		printe "Invalid folder path '", filePath , "'.\n";
+	}
+	return 1;
+}
+
+int function setPCPprocCsvFilePath(char *filePath)
+{
+	int rc;
+	rc = fileaction("FILEEXISTS", filePath);
+	if (rc)
+	{
+		rc = stringaction("OPTIONPUT", filePath, "CURRENTSTATUSDATAOUTPUTFOLDER", "PCPPROC");
+		if (rc)
+		{
+			print "Success.\n";
+		}
+		else
+		{
+			printe "Error setting option.\n";
+		}
+	}
+	else
+	{
+		printe "Invalid folder path '", filePath , "'.\n";
+	}
+	return 1;
+}
+int function setMonitorprocCsvFilePath(char *filePath)
+{
+	int rc;
+	rc = fileaction("FILEEXISTS", filePath);
+	if (rc)
+	{
+		rc = stringaction("OPTIONPUT", filePath, "CURRENTSTATUSDATAOUTPUTFOLDER", "MONITORPROC");
+		if (rc)
+		{
+			print "Success.\n";
+		}
+		else
+		{
+			printe "Error setting option.\n";
+		}
+	}
+	else
+	{
+		printe "Invalid folder path '", filePath , "'.\n";
+	}
+	return 1;
+}
+

@@ -1,0 +1,49 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol="BAKER" description="Test File" />
+	<regBlocks>
+		<block addr="3000" count="3" protocoldatatype="4" />
+		<block addr="3003" count="3" protocoldatatype="54" />
+		<block addr="3006" count="1" protocoldatatype="2" />
+		<block addr="3007" count="1" protocoldatatype="54" />
+		<block addr="3008" count="1" protocoldatatype="4" />
+		<block addr="3009" count="2" protocoldatatype="2" />
+	</regBlocks>
+	<regValuesToWrite>
+		<val addr="3007">0</val>
+	</regValuesToWrite>
+	<registers>
+		<register control="text" desc="Measured Pump Depth (ft.)" key="3000">
+			<rpc mask="###" writable="no" address="3000" type="Word" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Fluid Level Depth (ft.)" key="3001">
+			<rpc mask="###" writable="no" address="3001" type="Word" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Surface Stroke Length (in.)" key="3002">
+			<rpc mask="###" writable="no" address="3002" type="Word" m="100" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Oil Gravity (API)" key="3003">
+			<rpc mask="###" writable="no" address="3003" type="IEEE" m="1" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Oil Specific Gravity" key="3004">
+			<rpc mask="###" writable="no" address="3004" type="IEEE" m="1" c="0" fmt="6">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Water Specific Gravity" key="3005">
+			<rpc mask="###" writable="no" address="3005" type="IEEE" m="1" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Water Cut (%)" key="3006">
+			<rpc mask="###" writable="no" address="3006" type="Byte" m="1" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Damping Factor" key="3007">
+			<rpc mask="###" writable="yes" address="3007" type="IEEE" m="1" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Load Offset (lbs.)" key="3008">
+			<rpc mask="###" writable="no" address="3008" type="Word" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Position Data Skew" key="3009">
+			<rpc mask="###" writable="no" address="3009" type="Byte" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Configuration Status" key="3010">
+			<rpc mask="###" writable="no" address="3010" type="Byte" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+	</registers>
+</RTUReadWriteReqDef>

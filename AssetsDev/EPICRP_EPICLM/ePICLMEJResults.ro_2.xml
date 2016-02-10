@@ -1,0 +1,24 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol="BAKER" description="Test File" />
+	<regBlocks>
+		<block addr="3154" count="3" protocoldatatype="4" />
+		<block addr="3157" count="2" protocoldatatype="2" />
+	</regBlocks>
+	<registers>
+		<register control="text" desc="Pump Fillage - 'Orders' Method (%)" key="3154">
+			<rpc mask="###" writable="no" address="3154" type="Word" m="100" c="0" fmt="2  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Pump Fillage - 'Loads' Method (%)" key="3155">
+			<rpc mask="###" writable="no" address="3155" type="Word" m="100" c="0" fmt="2  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Pump Fillage - 'Position' Method (%)" key="3156">
+			<rpc mask="###" writable="no" address="3156" type="Word" m="100" c="0" fmt="2  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Downhole Everitt-Jennings Success (%)" key="3157">
+			<rpc mask="###" writable="no" address="3157" type="Byte" m="1" c="0" fmt="2  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="'Position' Method Success (%)" key="3158">
+			<rpc mask="###" writable="no" address="3158" type="Byte" m="1" c="0" fmt="2  ">comm. fail</rpc>
+		</register>
+	</registers>
+</RTUReadWriteReqDef>

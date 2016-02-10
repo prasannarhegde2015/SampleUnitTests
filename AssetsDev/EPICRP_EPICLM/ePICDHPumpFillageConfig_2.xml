@@ -1,0 +1,47 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol="BAKER" description="Test File" />
+	<regBlocks>
+		<block addr="21" count="1" protocoldatatype="2" />
+		<block addr="23" count="2" protocoldatatype="2" />
+		<block addr="3014" count="2" protocoldatatype="2" />
+		<block addr="3153" count="1" protocoldatatype="2" />
+		<block addr="3152" count="1" protocoldatatype="2" />
+		<block addr="30" count="1" protocoldatatype="2" />
+	</regBlocks>
+	<regValuesToWrite>
+		<val addr="21">0</val>
+		<val addr="23">0</val>
+		<val addr="24">0</val>
+		<val addr="3014">0</val>
+		<val addr="3015">0</val>
+		<val addr="3153">0</val>
+		<val addr="3152">0</val>
+		<val addr="30">0</val>
+	</regValuesToWrite>
+	<registers>
+		<register control="text" desc="Surface Pump Off Position (%)" key="21">
+			<rpc mask="###" writable="yes" address="21" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Surface Pump Off Load (%)" key="23">
+			<rpc mask="###" writable="yes" address="23" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Consecutive Surface 'PO' Strokes Before Idle Time (#)" key="24">
+			<rpc mask="###" writable="yes" address="24" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Downhole Pump Fillage Control Setpoint (%)" key="3014">
+			<rpc mask="###" writable="yes" address="3014" type="Byte" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Consecutive DH Pump Off Strokes for Action (#) " key="3015">
+			<rpc mask="###" writable="yes" address="3015" type="Byte" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Downhole Fillage Calculation Method Selection (Pick List)" key="3153">
+			<rpc mask="###" writable="yes" address="3153" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Downhole Card / Pump Fillage Calculation (Pick List)" key="3152">
+			<rpc mask="###" writable="yes" address="3152" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="RPOC Control Source Selection (Pick List)" key="30">
+			<rpc mask="###" writable="yes" address="30" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+	</registers>
+</RTUReadWriteReqDef>

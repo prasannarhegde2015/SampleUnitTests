@@ -1,0 +1,5 @@
+RTUDESCC	.I	DESCC	TYPEC	EUDESCC	SLOPER	OFFSETR	VIRTUALI	FUNCTIONC	PORDERI	POINT_TYPI	FIELD_ADRI	POINT_NUMI	POINT_AD4I
+wellfromcmdline	1	Amps Overload setpoint	CPV	RAW	1	0	0	no_conversion	0	4	55	0	0
+wellfromcmdline	1	Percent Power Factor	CPV	RAW	1	0	0	no_conversion	0	4	138	0	0
+wellfromcmdline	1	s/10 Hi supply alarm time	CPV	RAW	1	0	0	no_conversion	0	4	80	0	0
+wellfromcmdline	1	Minutes Underload keypad bypass delay	CPV	RAW	1	0	0	no_conversion	0	4	101	0	0

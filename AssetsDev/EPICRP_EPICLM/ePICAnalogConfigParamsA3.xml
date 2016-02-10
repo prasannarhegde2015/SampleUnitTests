@@ -1,0 +1,75 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol="BAKER" description="Test File" />
+	<regBlocks>
+		<block addr="333" count="3" protocoldatatype="2" />
+		<block addr="336" count="3" protocoldatatype="4" />
+		<block addr="339" count="2" protocoldatatype="2" />
+		<block addr="341" count="1" protocoldatatype="4" />
+		<block addr="342" count="2" protocoldatatype="2" />
+		<block addr="330" count="3" protocoldatatype="4" />
+		<block addr="345" count="2" protocoldatatype="4" />
+	</regBlocks>
+	<regValuesToWrite>
+		<val addr="333">0</val>
+		<val addr="334">0</val>
+		<val addr="335">0</val>
+		<val addr="336">0</val>
+		<val addr="337">0</val>
+		<val addr="338">0</val>
+		<val addr="339">0</val>
+		<val addr="340">0</val>
+		<val addr="341">0</val>
+		<val addr="342">0</val>
+		<val addr="343">0</val>
+	</regValuesToWrite>
+	<registers>
+		<register control="select" desc="'AI3' Analog Input Type                   " key="333">
+			<rpc mask="###" writable="yes" address="333" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="'AI3' Decimal Places                      " key="334">
+			<rpc mask="###" writable="yes" address="334" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="'AI3' Engineering Unit Label                           " key="335">
+			<rpc mask="###" writable="yes" address="335" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="'AI3' Scaling - Low Value                 " key="336">
+			<rpc mask="###" writable="yes" address="336" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="'AI3' Scaling - High Value                " key="337">
+			<rpc mask="###" writable="yes" address="337" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="'AI3' Lower Alarm Limit                   " key="338">
+			<rpc mask="###" writable="yes" address="338" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="'AI3' Lower Alarm Action '1'                " key="339">
+			<rpc mask="###" writable="yes" address="339" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="'AI3' Lower Alarm Action '2'                " key="340">
+			<rpc mask="###" writable="yes" address="340" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="'AI3' Upper Alarm Limit                   " key="341">
+			<rpc mask="###" writable="yes" address="341" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="'AI3' Upper Alarm Action '1'                " key="342">
+			<rpc mask="###" writable="yes" address="342" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="'AI3' Upper Alarm Action '2'                " key="343">
+			<rpc mask="###" writable="yes" address="343" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="'AI3' Raw A/D Channel Value Counts / Volts" key="330">
+			<rpc mask="###" writable="no" address="330" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="'AI3' Input Value in Offset Volts" key="331">
+			<rpc mask="###" writable="no" address="331" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="'AI3' Scaled Engineering Unit Input Value" key="332">
+			<rpc mask="###" writable="no" address="332" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="'AI3' Lowest Recorded Input Value" key="345">
+			<rpc mask="###" writable="no" address="345" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="'AI3' Highest Recorded Input Value" key="346">
+			<rpc mask="###" writable="no" address="346" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+	</registers>
+</RTUReadWriteReqDef>

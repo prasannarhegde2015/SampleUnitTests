@@ -1,0 +1,163 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNISRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+	<block addr="7709" count="6" protocoldatatype="4355" />
+	<block addr="7845" count="2" protocoldatatype="4355" />
+	<block addr="7793" count="2" protocoldatatype="4355" />
+	<block addr="7743" count="18" protocoldatatype="4355" />
+	<block addr="8059" count="4" protocoldatatype="4355" />
+	<block addr="8061" count="12" protocoldatatype="4355" />
+	<block addr="8015" count="2" protocoldatatype="4355" />
+	<block addr="8027" count="8" protocoldatatype="4355" />
+	<block addr="8037" count="8" protocoldatatype="4355" />
+	<block addr="8047" count="8" protocoldatatype="4355" />
+	<block addr="8021" count="6" protocoldatatype="4355" />
+	<block addr="8083" count="8" protocoldatatype="4355" />
+	<block addr="8113" count="2" protocoldatatype="4355" />
+	<block addr="8117" count="2" protocoldatatype="4355" />
+	<block addr="8073" count="2" protocoldatatype="4355" />
+	<block addr="8089" count="10" protocoldatatype="4355" />
+</regBlocks>
+
+<regValuesToWrite>
+</regValuesToWrite>
+<registers>
+	<register control="text" desc="Drive Current Date (yyyy.mmdd)" key="47709">
+	<rpc mask="###" writable="no" address="7709" type="4355" m="10000" c="0" fmt="4" altControlID="47709" />
+	</register>
+	<register control="text" desc="Drive Current Time (hh.mm)" key="47711">
+	<rpc mask="###" writable="no" address="7711" type="4355" m="100" c="0" fmt="2" altControlID="47711" />
+	</register>
+	<register control="text" desc="Speed SDO Select" key="47713">
+	<rpc mask="###" writable="no" address="7713" type="4355" m="1" c="0" fmt="0" altControlID="47713" />
+	</register>
+	<register control="text" desc="Max Possible SPM (x.x spm)" key="47845">
+	<rpc mask="###" writable="no" address="7845" type="4355" m="10" c="0" fmt="1" altControlID="47845" />
+	</register>
+	<register control="text" desc="DB Percent Used (x%) " key="47793">
+	<rpc mask="###" writable="no" address="7793" type="4355" m="1" c="0" fmt="0" altControlID="47793" />
+	</register>
+	<register control="text" desc="Fault History 1" key="47743">
+	<rpc mask="###" writable="no" address="7743" type="4355" m="1" c="0" fmt="0" altControlID="47743" />
+	</register>
+	<register control="text" desc="Fault History 1 Date (yyyy.mmdd)" key="47745">
+	<rpc mask="###" writable="no" address="7745" type="4355" m="10000" c="0" fmt="4" altControlID="47745" />
+	</register>
+	<register control="text" desc="Fault History 1 Time (hh.mm)" key="47747">
+	<rpc mask="###" writable="no" address="7747" type="4355" m="100" c="0" fmt="2" altControlID="47747" />
+	</register>
+	<register control="text" desc="Fault History 2" key="47749">
+	<rpc mask="###" writable="no" address="7749" type="4355" m="1" c="0" fmt="0" altControlID="47749" />
+	</register>
+	<register control="text" desc="Fault History 2 Date (yyyy.mmdd)" key="47751">
+	<rpc mask="###" writable="no" address="7751" type="4355" m="10000" c="0" fmt="4" altControlID="47751" />
+	</register>
+	<register control="text" desc="Fault History 2 Time (hh.mm)" key="47753">
+	<rpc mask="###" writable="no" address="7753" type="4355" m="100" c="0" fmt="2" altControlID="47753" />
+	</register>
+	<register control="text" desc="Fault History 3" key="47755">
+	<rpc mask="###" writable="no" address="7755" type="4355" m="1" c="0" fmt="0" altControlID="47755" />
+	</register>
+	<register control="text" desc="Fault History 3 Date (yyyy.mmdd)" key="47757">
+	<rpc mask="###" writable="no" address="7757" type="4355" m="10000" c="0" fmt="4" altControlID="47757" />
+	</register>
+	<register control="text" desc="Fault History 3 Time (hh.mm)" key="47759">
+	<rpc mask="###" writable="no" address="7759" type="4355" m="100" c="0" fmt="2" altControlID="47759" />
+	</register>
+	<register control="text" desc="Motor ON Status" key="48059">
+	<rpc mask="###" writable="no" address="8059" type="4355" m="1" c="0" fmt="0" altControlID="48059" />
+	</register>
+	<register control="text" desc="Power Up Standby" key="48057">
+	<rpc mask="###" writable="no" address="8057" type="4355" m="1" c="0" fmt="0" altControlID="48057" />
+	</register>
+	<register control="text" desc="Remote Stop Status" key="48061">
+	<rpc mask="###" writable="no" address="8061" type="4355" m="1" c="0" fmt="0" altControlID="48061" />
+	</register>
+	<register control="text" desc="Standby Status" key="48063">
+	<rpc mask="###" writable="no" address="8063" type="4355" m="1" c="0" fmt="0" altControlID="48063" />
+	</register>
+	<register control="text" desc="Fault Status" key="48065">
+	<rpc mask="###" writable="no" address="8065" type="4355" m="1" c="0" fmt="0" altControlID="48065" />
+	</register>
+	<register control="text" desc="Fault Standby Status" key="48067">
+	<rpc mask="###" writable="no" address="8067" type="4355" m="1" c="0" fmt="0" altControlID="48067" />
+	</register>
+	<register control="text" desc="Dwell Status" key="48069">
+	<rpc mask="###" writable="no" address="8069" type="4355" m="1" c="0" fmt="0" altControlID="48069" />
+	</register>
+	<register control="text" desc="POC Standby Status" key="48071">
+	<rpc mask="###" writable="no" address="8071" type="4355" m="1" c="0" fmt="0" altControlID="48071" />
+	</register>
+	<register control="text" desc="Bridle Input Status" key="48015">
+	<rpc mask="###" writable="no" address="8015" type="4355" m="1" c="0" fmt="0" altControlID="48015" />
+	</register>
+	<register control="text" desc="Low Prs Flow Status" key="48027">
+	<rpc mask="###" writable="no" address="8027" type="4355" m="1" c="0" fmt="0" altControlID="48027" />
+	</register>
+	<register control="text" desc="High Prs Status" key="48029">
+	<rpc mask="###" writable="no" address="8029" type="4355" m="1" c="0" fmt="0" altControlID="48029" />
+	</register>
+	<register control="text" desc="Tank Lvl Input Status" key="48031">
+	<rpc mask="###" writable="no" address="8031" type="4355" m="1" c="0" fmt="0" altControlID="48031" />
+	</register>
+	<register control="text" desc="External Stop Status" key="48033">
+	<rpc mask="###" writable="no" address="8033" type="4355" m="1" c="0" fmt="0" altControlID="48033" />
+	</register>
+	<register control="text" desc="Auto Off Jog Status" key="48037">
+	<rpc mask="###" writable="no" address="8037" type="4355" m="1" c="0" fmt="0" altControlID="48037" />
+	</register>
+	<register control="text" desc="Db Thermal Status" key="48039">
+	<rpc mask="###" writable="no" address="8039" type="4355" m="1" c="0" fmt="0" altControlID="48039" />
+	</register>
+	<register control="text" desc="Emergency Shutdown Status" key="48041">
+	<rpc mask="###" writable="no" address="8041" type="4355" m="1" c="0" fmt="0" altControlID="48041" />
+	</register>
+	<register control="text" desc="Gas Leak Status" key="48043">
+	<rpc mask="###" writable="no" address="8043" type="4355" m="1" c="0" fmt="0" altControlID="48043" />
+	</register>
+	<register control="text" desc="Oil Leak Status" key="48047">
+	<rpc mask="###" writable="no" address="8047" type="4355" m="1" c="0" fmt="0" altControlID="48047" />
+	</register>
+	<register control="text" desc="Vibration Status" key="48049">
+	<rpc mask="###" writable="no" address="8049" type="4355" m="1" c="0" fmt="0" altControlID="48049" />
+	</register>
+	<register control="text" desc="Security Breach Status" key="48051">
+	<rpc mask="###" writable="no" address="8051" type="4355" m="1" c="0" fmt="0" altControlID="48051" />
+	</register>
+	<register control="text" desc="Signal Alarm Status" key="48053">
+	<rpc mask="###" writable="no" address="8053" type="4355" m="1" c="0" fmt="0" altControlID="48053" />
+	</register>
+	<register control="text" desc="User 1 Input Status" key="48021">
+	<rpc mask="###" writable="no" address="8021" type="4355" m="1" c="0" fmt="0" altControlID="48021" />
+	</register>
+	<register control="text" desc="User 2 Input Status" key="48023">
+	<rpc mask="###" writable="no" address="8023" type="4355" m="1" c="0" fmt="0" altControlID="48023" />
+	</register>
+	<register control="text" desc="User 3 Input Status" key="48025">
+	<rpc mask="###" writable="no" address="8025" type="4355" m="1" c="0" fmt="0" altControlID="48025" />
+	</register>
+	<register control="text" desc="Low Load Status" key="48083">
+	<rpc mask="###" writable="no" address="8083" type="4355" m="1" c="0" fmt="0" altControlID="48083" />
+	</register>
+	<register control="text" desc="High Load Status" key="48085">
+	<rpc mask="###" writable="no" address="8085" type="4355" m="1" c="0" fmt="0" altControlID="48085" />
+	</register>
+	<register control="text" desc="Rod Load Span Status" key="48087">
+	<rpc mask="###" writable="no" address="8087" type="4355" m="1" c="0" fmt="0" altControlID="48087" />
+	</register>
+	<register control="text" desc="Low Pump Load Status" key="48089">
+	<rpc mask="###" writable="no" address="8089" type="4355" m="1" c="0" fmt="0" altControlID="48089" />
+	</register>
+	<register control="text" desc="High Prs2 Status" key="48113">
+	<rpc mask="###" writable="no" address="8113" type="4355" m="1" c="0" fmt="0" altControlID="48113" />
+	</register>
+	<register control="text" desc="Stuffing Box Status" key="48117">
+	<rpc mask="###" writable="no" address="8117" type="4355" m="1" c="0" fmt="0" altControlID="48117" />
+	</register>
+	<register control="text" desc="Tank Standby Status" key="48073">
+	<rpc mask="###" writable="no" address="8073" type="4355" m="1" c="0" fmt="0" altControlID="48073" />
+	</register>
+	<register control="text" desc="Motor Thermal Status" key="48141">
+	<rpc mask="###" writable="no" address="8141" type="4355" m="1" c="0" fmt="0" altControlID="48141" />
+	</register>
+</registers></RTUReadWriteReqDef>

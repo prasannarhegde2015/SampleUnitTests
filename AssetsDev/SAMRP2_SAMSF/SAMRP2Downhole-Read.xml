@@ -1,0 +1,60 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNISRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+	<block addr="2263" count="7" protocoldatatype="1539" />
+	<block addr="2400" count="5" protocoldatatype="3" />
+</regBlocks>
+
+<regValuesToWrite>
+	<val addr="2263">600</val>
+	<val addr="2264">600</val>
+	<val addr="2267">600</val>
+	<val addr="2268">600</val>
+	<val addr="2270">600</val>
+	<val addr="2400">600</val>
+	<val addr="2401">600</val>
+	<val addr="2402">600</val>
+	<val addr="2403">600</val>
+	<val addr="2404">600</val>
+</regValuesToWrite>
+<registers>
+	<register control="text" desc="Fill Base (%)" key="2263">
+	<rpc mask="###" writable="yes" address="2263" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Reference Pump Fillage (%)" key="2264">
+	<rpc mask="###" writable="yes" address="2264" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Reference Startup Revolutions" key="2266">
+	<rpc mask="###" writable="no" address="2266" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="select" desc="Power Cutoff Configuration" key="2267">
+	<rpc mask="###" writable="yes" address="2267" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Damping Factor" key="2268">
+	<rpc mask="###" writable="yes" address="2268" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="text" desc="Stuffing Box Friction (lbs.)" key="2270">
+	<rpc mask="###" writable="yes" address="2270" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Tubing Head Pressure (psi)" key="2271">
+	<rpc mask="###" writable="no" address="2271" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Tubing Gradient" key="2272">
+	<rpc mask="###" writable="no" address="2272" type="1539" m="1" c="0" fmt="2" />
+	</register>
+	<register control="select" desc="PIP Control Override Enabled" key="2400">
+	<rpc mask="###" writable="yes" address="2400" type="3" m="1" c="0" fmt="" />
+	</register>
+	<register control="text" desc="PIP Setpoint (psi)" key="2401">
+	<rpc mask="###" writable="yes" address="2401" type="3" m="1" c="0" fmt="1" />
+	</register>
+	<register control="text" desc="Number of Consecutive Low PIP Strokes Allowed (# x 10)" key="2402">
+	<rpc mask="###" writable="yes" address="2402" type="3" m="1" c="0" fmt="1" />
+	</register>
+	<register control="select" desc="Consider Formation Producing Pressure" key="2403">
+	<rpc mask="###" writable="yes" address="2403" type="3" m="1" c="0" fmt="" />
+	</register>
+	<register control="text" desc="Formation Depth (ft.)" key="2404">
+	<rpc mask="###" writable="yes" address="2404" type="3" m="1" c="0" fmt="1" />
+	</register>
+</registers></RTUReadWriteReqDef>

@@ -1,0 +1,19 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol="BAKER" description="Test File" />
+	<regBlocks>
+		<block addr="550" count="1" protocoldatatype="9" />
+		<block addr="552" count="1" protocoldatatype="9" />
+		<block addr="558" count="1" protocoldatatype="9" />
+	</regBlocks>
+	<registers>
+		<register control="text" desc="Firmware Version" key="550">
+			<rpc mask="###" writable="no" address="550" type="Dspl" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Download Version Full ID" key="552">
+			<rpc mask="###" writable="no" address="552" type="Dspl" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Kernel Version" key="558">
+			<rpc mask="###" writable="no" address="558" type="Dspl" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+	</registers>
+</RTUReadWriteReqDef>

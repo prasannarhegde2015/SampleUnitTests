@@ -1,0 +1,29 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol="BAKER" description="Test File" />
+	<regBlocks>
+		<block addr="3145" count="1" protocoldatatype="4" />
+		<block addr="3146" count="1" protocoldatatype="55" />
+		<block addr="3147" count="3" protocoldatatype="4" />
+		<block addr="3151" count="1" protocoldatatype="2" />
+	</regBlocks>
+	<registers>
+		<register control="text" desc="Downhole Stroke Length (in.)" key="3145">
+			<rpc mask="###" writable="no" address="3145" type="Word" m="100" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="DH Minimum Load Last Stroke (lbs.)" key="3146">
+			<rpc mask="###" writable="no" address="3146" type="Int16" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="DH Maximum Load Last Stroke (lbs.)" key="3147">
+			<rpc mask="###" writable="no" address="3147" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="DH Load Span Last Stroke (lbs.)" key="3148">
+			<rpc mask="###" writable="no" address="3148" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Downhole Pump Fillage (% x 100)" key="3149">
+			<rpc mask="###" writable="no" address="3149" type="Word" m="100" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Downhole Pump Off Strokes (#)" key="3151">
+			<rpc mask="###" writable="no" address="3151" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+	</registers>
+</RTUReadWriteReqDef>

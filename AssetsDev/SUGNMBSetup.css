@@ -1,0 +1,128 @@
+
+
+int dbgcs;  dbgcs = 1;
+int rdbgcs; rdbgcs = 1;
+
+char gdelim[8]; gdelim = "\t";
+
+int function bettersaveastextfile ( int* th , char* filename , char* delimiter )
+{
+	char ctype [8];
+	char cname [128];
+	int ii;
+	int rc;
+	int origfltpre;
+	int origdblpre;
+	char actdelim [16];
+	
+	if ( delimiter == "" )
+	{
+		actdelim = ",";
+	}
+	else
+	{
+		actdelim = delimiter;
+	}
+	
+	for ( ii = 0; ii < tableaction ( "NUMCOLUMNS" , th ); ii = ii + 1; )
+	{
+		rc = tableaction ( "COLUMNNAME" , th , ii , cname );
+		ctype = tableaction ( "COLUMNTYPE" , th , ii );
+		ctype[1] = "\0";
+		cname = cname ++ ctype;
+		rc = tableaction ( "DEFINECOLUMN" , th, ii, cname , ctype );
+	}
+	//Save current precision info.
+	origfltpre = get_default_precision ( "real" );
+	origdblpre = get_default_precision ( "double" );
+	//Turn precision up to eleven.
+	set_default_precision ( "real" , 7 );
+	set_default_precision ( "double" , 14 );
+	//Write table.
+	rc = tableaction ( "SAVEASTEXTFILE" , th , filename , tableaction ( "NUMCOLUMNS" , th ) , actdelim );
+	//Restore original precision values.
+	set_default_precision ( "real" , origfltpre );
+	set_default_precision ( "double" , origdblpre );
+	return rc;
+}
+
+int function bettercreatefromtextfile ( char* filename , char* delimiter )
+{
+	int th;
+	char cname [128];
+	char ctype [8];
+	int rc;
+	int ii;
+	int lh;
+	int idx;
+	int ccount;
+	char actdelim [16];
+	print "in bettercreatefromtextfile\n";
+	if ( delimiter == "" )
+	{
+		actdelim = ",";
+	}
+	else
+	{
+		actdelim = delimiter;
+	}
+	
+	th = tableaction ( "CREATEFROMTEXTFILE" , filename, 32 , actdelim );
+	
+	if ( th < 1 )
+	{
+		print "Failure to create table from text file in function 'bettercreatefromtextfile'!\n";
+	}
+	else
+	{
+		lh = listaction ( "CREATEFROMROW" , th , 0 );
+		ccount = listaction ( "COUNT" , lh );
+		tableaction ( "DELETE" , th );
+		th = tableaction ( "CREATEFROMTEXTFILE" , filename, ccount , actdelim );
+		if ( th < 1 )
+		{
+			print "Failure to create table from text file in function 'bettercreatefromtextfile'!\n";
+			listaction ( "DELETE" , lh );
+			return 0;
+		}
+		tableaction ( "DELETEROW" , th , 0 );
+		if ( rdbgcs ) print "table columns = " , tableaction ( "NUMCOLUMNS" , th ) , ".\n";
+		
+		for ( ii = 0; ii < listaction ( "COUNT" , lh ); ii = ii + 1; )
+		{
+			cname = listaction ( "GET" , lh , ii );
+			idx = stringaction ( "LENGTH" , cname) - 1;
+			ctype = cname [ idx ];
+			ctype[1] = "\0";
+			cname [ idx ] = "\0";
+			if ( rdbgcs ) print "cname = '" , cname , "' ctype = '" , ctype , "'.\n";
+			tableaction ( "DEFINECOLUMN" , th , ii , cname , ctype );
+		}
+		listaction ( "DELETE" , lh );
+	}
+	
+	return th;
+}
+
+
+
+// run with -db subsdb
+
+int function SUGNMBSetup(char *fileName)
+{
+    int th , errorCode , rc;
+    char status[256];
+    status = "                                                                                                                                                                                                                                                               ";
+    th = bettercreatefromtextfile( fileName , "~" );
+    if ( th < 1 )
+    {
+        print "Failed to create table from file \"" , fileName , "\".\n";
+        return -1;
+    }
+    tableaction( "SHOW" , th );
+    rc = scriptaction( "REMOTESCRIPT" , "SUBPROC" , "SaveGenericRTUDetails" , errorCode , status , "MCSSCRIP" , "????" , "CSHANDLE" , th);
+    print "scriptaction return code = " , rc , ", errorCode = " , errorCode , " status = \"" , status , "\".\n";
+    tableaction( "DELETE" , th );
+    return 734823;
+}
+

@@ -1,0 +1,189 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol="BAKER" description="Test File" />
+	<regBlocks>
+		<block addr="811" count="30" protocoldatatype="4" />
+		<block addr="670" count="30" protocoldatatype="12" />
+	</regBlocks>
+	<registers>
+		<register control="text" desc="Today's Total Fluid" key="811">
+			<rpc mask="###" writable="no" address="811" type="Word" m="10" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Total Fluid Yesterday" key="812">
+			<rpc mask="###" writable="no" address="812" type="Word" m="10" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Total Fluid 2 Days Ago" key="813">
+			<rpc mask="###" writable="no" address="813" type="Word" m="10" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Total Fluid 3 Days Ago" key="814">
+			<rpc mask="###" writable="no" address="814" type="Word" m="10" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Total Fluid 4 Days Ago" key="815">
+			<rpc mask="###" writable="no" address="815" type="Word" m="10" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Total Fluid 5 Days Ago" key="816">
+			<rpc mask="###" writable="no" address="816" type="Word" m="10" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Total Fluid 6 Days Ago" key="817">
+			<rpc mask="###" writable="no" address="817" type="Word" m="10" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Total Fluid 7 Days Ago" key="818">
+			<rpc mask="###" writable="no" address="818" type="Word" m="10" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Total Fluid 8 Days Ago" key="819">
+			<rpc mask="###" writable="no" address="819" type="Word" m="10" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Total Fluid 9 Days Ago" key="820">
+			<rpc mask="###" writable="no" address="820" type="Word" m="10" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Total Fluid 10 Days Ago" key="821">
+			<rpc mask="###" writable="no" address="821" type="Word" m="10" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Total Fluid 11 Days Ago" key="822">
+			<rpc mask="###" writable="no" address="822" type="Word" m="10" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Total Fluid 12 Days Ago" key="823">
+			<rpc mask="###" writable="no" address="823" type="Word" m="10" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Total Fluid 13 Days Ago" key="824">
+			<rpc mask="###" writable="no" address="824" type="Word" m="10" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Total Fluid 14 Days Ago" key="825">
+			<rpc mask="###" writable="no" address="825" type="Word" m="10" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Total Fluid 15 Days Ago" key="826">
+			<rpc mask="###" writable="no" address="826" type="Word" m="10" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Total Fluid 16 Days Ago" key="827">
+			<rpc mask="###" writable="no" address="827" type="Word" m="10" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Total Fluid 17 Days Ago" key="828">
+			<rpc mask="###" writable="no" address="828" type="Word" m="10" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Total Fluid 18 Days Ago" key="829">
+			<rpc mask="###" writable="no" address="829" type="Word" m="10" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Total Fluid 19 Days Ago" key="830">
+			<rpc mask="###" writable="no" address="830" type="Word" m="10" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Total Fluid 20 Days Ago" key="831">
+			<rpc mask="###" writable="no" address="831" type="Word" m="10" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Total Fluid 21 Days Ago" key="832">
+			<rpc mask="###" writable="no" address="832" type="Word" m="10" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Total Fluid 22 Days Ago" key="833">
+			<rpc mask="###" writable="no" address="833" type="Word" m="10" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Total Fluid 23 Days Ago" key="834">
+			<rpc mask="###" writable="no" address="834" type="Word" m="10" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Total Fluid 24 Days Ago" key="835">
+			<rpc mask="###" writable="no" address="835" type="Word" m="10" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Total Fluid 25 Days Ago" key="836">
+			<rpc mask="###" writable="no" address="836" type="Word" m="10" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Total Fluid 26 Days Ago" key="837">
+			<rpc mask="###" writable="no" address="837" type="Word" m="10" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Total Fluid 27 Days Ago" key="838">
+			<rpc mask="###" writable="no" address="838" type="Word" m="10" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Total Fluid 28 Days Ago" key="839">
+			<rpc mask="###" writable="no" address="839" type="Word" m="10" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Total Fluid 29 Days Ago" key="840">
+			<rpc mask="###" writable="no" address="840" type="Word" m="10" c="0" fmt="2">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Today's" key="670">
+			<rpc mask="###" writable="no" address="670" type="Time" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="Yesterday's" key="671">
+			<rpc mask="###" writable="no" address="671" type="Time" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="2 Days Ago" key="672">
+			<rpc mask="###" writable="no" address="672" type="Time" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="3 Days Ago" key="673">
+			<rpc mask="###" writable="no" address="673" type="Time" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="4 Days Ago" key="674">
+			<rpc mask="###" writable="no" address="674" type="Time" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="5 Days Ago" key="675">
+			<rpc mask="###" writable="no" address="675" type="Time" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="6 Days Ago" key="676">
+			<rpc mask="###" writable="no" address="676" type="Time" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="7 Days Ago" key="677">
+			<rpc mask="###" writable="no" address="677" type="Time" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="8 Days Ago" key="678">
+			<rpc mask="###" writable="no" address="678" type="Time" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="9 Days Ago" key="679">
+			<rpc mask="###" writable="no" address="679" type="Time" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="10 Days Ago" key="680">
+			<rpc mask="###" writable="no" address="680" type="Time" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="11 Days Ago" key="681">
+			<rpc mask="###" writable="no" address="681" type="Time" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="12 Days Ago" key="682">
+			<rpc mask="###" writable="no" address="682" type="Time" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="13 Days Ago" key="683">
+			<rpc mask="###" writable="no" address="683" type="Time" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="14 Days Ago" key="684">
+			<rpc mask="###" writable="no" address="684" type="Time" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="15 Days Ago" key="685">
+			<rpc mask="###" writable="no" address="685" type="Time" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="16 Days Ago" key="686">
+			<rpc mask="###" writable="no" address="686" type="Time" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="17 Days Ago" key="687">
+			<rpc mask="###" writable="no" address="687" type="Time" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="18 Days Ago" key="688">
+			<rpc mask="###" writable="no" address="688" type="Time" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="19 Days Ago" key="689">
+			<rpc mask="###" writable="no" address="689" type="Time" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="20 Days Ago" key="690">
+			<rpc mask="###" writable="no" address="690" type="Time" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="21 Days Ago" key="691">
+			<rpc mask="###" writable="no" address="691" type="Time" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="22 Days Ago" key="692">
+			<rpc mask="###" writable="no" address="692" type="Time" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="23 Days Ago" key="693">
+			<rpc mask="###" writable="no" address="693" type="Time" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="24 Days Ago" key="694">
+			<rpc mask="###" writable="no" address="694" type="Time" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="25 Days Ago" key="695">
+			<rpc mask="###" writable="no" address="695" type="Time" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="26 Days Ago" key="696">
+			<rpc mask="###" writable="no" address="696" type="Time" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="27 Days Ago" key="697">
+			<rpc mask="###" writable="no" address="697" type="Time" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="28 Days Ago" key="698">
+			<rpc mask="###" writable="no" address="698" type="Time" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+		<register control="text" desc="29 Days Ago" key="699">
+			<rpc mask="###" writable="no" address="699" type="Time" m="1" c="0" fmt="str">comm. fail</rpc>
+		</register>
+	</registers>
+</RTUReadWriteReqDef>

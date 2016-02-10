@@ -1,0 +1,34 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNISRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+	<block addr="1435" count="6" protocoldatatype="3" />
+</regBlocks>
+
+<regValuesToWrite>
+	<val addr="1435">600</val>
+	<val addr="1436">600</val>
+	<val addr="1437">600</val>
+	<val addr="1438">600</val>
+	<val addr="1439">600</val>
+	<val addr="1440">600</val>
+</regValuesToWrite>
+<registers>
+	<register control="checkbox" desc="Enable Peak Energy Management" key="2009">
+	<rpc mask="###" writable="yes" address="1435" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Energy Management Suspend Time (Hr.)" key="2010">
+	<rpc mask="###" writable="yes" address="1436" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Energy Management Suspend Time (Min.)" key="2011">
+	<rpc mask="###" writable="yes" address="1437" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Energy Management Resume Time (Hr.)" key="2012">
+	<rpc mask="###" writable="yes" address="1438" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="text" desc="Energy Management Resume Time (Min.)" key="2013">
+	<rpc mask="###" writable="yes" address="1439" type="3" m="1" c="0" fmt="str" />
+	</register>
+	<register control="bitfields" desc="Energy Management Days in Use [bits]" key="2014">
+	<rpc mask="###" writable="yes" address="1440" type="3" m="1" c="0" fmt="str" />
+	</register>
+</registers></RTUReadWriteReqDef>

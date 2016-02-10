@@ -1,0 +1,54 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol="BAKER" description="Test File" />
+	<regBlocks>
+		<block addr="1000" count="10" protocoldatatype="2" />
+		<block addr="533" count="1" protocoldatatype="4" />
+	</regBlocks>
+	<regValuesToWrite>
+		<val addr="1000">0</val>
+		<val addr="1001">0</val>
+		<val addr="1002">0</val>
+		<val addr="1003">0</val>
+		<val addr="1004">0</val>
+		<val addr="1005">0</val>
+		<val addr="1006">0</val>
+		<val addr="1007">0</val>
+		<val addr="1008">0</val>
+		<val addr="1009">0</val>
+	</regValuesToWrite>
+	<registers>
+		<register control="select" desc="Gearbox Torque" key="1000">
+			<rpc mask="###" writable="yes" address="1000" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Maximum Load Deviation" key="1001">
+			<rpc mask="###" writable="yes" address="1001" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Minimum Load Deviation" key="1002">
+			<rpc mask="###" writable="yes" address="1002" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Load Span Deviation" key="1003">
+			<rpc mask="###" writable="yes" address="1003" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Unit Out of Balance" key="1004">
+			<rpc mask="###" writable="yes" address="1004" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Run Time" key="1005">
+			<rpc mask="###" writable="yes" address="1005" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Card Area Deviation" key="1006">
+			<rpc mask="###" writable="yes" address="1006" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Low Pump Efficiency" key="1007">
+			<rpc mask="###" writable="yes" address="1007" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="High Rod Stress" key="1008">
+			<rpc mask="###" writable="yes" address="1008" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="select" desc="Prime Mover Size" key="1009">
+			<rpc mask="###" writable="yes" address="1009" type="Byte" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+		<register control="bitfields" desc="Accumulated Error Code Bits '7' (host)         " key="533">
+			<rpc mask="###" writable="no" address="533" type="Word" m="1" c="0" fmt="str  ">comm. fail</rpc>
+		</register>
+	</registers>
+</RTUReadWriteReqDef>

@@ -1,0 +1,24 @@
+<jobs>
+	<job id="1" desc="Data Flow Automated Test for Current Status(AE6008)">
+		<vstest file="CurrentStatusWF.test.dll"/>
+		<parameters>
+		<parameter name="TestCaseFilter" value="TestCategory=AE6008"/>
+		</parameters>
+		<Locals></Locals>
+		<AppSettings.Net>
+            	<add key="DeleteWellScript" value="..\AssetsDev\dbw.css"/>
+            	<add key="CreateWellScript" value="..\AssetsDev\mbw.css"/>
+            	 <add key="CSVOptionScript" value="..\AssetsDev\setcsvoption.css" />
+            	<add key="CreateAnalogsScript" value="..\AssetsDev\importanalogs.css" />
+		<add key="AnalogsImportFile" value="..\AssetsDev\importanalogs_AE6008.tsv" />
+		<add key="DiscretesImportFile" value="..\AssetsDev\importdiscretes_AE6008.tsv"/>
+		<add key="EmuUpdates" value="..\AssetsDev\EmuUpdates.css" />
+		<add key="ScanTimeScript" value="..\AssetsDev\HelperFunctions.css" />
+            	<add key="CleanBeforeStart" value="true"/>
+            	<add key="CleanWhenComplete" value="true"/>
+            	<add key="RTUEmuFolder" value="C:\RTUEmu\"/>
+            	<add key="LiftRoot" value="C:\csLift\lift\Default\root"/>
+		<add key="NumberofWells" value="1"/>
+        </AppSettings.Net>
+	</job>
+</jobs>

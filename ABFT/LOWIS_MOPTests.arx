@@ -1,0 +1,87 @@
+<jobs>
+	<job id="1" desc="MOPBeamToESPTest">
+		<vstest file="MOPTests.test.dll" CodedUI="y" />
+		<parameters>
+		<parameter name="TestCaseFilter" value="TestCategory=MOPBeamToESPTest"/>
+		</parameters>
+		<Locals></Locals>
+
+		<AppSettings.Net>
+   		<add key="LowisClientPath" value="C:\Program Files (x86)\Weatherford\LOWISClient\Lowis.exe"/>
+   		<add key="ConnectClientTo" value="localhost"/>
+   		<add key="ExportLocation" value="C:\Users\automation\Downloads\"/>
+   		<add key="BeamConfigExportFileName" value="BeamWellGroupConfigGrid"/>
+   		<add key="MOPExportFileName" value="MOPGrid"/>
+   		<add key="ESPConfigExportFileName" value="ESPGroupConfigGrid"/>
+   		<add key="PCPConfigExportFileName" value="PCPGroupConfigGrid"/>
+   		<add key="CreateWellScript" value="\AssetsDev\mbw.css"/>
+   		<add key="DeleteWellScript" value="\AssetsDev\dbw.css"/>
+   		<add key="LiftRoot" value="%LIFTROOT"/>
+   		<add key="ImportWellTests" value="\AssetsDev\welltests.csv"/>
+   		<add key="ImportGOTrend" value="\AssetsDev\gotrend.csv"/>
+   		<add key="ImportWellInfo" value="\AssetsDev\wellfieldimp.csv"/>
+   		<add key="IsRunningInATS" value="true"/>
+   		<add key="ATSCWD" value="%ATS_CWD"/>
+   		<add key="DeleteOutputfiles" value="true"/>
+   
+ 		</AppSettings.Net>
+	</job>
+
+	<job id="2" desc="MOPESPToBeamTest">
+		<vstest file="MOPTests.test.dll" CodedUI="y" />
+		<parameters>
+		<parameter name="TestCaseFilter" value="TestCategory=MOPESPToBeamTest"/>
+		</parameters>
+		<Locals></Locals>
+
+		<AppSettings.Net>
+   		<add key="LowisClientPath" value="C:\Program Files (x86)\Weatherford\LOWISClient\Lowis.exe"/>
+   		<add key="ConnectClientTo" value="localhost"/>
+   		<add key="ExportLocation" value="C:\Users\automation\Downloads\"/>
+   		<add key="BeamConfigExportFileName" value="BeamWellGroupConfigGrid"/>
+   		<add key="MOPExportFileName" value="MOPGrid"/>
+   		<add key="ESPConfigExportFileName" value="ESPGroupConfigGrid"/>
+   		<add key="PCPConfigExportFileName" value="PCPGroupConfigGrid"/>
+   		<add key="CreateWellScript" value="\AssetsDev\mbw.css"/>
+   		<add key="DeleteWellScript" value="\AssetsDev\dbw.css"/>
+   		<add key="LiftRoot" value="%LIFTROOT"/>
+   		<add key="ImportWellTests" value="\AssetsDev\welltests.csv"/>
+   		<add key="ImportGOTrend" value="\AssetsDev\gotrend.csv"/>
+   		<add key="ImportWellInfo" value="\AssetsDev\wellfieldimp.csv"/>
+   		<add key="IsRunningInATS" value="true"/>
+   		<add key="ATSCWD" value="%ATS_CWD"/>
+   		<add key="DeleteOutputfiles" value="true"/>
+   
+ 		</AppSettings.Net>
+	</job>
+
+	<job id="3" desc="MOPBeamToPCPTest">
+		<vstest file="MOPTests.test.dll" CodedUI="y" />
+		<parameters>
+		<parameter name="TestCaseFilter" value="TestCategory=MOPBeamToPCPTest"/>
+		</parameters>
+		<Locals></Locals>
+
+		<AppSettings.Net>
+   		<add key="LowisClientPath" value="C:\Program Files (x86)\Weatherford\LOWISClient\Lowis.exe"/>
+   		<add key="ConnectClientTo" value="localhost"/>
+   		<add key="ExportLocation" value="C:\Users\automation\Downloads\"/>
+   		<add key="BeamConfigExportFileName" value="BeamWellGroupConfigGrid"/>
+   		<add key="MOPExportFileName" value="MOPGrid"/>
+   		<add key="ESPConfigExportFileName" value="ESPGroupConfigGrid"/>
+   		<add key="PCPConfigExportFileName" value="PCPGroupConfigGrid"/>
+   		<add key="CreateWellScript" value="\AssetsDev\mbw.css"/>
+   		<add key="DeleteWellScript" value="\AssetsDev\dbw.css"/>
+   		<add key="LiftRoot" value="%LIFTROOT"/>
+   		<add key="ImportWellTests" value="\AssetsDev\welltests.csv"/>
+   		<add key="ImportGOTrend" value="\AssetsDev\gotrend.csv"/>
+   		<add key="ImportWellInfo" value="\AssetsDev\wellfieldimp.csv"/>
+   		<add key="IsRunningInATS" value="true"/>
+   		<add key="ATSCWD" value="%ATS_CWD"/>
+   		<add key="DeleteOutputfiles" value="true"/>
+   
+ 		</AppSettings.Net>
+	</job>
+	
+	
+</jobs>

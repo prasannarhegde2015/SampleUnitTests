@@ -1,0 +1,1885 @@
+
+int dbgcs;  dbgcs = 1;
+int rdbgcs; rdbgcs = 1;
+char gdelim[8]; gdelim = ",";
+
+
+int function makemeavue( char *query )
+{
+	int vuehnd;
+	vuehnd = vueaction( "CREATE" , query );
+	vueaction( "EVALUATE" , vuehnd );
+	vueaction( "GOTOTOP" , vuehnd );
+	return vuehnd;
+}
+
+
+int function bettersaveastextfile ( int* th , char* filename , char* delimiter )
+{
+	char ctype [8];
+	char cname [128];
+	int ii;
+	int rc;
+	int origfltpre;
+	int origdblpre;
+	char actdelim [16];
+	
+	if ( delimiter == "" )
+	{
+		actdelim = gdelim;
+	}
+	else
+	{
+		actdelim = delimiter;
+	}
+	
+	for ( ii = 0; ii < tableaction ( "NUMCOLUMNS" , th ); ii = ii + 1; )
+	{
+		rc = tableaction ( "COLUMNNAME" , th , ii , cname );
+		ctype = tableaction ( "COLUMNTYPE" , th , ii );
+		ctype[1] = "\0";
+		cname = cname ++ ctype;
+		rc = tableaction ( "DEFINECOLUMN" , th, ii, cname , ctype );
+	}
+	//Save current precision info.
+	origfltpre = get_default_precision ( "real" );
+	origdblpre = get_default_precision ( "double" );
+	//Turn precision up to eleven.
+	set_default_precision ( "real" , 7 );
+	set_default_precision ( "double" , 14 );
+	//Write table.
+	rc = tableaction ( "SAVEASTEXTFILE" , th , filename , tableaction ( "NUMCOLUMNS" , th ) , actdelim );
+	//Restore original precision values.
+	set_default_precision ( "real" , origfltpre );
+	set_default_precision ( "double" , origdblpre );
+	return rc;
+}
+
+
+int function bettercreatefromtextfile ( char* filename , char* delimiter )
+{
+	int th;
+	char cname [128];
+	char ctype [8];
+	int rc;
+	int ii;
+	int lh;
+	int idx;
+	int ccount;
+	char actdelim [16];
+	print "in bettercreatefromtextfile\n";
+	if ( delimiter == "" )
+	{
+		actdelim = gdelim;
+	}
+	else
+	{
+		actdelim = delimiter;
+	}
+	
+	th = tableaction ( "CREATEFROMTEXTFILE" , filename, 1024 , actdelim );
+	
+	if ( th < 1 )
+	{
+		print "Failure to create table from text file in function 'bettercreatefromtextfile'!\n";
+	}
+	else
+	{
+		lh = listaction ( "CREATEFROMROW" , th , 0 );
+		ccount = listaction ( "COUNT" , lh );
+		tableaction ( "DELETE" , th );
+		th = tableaction ( "CREATEFROMTEXTFILE" , filename, ccount , actdelim );
+		if ( th < 1 )
+		{
+			print "Failure to create table from text file in function 'bettercreatefromtextfile'!\n";
+			listaction ( "DELETE" , lh );
+			return 0;
+		}
+		tableaction ( "DELETEROW" , th , 0 );
+		if ( rdbgcs ) print "table columns = " , tableaction ( "NUMCOLUMNS" , th ) , ".\n";
+		
+		for ( ii = 0; ii < listaction ( "COUNT" , lh ); ii = ii + 1; )
+		{
+			cname = listaction ( "GET" , lh , ii );
+			idx = stringaction ( "LENGTH" , cname) - 1;
+			ctype = cname [ idx ];
+			ctype[1] = "\0";
+			cname [ idx ] = "\0";
+			if ( rdbgcs ) print "cname = '" , cname , "' ctype = '" , ctype , "'.\n";
+			tableaction ( "DEFINECOLUMN" , th , ii , cname , ctype );
+		}
+		listaction ( "DELETE" , lh );
+	}
+	
+	return th;
+}
+
+
+int function GetPointer( char* thingName , char* tableName , char* fieldName )
+{
+  int vh, ptr;
+  vh = makemeavue( "FILE " ++ tableName ++ "; SEL .; WHERE " ++ fieldName ++ " = \"" ++ thingName ++ "\" AND DEFINE != 0;" );
+  
+  if ( vueaction ( "GETNUMRECORDS" , vh ) != 1 )
+  {
+    ptr = -1;
+  }
+  else
+  {
+    vueaction ( "NEXTROW" , vh );
+    ptr = vueaction ( "GETFIELD" , vh , "." );
+  }
+  vueaction( "DELETE" , vh );
+  return ptr;
+}
+
+
+int function GetWellPointer( char* wellName )
+{
+  return GetPointer( wellName , "MASTERWL" , "LWNAME" );
+}
+
+
+int function GetFacPointer( char* facName )
+{
+  return GetPointer( facName , "FACILA" , "DESC" );
+}
+
+
+int function GetBeamWellPointer( char* wellName )
+{
+  return GetPointer( wellName , "SPOCCA" , "LWNAME" );
+}
+
+
+// Arguments (in order):
+//
+// First part of well name (a four-digit number will be appended to the end)
+// Beginning number for well name (the first four-digit number to append)
+// First RTU address for well range
+// Last RTU address for well range (this combined with the previous parameter will control the number of wells added)
+// Value for >CHANNEL (one less than the COM port number)
+// Altaddress (IP Address or OPC tag name base)
+// RTU Type
+// RTU Subtype
+//
+// Example:
+// mcsscrip mbw.css makeberange "" "EPRC_" 1 1 5 0 "127.0.0.1/10000" "EPICRP" "EPICVF" -db beamdb
+//
+
+int function makeberange ( char* bstrin , int wnumstart , int hwstart , int hwend , int channel , char* altaddy , char* rtutyp , char* rtusubtyp )
+{
+	int startTime; startTime = currenttime();
+	int ii;
+	char lwname[32];
+	int rcode;
+	int rc;
+
+	int vh;
+	int pRTUTYP;
+	int pRTUSUBTYP;
+	int hassubtyp;
+
+	char lname[7];
+	char wname[7];
+	char status[128]; 
+
+	int wldot;
+
+	char basestr[32]; basestr = bstrin;
+	basestr [6] = "\0";
+
+	vh = makemeavue ( "FILE RTUTYP; SEL . RTUTYP HASSUBTYPES; WHERE DEFINE != 0 AND RTUTYP = \"" ++ rtutyp ++ "\";" );
+	if( vueaction ( "GETNUMRECORDS" , vh ) == 1 )
+	{
+		vueaction ( "NEXTROW" , vh );
+		pRTUTYP = vueaction ( "GETFIELD" , vh , "." );
+		hassubtyp = vueaction ( "GETFIELD" , vh , "HASSUBTYPES" );
+		print "pRTUTYP " , pRTUTYP , " hassubtyp " , hassubtyp , ".\n";
+		vueaction ( "DELETE" , vh );
+		if ( hassubtyp )
+		{
+			vh = makemeavue ( "FILE RTUSUBTYP; SEL . RTUSUBTYP ; WHERE INUSEFIELD != 0 AND RTUSUBTYP = \"" ++ rtusubtyp ++ "\"; SCOPE '|RTUTYP:TYP_SUB:" ++ pRTUTYP ++ "|';" );
+			if( vueaction ( "GETNUMRECORDS" , vh ) == 1 )
+			{
+				vueaction ( "NEXTROW" , vh );
+				pRTUSUBTYP = vueaction ( "GETFIELD" , vh , "." );
+				vueaction ( "DELETE" , vh );
+			}
+			else
+			{
+				print "Error, found " ++ vueaction ( "GETNUMRECORDS" , vh ) ++ " records matching RTUSUBTYP '" ++ rtusubtyp ++ "', expected 1!\n";
+				vueaction ( "DELETE" , vh );
+				return 0;
+			}
+		}
+		else
+		{
+			pRTUSUBTYP = -1;
+		}
+		int curnamenum;
+		for ( ii = hwstart ; ii <= hwend ; ii = ii + 1; )
+		{
+			curnamenum = wnumstart + (ii - hwstart);
+			wldot = 0;
+			status = "                                                                                                                               ";
+			if ( curnamenum < 10 )
+			{
+				lwname = basestr ++ "000" ++ curnamenum;
+			}
+			else if ( curnamenum < 100 )
+			{
+				lwname = basestr ++ "00" ++ curnamenum;
+			}
+			else if ( curnamenum < 1000 )
+			{
+				lwname = basestr ++ "0" ++ curnamenum;
+			}
+			else
+			{
+				lwname = basestr ++ curnamenum;
+			}
+			lname = lwname;
+			lname[6] = "\0";
+			if ( stringaction ( "LENGTH" , lwname ) > 6 )
+			{
+				wname = lwname[6];
+				wname[6] = "\0";
+			}
+			else
+			{
+				wname = "";
+			}
+			//                                                                                                                                        mfr       sub       HW     COM  altaddy   nrec 
+			rc = scriptaction ( "REMOTESCRIPT" , "BEAMPROC" , "addbeamwell_rtusubtyp" , -1 , lname , wname , lwname , lwname , "" , "" , "" , "" , pRTUTYP , pRTUSUBTYP , ii , channel, altaddy , wldot , status , rcode );
+			print "Attempt to make well: '" , lwname , "', rc = " , rc , " rcode = " , rcode , ", status = '" , status , "'.\n";
+		}
+
+	}
+	else
+	{
+		print "Error, found " ++ vueaction ( "GETNUMRECORDS" , vh ) ++ " records matching RTUTYP '" ++ rtutyp ++ "', expected 1!\n";
+		vueaction ( "DELETE" , vh );
+	}
+	int endTime; endTime = currenttime();
+
+	print "Completed run in " , (endTime - startTime) , " second(s).\n";
+
+	return 1;
+}
+
+
+int function makeberange_at ( char* bstrin , int wnumstart , int hwstart , int hwend , int channel , char* altaddy , char* rtutyp , char* rtusubtyp )
+{
+	print "bstrin = \"" , bstrin , "\", wnumstart = " , wnumstart , ", hwstart = " , hwstart , ", hwend = " , hwend , ".\n";
+	return 1;
+}
+
+
+// Example:
+// Arguments (in order):
+//
+// First part of well name (a four-digit number will be appended to the end)
+// Beginning number for well name (the first four-digit number to append)
+// First RTU address for well range
+// Last RTU address for well range (this combined with the previous parameter will control the number of wells added)
+// Value for >CHANNEL (one less than the COM port number)
+// Altaddress (IP Address or OPC tag name base)
+// RTU Type
+// RTU Subtype
+//
+// mcsscrip mbw.css makesurange "" "GCSE_" 1 1 100 1 "127.0.0.1/10001" "GCSESP" "8V04" -db subsdb
+// mcsscrip -db subsdb mbw.css makesurange "" "GCSE_" 1 1 50 11 "127.0.0.1/20215" "GCSESP" "8V04"
+
+int function makesurange ( char* bstrin , int wnumstart , int hwstart , int hwend , int channel , char* altaddy , char* rtutyp , char* rtusubtyp )
+{
+	int ii;
+	char lwname[32];
+	int rcode;
+	int rc;
+
+	int vh;
+	int pRTUTYP;
+	int pRTUSUBTYP;
+	int hassubtyp;
+
+	char lname[7];
+	char wname[7];
+	char status[128]; 
+
+	int wldot;
+
+	char basestr[32]; basestr = bstrin;
+	basestr [6] = "\0";
+
+	vh = makemeavue ( "FILE RTUTYP; SEL . RTUTYP HASSUBTYPES; WHERE DEFINE != 0 AND RTUTYP = \"" ++ rtutyp ++ "\";" );
+	if( vueaction ( "GETNUMRECORDS" , vh ) == 1 )
+	{
+		vueaction ( "NEXTROW" , vh );
+		pRTUTYP = vueaction ( "GETFIELD" , vh , "." );
+		hassubtyp = vueaction ( "GETFIELD" , vh , "HASSUBTYPES" );
+		print "pRTUTYP " , pRTUTYP , " hassubtyp " , hassubtyp , ".\n";
+		vueaction ( "DELETE" , vh );
+		if ( hassubtyp )
+		{
+			vh = makemeavue ( "FILE RTUSUBTYP; SEL . RTUSUBTYP ; WHERE INUSEFIELD != 0 AND RTUSUBTYP = \"" ++ rtusubtyp ++ "\"; SCOPE '|RTUTYP:TYP_SUB:" ++ pRTUTYP ++ "|';" );
+			if( vueaction ( "GETNUMRECORDS" , vh ) == 1 )
+			{
+				vueaction ( "NEXTROW" , vh );
+				pRTUSUBTYP = vueaction ( "GETFIELD" , vh , "." );
+				vueaction ( "DELETE" , vh );
+			}
+			else
+			{
+				print "Error, found " ++ vueaction ( "GETNUMRECORDS" , vh ) ++ " records matching RTUSUBTYP '" ++ rtusubtyp ++ "', expected 1!\n";
+				vueaction ( "DELETE" , vh );
+				return 0;
+			}
+		}
+		else
+		{
+			pRTUSUBTYP = -1;
+		}
+		
+		int curnamenum;
+		for ( ii = hwstart ; ii <= hwend ; ii = ii + 1; )
+		{
+			curnamenum = wnumstart + (ii - hwstart);
+			wldot = 0;
+			status = "                                                                                                                               ";
+			if ( curnamenum < 10 )
+			{
+				lwname = basestr ++ "000" ++ curnamenum;
+			}
+			else if ( curnamenum < 100 )
+			{
+				lwname = basestr ++ "00" ++ curnamenum;
+			}
+			else if ( curnamenum < 1000 )
+			{
+				lwname = basestr ++ "0" ++ curnamenum;
+			}
+			else
+			{
+				lwname = basestr ++ curnamenum;
+			}
+			lname = lwname;
+			lname[6] = "\0";
+			if ( stringaction ( "LENGTH" , lwname ) > 6 )
+			{
+				wname = lwname[6];
+				wname[6] = "\0";
+			}
+			else
+			{
+				wname = "";
+			}
+			
+			//                                                                                                                                        mfr       sub       HW     COM  altaddy   nrec 
+			rc = scriptaction ( "REMOTESCRIPT" , "SUBPROC" , "addsubwell_rtusubtyp" , -1 , lname , wname , lwname , lwname , "" , "" , "" , "" , pRTUTYP , pRTUSUBTYP , ii , channel, altaddy , wldot , status , rcode );
+			print "Attempt to make well: '" , lwname , "', rc = " , rc , " rcode = " , rcode , ", status = '" , status , "'.\n";
+		}
+		
+	}
+	else
+	{
+		print "Error, found " ++ vueaction ( "GETNUMRECORDS" , vh ) ++ " records matching RTUTYP '" ++ rtutyp ++ "', expected 1!\n";
+		vueaction ( "DELETE" , vh );
+	}
+	
+	return 1;
+}
+
+
+// Arguments (in order):
+//
+// First part of well name (a four-digit number will be appended to the end)
+// Beginning number for well name (the first four-digit number to append)
+// First RTU address for well range
+// Last RTU address for well range (this combined with the previous parameter will control the number of wells added)
+// Value for >CHANNEL (one less than the COM port number)
+// Altaddress (IP Address or OPC tag name base)
+// RTU Type
+// RTU Subtype
+//
+// mcsscrip mbw.css makeijrange "" "AE68_" 1 1 100 2 "127.0.0.1/10002" "AE6008" "NONE" -db injectdb
+// mcsscrip -db injectdb mbw.css makeijrange "" "AE68_" 1 1 50 12 "127.0.0.1/20216" "AE6008" "NONE"
+
+int function makeijrange ( char* bstrin , int wnumstart , int hwstart , int hwend , int channel , char* altaddy , char* rtutyp , char* rtusubtyp )
+{
+	print "bstrin = \"" , bstrin , "\", wnumstart = " , wnumstart , ", hwstart = " , hwstart , ", hwend = " , hwend , ".\n";
+	print "channel = " , channel , ", altaddy = \"" , altaddy , "\", rtutyp = \"" , rtutyp , "\", rtusubtyp = \"" , rtusubtyp , "\".\n";
+	
+	
+	int startTime; startTime = currenttime();
+	int ii;
+	char lwname[32];
+	int rcode;
+	int rc;
+	
+	int vh;
+	int pRTUTYP;
+	int pRTUSUBTYP;
+	int hassubtyp;
+	
+	char lname[7];
+	char wname[7];
+	char status[128]; 
+	
+	int wldot;
+	
+	char basestr[32]; basestr = bstrin;
+	basestr [6] = "\0";
+	
+	int dataTab;
+	int facdot;
+	int dummy;
+	char commname[32];
+	
+	dataTab = tableaction( "CREATE" , 1 , 100 );
+	
+	ii = 0;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "LNAME"      , "C" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "WNAME"      , "C" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "CAOID"      , "C" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "LONGNAME"   , "C" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "FNAME"      , "C" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "G1NAME"     , "C" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "G2NAME"     , "C" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "G3NAME"     , "C" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , ">RTUTYP"    , "I" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "HW_RTU"     , "I" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "COMMNAME"   , "C" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "ALTADDRESS" , "C" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "WELUWBID"   , "C" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "WELUWBHID"  , "C" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "WELUWINTID" , "C" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "NAVNAME"    , "C" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , ">PARENT"    , "I" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , ">RTUSUBTYP" , "I" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "TYPDESC"    , "C" ); ii = ii + 1;
+	
+	$dataTab[ 0 , "FNAME"  ] = "";
+	$dataTab[ 0 , "G1NAME" ] = "";
+	$dataTab[ 0 , "G2NAME" ] = "";
+	$dataTab[ 0 , "G3NAME" ] = "";
+	
+	commname = "COM" ++ ( channel + 1 );
+	print "commname = \"" , commname , "\".\n";
+	
+	$dataTab[ 0 , "COMMNAME"   ] = commname;
+	$dataTab[ 0 , "ALTADDRESS" ] = altaddy;
+	
+	facdot = -1;
+	vh = makemeavue( "FILE FACILA; SEL . DESC; WHERE DEFINE != 0" );
+	if( vueaction( "GETNUMRECORDS" , vh ) > 0 )
+	{
+		facdot = vueaction( "GETFIELD" , vh , "." , 0 );
+	}
+	vueaction( "DELETE" , vh );
+	$dataTab[ 0 , ">PARENT" ] = facdot;
+	
+	vh = makemeavue ( "FILE RTUTYP; SEL . RTUTYP HASSUBTYPES; WHERE DEFINE != 0 AND RTUTYP = \"" ++ rtutyp ++ "\";" );
+	if( vueaction ( "GETNUMRECORDS" , vh ) == 1 )
+	{
+		vueaction ( "NEXTROW" , vh );
+		pRTUTYP = vueaction ( "GETFIELD" , vh , "." );
+		hassubtyp = vueaction ( "GETFIELD" , vh , "HASSUBTYPES" );
+		print "pRTUTYP " , pRTUTYP , " hassubtyp " , hassubtyp , ".\n";
+		vueaction ( "DELETE" , vh );
+		if ( hassubtyp )
+		{
+			vh = makemeavue ( "FILE RTUSUBTYP; SEL . RTUSUBTYP ; WHERE INUSEFIELD != 0 AND RTUSUBTYP = \"" ++ rtusubtyp ++ "\"; SCOPE '|RTUTYP:TYP_SUB:" ++ pRTUTYP ++ "|';" );
+			if( vueaction ( "GETNUMRECORDS" , vh ) == 1 )
+			{
+				vueaction ( "NEXTROW" , vh );
+				pRTUSUBTYP = vueaction ( "GETFIELD" , vh , "." );
+				vueaction ( "DELETE" , vh );
+			}
+			else
+			{
+				print "Error, found " ++ vueaction ( "GETNUMRECORDS" , vh ) ++ " records matching RTUSUBTYP '" ++ rtusubtyp ++ "', expected 1!\n";
+				vueaction ( "DELETE" , vh );
+				return 0;
+			}
+		}
+		else
+		{
+			pRTUSUBTYP = -1;
+		}
+		
+		$dataTab[ 0 , ">RTUTYP"    ] = pRTUTYP;
+		$dataTab[ 0 , ">RTUSUBTYP" ] = pRTUSUBTYP;
+		$dataTab[ 0 , "TYPDESC"    ] = rtutyp;
+		
+		int curnamenum;
+		for ( ii = hwstart ; ii <= hwend ; ii = ii + 1; )
+		{
+			curnamenum = wnumstart + (ii - hwstart);
+			wldot = 0;
+			status = "                                                                                                                               ";
+			if ( curnamenum < 10 )
+			{
+				lwname = basestr ++ "000" ++ curnamenum;
+			}
+			else if ( curnamenum < 100 )
+			{
+				lwname = basestr ++ "00" ++ curnamenum;
+			}
+			else if ( curnamenum < 1000 )
+			{
+				lwname = basestr ++ "0" ++ curnamenum;
+			}
+			else
+			{
+				lwname = basestr ++ curnamenum;
+			}
+			lname = lwname;
+			lname[6] = "\0";
+			if ( stringaction ( "LENGTH" , lwname ) > 6 )
+			{
+				wname = lwname[6];
+				wname[6] = "\0";
+			}
+			else
+			{
+				wname = "";
+			}
+			$dataTab[ 0 , "LNAME"        ] = lname;
+			$dataTab[ 0 , "WNAME"        ] = wname;
+			
+			$dataTab[ 0 , "CAOID"        ] = lwname;
+			
+			$dataTab[ 0 , "LONGNAME"     ] = lwname;
+			
+			$dataTab[ 0 , "NAVNAME"      ] = lwname;
+			
+			$dataTab[ 0 , "WELUWBID"     ] = lwname;
+			$dataTab[ 0 , "WELUWBHID"    ] = lwname;
+			$dataTab[ 0 , "WELUWINTID"   ] = lwname;
+			
+			$dataTab[ 0 , "HW_RTU"       ] = ii;
+			
+			rc = scriptaction ( "REMOTESCRIPT" , "INJECTPROC" , "addInjectwellsfromLOWIS" 
+				, 0 , dummy , -1 , wldot , "MCSSCRIP" , rcode , status , "CSHANDLE" , dataTab );
+			
+			print "Attempt to make well: '" , lwname , "', rc = " , rc , " rcode = " , rcode , ", status = '" , status , "'.\n";
+			if ( rc < 1 || rcode < 1 )
+			{
+				printe "Aborting due to rc or rcode less than one.";
+				break;
+			}
+		}
+		
+	}
+	else
+	{
+		print "Error, found " ++ vueaction ( "GETNUMRECORDS" , vh ) ++ " records matching RTUTYP '" ++ rtutyp ++ "', expected 1!\n";
+		vueaction ( "DELETE" , vh );
+	}
+	int endTime; endTime = currenttime();
+	
+	print "Completed run in " , (endTime - startTime) , " second(s).\n";
+	
+	return 1;
+}
+
+
+int function makeijrange_at ( char* bstrin , int wnumstart , int hwstart , int hwend , int channel , char* altaddy , char* rtutyp , char* rtusubtyp )
+{
+	print "bstrin = \"" , bstrin , "\", wnumstart = " , wnumstart , ", hwstart = " , hwstart , ", hwend = " , hwend , ".\n";
+	print "channel = " , channel , ", altaddy = \"" , altaddy , "\", rtutyp = \"" , rtutyp , "\", rtusubtyp = \"" , rtusubtyp , "\".\n";
+	return 1;
+}
+
+
+int function makepcprange ( char* bstrin , int wnumstart , int hwstart , int hwend , int channel , char* altaddy , char* rtutyp , char* rtusubtyp )
+{
+	int ii;
+	char lwname[32];
+	int rcode;
+	int rc;
+
+	int vh;
+	int pRTUTYP;
+	int pRTUSUBTYP;
+	int hassubtyp;
+
+	char lname[7];
+	char wname[7];
+	char status[128]; 
+
+	int wldot;
+
+	char basestr[32]; basestr = bstrin;
+	basestr [6] = "\0";
+
+	vh = makemeavue ( "FILE RTUTYP; SEL . RTUTYP HASSUBTYPES; WHERE DEFINE != 0 AND RTUTYP = \"" ++ rtutyp ++ "\";" );
+	if( vueaction ( "GETNUMRECORDS" , vh ) == 1 )
+	{
+		vueaction ( "NEXTROW" , vh );
+		pRTUTYP = vueaction ( "GETFIELD" , vh , "." );
+		hassubtyp = vueaction ( "GETFIELD" , vh , "HASSUBTYPES" );
+		print "pRTUTYP " , pRTUTYP , " hassubtyp " , hassubtyp , ".\n";
+		vueaction ( "DELETE" , vh );
+		if ( hassubtyp )
+		{
+			vh = makemeavue ( "FILE RTUSUBTYP; SEL . RTUSUBTYP ; WHERE INUSEFIELD != 0 AND RTUSUBTYP = \"" ++ rtusubtyp ++ "\"; SCOPE '|RTUTYP:TYP_SUB:" ++ pRTUTYP ++ "|';" );
+			if( vueaction ( "GETNUMRECORDS" , vh ) == 1 )
+			{
+				vueaction ( "NEXTROW" , vh );
+				pRTUSUBTYP = vueaction ( "GETFIELD" , vh , "." );
+				vueaction ( "DELETE" , vh );
+			}
+			else
+			{
+				print "Error, found " ++ vueaction ( "GETNUMRECORDS" , vh ) ++ " records matching RTUSUBTYP '" ++ rtusubtyp ++ "', expected 1!\n";
+				vueaction ( "DELETE" , vh );
+				return 0;
+			}
+		}
+		else
+		{
+			pRTUSUBTYP = -1;
+		}
+		
+		int curnamenum;
+		for ( ii = hwstart ; ii <= hwend ; ii = ii + 1; )
+		{
+			curnamenum = wnumstart + (ii - hwstart);
+			wldot = 0;
+			status = "                                                                                                                               ";
+			if ( curnamenum < 10 )
+			{
+				lwname = basestr ++ "000" ++ curnamenum;
+			}
+			else if ( curnamenum < 100 )
+			{
+				lwname = basestr ++ "00" ++ curnamenum;
+			}
+			else if ( curnamenum < 1000 )
+			{
+				lwname = basestr ++ "0" ++ curnamenum;
+			}
+			else
+			{
+				lwname = basestr ++ curnamenum;
+			}
+			lname = lwname;
+			lname[6] = "\0";
+			if ( stringaction ( "LENGTH" , lwname ) > 6 )
+			{
+				wname = lwname[6];
+				wname[6] = "\0";
+			}
+			else
+			{
+				wname = "";
+			}
+			
+			//                                                                                                                                        mfr       sub       HW     COM  altaddy         nrec 
+			rc = scriptaction ( "REMOTESCRIPT" , "PCPPROC" , "addpcpwell_rtusubtyp" , -1 , lname , wname , lwname , lwname , "" , "" , "" , "" , pRTUTYP , pRTUSUBTYP , ii , channel, altaddy , "", 1,wldot , status , rcode );
+			
+			// Pre-7.0:
+			//rc = scriptaction ( "REMOTESCRIPT" , "PCPPROC" , "addpcpwell_rtusubtyp" , -1 , lname , wname , lwname , lwname , "" , "" , "" , "" , pRTUTYP , pRTUSUBTYP , ii , channel, altaddy ,wldot , status , rcode );
+			print "Attempt to make well: '" , lwname , "', rc = " , rc , " rcode = " , rcode , ", status = '" , status , "'.\n";
+		}
+		
+	}
+	else
+	{
+		print "Error, found " ++ vueaction ( "GETNUMRECORDS" , vh ) ++ " records matching RTUTYP '" ++ rtutyp ++ "', expected 1!\n";
+		vueaction ( "DELETE" , vh );
+	}
+	
+	return 1;
+}
+
+
+int function makegldrange ( char* bstrin , int wnumstart , int hwstart , int hwend , int channel , char* altaddy , char* rtutyp , char* rtusubtyp )
+{
+	int ii;
+	char lwname[32];
+	int rcode;
+	int rc;
+
+	int vh;
+	int pRTUTYP;
+	int pRTUSUBTYP;
+	int hassubtyp;
+
+	char lname[7];
+	char wname[7];
+	char status[128]; 
+
+	int wldot;
+	int compressorDot;
+
+	char basestr[32]; basestr = bstrin;
+	basestr [6] = "\0";
+
+	vh = makemeavue ( "FILE RTUTYP; SEL . RTUTYP HASSUBTYPES; WHERE DEFINE != 0 AND RTUTYP = \"" ++ rtutyp ++ "\";" );
+	if( vueaction ( "GETNUMRECORDS" , vh ) == 1 )
+	{
+		vueaction ( "NEXTROW" , vh );
+		pRTUTYP = vueaction ( "GETFIELD" , vh , "." );
+		hassubtyp = vueaction ( "GETFIELD" , vh , "HASSUBTYPES" );
+		print "pRTUTYP " , pRTUTYP , " hassubtyp " , hassubtyp , ".\n";
+		vueaction ( "DELETE" , vh );
+		if ( hassubtyp )
+		{
+			vh = makemeavue ( "FILE RTUSUBTYP; SEL . RTUSUBTYP ; WHERE INUSEFIELD != 0 AND RTUSUBTYP = \"" ++ rtusubtyp ++ "\"; SCOPE '|RTUTYP:TYP_SUB:" ++ pRTUTYP ++ "|';" );
+			if( vueaction ( "GETNUMRECORDS" , vh ) == 1 )
+			{
+				vueaction ( "NEXTROW" , vh );
+				pRTUSUBTYP = vueaction ( "GETFIELD" , vh , "." );
+				vueaction ( "DELETE" , vh );
+			}
+			else
+			{
+				print "Error, found " ++ vueaction ( "GETNUMRECORDS" , vh ) ++ " records matching RTUSUBTYP '" ++ rtusubtyp ++ "', expected 1!\n";
+				vueaction ( "DELETE" , vh );
+				return 0;
+			}
+		}
+		else
+		{
+			pRTUSUBTYP = -1;
+		}
+		
+		int curnamenum;
+		for ( ii = hwstart ; ii <= hwend ; ii = ii + 1; )
+		{
+			curnamenum = wnumstart + (ii - hwstart);
+			wldot = 0;
+			status = "                                                                                                                               ";
+			if ( curnamenum < 10 )
+			{
+				lwname = basestr ++ "000" ++ curnamenum;
+			}
+			else if ( curnamenum < 100 )
+			{
+				lwname = basestr ++ "00" ++ curnamenum;
+			}
+			else if ( curnamenum < 1000 )
+			{
+				lwname = basestr ++ "0" ++ curnamenum;
+			}
+			else
+			{
+				lwname = basestr ++ curnamenum;
+			}
+			lname = lwname;
+			lname[6] = "\0";
+			if ( stringaction ( "LENGTH" , lwname ) > 6 )
+			{
+				wname = lwname[6];
+				wname[6] = "\0";
+			}
+			else
+			{
+				wname = "";
+			}
+			
+			//                                                                                                                             mfr     HW     COM  altaddy    pad  seq   navname   10   12   14     user                   parent?
+			rc = scriptaction ( "REMOTESCRIPT" , "GLDPROC" , "addgldwellx" , -1 , lname , wname , lwname , lwname , "" , "" , "" , "" , pRTUTYP , ii , channel, altaddy , "" , 1   , lwname  , "" , "" , "" , "MCSSCRIP" , pRTUSUBTYP , ""     , wldot , compressorDot , status , rcode );
+			print "Attempt to make well: '" , lwname , "', rc = " , rc , " rcode = " , rcode , ", status = '" , status , "'.\n";
+		}
+		
+	}
+	else
+	{
+		print "Error, found " ++ vueaction ( "GETNUMRECORDS" , vh ) ++ " records matching RTUTYP '" ++ rtutyp ++ "', expected 1!\n";
+		vueaction ( "DELETE" , vh );
+	}
+	
+	return 1;
+}
+
+
+int function makegnrange( char* bstrin , int wnumstart , int hwstart , int hwend , int channel , char* altaddy , char* rtutyp , char* rtusubtyp )
+{
+	int ii;
+	char desc[32];
+	int rcode;
+	int rc;
+
+	int vh;
+	int pRTUTYP;
+	int pRTUSUBTYP;
+	int hassubtyp;
+
+	char status[128]; 
+
+	int rtudot;
+
+	char basestr[32]; basestr = bstrin;
+	basestr [6] = "\0";
+
+	vh = makemeavue( "FILE RTUTYP; SEL . RTUTYP HASSUBTYPES; WHERE DEFINE != 0 AND RTUTYP = \"" ++ rtutyp ++ "\";" );
+	if( vueaction( "GETNUMRECORDS" , vh ) == 1 )
+	{
+		vueaction( "NEXTROW" , vh );
+		pRTUTYP = vueaction( "GETFIELD" , vh , "." );
+		hassubtyp = vueaction( "GETFIELD" , vh , "HASSUBTYPES" );
+		print "pRTUTYP " , pRTUTYP , " hassubtyp " , hassubtyp , ".\n";
+		vueaction( "DELETE" , vh );
+		if ( hassubtyp )
+		{
+			vh = makemeavue( "FILE RTUSUBTYP; SEL . RTUSUBTYP ; WHERE INUSEFIELD != 0 AND RTUSUBTYP = \"" ++ rtusubtyp ++ "\"; SCOPE '|RTUTYP:TYP_SUB:" ++ pRTUTYP ++ "|';" );
+			if( vueaction( "GETNUMRECORDS" , vh ) == 1 )
+			{
+				vueaction( "NEXTROW" , vh );
+				pRTUSUBTYP = vueaction( "GETFIELD" , vh , "." );
+				vueaction( "DELETE" , vh );
+			}
+			else
+			{
+				print "Error, found " ++ vueaction( "GETNUMRECORDS" , vh ) ++ " records matching RTUSUBTYP '" ++ rtusubtyp ++ "', expected 1!\n";
+				vueaction( "DELETE" , vh );
+				return 0;
+			}
+		}
+		else
+		{
+			pRTUSUBTYP = -1;
+		}
+		
+		int curnamenum;
+		for ( ii = hwstart ; ii <= hwend ; ii = ii + 1; )
+		{
+			curnamenum = wnumstart + (ii - hwstart);
+			rtudot = 0;
+			status = "                                                                                                                               ";
+			if ( curnamenum < 10 )
+			{
+				desc = basestr ++ "000" ++ curnamenum;
+			}
+			else if ( curnamenum < 100 )
+			{
+				desc = basestr ++ "00" ++ curnamenum;
+			}
+			else if ( curnamenum < 1000 )
+			{
+				desc = basestr ++ "0" ++ curnamenum;
+			}
+			else
+			{
+				desc = basestr ++ curnamenum;
+			}
+			
+			//                                                                          COM       HW     mfr               nrec                                          
+			rc = scriptaction( "REMOTESCRIPT" , "MONITORPROC" , "rtu_add" , -1 , desc , channel , ii , pRTUTYP , altaddy , rtudot , pRTUSUBTYP , desc , status , rcode );
+			print "Attempt to make RTU: '" , desc , "', rc = " , rc , " rcode = " , rcode , ", status = '" , status , "'.\n";
+		}
+		
+	}
+	else
+	{
+		print "Error, found " ++ vueaction( "GETNUMRECORDS" , vh ) ++ " records matching RTUTYP '" ++ rtutyp ++ "', expected 1!\n";
+		vueaction( "DELETE" , vh );
+	}
+	return 382;
+}
+
+
+// Arguments (in order):
+//
+// First part of well name (a four-digit number will be appended to the end)
+// Beginning number for well name (the first four-digit number to append)
+// First RTU address for well range
+// Last RTU address for well range (this combined with the previous parameter will control the number of wells added)
+// Value for >CHANNEL (one less than the COM port number)
+// Altaddress (IP Address or OPC tag name base)
+// RTU Type
+// RTU Subtype
+//
+// mcsscrip mbw.css makepgrange "" "WFC4_" 1 1 100 2 "127.0.0.1/10002" "WFCEO4" "NONE" -db pgldb
+
+int function makepgrange ( char* bstrin , int wnumstart , int hwstart , int hwend , int channel , char* altaddy , char* rtutyp , char* rtusubtyp )
+{
+	print "bstrin = \"" , bstrin , "\", wnumstart = " , wnumstart , ", hwstart = " , hwstart , ", hwend = " , hwend , ".\n";
+	print "channel = " , channel , ", altaddy = \"" , altaddy , "\", rtutyp = \"" , rtutyp , "\", rtusubtyp = \"" , rtusubtyp , "\".\n";
+	
+	
+	int startTime; startTime = currenttime();
+	int ii;
+	char lwname[32];
+	int rcode;
+	int rc;
+	
+	int vh;
+	int pRTUTYP;
+	int pRTUSUBTYP;
+	int hassubtyp;
+	
+	char lname[7];
+	char wname[7];
+	char status[128]; 
+	char errMsg[128];
+	
+	int wldot;
+	
+	char basestr[32]; basestr = bstrin;
+	basestr [6] = "\0";
+	
+	int dataTab;
+	int facdot;
+	int dummy;
+	char commname[32];
+	
+	dataTab = tableaction( "CREATE" , 1 , 100 );
+	
+	ii = 0;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "TEMPLATE_NUMBER" , "I" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "LNAME"           , "C" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "WNAME"           , "C" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "LWNAME"          , "C" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "LONGNAME"        , "C" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "FNAME"           , "C" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "G1NAME"          , "C" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "G2NAME"          , "C" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "G3NAME"          , "C" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , ">RTUTYP"         , "I" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "HW_RTU"          , "I" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , ">CHANNEL"        , "I" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "ALTADDRESS"      , "C" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , ">RTUSUBTYP"      , "I" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "NEW_WELLREC"     , "I" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "EFMRUNNUM"       , "I" ); ii = ii + 1;
+	
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "METERID"         , "C" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "NAVNAME"         , "C" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "CAOID"           , "C" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "WELUWBID"        , "C" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "WELUWBHID"       , "C" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "WELUWINTID"      , "C" ); ii = ii + 1;
+	
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "KEYOFD"         , "I" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "KEYOND"         , "I" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "MXRTRY"         , "I" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "ALMDELAY"       , "I" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "CLRDELAY"       , "I" ); ii = ii + 1;
+	
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "ISGDL"           , "I" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "RTU_ADDRESS"     , "I" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "RTU_GROUP"       , "I" ); ii = ii + 1;
+	
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "RCODE"           , "I" ); ii = ii + 1;
+	tableaction( "DEFINECOLUMN" , dataTab , ii , "STATUS"          , "C" ); ii = ii + 1;
+	
+	$dataTab[ 0 , "TEMPLATE_NUMBER" ] = -1;
+	$dataTab[ 0 , "NEW_WELLREC"     ] = -1;
+	$dataTab[ 0 , "EFMRUNNUM"       ] = 1;
+	$dataTab[ 0 , "METERID"         ] = "";
+	
+	$dataTab[ 0 , "FNAME"  ] = "";
+	$dataTab[ 0 , "G1NAME" ] = "";
+	$dataTab[ 0 , "G2NAME" ] = "";
+	$dataTab[ 0 , "G3NAME" ] = "";
+	
+	$dataTab[ 0 , ">CHANNEL"   ] = channel;
+	$dataTab[ 0 , "ALTADDRESS" ] = altaddy;
+	$dataTab[ 0 , "KEYOFD"     ] = 0;
+	$dataTab[ 0 , "KEYOND"     ] = 0;
+	$dataTab[ 0 , "MXRTRY"     ] = 1;
+	$dataTab[ 0 , "ALMDELAY"   ] = 0;
+	$dataTab[ 0 , "CLRDELAY"   ] = 0;
+	
+	$dataTab[ 0 , "ISGDL"       ] = 0;
+	$dataTab[ 0 , "RTU_ADDRESS" ] = 0;
+	$dataTab[ 0 , "RTU_GROUP"   ] = 0;
+	
+	/*facdot = -1;
+	vh = makemeavue( "FILE FACILA; SEL . DESC; WHERE DEFINE != 0" );
+	if( vueaction( "GETNUMRECORDS" , vh ) > 0 )
+	{
+		facdot = vueaction( "GETFIELD" , vh , "." , 0 );
+	}
+	vueaction( "DELETE" , vh );
+	$dataTab[ 0 , ">PARENT" ] = facdot;*/
+	
+	vh = makemeavue ( "FILE RTUTYP; SEL . RTUTYP HASSUBTYPES; WHERE DEFINE != 0 AND RTUTYP = \"" ++ rtutyp ++ "\";" );
+	if( vueaction ( "GETNUMRECORDS" , vh ) == 1 )
+	{
+		vueaction ( "NEXTROW" , vh );
+		pRTUTYP = vueaction ( "GETFIELD" , vh , "." );
+		hassubtyp = vueaction ( "GETFIELD" , vh , "HASSUBTYPES" );
+		print "pRTUTYP " , pRTUTYP , " hassubtyp " , hassubtyp , ".\n";
+		vueaction ( "DELETE" , vh );
+		if ( hassubtyp )
+		{
+			vh = makemeavue ( "FILE RTUSUBTYP; SEL . RTUSUBTYP ; WHERE INUSEFIELD != 0 AND RTUSUBTYP = \"" ++ rtusubtyp ++ "\"; SCOPE '|RTUTYP:TYP_SUB:" ++ pRTUTYP ++ "|';" );
+			if( vueaction ( "GETNUMRECORDS" , vh ) == 1 )
+			{
+				vueaction ( "NEXTROW" , vh );
+				pRTUSUBTYP = vueaction ( "GETFIELD" , vh , "." );
+				vueaction ( "DELETE" , vh );
+			}
+			else
+			{
+				print "Error, found " ++ vueaction ( "GETNUMRECORDS" , vh ) ++ " records matching RTUSUBTYP '" ++ rtusubtyp ++ "', expected 1!\n";
+				vueaction ( "DELETE" , vh );
+				return 0;
+			}
+		}
+		else
+		{
+			pRTUSUBTYP = -1;
+		}
+		
+		$dataTab[ 0 , ">RTUTYP"    ] = pRTUTYP;
+		$dataTab[ 0 , ">RTUSUBTYP" ] = pRTUSUBTYP;
+		//$dataTab[ 0 , "TYPDESC"    ] = rtutyp;
+		
+		int curnamenum;
+		for ( ii = hwstart ; ii <= hwend ; ii = ii + 1; )
+		{
+			curnamenum = wnumstart + (ii - hwstart);
+			wldot = 0;
+			errMsg = "                                                                                                                               ";
+			$dataTab[ 0 , "STATUS" ] = "";
+			$dataTab[ 0 , "RCODE"  ] = 0;
+			if ( curnamenum < 10 )
+			{
+				lwname = basestr ++ "000" ++ curnamenum;
+			}
+			else if ( curnamenum < 100 )
+			{
+				lwname = basestr ++ "00" ++ curnamenum;
+			}
+			else if ( curnamenum < 1000 )
+			{
+				lwname = basestr ++ "0" ++ curnamenum;
+			}
+			else
+			{
+				lwname = basestr ++ curnamenum;
+			}
+			lname = lwname;
+			lname[6] = "\0";
+			if ( stringaction ( "LENGTH" , lwname ) > 6 )
+			{
+				wname = lwname[6];
+				wname[6] = "\0";
+			}
+			else
+			{
+				wname = "";
+			}
+			$dataTab[ 0 , "LNAME"        ] = lname;
+			$dataTab[ 0 , "WNAME"        ] = wname;
+			
+			$dataTab[ 0 , "LWNAME"       ] = lwname;
+			$dataTab[ 0 , "CAOID"        ] = lwname;
+			$dataTab[ 0 , "LONGNAME"     ] = lwname;
+			$dataTab[ 0 , "NAVNAME"      ] = lwname;
+			
+			$dataTab[ 0 , "WELUWBID"     ] = lwname;
+			$dataTab[ 0 , "WELUWBHID"    ] = lwname;
+			$dataTab[ 0 , "WELUWINTID"   ] = lwname;
+			
+			$dataTab[ 0 , "HW_RTU"       ] = ii;
+			
+			//tableaction( "DENULLIFY" , dataTab );
+			
+			rc = scriptaction ( "REMOTESCRIPT" , "PGLPROC" , "addPGLwellsfromLOWIS" , "CSHANDLE" , dataTab , "MCSSCRIP" , errMsg );
+			
+			status = $dataTab[ 0 , "STATUS" ];
+			rcode  = $dataTab[ 0 , "RCODE"  ];
+			
+			print "Attempt to make well: '" , lwname , "', rc = " , rc , " rcode = " , rcode , ", status = '" , status , "', errMsg = '" , errMsg , "'.\n";
+			if (rcode < 1 || rc < 1 )
+			{
+				printe "Aborting due to rc or rcode less than one.";
+				break;
+			}
+		}
+		
+	}
+	else
+	{
+		print "Error, found " ++ vueaction ( "GETNUMRECORDS" , vh ) ++ " records matching RTUTYP '" ++ rtutyp ++ "', expected 1!\n";
+		vueaction ( "DELETE" , vh );
+	}
+	int endTime; endTime = currenttime();
+	
+	print "Completed run in " , (endTime - startTime) , " second(s).\n";
+	
+	return 1;
+}
+
+
+int function special_make_function()
+{
+	// Feel free to hack this up to do whatever you need with your copy of the file.
+	int ii;
+	int rc;
+	char altaddy[1024];
+	for (ii = 25000; ii < 26000; ii = ii + 1;)
+	{
+		altaddy = "Tcp1.Nh" ++ ii ++ ".Unit1";
+		makeberange ( "MOB8_" , ii , 1 , 1 , 94 , altaddy , "BK8800" , "" );
+	}
+	return 5;
+}
+
+
+/// Here starts functions that do something other than add wells.
+
+
+int function AddFacility( char* description , char* key )
+{
+  int template_number, isinjfac , isbattery , issattelite , fac_record , rcode;
+  char lease[32], foreman[32], beat[32], f1name[32], f2name[32], f3name[32] , status[256];
+  lease = "";
+  foreman = "";
+  beat = "";
+  f1name = "";
+  f2name = "";
+  f3name = "";
+  status = "                                                                                                                                                                                                                                                                ";
+  rcode = 0;
+  fac_record = 0;
+  template_number = -1;
+  isinjfac = 1;
+  isbattery = 1;
+  issattelite = 1;
+
+  scriptaction( "REMOTESCRIPT" , "PRODPROC" , "LowisDefineFacility1" , template_number , description , key , lease , foreman , beat , f1name , f2name , f3name , isinjfac , isbattery , issattelite , fac_record , status , rcode );
+  
+  print "Facility record: " , fac_record , ", rcode: " , rcode , ", status: " , status , ".\n";
+  
+  return 782;
+}
+
+
+int function DeleteFacility( char* description )
+{
+  int facRec, rcode;
+  char status[256];
+  status = "                                                                                                                                                                                                                                                                ";
+  rcode = 0;
+  facRec = GetFacPointer( description );
+  if ( facRec < 1 )
+  {
+    printe "Failed to find facility \"", description , "\".\n";
+    return 0;
+  }
+  scriptaction( "REMOTESCRIPT" , "PRODPROC" , "delete_fac" , facRec , status , rcode );
+  
+  print "Delete facilty: rcode = " , rcode , ", status = " , status , ".\n";
+}
+
+
+int function WellFacilityLinkChanger( char* facilityName , char* wellName , int isUnlink )
+{
+  int facRec, wellRec, actualTab, emptyTab, linkTab, unlinkTab, rc;
+  
+  facRec = GetFacPointer( facilityName );
+  if ( facRec < 1 )
+  {
+    printe "Failed to find facility \"", facilityName , "\".\n";
+    return 0;
+  }
+  
+  wellRec = GetWellPointer( wellName );
+  if ( wellRec < 1 )
+  {
+    printe "Failed to find well \"", wellName , "\".\n";
+    return 0;
+  }
+  
+  actualTab = tableaction( "CREATE" , 1 , 2 );
+  emptyTab = tableaction( "CREATE" , 1 , 1 );
+  tableaction( "DEFINECOLUMN" , actualTab , 0 , "RPARENT" , "i" );
+  tableaction( "DEFINECOLUMN" , actualTab , 1 , "RECNO" , "i" );
+  
+  $actualTab[ 0 , "RECNO" ] = wellRec;
+  if ( isUnlink )
+  {
+    $actualTab[ 0 , "RPARENT" ] = facRec;
+    unlinkTab = actualTab;
+    linkTab = emptyTab;
+  }
+  else
+  {
+    $actualTab[ 0 , "RPARENT" ] = 0;
+    linkTab = actualTab;
+    unlinkTab = emptyTab;
+  }
+  
+  scriptaction( "REMOTESCRIPT" , "PRODPROC" , "linkwellstofac" , facRec , "CSHANDLE" , linkTab , "CSHANDLE" , unlinkTab , rc );
+  
+  return 1337;
+}
+
+
+int function UnlinkWellFromFacility( char* facilityName , char* wellName )
+{
+  return WellFacilityLinkChanger( facilityName , wellName , 1 );
+}
+
+
+int function LinkWellToFacility( char* facilityName , char* wellName )
+{
+  return WellFacilityLinkChanger( facilityName , wellName , 0 );
+}
+
+
+int function ImportWelltests( char* wellName , char* fileName )
+{
+  int jtime, jtime_b,  jtime_u, tstEndDate;
+  real oil, water, gas, co2, testtime, pumptime;
+  int sptcode;
+  real tstSalinity, well_hp, well_ht;
+  int createDate;
+  char updated_by[256], cmnt[256];
+  real chok, rightChoke, leftChoke, tstSalt;
+  char tstComp[256], tstLoc[256], tstType[256];
+  real tvgor, gas_oil_ratio, lpgor, hpgor, flowLinePres, headPres, sepPres, sepTemp, tubingPres, casingPres;
+  int testrec;
+  char status[256];
+  int rcode;
+  char sptchguser[256];
+  
+  int th, vh, ii, tblCount, testwell;
+  
+  testwell = GetWellPointer( wellName );
+  if ( testwell <= 0 )
+  {
+    printe "Failed to find well \"", wellName , "\".\n";
+    return 0;
+  }
+  
+  th = bettercreatefromtextfile( fileName , "" );
+  tblCount = tableaction( "NUMROWS" , th );
+  for (ii = 0; ii < tblCount; ii = ii + 1;)
+  {
+    jtime = $th[ ii , "SAMPLEDATE" ];
+    jtime_b = jtime;
+    jtime_u = jtime;
+    tstEndDate = jtime;
+    oil = $th[ ii , "OIL" ];
+    water = $th[ ii , "WATER" ];
+    gas = $th[ ii , "GAS" ];
+    co2 = $th[ ii , "CO2" ];
+    testtime = $th[ ii , "TESTTIME" ];
+    pumptime = testtime;
+    sptcode = $th[ ii , "SPTCODE" ];
+    tstSalinity = $th[ ii , "SALINITY" ];
+    well_hp = $th[ ii , "WELLHEADPRESS" ];
+    well_ht = $th[ ii , "WELLHEADTEMP" ];
+    createDate = jtime;
+    updated_by = "";
+    cmnt = "";
+    chok = $th[ ii , "CHOKESIZE" ];
+    rightChoke = 0.0;
+    leftChoke = 0.0;
+    tstSalt = 0;
+    tstComp = "";
+    tstLoc = "";
+    tstType = "";
+    tvgor = 0.0;
+    gas_oil_ratio = oil / gas;
+    lpgor = gas_oil_ratio;
+    hpgor = gas_oil_ratio;
+    flowLinePres = $th[ ii , "FLOWLINEPRESS" ];
+    headPres = $th[ ii , "HEADERPRESS" ];
+    sepPres = $th[ ii , "SEPARATORPRESS" ];
+    tubingPres = $th[ ii , "TUBINGPRESS" ];
+    casingPres = $th[ ii , "CASINGPRESS" ];
+    // = $th[ ii , "
+    
+    testrec = -1;
+    status = "                                                                                                                                                                                                                                                                ";
+    rcode = 0;
+    sptchguser = "";
+    
+    scriptaction( "REMOTESCRIPT" , "PRODPROC" , "save_manual_test_userKOC" ,  testwell,  jtime,  jtime_b,  jtime_u,  tstEndDate,  oil,   water,  gas,  co2,
+                                     testtime,   pumptime,  sptcode,  tstSalinity,  well_hp,  well_ht,  createDate,
+									 updated_by,  cmnt,  chok,  rightChoke,  leftChoke,  tstSalt,	 tstComp,  tstLoc,
+									 tstType,  tvgor,  gas_oil_ratio,  lpgor,  hpgor,  flowLinePres,  headPres,  sepPres,
+									 sepTemp,  tubingPres,  casingPres,  testrec,    status,  rcode,  sptchguser);
+  }
+  
+  tableaction( "DELETE" , th );
+  return 93023;
+}
+
+
+int function ExportWelltests( char* wellName , char* fileName )
+{
+  int jtime, jtime_b,  jtime_u, tstEndDate;
+  real oil, water, gas, co2, testtime, pumptime;
+  int sptcode;
+  real tstSalinity, well_hp, well_ht;
+  int createDate;
+  char updated_by[256], cmnt[256];
+  real chok, rightChoke, leftChoke, tstSalt;
+  char tstComp[256], tstLoc[256], tstType[256];
+  real tvgor, gas_oil_ratio, lpgor, hpgor, flowLinePres, headPres, sepPres, sepTemp, tubingPres, casingPres;
+  int testrec;
+  char status[256];
+  int rcode;
+  char sptchguser[256];
+  
+  int th, vh, ii, tblCount, testwell;
+  
+  testwell = GetWellPointer( wellName );
+  if ( testwell <= 0 )
+  {
+    printe "Failed to find well \"", wellName , "\".\n";
+    return 0;
+  }
+  
+  vh = makemeavue( "FILE WTTREND; SEL . SAMPLEDATE OIL WATER GAS CO2 TESTHRS SPTCODE SALINITY TSTWHP TSTWHT TSTCHOKSIZ TSTFLLPRES TSTHDRPRES SEPPRES TSTTUBEPRS TSTCASPRES; SCOPE |MASTERWL:REF_TST:" ++ testwell ++ "|;");
+  
+  th = tableaction( "CREATEFROMVUE" , vh );
+  vueaction( "DELETE" , vh );
+  tableaction( "RENAMECOLUMN" , th , 6  , "TESTTIME" );
+  tableaction( "RENAMECOLUMN" , th , 9  , "WELLHEADPRESS" );
+  tableaction( "RENAMECOLUMN" , th , 10 , "WELLHEADTEMP" );
+  tableaction( "RENAMECOLUMN" , th , 11 , "CHOKESIZE" );
+  tableaction( "RENAMECOLUMN" , th , 12 , "FLOWLINEPRESS" );
+  tableaction( "RENAMECOLUMN" , th , 13 , "HEADERPRESS" );
+  tableaction( "RENAMECOLUMN" , th , 14 , "SEPARATORPRESS" );
+  tableaction( "RENAMECOLUMN" , th , 15 , "TUBINGPRESS" );
+  tableaction( "RENAMECOLUMN" , th , 16 , "CASINGPRESS" );
+  
+  tableaction( "DELETECOLUMN" , th , 0 ); // Bye bye dot.
+  
+  bettersaveastextfile( th , fileName , "" );
+  
+  return 3748;
+}
+
+
+int function ExportGOTrend( char* wellName , char* fileName )
+{
+  int th, vh, testwell;
+  testwell = GetWellPointer( wellName );
+  if ( testwell < 1 )
+  {
+    printe "Failed to find well \"", wellName , "\".\n";
+    return 0;
+  }
+  // REF_WGO
+  //. AVGSPM BRDEV BRUNT CRNTAVG DOWN_TIM ESTCOND ESTCPBP ESTFLUIDC ESTFLUIDO ESTGAS1 ESTOIL ESTWATER GPRODVOL IDLE_TIM INUSEFIELD LWNAMEXX MESCOND MESGAS1 MESOIL MESWATER PMPCYCLS POCOIL POCPMPFILL POCPMPFILL_DATE POCSPM POCWATER POF_DATE POFPMPFILL RUN_TIME SAMPLEDATE SRVREASO TOTSTKS UNKN_TIM VMC19 VMC27 VMC29 WTYPE LWNAME
+  vh = makemeavue( "FILE GOTRNDWL; SEL . AVGSPM BRDEV BRUNT CRNTAVG DOWN_TIM ESTCOND ESTCPBP ESTFLUIDC ESTFLUIDO ESTGAS1 ESTOIL ESTWATER GPRODVOL IDLE_TIM MESCOND MESGAS1 MESOIL MESWATER PMPCYCLS POCOIL POCPMPFILL POCPMPFILL_DATE POCSPM POCWATER POF_DATE POFPMPFILL RUN_TIME SAMPLEDATE SRVREASO TOTSTKS UNKN_TIM VMC19 VMC27 VMC29; SCOPE |MASTERWL:REF_WGO:" ++ testwell ++ "|;" );
+  th = tableaction( "CREATEFROMVUE" , vh );
+  vueaction( "DELETE" , vh );
+  
+  tableaction( "DELETECOLUMN" , th , 0 ); // Bye bye dot.
+  bettersaveastextfile( th , fileName , "" );
+  tableaction( "DELETE" , th );
+  return 4320;
+}
+
+
+int function ImportGOTrend( char* wellName , char* fileName )
+{
+  real avgspm, brdev, brunt, down_tim, estcond, estcpbp, estfluidc, estfluido, estgas1, estoil, estwater, gprodvol, idle_tim, mescond, mesgas1, mesoil, meswater, pocoil, pocpmpfill, pocspm, pocwater, pofpmpfill, run_time, unkn_tim, vmc19, vmc27, vmc29;
+  int crntavg, pmpcycls, pocpmpfill_date, pof_date, sampledate, totstks;
+  char srvreaso[256];
+  char wtype[16], lwname[256];
+  int th, vh, testwell, tblCount, ii, rc;
+  testwell = GetWellPointer( wellName );
+  if ( testwell < 1 )
+  {
+    printe "Failed to find well \"", wellName , "\".\n";
+    return 0;
+  }
+  
+  int allocated_record;
+  
+  wtype = | "MASTERWL" : "WTYPE" : testwell |;
+  lwname = | "MASTERWL" : "LWNAME" : testwell |;
+  
+  th = bettercreatefromtextfile( fileName , "" );
+  tblCount = tableaction( "NUMROWS" , th );
+  for (ii = 0; ii < tblCount; ii = ii + 1;)
+  {
+    avgspm = $th[ ii , "AVGSPM"];
+    brdev = $th[ ii , "BRDEV"];
+    brunt = $th[ ii , "BRUNT"];
+    crntavg = $th[ ii , "CRNTAVG"];
+    down_tim = $th[ ii , "DOWN_TIM"];
+    estcond = $th[ ii , "ESTCOND"];
+    estcpbp = $th[ ii , "ESTCPBP"];
+    estfluidc = $th[ ii , "ESTFLUIDC"];
+    estfluido = $th[ ii , "ESTFLUIDO"];
+    estgas1 = $th[ ii , "ESTGAS1"];
+    estoil = $th[ ii , "ESTOIL"];
+    estwater = $th[ ii , "ESTWATER"];
+    gprodvol = $th[ ii , "GPRODVOL"];
+    idle_tim = $th[ ii , "IDLE_TIM"];
+    mescond = $th[ ii , "MESCOND"];
+    mesgas1 = $th[ ii , "MESGAS1"];
+    mesoil = $th[ ii , "MESOIL"];
+    meswater = $th[ ii , "MESWATER"];
+    pmpcycls = $th[ ii , "PMPCYCLS"];
+    pocoil = $th[ ii , "POCOIL"];
+    pocpmpfill = $th[ ii , "POCPMPFILL"];
+    pocpmpfill_date = $th[ ii , "POCPMPFILL_DATE"];
+    pocspm = $th[ ii , "POCSPM"];
+    pocwater = $th[ ii , "POCWATER"];
+    pof_date = $th[ ii , "POF_DATE"];
+    pofpmpfill = $th[ ii , "POFPMPFILL"];
+    run_time = $th[ ii , "RUN_TIME"];
+    sampledate = $th[ ii , "SAMPLEDATE"];
+    srvreaso = $th[ ii , "SRVREASO"];
+    totstks = $th[ ii , "TOTSTKS"];
+    unkn_tim = $th[ ii , "UNKN_TIM"];
+    vmc19 = $th[ ii , "VMC19"];
+    vmc27 = $th[ ii , "VMC27"];
+    vmc29 = $th[ ii , "VMC29"];
+    
+    rc = allocate_history
+    (
+      "MASTERWL",    // base file name
+      "REF_WGO",          // name of ref_list containing allocated records
+      testwell,        // record numbe
+      "GOTRNDWL", // history file name
+      allocated_record   // record that was allocated
+    );
+
+    if ( !rc )
+    {
+      printe "Failed to allocate record.\n";
+      tableaction( "DELETE" , th );
+      return 0;
+    }
+    
+    | "GOTRNDWL" : "AVGSPM" : allocated_record | = avgspm;
+    | "GOTRNDWL" : "BRDEV" : allocated_record | = brdev;
+    | "GOTRNDWL" : "BRUNT" : allocated_record | = brunt;
+    | "GOTRNDWL" : "CRNTAVG" : allocated_record | = crntavg;
+    | "GOTRNDWL" : "DOWN_TIM" : allocated_record | = down_tim;
+    | "GOTRNDWL" : "ESTCOND" : allocated_record | = estcond;
+    | "GOTRNDWL" : "ESTCPBP" : allocated_record | = estcpbp;
+    | "GOTRNDWL" : "ESTFLUIDC" : allocated_record | = estfluidc;
+    | "GOTRNDWL" : "ESTFLUIDO" : allocated_record | = estfluido;
+    | "GOTRNDWL" : "ESTGAS1" : allocated_record | = estgas1;
+    | "GOTRNDWL" : "ESTOIL" : allocated_record | = estoil;
+    | "GOTRNDWL" : "ESTWATER" : allocated_record | = estwater;
+    | "GOTRNDWL" : "GPRODVOL" : allocated_record | = gprodvol;
+    | "GOTRNDWL" : "IDLE_TIM" : allocated_record | = idle_tim;
+    | "GOTRNDWL" : "MESCOND" : allocated_record | = mescond;
+    | "GOTRNDWL" : "MESGAS1" : allocated_record | = mesgas1;
+    | "GOTRNDWL" : "MESOIL" : allocated_record | = mesoil;
+    | "GOTRNDWL" : "MESWATER" : allocated_record | = meswater;
+    | "GOTRNDWL" : "PMPCYCLS" : allocated_record | = pmpcycls;
+    | "GOTRNDWL" : "POCOIL" : allocated_record | = pocoil;
+    | "GOTRNDWL" : "POCPMPFILL" : allocated_record | = pocpmpfill;
+    | "GOTRNDWL" : "POCPMPFILL_DATE" : allocated_record | = pocpmpfill_date;
+    | "GOTRNDWL" : "POCSPM" : allocated_record | = pocspm;
+    | "GOTRNDWL" : "POCWATER" : allocated_record | = pocwater;
+    | "GOTRNDWL" : "POF_DATE" : allocated_record | = pof_date;
+    | "GOTRNDWL" : "POFPMPFILL" : allocated_record | = pofpmpfill;
+    | "GOTRNDWL" : "RUN_TIME" : allocated_record | = run_time;
+    | "GOTRNDWL" : "SAMPLEDATE" : allocated_record | = sampledate;
+    | "GOTRNDWL" : "SRVREASO" : allocated_record | = srvreaso;
+    | "GOTRNDWL" : "TOTSTKS" : allocated_record | = totstks;
+    | "GOTRNDWL" : "UNKN_TIM" : allocated_record | = unkn_tim;
+    | "GOTRNDWL" : "VMC19" : allocated_record | = vmc19;
+    | "GOTRNDWL" : "VMC27" : allocated_record | = vmc27;
+    | "GOTRNDWL" : "VMC29" : allocated_record | = vmc29;
+    | "GOTRNDWL" : "WTYPE" : allocated_record | = wtype;
+    | "GOTRNDWL" : "LWNAME" : allocated_record | = lwname;
+  }
+  tableaction( "DELETE" , th );
+  return 38427;
+}
+
+
+int function UpdateWellFields( char* wellName , char* fileName )
+{
+	int wellRec, th, cols, ii;
+	char colName[64];
+	wellRec = GetWellPointer( wellName );
+  if ( wellRec < 1 )
+  {
+    printe "Failed to find well \"", wellName , "\".\n";
+    return 0;
+  }
+	th = bettercreatefromtextfile( fileName , "" );
+	
+	cols = tableaction( "NUMCOLUMNS" , th );
+	
+	for (ii = 0; ii < cols; ii = ii + 1;)
+	{
+		tableaction( "COLUMNNAME" , th , ii , colName );
+		print "Setting field " , colName , " to " , $th[ 0 , ii ] , ".\n";
+		| "MASTERWL" : colName : wellRec | = $th[ 0 , ii ];
+	}
+	
+	return 1;
+}
+
+
+int function DumpSomeWellInfo( char* wellName , char* fileName )
+{
+	int wellRec, vh, th;
+	wellRec = GetWellPointer( wellName );
+  if ( wellRec < 1 )
+  {
+    printe "Failed to find well \"", wellName , "\".\n";
+    return 0;
+  }
+	
+	vh = makemeavue( "FILE MASTERWL; SEL . FNAME G1NAME G2NAME G3NAME WTYPE ICON_CTG COMMNAME; SCOPE " ++ wellRec ++ ",;" );
+	
+	th = tableaction( "CREATEFROMVUE" , vh );
+	vueaction( "DELETE" , vh );
+	
+	tableaction( "DELETECOLUMN" , th , 0 ); // Bye bye dot.
+  bettersaveastextfile( th , fileName , "" );
+	
+	tableaction( "DELETE" , th );
+	return 1;
+}
+
+
+int function DefineOneTaper(int rec, char *rodDesc, int tapernum, int joints, real jointlth, real dampup, real dampdn, char* guide)
+{
+	int rc;
+	int template_number;
+	int taperrec;
+	int rodrec;
+	real derating;
+	real dev;
+	real dragn;
+	char errMsg[256];
+	int rcode;
+	int vh;
+	vh = makemeavue( "FILE RODTAB; SEL .; WHERE DEFINE != 0 AND DESC = \"" ++ rodDesc ++ "\";" );
+	if( vueaction( "GETNUMRECORDS" , vh ) == 1 )
+	{
+		vueaction( "NEXTROW" , vh );
+		rodrec = vueaction( "GETFIELD" , vh , "." );
+		rc = 0;
+		template_number = 0;
+		taperrec = 0;
+		derating = 1.0;
+		dev = 0.0;
+		dragn = 0.0;
+		errMsg = "                                                                                                                                                                                                                                                               ";
+		rcode = -1;
+		rc = scriptaction
+		(
+			"REMOTESCRIPT",
+			"BEAMPROC",
+			"define_taper_enhanced",
+			template_number,
+			tapernum,
+			rec,
+			rodrec,
+			taperrec,
+			joints,
+			jointlth,
+			derating,
+			dev,
+			dragn,
+			guide,
+			errMsg,
+			rcode
+		);
+		if (rc && rcode && taperrec > 0)
+		{
+			|"SPOCTP":"DAMPDN":taperrec| = dampdn;
+			|"SPOCTP":"DAMPUP":taperrec| = dampup;
+		}
+		return rc && rcode;
+	}
+	else
+	{
+		printe "Failed to find rod for taper #1.\n";
+		return 0;
+	}
+	vueaction( "DELETE" , vh );
+	return 1;
+}
+
+
+int function SetBeamAnalysisParameters_Inner( int rec )
+{
+	int vh, rc;
+	
+	// Downhole parameters.
+	//     Depths
+	|"SPOCCA":"TOPERF":rec| = 10450.0;
+	|"SPOCCA":"BOTPRF":rec| = 10450.0;
+    |"SPOCCA":"ADPTH":rec| = 9785.0;
+	|"SPOCCA":"PDPTH":rec| = 9775.0;
+	|"SPOCCA":"PDPTHV":rec| = 9776.0;
+	//     Casing/Tubing
+	|"SPOCCA":"PDIAM1":rec| = 1.75;
+	|"SPOCCA":"CVOPEN":rec| = "Y";
+	|"SPOCCA":"CASOD":rec| = 7.0;
+	|"SPOCCA":"CASWT":rec| = 32.0;
+	|"SPOCCA":"TODIM":rec| = 2.875;
+
+
+	// Fluid parameters.
+	//     Rate
+	|"SPOCCA":"FPCMNTTXT":rec| = "";
+	|"SPOCCA":"REPOIL":rec| = 10.52999973297119100000;
+	//|"SPOCCA":"REPWATER":rec| = 1.2;
+	|"SPOCCA":"REPWATER":rec| = 1.17999994754791260000;
+	|"SPOCCA":"REPGAS1":rec| = 0.0;
+	|"SPOCCA":"REPDATE":rec| = currenttime();
+	//     Gravity
+	|"SPOCCA":"APIGRV":rec| = 39.00;
+	|"SPOCCA":"SPGW":rec| = 1.17999994754791260000;
+	|"SPOCCA":"GSGRAV":rec| = 0.89999997615814209000;
+	//     Fluid Inertia
+	|"SPOCCA":"ANLFLDINERT":rec| = 1;
+	//     Tubing
+	|"SPOCCA":"TUBPRS":rec| = 1;
+	|"SPOCCA":"TUBGRAD":rec| = 0.25999999046325684000;
+	|"SPOCCA":"FLDTEMP":rec| = 60;
+	//     Casing
+	|"SPOCCA":"SCSPRS":rec| = 1;
+	|"SPOCCA":"COILCT":rec| = 1.0;
+	|"SPOCCA":"FLVLFS":rec| = 3728;
+	|"SPOCCA":"FAP":rec| = 6047;
+	//|"SPOCCA":"FAP":rec| = 3801.77758789062500000000;
+	|"SPOCCA":"FLDSHTDAT":rec| = 1446246000;
+
+
+	// Surface parameters.
+	vh = makemeavue( "FILE UDDIR; SEL .; WHERE DEFINE != 0 AND PMAKER = \"L\" AND PTYPE = \"CRM\" AND GEAR = 912.0 AND BEAM = 427.0 AND STROKE = 168.0;" );
+	if( vueaction( "GETNUMRECORDS" , vh ) == 1 )
+	{
+		vueaction( "NEXTROW" , vh );
+		|"SPOCCA":"PUNPTR":rec| = vueaction( "GETFIELD" , vh , "." );
+	}
+	else
+	{
+		printe "Failed to find pumping unit.\n";
+		return 5;
+	}
+	vueaction( "DELETE" , vh );
+	|"SPOCCA":"CRITEM":rec| = -1;
+	|"SPOCCA":"LINPTR":rec| = 0;
+	
+	vh = makemeavue( "FILE WDDIR; SEL . CRDSGN; WHERE DEFINE != 0 AND CRDSGN = \"RM90110A*\";" );
+	if( vueaction( "GETNUMRECORDS" , vh ) == 1 )
+	{
+		vueaction( "NEXTROW" , vh );
+		|"SPOCCA":"CRITEM":rec| = vueaction( "GETFIELD" , vh , "." );
+	}
+	else
+	{
+		printe "Failed to find crank.\n";
+		return 5;
+	}
+	vueaction( "DELETE" , vh );
+
+	|"SPOCCA":"WRSPIN":rec| = 1;
+	|"SPOCCA":"STLTH1":rec| = 168.15;
+	|"SPOCCA":"ROTATE":rec| = "CW";
+	|"SPOCCA":"TORTYP":rec| = "A";
+	|"SPOCCA":"MOTYPE":rec| = "N";
+	|"SPOCCA":"MHPWR":rec| = 60.00;
+	|"SPOCCA":"MOTRQR":rec| = 3.0;
+	|"SPOCCA":"CK1PLD":rec| = "00H";
+	|"SPOCCA":"CK1PLG":rec| = "00H";
+	|"SPOCCA":"CK2PLD":rec| = "00H";
+	|"SPOCCA":"CK2PLG":rec| = "00H";
+	|"SPOCCA":"CK1ALD":rec| = "NONE";
+	|"SPOCCA":"CK1ALG":rec| = "NONE";
+	|"SPOCCA":"CK2ALD":rec| = "NONE";
+	|"SPOCCA":"CK2ALG":rec| = "NONE";
+	|"SPOCCA":"CK1DLD":rec| = 17.00;
+	|"SPOCCA":"CK1DLG":rec| = 17.00;
+	|"SPOCCA":"CK2DLD":rec| = 17.00;
+	|"SPOCCA":"CK2DLG":rec| = 17.00;
+	
+	
+	rc = DefineOneTaper(rec, "W -T66/XD  - 1.000", 1, 84, 25.0, 0.01273149996995925900, 0.03080755099654197700, "");
+	if (rc == 0) { return 0; }
+	
+	rc = DefineOneTaper(rec, "W -T66/XD  - 1.000", 2, 18, 25.0, 0.01273149996995925900, 0.03080755099654197700, "4");
+	if (rc == 0) { return 0; }
+	
+	rc = DefineOneTaper(rec, "W -T66/XD  - 1.000", 3, 20, 25.0, 0.01273149996995925900, 0.03080755099654197700, "");
+	if (rc == 0) { return 0; }
+	
+	
+	rc = DefineOneTaper(rec, "W -T66/XD  - 0.875", 4, 22, 25.0, 0.01098844502121210100, 0.02489474229514598800, "4");
+	if (rc == 0) { return 0; }
+	
+	rc = DefineOneTaper(rec, "W -T66/XD  - 0.875", 5, 9, 25.0, 0.01098844502121210100, 0.02489474229514598800, "4");
+	if (rc == 0) { return 0; }
+	
+	rc = DefineOneTaper(rec, "W -T66/XD  - 0.875", 6, 93, 25.0, 0.01098844502121210100, 0.02489474229514598800, "");
+	if (rc == 0) { return 0; }
+	
+	
+	rc = DefineOneTaper(rec, "W -T66/XD  - 0.750", 7, 129, 25.0, 0.01098844502121210100, 0.02489474229514598800, "");
+	if (rc == 0) { return 0; }
+	
+	
+	rc = DefineOneTaper(rec, "W -T66/XD  - 1.000", 8, 16, 25.0, 0.00972590595483779910, 0.01968973129987716700, "4");
+	if (rc == 0) { return 0; }
+	
+	return 1;
+}
+
+
+int function SetBeamAnalysisParameters(char* wellName)
+{
+  int wellRec;
+  wellRec = GetBeamWellPointer( wellName );
+  if ( wellRec < 1 )
+  {
+    printe "Failed to find well \"", wellName , "\".\n";
+    return 0;
+  }
+  SetBeamAnalysisParameters_Inner(wellRec);
+  return 1;
+}
+
+
+int function ExportCrank(char* crdsgn, char* filename)
+{
+	int vh, th;
+	vh = makemeavue("FILE WDDIR; SEL . CRDSGN DESP1 DESP10 DESP11 DESP12 DESP13 DESP14 DESP2 DESP3 DESP4 DESP5 DESP6 DESP7 DESP8 DESP9 DESPRM DSTM1 DSTM10 DSTM11 DSTM12 DSTM13 DSTM14 DSTM2 DSTM3 DSTM4 DSTM5 DSTM6 DSTM7 DSTM8 DSTM9 DSTMAL DSTT1 DSTT10 DSTT11 DSTT12 DSTT13 DSTT14 DSTT2 DSTT3 DSTT4 DSTT5 DSTT6 DSTT7 DSTT8 DSTT9 DSTTAL INP1 INP10 INP11 INP12 INP13 INP14 INP2 INP3 INP4 INP5 INP6 INP7 INP8 INP9 INPRM WTP1 WTP10 WTP11 WTP12 WTP13 WTP14 WTP2 WTP3 WTP4 WTP5 WTP6 WTP7 WTP8 WTP9 WTPRM CRCBTQ CRNRTA CRXDIM DESA1 DESA10 DESA11 DESA12 DESA13 DESA14 DESA2 DESA3 DESA4 DESA5 DESA6 DESA7 DESA8 DESA9 DESAUX DSTX1 DSTX10 DSTX11 DSTX12 DSTX13 DSTX14 DSTX2 DSTX3 DSTX4 DSTX5 DSTX6 DSTX7 DSTX8 DSTX9 DSTXAL DSTY1 DSTY10 DSTY11 DSTY12 DSTY13 DSTY14 DSTY2 DSTY3 DSTY4 DSTY5 DSTY6 DSTY7 DSTY8 DSTY9 DSTYAL INA1 INA10 INA11 INA12 INA13 INA14 INA2 INA3 INA4 INA5 INA6 INA7 INA8 INA9 INAUX WTA1 WTA10 WTA11 WTA12 WTA13 WTA14 WTA2 WTA3 WTA4 WTA5 WTA6 WTA7 WTA8 WTA9 WTAUX DESP15 DESP16 DESP17 DESP18 DESP19 DESP20 DESP21 DSTM15 DSTM16 DSTM17 DSTM18 DSTM19 DSTM20 DSTM21 DSTT15 DSTT16 DSTT17 DSTT18 DSTT19 DSTT20 DSTT21 INP15 INP16 INP17 INP18 INP19 INP20 INP21 WTP15 WTP16 WTP17 WTP18 WTP19 WTP20 WTP21 DESA15 DESA16 DESA17 DESA18 DESA19 DESA20 DESA21 DSTX15 DSTX16 DSTX17 DSTX18 DSTX19 DSTX20 DSTX21 DSTY15 DSTY16 DSTY17 DSTY18 DSTY19 DSTY20 DSTY21 INA15 INA16 INA17 INA18 INA19 INA20 INA21 WTA15 WTA16 WTA17 WTA18 WTA19 WTA20 WTA21; WHERE CRDSGN = \"" ++ crdsgn ++ "*\" AND DEFINE != 0;");
+	if ( vueaction ( "GETNUMRECORDS" , vh ) != 1 )
+	{
+		vueaction( "DELETE" , vh );
+		return 0;
+	}
+	th = tableaction( "CREATEFROMVUE" , vh);
+	vueaction( "DELETE" , vh );
+	tableaction( "DELETECOLUMN" , th , 0);
+	
+	bettersaveastextfile( th , filename , "" );
+	
+	tableaction( "DELETE" , th);
+	return 1;
+}
+
+
+int function ImportCrank(char* filename)
+{
+	int vh, th, numrecs, rc, recnum, numcols, ii;
+	char crdsgn[32] , colName[64];
+	th = bettercreatefromtextfile(filename , "");
+	crdsgn = $th[ 0 , "CRDSGN" ];
+	stringaction("TRIM", crdsgn);
+	vh = makemeavue("FILE WDDIR; SEL . CRDSGN DEFINE; WHERE CRDSGN = \"" ++ crdsgn ++ "*\" AND DEFINE != 0;");
+	numrecs = vueaction ( "GETNUMRECORDS" , vh );
+	vueaction( "DELETE" , vh );
+	if ( numrecs != 0 )
+	{
+		tableaction("DELETE" , th);
+		printe "Crank \"" , crdsgn , "\" already exists.";
+		return 0;
+	}
+	rc = dbaction("allocrec", "WDDIR", recnum);
+	if ( rc == 0 || recnum < 1 )
+	{
+		tableaction("DELETE" , th);
+		printe "Failed to allocate record.";
+		return 0;
+	}
+	print "Allocated record #" , recnum , ".";
+	numcols = tableaction( "NUMCOLUMNS" , th );
+	for (ii = 0; ii < numcols; ii = ii + 1;)
+	{
+		tableaction( "COLUMNNAME" , th , ii , colName );
+		| "WDDIR" : colName : recnum | = $th[ 0 , ii ];
+	}
+	tableaction("DELETE" , th);
+	return 1;
+}
+
+
+int function DumpBeamSystemConfig()
+{
+	int vh, th;
+	vh = makemeavue("file spocda; scope -1 -1; select . DLOADDIF% DLOADSPN% DPRHP% DCBAL% D28DRTHRS DPMHP% DSTRSRNG% DCDARTN% DCDARTNSDV DMXLDTN% DMXLDTNSDV DMNLDTN% DMNLDTNSDV DLDSPTN% DLDSPTNSDV DPMEFTN% DPMEFTNSDV DRNTMTN% DRNTMTNSDV DTSFLTN% DTSFLTNSDV DRNTMTN% DRNTMTNSDV DFPIPTN% DFPIPTNSDV DFLPRTN% DFLPRTNSDV DLOADERRDB DGAINERRDB DROTNERRDB DWARNHPALM DNCLDDTLS DCRDMCH% PMSERNGPCNT PMDERNGPCNT PMSEWTFCTR PMDEWTFCTR PMSUWTFCTR PMDUWTFCTR;");
+	th = tableaction("CREATEFROMVUE", vh);
+	vueaction("DELETE", vh);
+	tableaction("DELETECOLUMN", th, 0);
+	bettersaveastextfile(th, "c:/temp/beamdiagparam.csv", "");
+	tableaction("DELETE", th);
+	vh = makemeavue("file spocda; scope -1 -1; sel  . ABRUNT TARGCYC MAXPOIDLE MINPOIDLE TARGDEV MAXDEV MINDEV ELCOST EFFLOADOPT REPFVEL TORQHI% BLODHI% STRSHI% PEFFLO% DCBAL% INFERPROD;");
+	th = tableaction("CREATEFROMVUE", vh);
+	vueaction("DELETE", vh);
+	tableaction("DELETECOLUMN", th, 0);
+	bettersaveastextfile(th, "c:/temp/systemparam.csv", "");
+	tableaction("DELETE", th);
+	return 1;
+}
+
+int function SetBeamSystemConfig()
+{
+	// System Parameters
+	|"SPOCDA":"ABRUNT":-1| = "N";
+	|"SPOCDA":"TARGCYC":-1| = 0;
+	|"SPOCDA":"MAXPOIDLE":-1| = 0;
+	|"SPOCDA":"MINPOIDLE":-1| = 0;
+	|"SPOCDA":"TARGDEV":-1| = 0;
+	|"SPOCDA":"MAXDEV":-1| = 0;
+	|"SPOCDA":"MINDEV":-1| = 0;
+	|"SPOCDA":"ELCOST":-1| = 0.0850000;
+	|"SPOCDA":"EFFLOADOPT":-1| = 1;
+	|"SPOCDA":"REPFVEL":-1| = 1;
+	|"SPOCDA":"TORQHI%":-1| = 95;
+	|"SPOCDA":"BLODHI%":-1| = 95;
+	|"SPOCDA":"STRSHI%":-1| = 100;
+	|"SPOCDA":"PEFFLO%":-1| = 50;
+	|"SPOCDA":"DCBAL%":-1| = 50;
+	|"SPOCDA":"INFERPROD":-1| = 0.0000000;
+	
+	//Beam Diagnostics Parameters + Card Pattern Matching 
+	|"SPOCDA":"DLOADDIF%":-1| = 15;
+	|"SPOCDA":"DLOADSPN%":-1| = 15;
+	|"SPOCDA":"DPRHP%":-1| = 15;
+	|"SPOCDA":"DCBAL%":-1| = 50;
+	|"SPOCDA":"D28DRTHRS":-1| = 10.0000000;
+	|"SPOCDA":"DPMHP%":-1| = 25;
+	|"SPOCDA":"DSTRSRNG%":-1| = 90;
+	|"SPOCDA":"DCDARTN%":-1| = 10;
+	|"SPOCDA":"DCDARTNSDV":-1| = 0.0000000;
+	|"SPOCDA":"DMXLDTN%":-1| = 10;
+	|"SPOCDA":"DMXLDTNSDV":-1| = 0.0000000;
+	|"SPOCDA":"DMNLDTN%":-1| = 10;
+	|"SPOCDA":"DMNLDTNSDV":-1| = 0.0000000;
+	|"SPOCDA":"DLDSPTN%":-1| = 10;
+	|"SPOCDA":"DLDSPTNSDV":-1| = 0.0000000;
+	|"SPOCDA":"DPMEFTN%":-1| = 10;
+	|"SPOCDA":"DPMEFTNSDV":-1| = 0.0000000;
+	|"SPOCDA":"DRNTMTN%":-1| = 10;
+	|"SPOCDA":"DRNTMTNSDV":-1| = 0.0000000;
+	|"SPOCDA":"DTSFLTN%":-1| = 0;
+	|"SPOCDA":"DTSFLTNSDV":-1| = 0.0000000;
+	|"SPOCDA":"DFPIPTN%":-1| = 10;
+	|"SPOCDA":"DFPIPTNSDV":-1| = 0.0000000;
+	|"SPOCDA":"DFLPRTN%":-1| = 10;
+	|"SPOCDA":"DFLPRTNSDV":-1| = 0.0000000;
+	|"SPOCDA":"DLOADERRDB":-1| = 500;
+	|"SPOCDA":"DGAINERRDB":-1| = 15.0000000;
+	|"SPOCDA":"DROTNERRDB":-1| = 5;
+	|"SPOCDA":"DWARNHPALM":-1| = 1;
+	|"SPOCDA":"DNCLDDTLS":-1| = 1;
+	|"SPOCDA":"DCRDMCH%":-1| = 95.0000000;
+	|"SPOCDA":"PMSERNGPCNT":-1| = 0.0000000;
+	|"SPOCDA":"PMDERNGPCNT":-1| = 10.0000000;
+	|"SPOCDA":"PMSEWTFCTR":-1| = 1.0000000;
+	|"SPOCDA":"PMDEWTFCTR":-1| = 40.0000000;
+	|"SPOCDA":"PMSUWTFCTR":-1| = 1.0000000;
+	|"SPOCDA":"PMDUWTFCTR":-1| = 1.0000000;
+	
+	return 1;
+}
+
+
+int function CheckSyntax()
+{
+  return 5;
+}

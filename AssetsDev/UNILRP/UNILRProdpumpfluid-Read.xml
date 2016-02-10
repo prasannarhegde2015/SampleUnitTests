@@ -1,0 +1,241 @@
+﻿<RTUReadWriteReqDef>
+	<msgInfo protocol= "MODBUS" description="UNISRP Rod Pump Fluid Test File"/>
+	<regBlocks>
+	<block addr="7551" count="32" protocoldatatype="4355" />
+	<block addr="7169" count="2" protocoldatatype="4355" />
+	<block addr="7583" count="2" protocoldatatype="4355" />
+	<block addr="7199" count="2" protocoldatatype="4355" />
+	<block addr="7105" count="2" protocoldatatype="4355" />
+	<block addr="7239" count="2" protocoldatatype="4355" />
+	<block addr="7171" count="6" protocoldatatype="4355" />
+	<block addr="7109" count="4" protocoldatatype="4355" />
+	<block addr="7291" count="2" protocoldatatype="4355" />
+	<block addr="7385" count="2" protocoldatatype="4355" />
+	<block addr="7133" count="4" protocoldatatype="4355" />
+	<block addr="7177" count="2" protocoldatatype="4355" />
+	<block addr="7119" count="4" protocoldatatype="4355" />
+	<block addr="7431" count="2" protocoldatatype="4355" />
+	<block addr="7179" count="2" protocoldatatype="4355" />
+	<block addr="7127" count="2" protocoldatatype="4355" />
+	<block addr="7181" count="2" protocoldatatype="4355" />
+	<block addr="7191" count="8" protocoldatatype="4355" />
+	<block addr="7243" count="2" protocoldatatype="4355" />
+	<block addr="7079" count="2" protocoldatatype="4355" />
+	<block addr="7107" count="2" protocoldatatype="4355" />
+	<block addr="7273" count="2" protocoldatatype="4355" />
+	<block addr="7089" count="2" protocoldatatype="4355" />
+	<block addr="7501" count="2" protocoldatatype="4355" />
+	<block addr="7241" count="2" protocoldatatype="4355" />
+	<block addr="7233" count="2" protocoldatatype="4355" />
+	<block addr="7401" count="4" protocoldatatype="4355" />
+	<block addr="7345" count="2" protocoldatatype="4355" />
+	<block addr="7299" count="4" protocoldatatype="4355" />
+	<block addr="7389" count="2" protocoldatatype="4355" />
+</regBlocks>
+
+<regValuesToWrite>
+	<val addr="7551">600</val>
+	<val addr="7553">600</val>
+	<val addr="7555">600</val>
+	<val addr="7557">600</val>
+	<val addr="7559">600</val>
+	<val addr="7561">600</val>
+	<val addr="7563">600</val>
+	<val addr="7565">600</val>
+	<val addr="7567">600</val>
+	<val addr="7569">600</val>
+	<val addr="7571">600</val>
+	<val addr="7573">600</val>
+	<val addr="7575">600</val>
+	<val addr="7577">600</val>
+	<val addr="7579">600</val>
+	<val addr="7581">600</val>
+	<val addr="7583">600</val>
+	<val addr="7239">600</val>
+	<val addr="7171">600</val>
+	<val addr="7173">600</val>
+	<val addr="7175">600</val>
+	<val addr="7109">600</val>
+	<val addr="7111">600</val>
+	<val addr="7133">600</val>
+	<val addr="7135">600</val>
+	<val addr="7177">600</val>
+	<val addr="7179">600</val>
+	<val addr="7191">600</val>
+	<val addr="7193">600</val>
+	<val addr="7195">600</val>
+	<val addr="7197">600</val>
+	<val addr="7243">600</val>
+	<val addr="7273">600</val>
+	<val addr="7345">600</val>
+</regValuesToWrite>
+<registers>
+	<register control="select" desc="Rod sections" key="47551">
+	<rpc mask="#####" writable="yes" address="7551" type="4355" m="1" c="0" fmt="0" altControlID="47551" />
+	</register>
+	<register control="select" desc="Rod 1 type" key="47553">
+	<rpc mask="#####" writable="yes" address="7553" type="4355" m="1" c="0" fmt="0" altControlID="47553" />
+	</register>
+	<register control="text" desc="Rod 1 length [?]" key="47555">
+	<rpc mask="#####" writable="yes" address="7555" type="4355" m="1" c="0" fmt="0" altControlID="47555" />
+	</register>
+	<register control="text" desc="Rod 1 diameter [?]" key="47557">
+	<rpc mask="#####" writable="yes" address="7557" type="4355" m="1" c="0" fmt="3" altControlID="47557" />
+	</register>
+	<register control="select" desc="Rod 2 type" key="47559">
+	<rpc mask="#####" writable="yes" address="7559" type="4355" m="1" c="0" fmt="0" altControlID="47559" />
+	</register>
+	<register control="text" desc="Rod 2 length [?]" key="47561">
+	<rpc mask="#####" writable="yes" address="7561" type="4355" m="1" c="0" fmt="0" altControlID="47561" />
+	</register>
+	<register control="text" desc="Rod 2 diameter [?]" key="47563">
+	<rpc mask="#####" writable="yes" address="7563" type="4355" m="1" c="0" fmt="3" altControlID="47563" />
+	</register>
+	<register control="select" desc="Rod 3 type" key="47565">
+	<rpc mask="#####" writable="yes" address="7565" type="4355" m="1" c="0" fmt="0" altControlID="47565" />
+	</register>
+	<register control="text" desc="Rod 3 length [?]" key="47567">
+	<rpc mask="#####" writable="yes" address="7567" type="4355" m="1" c="0" fmt="0" altControlID="47567" />
+	</register>
+	<register control="text" desc="Rod 3 diameter [?]" key="47569">
+	<rpc mask="#####" writable="yes" address="7569" type="4355" m="1" c="0" fmt="3" altControlID="47569" />
+	</register>
+	<register control="select" desc="Rod 4 type" key="47571">
+	<rpc mask="#####" writable="yes" address="7571" type="4355" m="1" c="0" fmt="0" altControlID="47571" />
+	</register>
+	<register control="text" desc="Rod 4 length [?]" key="47573">
+	<rpc mask="#####" writable="yes" address="7573" type="4355" m="1" c="0" fmt="0" altControlID="47573" />
+	</register>
+	<register control="text" desc="Rod 4 diameter [?]" key="47575">
+	<rpc mask="#####" writable="yes" address="7575" type="4355" m="1" c="0" fmt="3" altControlID="47575" />
+	</register>
+	<register control="select" desc="Rod 5 type" key="47577">
+	<rpc mask="#####" writable="yes" address="7577" type="4355" m="1" c="0" fmt="0" altControlID="47577" />
+	</register>
+	<register control="text" desc="Rod 5 length [?]" key="47579">
+	<rpc mask="#####" writable="yes" address="7579" type="4355" m="1" c="0" fmt="0" altControlID="47579" />
+	</register>
+	<register control="text" desc="Rod 5 diameter [?]" key="47581">
+	<rpc mask="#####" writable="yes" address="7581" type="4355" m="1" c="0" fmt="3" altControlID="47581" />
+	</register>
+	<register control="text" desc="Rod length [?]" key="47169">
+	<rpc mask="#####" writable="no" address="7169" type="4355" m="1" c="0" fmt="0" altControlID="47169" />
+	</register>
+	<register control="text" desc="Rod weight offset [?]" key="47583">
+	<rpc mask="#####" writable="yes" address="7583" type="4355" m="1" c="0" fmt="0" altControlID="47583" />
+	</register>
+	<register control="text" desc="Rod weight in air [?]" key="47199">
+	<rpc mask="#####" writable="no" address="7199" type="4355" m="1" c="0" fmt="0" altControlID="47199" />
+	</register>
+	<register control="text" desc="Rod weight buoyant [?]" key="47105">
+	<rpc mask="#####" writable="no" address="7105" type="4355" m="1" c="0" fmt="0" altControlID="47105" />
+	</register>
+	<register control="text" desc="Rod friction [?]" key="47239">
+	<rpc mask="#####" writable="yes" address="7239" type="4355" m="1" c="0" fmt="0" altControlID="47239" />
+	</register>
+	<register control="text" desc="Tubing anchor depth [?]" key="47171">
+	<rpc mask="#.###" writable="yes" address="7171" type="4355" m="1" c="0" fmt="0" altControlID="47171" />
+	</register>
+	<register control="text" desc="Tubing outer diameter [?]" key="47173">
+	<rpc mask="#.###" writable="yes" address="7173" type="4355" m="1" c="0" fmt="3" altControlID="47173" />
+	</register>
+	<register control="text" desc="Casing inner diameter [?]" key="47175">
+	<rpc mask="#.###" writable="yes" address="7175" type="4355" m="1" c="0" fmt="3" altControlID="47175" />
+	</register>
+	<register control="text" desc="Tubing pressure [?]" key="47109">
+	<rpc mask="###" writable="yes" address="7109" type="4355" m="1" c="0" fmt="" altControlID="47109" />
+	</register>
+	<register control="text" desc="Casing pressure [?]" key="47111">
+	<rpc mask="###" writable="yes" address="7111" type="4355" m="1" c="0" fmt="" altControlID="47111" />
+	</register>
+	<register control="text" desc="Tubing stretch [?]" key="47291">
+	<rpc mask="#.##" writable="no" address="7291" type="4355" m="1" c="0" fmt="2" altControlID="47291" />
+	</register>
+	<register control="text" desc="Tubing stretch loss [?]" key="47385">
+	<rpc mask="#.##" writable="no" address="7385" type="4355" m="1" c="0" fmt="1" altControlID="47385" />
+	</register>
+	<register control="text" desc="Pump depth [?]" key="47133">
+	<rpc mask="#####" writable="yes" address="7133" type="4355" m="1" c="0" fmt="0" altControlID="47133" />
+	</register>
+	<register control="text" desc="Plunger diameter [?]" key="47135">
+	<rpc mask="#.###" writable="yes" address="7135" type="4355" m="1" c="0" fmt="3" altControlID="47135" />
+	</register>
+	<register control="text" desc="Plunger length [?]" key="47177">
+	<rpc mask="#.###" writable="yes" address="7177" type="4355" m="1" c="0" fmt="3" altControlID="47177" />
+	</register>
+	<register control="text" desc="Pump intake pressure [?]" key="47119">
+	<rpc mask="###" writable="no" address="7119" type="4355" m="1" c="0" fmt="0" altControlID="47119" />
+	</register>
+	<register control="text" desc="Pump discharge pressure [?]" key="47121">
+	<rpc mask="###" writable="no" address="7121" type="4355" m="1" c="0" fmt="0" altControlID="47121" />
+	</register>
+	<register control="text" desc="Measured plunger clearance [?]" key="47431">
+	<rpc mask="###" writable="no" address="7431" type="4355" m="1" c="0" fmt="3" altControlID="47431" />
+	</register>
+	<register control="text" desc="Plunger clearance [?]" key="47179">
+	<rpc mask="#.###" writable="yes" address="7179" type="4355" m="1" c="0" fmt="3" altControlID="47179" />
+	</register>
+	<register control="text" desc="Plunger leakage [?]" key="47127">
+	<rpc mask="###" writable="no" address="7127" type="4355" m="1" c="0" fmt="1" altControlID="47127" />
+	</register>
+	<register control="text" desc="Plunger efficiency (%)" key="47181">
+	<rpc mask="#.##" writable="no" address="7181" type="4355" m="10" c="0" fmt="1" altControlID="47181" />
+	</register>
+	<register control="text" desc="Water cut (%)" key="47191">
+	<rpc mask="#.##" writable="yes" address="7191" type="4355" m="10" c="0" fmt="1" altControlID="47191" />
+	</register>
+	<register control="text" desc="Oil spec gravity (API)" key="47193">
+	<rpc mask="#.##" writable="yes" address="7193" type="4355" m="10" c="0" fmt="1" altControlID="47193" />
+	</register>
+	<register control="text" desc="Water spec gravity (x.x)" key="47195">
+	<rpc mask="#.###" writable="yes" address="7195" type="4355" m="1000" c="0" fmt="3" altControlID="47195" />
+	</register>
+	<register control="text" desc="Fluid viscosity [?]" key="47197">
+	<rpc mask="#.###" writable="yes" address="7197" type="4355" m="1" c="0" fmt="1" altControlID="47197" />
+	</register>
+	<register control="text" desc="Fluid level offset [?]" key="47243">
+	<rpc mask="####" writable="yes" address="7243" type="4355" m="1" c="0" fmt="1" altControlID="47243" />
+	</register>
+	<register control="text" desc="Fluid level monitor [?]" key="47079">
+	<rpc mask="####" writable="no" address="7079" type="4355" m="1" c="0" fmt="1" altControlID="47079" />
+	</register>
+	<register control="text" desc="Fluid over pump monitor [?]" key="47107">
+	<rpc mask="#####" writable="no" address="7107" type="4355" m="1" c="0" fmt="1" altControlID="47107" />
+	</register>
+	<register control="text" desc="Pump rate adjust (%)" key="47273">
+	<rpc mask="#.###" writable="yes" address="7273" type="4355" m="1" c="0" fmt="1" altControlID="47273" />
+	</register>
+	<register control="text" desc="Fluid flow monitor [?]" key="47089">
+	<rpc mask="#.###" writable="no" address="7089" type="4355" m="1" c="0" fmt="1" altControlID="47089" />
+	</register>
+	<register control="text" desc="API max fluid load (lb)" key="47501">
+	<rpc mask="#.###" writable="no" address="7501" type="4355" m="1" c="0" fmt="0" altControlID="47501" />
+	</register>
+	<register control="text" desc="API fluid load [?]" key="47241">
+	<rpc mask="#.###" writable="no" address="7241" type="4355" m="1" c="0" fmt="0" altControlID="47241" />
+	</register>
+	<register control="text" desc="Pump load monitor [?]" key="47233">
+	<rpc mask="#.###" writable="no" address="7233" type="4355" m="1" c="0" fmt="0" altControlID="47233" />
+	</register>
+	<register control="text" desc="Date (yyyy.mmdd)" key="47401">
+	<rpc mask="###" writable="no" address="7401" type="4355" m="10000" c="0" fmt="4" altControlID="47401" />
+	</register>
+	<register control="text" desc="Time (hh.mm)" key="47403">
+	<rpc mask="###" writable="no" address="7403" type="4355" m="100" c="0" fmt="2" altControlID="47403" />
+	</register>
+	<register control="select" desc="State" key="47345">
+	<rpc mask="###" writable="yes" address="7345" type="4355" m="1" c="0" fmt="0" altControlID="47345" />
+	</register>
+	<register control="text" desc="TV load change (lb/sec)" key="47299">
+	<rpc mask="###" writable="no" address="7299" type="4355" m="1" c="0" fmt="0" altControlID="47299" />
+	</register>
+	<register control="text" desc="SV load change (lb/sec)" key="47301">
+	<rpc mask="####" writable="no" address="7301" type="4355" m="1" c="0" fmt="0" altControlID="47301" />
+	</register>
+	<register control="text" desc="TV static leak rate" key="47387">
+	<rpc mask="####" writable="no" address="7387" type="4355" m="1" c="0" fmt="0" />
+	</register>
+	<register control="text" desc="SV static leak rate " key="47389">
+	<rpc mask="####" writable="no" address="7389" type="4355" m="1" c="0" fmt="0" />
+	</register>
+</registers></RTUReadWriteReqDef>
